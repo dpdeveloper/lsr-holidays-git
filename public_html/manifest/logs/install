@@ -1,0 +1,35 @@
+============================================
+Log Created: 2013-02-24T13:50:23+00:00
+============================================
+Symphony Log
+Opened:  2013-02-24T13:50:23+00:00
+Version: 2.3.1
+Domain:  localhost/~david/lsr-holidays-content/public_html
+--------------------------------------------
+02/24/2013 1:59 pm > Error: Installer - Wrong configuration.
+02/24/2013 1:59 pm > Error: Configuration - Database ‘lsr-holidays-split-content’ not found.
+
+============================================
+INSTALLATION PROCESS STARTED (2013-02-24T14:00:00+00:00)
+============================================
+02/24/2013 2:00 pm > Notice: MYSQL: Establishing Connection
+02/24/2013 2:00 pm > Notice: MYSQL: Importing Table Schema
+02/24/2013 2:00 pm > Notice: MYSQL: Creating Default Author
+02/24/2013 2:00 pm > Notice: WRITING: Creating ‘manifest’ folder (/manifest)
+02/24/2013 2:00 pm > Notice: WRITING: Creating ‘logs’ folder (/manifest/logs)
+02/24/2013 2:00 pm > Notice: WRITING: Creating ‘cache’ folder (/manifest/cache)
+02/24/2013 2:00 pm > Notice: WRITING: Creating ‘tmp’ folder (/manifest/tmp)
+02/24/2013 2:00 pm > Notice: WRITING: Configuration File
+02/24/2013 2:00 pm > Notice: CONFIGURING: Frontend
+02/24/2013 2:00 pm > Notice: WRITING: Creating ‘workspace’ folder (/workspace)
+02/24/2013 2:00 pm > Notice: WRITING: Creating ‘data-sources’ folder (/workspace/data-sources)
+02/24/2013 2:00 pm > Notice: WRITING: Creating ‘events’ folder (/workspace/events)
+02/24/2013 2:00 pm > Notice: WRITING: Creating ‘pages’ folder (/workspace/pages)
+02/24/2013 2:00 pm > Notice: WRITING: Creating ‘utilities’ folder (/workspace/utilities)
+02/24/2013 2:00 pm > Notice: CONFIGURING: Installing existing extensions
+============================================
+INSTALLATION COMPLETED: Execution Time - 1 sec (24.02.13 14:00:00)
+============================================
+
+
+

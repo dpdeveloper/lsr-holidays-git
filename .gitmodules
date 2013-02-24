@@ -1,0 +1,93 @@
+[submodule "public_html/extensions/debugdevkit"]
+	path = public_html/extensions/debugdevkit
+	url = git@github.com:symphonycms/debugdevkit.git
+[submodule "public_html/extensions/export_ensemble"]
+	path = public_html/extensions/export_ensemble
+	url = git@github.com:symphonycms/export_ensemble.git
+[submodule "public_html/extensions/jit_image_manipulation"]
+	path = public_html/extensions/jit_image_manipulation
+	url = git@github.com:symphonycms/jit_image_manipulation.git
+[submodule "public_html/extensions/maintenance_mode"]
+	path = public_html/extensions/maintenance_mode
+	url = git@github.com:symphonycms/maintenance_mode.git
+[submodule "public_html/extensions/markdown"]
+	path = public_html/extensions/markdown
+	url = git@github.com:symphonycms/markdown.git
+[submodule "public_html/extensions/profiledevkit"]
+	path = public_html/extensions/profiledevkit
+	url = git@github.com:symphonycms/profiledevkit.git
+[submodule "public_html/extensions/selectbox_link_field"]
+	path = public_html/extensions/selectbox_link_field
+	url = git@github.com:symphonycms/selectbox_link_field.git
+[submodule "public_html/extensions/xssfilter"]
+	path = public_html/extensions/xssfilter
+	url = git@github.com:symphonycms/xssfilter.git
+[submodule "public_html/extensions/symql"]
+	path = public_html/extensions/symql
+	url = git@github.com:nickdunn/symql.git
+[submodule "public_html/extensions/limit_section_entries"]
+	path = public_html/extensions/limit_section_entries
+	url = git@github.com:vlad-ghita/limit_section_entries.git
+[submodule "public_html/extensions/xmlimporter"]
+	path = public_html/extensions/xmlimporter
+	url = git@github.com:symphonists/xmlimporter.git
+[submodule "public_html/extensions/importcsv"]
+	path = public_html/extensions/importcsv
+	url = git@github.com:kanduvisla/importcsv.git
+[submodule "public_html/extensions/duplicate_section"]
+	path = public_html/extensions/duplicate_section
+	url = git@github.com:Solutions-Nitriques/duplicate_section.git
+[submodule "public_html/extensions/publishfiltering"]
+	path = public_html/extensions/publishfiltering
+	url = git@github.com:nickdunn/publishfiltering.git
+[submodule "public_html/extensions/resave_entries"]
+	path = public_html/extensions/resave_entries
+	url = git@github.com:alpacaaa/resave_entries.git
+[submodule "public_html/extensions/entity_diagram"]
+	path = public_html/extensions/entity_diagram
+	url = git@github.com:nickdunn/entity_diagram.git
+[submodule "public_html/extensions/form_select2"]
+	path = public_html/extensions/form_select2
+	url = git@github.com:6ui11em/form_select2.git
+[submodule "public_html/extensions/pretty_photo"]
+	path = public_html/extensions/pretty_photo
+	url = git@github.com:vlad-ghita/pretty_photo.git
+[submodule "public_html/extensions/save_and_return"]
+	path = public_html/extensions/save_and_return
+	url = git@github.com:Solutions-Nitriques/save_and_return.git
+[submodule "public_html/extensions/dump_db"]
+	path = public_html/extensions/dump_db
+	url = git@github.com:nils-werner/dump_db.git
+[submodule "public_html/extensions/sortdatasourcebyparam"]
+	path = public_html/extensions/sortdatasourcebyparam
+	url = git@github.com:ahwayakchih/sortdatasourcebyparam.git
+[submodule "public_html/extensions/default_event_values"]
+	path = public_html/extensions/default_event_values
+	url = git@github.com:brendo/default_event_values.git
+[submodule "public_html/extensions/publish_tabs"]
+	path = public_html/extensions/publish_tabs
+	url = git@github.com:nickdunn/publish_tabs.git
+[submodule "public_html/extensions/uniqueuploadfield"]
+	path = public_html/extensions/uniqueuploadfield
+	url = git@github.com:michael-e/uniqueuploadfield.git
+[submodule "public_html/extensions/numberfield"]
+	path = public_html/extensions/numberfield
+	url = git@github.com:symphonycms/numberfield.git
+[submodule "public_html/extensions/subsectionmanager"]
+	path = public_html/extensions/subsectionmanager
+	url = git@github.com:hananils/subsectionmanager.git
+[submodule "public_html/extensions/datetime"]
+	path = public_html/extensions/datetime
+	url = git@github.com:hananils/datetime.git
+[submodule "public_html/extensions/order_entries"]
+	path = public_html/extensions/order_entries
+	url = git@github.com:nickdunn/order_entries.git
+[submodule "public_html/extensions/referencelink"]
+	path = public_html/extensions/referencelink
+	url = git@github.com:symphonists/referencelink.git
+[submodule "public_html/extensions/ckeditor"]
+	path = public_html/extensions/ckeditor
+	url = git@github.com:kanduvisla/ckeditor.git
+[submodule "public_html/extensions/content_type_mappings"]
+	path = public_html/extensions/content_type_mappings
+	url = git@github.com:symphonists/content_type_mappings.git
