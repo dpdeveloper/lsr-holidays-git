@@ -1,9 +1,0 @@
-============================================
-Log Created: 2013-02-24T14:01:03+00:00
-============================================
-Symphony Log
-Opened:  2013-02-24T14:01:03+00:00
-Version: 2.3.1
-Domain:  localhost/~david/lsr-holidays-content/public_html
---------------------------------------------
-24.02.13 14:01 > User Notice: FrontendPageNotFoundExceptionHandler 1024 - The page you requested does not exist. in file /Users/david/Sites/lsr-holidays-content/public_html/symphony/lib/toolkit/class.frontendpage.php on line 297
