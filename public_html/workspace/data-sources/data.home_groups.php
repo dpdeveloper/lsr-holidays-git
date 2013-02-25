@@ -5,11 +5,13 @@
 	Class datasourcehome_groups extends SectionDatasource{
 
 		public $dsParamROOTELEMENT = 'home-groups';
+		public $dsParamORDER = 'null';
 		public $dsParamPAGINATERESULTS = 'yes';
 		public $dsParamLIMIT = '1';
 		public $dsParamSTARTPAGE = '1';
 		public $dsParamREDIRECTONEMPTY = 'no';
 		public $dsParamSORT = 'system:id';
+		public $dsParamHTMLENCODE = 'yes';
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 		
 
@@ -17,7 +19,8 @@
 
 		public $dsParamINCLUDEDELEMENTS = array(
 				'content: formatted',
-				'image: title'
+				'image: title',
+				'image: image'
 		);
 		
 
@@ -34,7 +37,7 @@
 					'website' => 'http://localhost/~david/lsr-holidays-content/public_html',
 					'email' => 'dave@veodesign.co.uk'),
 				'version' => 'Symphony 2.3.1',
-				'release-date' => '2013-02-24T23:37:55+00:00'
+				'release-date' => '2013-02-25T07:54:50+00:00'
 			);
 		}
 

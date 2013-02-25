@@ -11,6 +11,7 @@
 		public $dsParamSTARTPAGE = '1';
 		public $dsParamREDIRECTONEMPTY = 'no';
 		public $dsParamSORT = 'system:id';
+		public $dsParamHTMLENCODE = 'yes';
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 		
 
@@ -37,7 +38,7 @@
 					'website' => 'http://localhost/~david/lsr-holidays-content/public_html',
 					'email' => 'dave@veodesign.co.uk'),
 				'version' => 'Symphony 2.3.1',
-				'release-date' => '2013-02-24T23:37:42+00:00'
+				'release-date' => '2013-02-25T07:48:24+00:00'
 			);
 		}
 
