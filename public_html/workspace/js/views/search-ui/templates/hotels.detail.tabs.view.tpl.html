@@ -1,0 +1,60 @@
+<!-- <div class="search-ui-hotels-detail-tabs"> -->
+<div class="hotels-detail-tabs-left">
+	<% _.each(images, function(element, index){
+		if(index >= 3){return;}
+	 %>
+		<div class="image">
+			<img src="<%=imageUrl(element,200,150)%>" alt="<%=title%>"/>
+		</div>
+	<% }); %>
+</div>
+<div class="hotels-detail-tabs-right">
+	<div class="hotels-detail-tabs-top">
+		<h1><%= title %></h1>
+	</div>
+	
+	<div class="clearfix">
+		<div class="hotels-detail-tabs-menu">
+			<ul class="clearfix">
+				<li>
+					<a href="#" id="tab-overview">The Low Down</a>
+				</li>
+				<li>
+					<a href="#" id="tab-rooms">Room Upgrades</a>
+				</li>
+	
+			</ul>
+		</div>
+		<div class="hotels-detail-tabs-tabs">
+			<div class="tab tab-overview">
+				<h2>The Low Down</h2>
+				<%= overview.unescape() %>
+			</div>
+			<div class="tab tab-rooms">
+				<h2>Rooms</h2>
+				
+				<div class="room-table">
+					<div class="room-header clearfix">
+						<div class="col-one">Room</div>
+						<div class="col-three">Price</div>
+						<div class="col-two">Room Type</div>
+						
+					</div>
+					<div class="room-row clearfix">
+						<div class="col-one">1</div>
+						<div class="col-three">£1000</div>
+						<div class="col-two">Twin Room (No Breakfast)</div>
+						
+					</div>
+					<div class="room-row clearfix">
+						<div class="col-one">2</div>
+						<div class="col-three">£1000</div>
+						<div class="col-two">Twin Room (No Breakfast)</div>
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

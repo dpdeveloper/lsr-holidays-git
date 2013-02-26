@@ -1,0 +1,76 @@
+<!--<div class="search-ui-flights-filter">-->
+<div class="flights-filter-inner clearfix">
+	<div class="filter-section">
+		<h4>Filter by Outbound Flights</h4>
+		<div class="filter-section-inner clearfix">
+			<div class="filter-item first">
+				<label for="flights-filter-outbound-airline">Airline</label>
+				<div class="select-outer">
+					<select id="flights-filter-outbound-airline" data-placeholder="All" multiple>
+						<% _.each(outboundAirlines, function(obj){ %>
+							<option value="<%=obj.outboundCarrier%>"><%=obj.outboundAirlineName%></option>
+						<% }); %>
+					</select>
+				</div>
+			</div>
+			<div class="filter-item second">
+				<label for="flights-filter-outbound-number-stops">Changes</label>
+								<div class="select-outer">
+
+					<select id="flights-filter-outbound-number-stops" data-placeholder="All" multiple>
+						<% _.each(outboundNumStops, function(obj){ %>
+							<option value="<%=obj.outboundNumStops%>"><%=obj.outboundNumStops%></option>
+						<% }); %>
+					</select>
+				</div>
+			</div>
+			<div class="filter-item last">
+				<label for="flights-filter-outbound-departure-times">Time</label>
+				<div class="select-outer">
+					<select id="flights-filter-outbound-departure-times" data-placeholder="All" multiple>
+						<option value="m">Morning</option>
+						<option value="a">Afternoon</option>
+						<option value="e">Evening</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="filter-section last">
+		<h4>Filter by Return Flights</h4>
+		<div class="filter-section-inner clearfix">
+			<div class="filter-item first">
+				<label for="flights-filter-return-airline">Airline</label>
+				<div class="select-outer">
+					<select id="flights-filter-return-airline" data-placeholder="All" multiple>
+						<% _.each(returnAirlines, function(obj){ %>
+							<option value="<%=obj.returnCarrier%>"><%=obj.returnAirlineName%></option>
+						<% }); %>
+					</select>
+				</div>
+			</div>
+			<div class="filter-item second">
+				<label for="flights-filter-return-number-stops">Changes</label>
+					<div class="select-outer">
+					<select id="flights-filter-return-number-stops" data-placeholder="All" multiple>
+						<% _.each(returnNumStops, function(obj){ %>
+							<option value="<%=obj.returnNumStops%>"><%=obj.returnNumStops%></option>
+						<% }); %>
+					</select>
+				</div>
+			</div>
+			<div class="filter-item last">
+				<label for="flights-filter-return-departure-times">Time</label>
+				<div class="select-outer">
+					<select id="flights-filter-return-departure-times" data-placeholder="All" multiple>
+						<option value="m">Morning</option>
+						<option value="a">Afternoon</option>
+						<option value="e">Evening</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+/*
+	_base.scss
+	
+	Base Scss file for compass compilation
+	
+	Created: David Anderson 2013-02-26
+*/
+
+/*===========================================*/
+
+/* !IMPORTS */
+
+/*===========================================*/
+
+@import "compass/reset";
+@import "compass/utilities";
+@import "compass/typography";
+@import "blueprint";
+
+
+
+/*===========================================*/
+
+/* !COLOR DEFINITIONS */
+
+/*===========================================*/
+
+$yellow: #FBFF00;
+$purple: #8B1FAC;
+$grey-light: #ccc;
+$grey-dark: #444;

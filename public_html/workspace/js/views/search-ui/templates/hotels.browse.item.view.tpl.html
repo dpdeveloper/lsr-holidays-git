@@ -1,0 +1,27 @@
+<!--<div class="search-ui-hotel-browse-item"> ADDED BY VIEW -->
+<div class="browse-item-inner">
+	<div class="item-top">
+		<% if(images.length > 0){ %>
+			<img src="<%=imageUrl(images[0],220,160)%>" alt="<%=name%>"/>
+		<% } %>
+	</div>
+	<div class="item-middle">
+		<h2><%= title %> </h2>
+		<div class="description">
+			<% if(summary && summary.length > 0){
+				print(summary.unescape());
+			}else{
+				print("<p>"+flattenAndTruncate(overview.unescape(),100)+"</p>");
+			}
+			%>
+		</div>
+	</div>
+	<div class="item-bottom clearfix">
+		<div class="price">
+			From £<%= parseFloat(multicomHotel.basicAdultCost).toFixed(2) %>
+		</div>
+		<div class="actions">
+			<a href="#" class="action-next action-button yellow"><span class="btn-arrow right black"></span>View</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: views/search-ui/travellers/travellers.contact.view.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: views/search-ui/travellers/travellers.contact.view.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/* @filename views/search-ui/travellers/travellers.contact.view
+ *
+ * David Anderson 2012
+ *
+*/
+
+define([
+	'jquery','underscore','backbone','marionette','vent',
+	'tpl!views/search-ui/templates/travellers.contact.view.tpl.html',
+	'models/travellers-info'
+	
+], function($,_,Backbone,Marionette,vent,
+			TravellersContactViewTemplate,
+			TravellersInfo
+			){
+	"use strict";
+	
+	var TravellersContactView = Backbone.Marionette.ItemView.extend(
+	/** @lends TravellersContactView# */
+	{
+		template: TravellersContactViewTemplate,
+		tagName: 'div',
+		attributes: {
+			'class': 'search-ui-travellers-contact-view'
+		},
+		
+		_lang: {
+			'field-name': 'Name',
+			'field-email': 'Email',
+			'field-phone': 'Phone',
+			'field-address-1': 'House / Street',
+			'field-address-2': 'Area',
+			'field-address-city': 'City',
+			'field-address-postcode': 'Postcode',
+			'field-address-country': 'Country'
+		},
+		
+		_mappings: {
+			'field-email': 'email',
+			'field-phone': 'phone',
+			'field-address-1': 'address1',
+			'field-address-2': 'address2',
+			'field-address-city': 'addressCity',
+			'field-address-postcode': 'addressPostcode',
+			'field-address-country': 'addressCountry'
+		},
+		
+		events: {
+			'focus input': 'onInputFocus',
+			'blur input': 'onInputBlur'
+		},
+		
+		/**
+			Constructor
+			
+			@class View to edit a travellers contact details
+			
+			@constructs
+			@param {Object} [options] Options hash
+		*/
+		initialize: function(options){
+			options = options || {};
+			
+			if('model' in options && options.model !== null){
+				this.model = options.model;
+			}
+			else{
+				this.model = new TravellersInfo();
+			}
+		},
+		
+		/**
+			Render Callback
+			
+			Populates the fields with either data from the model or placeholders
+		*/
+		onRender: function(){
+			var self = this;
+			
+			//populate values from the model, if they exist
+			_.each(this._mappings, function(item, index){
+				var data = self.model.get(item);
+				if(typeof data !== 'undefined' && data !== ''){
+					self.$el.find('.'+index).val(data);
+				}
+			});
+			
+			//build the name from multiple params
+			var fName = this.model.get('firstName');
+			var sName = this.model.get('surname');
+			
+			var name = '';
+			if(fName !== null){name=fName+' ';}
+			if(sName !== null){name=name+sName;}
+			name=$.trim(name);
+			
+			if(name.length > 0){
+				self.$el.find('.field-name').val(name);
+			}
+			
+			this.$el.find('input').each(function(index, item){
+				if($(item).val().length &lt; 1){
+					$(item).val(self._lang[$(item).attr('name')]);
+					$(item).addClass('placeholder');
+				}
+			});
+		},
+		
+		/**
+			Saves the Form Data into the model
+		*/
+		saveModel: function(){
+			//the name needs parsing
+			this.model.parseName(this.$el.find('.field-name').val());
+			
+			var self = this;
+			
+			//use the mappings to save the rest of the data
+			_.each(this._mappings,function(elem,index){
+				self.model.set(elem,self.$el.find('.'+index).val());
+			});
+		},
+		
+		/**
+			Shows/hides the placeholder for an input if it is empty or not
+			@param {jQuery Object} element The DOM element
+			@param {Boolean} focus Indicates that the element is focussed
+		*/
+		togglePlaceholder: function(element, focus){
+			if(focus){
+				$(element).removeClass('placeholder');
+				$(element).val('');
+			}
+			else if($(element).val().length &lt; 1){
+				$(element).val(this._lang[$(element).attr('name')]);
+				$(element).addClass('placeholder');
+			}
+		},
+		
+		/**
+			Handler for when an input blurs
+			Saves the data into the model
+			
+			@param {jQuery Event} ev
+		*/
+		onInputBlur: function(ev){
+			this.saveModel();
+			this.togglePlaceholder($(ev.currentTarget), false);
+		},
+		
+		/**
+			Handler for when an input focus
+			Does placeholder replacing if needed
+			
+			@param {jQuery Event} ev
+		*/
+		onInputFocus: function(ev){
+			this.togglePlaceholder($(ev.currentTarget), true);
+		}
+		
+		
+	});
+	
+	return TravellersContactView;
+});
+	</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="840a679355.html">Collection: MulticomAccommodationCollection</a></li><li><a href="901c05ffc7.html">Collection: MulticomFlightCollection</a></li><li><a href="7d3bc1a16e.html">Collection: MulticomRoomCollection</a></li><li><a href="e6589d1562.html">Collection: SymphonyAirlineCollection</a></li><li><a href="9c62b508f6.html">Collection: SymphonyHotelCollection</a></li><li><a href="563df19da6.html">Collection: TravellersInfo</a></li><li><a href="283ad868a2.html">ItemView: SearchUIHotelDetailSummaryView</a></li><li><a href="ba2575d9e6.html">Model: Booking</a></li><li><a href="03653e765f.html">Model: HolidaySearch</a></li><li><a href="a998eeaa5f.html">Model: TravellersInfo</a></li><li><a href="module-App.html">App</a></li></ul><h3>Classes</h3><ul><li><a href="7919174809.html">initialize</a></li><li><a href="SearchUIController.html">SearchUIController</a></li><li><a href="SearchUILayout.html">SearchUILayout</a></li><li><a href="TravellersContactView.html">TravellersContactView</a></li><li><a href="TravellersEditCollectionView.html">TravellersEditCollectionView</a></li><li><a href="TravellersEditItemView.html">TravellersEditItemView</a></li><li><a href="TravellersEditLayout.html">TravellersEditLayout</a></li><li><a href="TravellersLayout.html">TravellersLayout</a></li><li><a href="TravellersSummaryView.html">TravellersSummaryView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_isReverseRelation">_isReverseRelation</a></li><li><a href="global.html#_prepareCollection">_prepareCollection</a></li><li><a href="global.html#addReverseRelation">addReverseRelation</a></li><li><a href="global.html#addSubModels">addSubModels</a></li><li><a href="global.html#build">build</a></li><li><a href="global.html#buildFromMulticomHotel">buildFromMulticomHotel</a></li><li><a href="global.html#checkPreconditions">checkPreconditions</a></li><li><a href="global.html#fetchRelated">fetchRelated</a></li><li><a href="global.html#find">find</a></li><li><a href="global.html#findOrCreate">findOrCreate</a></li><li><a href="global.html#getActivitiesByCategory">getActivitiesByCategory</a></li><li><a href="global.html#getActivityCategories">getActivityCategories</a></li><li><a href="global.html#getCollection">getCollection</a></li><li><a href="global.html#getObjectByName">getObjectByName</a></li><li><a href="global.html#getPagination">getPagination</a></li><li><a href="global.html#getProperty">getProperty</a></li><li><a href="global.html#getRelation">getRelation</a></li><li><a href="global.html#getRelations">getRelations</a></li><li><a href="global.html#getReverseRelations">getReverseRelations</a></li><li><a href="global.html#handleAddition">handleAddition</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#handleFlightsEdit">handleFlightsEdit</a></li><li><a href="global.html#handleFlightsPagination">handleFlightsPagination</a></li><li><a href="global.html#handleRemoval">handleRemoval</a></li><li><a href="global.html#handleSelectedEvent">handleSelectedEvent</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#initializeRelations">initializeRelations</a></li><li><a href="global.html#isDepartureTimeFiltered">isDepartureTimeFiltered</a></li><li><a href="global.html#onChange">onChange</a></li><li><a href="global.html#onRender">onRender</a></li><li><a href="global.html#onShow">onShow</a></li><li><a href="global.html#pageLeft">pageLeft</a></li><li><a href="global.html#pagePosition">pagePosition</a></li><li><a href="global.html#pageRight">pageRight</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#processQueue">processQueue</a></li><li><a href="global.html#queue">queue</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#resolveIdForItem">resolveIdForItem</a></li><li><a href="global.html#retroFitRelation">retroFitRelation</a></li><li><a href="global.html#sanitizeOptions">sanitizeOptions</a></li><li><a href="global.html#saveRoomOccupancy">saveRoomOccupancy</a></li><li><a href="global.html#setCollection">setCollection</a></li><li><a href="global.html#setFromSymphony">setFromSymphony</a></li><li><a href="global.html#setMulticomData">setMulticomData</a></li><li><a href="global.html#setProperty">setProperty</a></li><li><a href="global.html#setRelated">setRelated</a></li><li><a href="global.html#setStatus">setStatus</a></li><li><a href="global.html#setTripType">setTripType</a></li><li><a href="global.html#setupSuperModel">setupSuperModel</a></li><li><a href="global.html#toggleFlightsColumn">toggleFlightsColumn</a></li><li><a href="global.html#toJSON">toJSON</a></li><li><a href="global.html#toJSONExpanded">toJSONExpanded</a></li><li><a href="global.html#trigger">trigger</a></li><li><a href="global.html#tryAddRelated">tryAddRelated</a></li><li><a href="global.html#unregister">unregister</a></li><li><a href="global.html#unsanitizeOptions">unsanitizeOptions</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateRelations">updateRelations</a></li><li><a href="global.html#updateRooms">updateRooms</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.0</a> on Tue Feb 26 2013 22:22:40 GMT-0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+</body>
+</html>

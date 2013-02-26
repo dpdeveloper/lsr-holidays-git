@@ -1,0 +1,129 @@
+<div id="search-ui-header-form">
+	<div class="header-bar clearfix">
+		<div class="edit">
+			Edit Search
+		</div>
+	</div>
+	<div class="header-overlay">
+		<div class="package cols three clearfix">
+			<div class="col flights-col">
+				<div class="row">
+					<label for="fields-departure-airport">Flying From</label>
+					<input id="fields-departure-airport" value="LHR" type="hidden"/>
+				</div>
+				<div class="row">
+					<label for="fields-flight-class">Class</label>
+					<select id="fields-flight-class">
+						<option value="economy">Economy</option>
+						<option value="business">Business</option>
+						<option value="first">First</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="col">
+				<div class="row">
+					<label for="fields-destination">Destination</label>
+					<select id="fields-destination" class="text">
+						<option value="las vegas">Las Vegas</option>
+						<option value="miami">Miami</option>
+						<option value="los angeles">Los Angeles</option>
+						<option value="dubai">Dubai</option>
+						<option value="new york">New York</option>
+					</select>
+				</div>
+				<div class="row dates clearfix">
+					<div class="row-left">
+						<label for="fields-date-start">Arrival Date</label>
+						<input id="fields-date-start" class="fields-date-start" title="" class="text" type="text" value="<%= dateStart %>" />
+					</div>
+					<div class="row-right">
+						<label for="fields-number-of-nights">Nights</label>
+						<select id="fields-number-of-nights">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5" selected>5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col last">
+				<div class="row">
+					<label for="fields-number-of-nights">Rooms</label>
+					<select name="fields[number-of-rooms]" id="fields-number-of-rooms" title="" class="styled">
+						<option value="1" selected="selected">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
+				</div>
+				<div class="row">
+					<div class="room-row room-header clearfix">
+						<div class="one">
+							<label>Adults</label>
+						</div>
+						<div class="two">
+							<label>Children</label>
+						</div>
+						<div class="three">
+							<label>Infants</label>
+						</div>
+					</div>
+					
+					<div class="rooms">
+						<div class="room-row room-row-item room-row-template clearfix">
+							<div class="one">
+								<select name="fields[number-of-adults][]" class="fields-number-of-adults" title="" class="styled">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2" selected="selected">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+								</select>
+							</div>
+							<div class="two">
+								<select name="fields[number-of-children][]" class="fields-number-of-children" title="" class="styled">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+								</select>
+							</div>
+							<div class="three">
+								<select name="fields[number-of-infants][]" class="fields-number-of-infants" title="" class="styled">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="actions clearfix">
+			<a class="action-back action-button">Close</a>
+			<a class="action-next action-button yellow"><span class="btn-arrow right black"></span>Search</a>
+		</div>	
+	</div>
+</div>

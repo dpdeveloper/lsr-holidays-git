@@ -1,0 +1,37 @@
+<!--<div class="search-ui-travellers-summary-view">-->
+<div class="summary-inner">
+	<div class="summary-top">
+		<div class="item">
+			<h3>Dates</h3>
+			<p><%= dateString %></p>
+		</div>
+		<div class="item">
+			<h3>Hotel</h3>
+			<p><%= hotel.name %> <%= hotel.destination %></p>
+			<% _.each(rooms, function(elem, index){ %>
+				<p><%= index+1%>) <%= elem.name %></p>
+			<% }); %>
+		</div>
+		<div class="item">
+			<h3>Flights</h3>
+			<p><%= flight.carrier %> Flights</p>
+		</div>
+		<div class="item">
+			<h3>Insurance</h3>
+			<p>ATOL Protected</p>
+		</div>
+	</div>
+	<div class="summary-bottom">
+		<div class="clearfix">
+			<div class="bottom-left">
+				Total
+			</div>
+			<div class="bottom-right">
+				£1000.00
+			</div>
+		</div>
+		<div class="bottom-msg">
+			Need Help? Call <strong>1234 56789</strong>
+		</div>
+	</div>
+</div>

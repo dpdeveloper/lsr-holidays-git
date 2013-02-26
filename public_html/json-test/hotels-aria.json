@@ -1,0 +1,170 @@
+{
+   "result":"success",
+   "data":[
+      {
+         "name":"ARIA Resort & Casino at CityCenter",
+         "description":"An electrifying blend of energy, creativity and luxury, ARIA Resort and Casino at CityCenter is setting a new global standard for luxury travelers and gaming and spa enthusiasts seeking elegance and style on the Las Vegas Strip. Surrounded by the world-class dining, entertainment and gaming action of Las Vegas, guests to ARIA Resort and Casino at CityCenter enjoy a wide variety of sophisticated shops; pampering spa services; unforgettable restaurants, bars and lounges created by world-renowned chefs; intoxicating nightlife options and an astonishing new Cirque du Soleil show celebrating the musical legacy of Elvis Presley. Where grandiose guestrooms and suites are designed to meet every whim, and the roar of the Las Vegas Strip is quieted by the visionary designs by world-renowned architects, ARIA Resort and Casino at CityCenter is the perfect home away from home amidst the lights and sounds of Sin City.",
+         "rooms":[
+            {
+               "id":"daf8e848e7f6e0f25de908d00340ec3e",
+               "name":"Deluxe King - Room Only",
+               "hotel":"ARIA Resort & Casino at CityCenter",
+               "code":"524104RO",
+               "price":"111.68"
+            },
+            {
+               "id":"f9588a9b57e0b22b23bc3a71c3ff0449",
+               "name":"Deluxe Room with Guaranteed 2 Queens - Room Only",
+               "hotel":"ARIA Resort & Casino at CityCenter",
+               "code":"524105RO",
+               "price":"137.29"
+            },
+            {
+               "id":"609beecaa8752adf8595dcc0214786f7",
+               "name":"Deluxe City View King - Room Only",
+               "hotel":"ARIA Resort & Casino at CityCenter",
+               "code":"524106RO",
+               "price":"144.61"
+            },
+            {
+               "id":"10accf5694196adc0b41cb20366a6526",
+               "name":"Deluxe City View Room qith Guaranteed 2 Queens - Room Only",
+               "hotel":"ARIA Resort & Casino at CityCenter",
+               "code":"524107RO",
+               "price":"170.2"
+            },
+            {
+               "id":"794d7cb736c9cb8f80743433910655c7",
+               "name":"Corner Suite - Room Only",
+               "hotel":"ARIA Resort & Casino at CityCenter",
+               "code":"524108RO",
+               "price":"183.01"
+            },
+            {
+               "id":"ddc17e649529a61fd87499a0895d3c87",
+               "name":"One Bedroom ARIA Suite - Room Only",
+               "hotel":"ARIA Resort & Casino at CityCenter",
+               "code":"524109RO",
+               "price":"417.7"
+            },
+            {
+               "id":"a6b7abb4436b43773c1adb8387254d57",
+               "name":"One-Bedroom Penthouse Suite - Room Only",
+               "hotel":"ARIA Resort & Casino at CityCenter",
+               "code":"524110RO",
+               "price":"460.37"
+            }
+         ]
+      },
+      {
+         "name":"ARIA Resort and Casino",
+         "description":"From the soaring three-story lobby to the naturally lit casino, ARIA evokes openness and freedom. Art and interior design will greet guests in warm, comforting surroundings and provide a sense of human scale. Impeccable hospitality and personalized attention will join with an incredible array of amenities to provide each guest an unmatched journey through ARIA. The resort features a variety of dining experiences, from the casual comfort of bistros and cafes to culinary masterpieces. Guests will also enjoy ARIA's dynamic collection of lounges, bars and nightclubs. For a day of relaxation, ARIA's luxurious spa will offer a complete menu of skincare, massage and hydrotherapy treatments to be enjoyed in its 62 individual treatment rooms or three spa suites, designed to accommodate couples treatments, bachelorette parties, or small group events. Guests also may savor a quiet moment on the spa's co-ed balcony overlooking the resort's beautiful pools. The spa will be complemented by the resort's full service salon, barbershop, deluxe fitness room and group exercise studio. ARIA's 4,004 guest rooms will incorporate integrated technologies never before used in the hospitality industry. Guest room corridors streaming with natural light will open to areas of enclosed glass, delivering spectacular city or mountain views. Guests can also enjoy these breathtaking views from the privacy of their own rooms as all rooms feature expansive floor to ceiling windows. Please note that the hotel require a credit Card Guarantee or cash deposit upon check in for potential incidental charges. $130\/day deposit for credit cards or a $200\/day deposit for cash\/debit cards. Please note that indicated amounts and policies are subject to change at anytime. Value Added Features include: In-room Internet, Campus-wide wireless internet, In-room local and toll-free calls, Fitness Centre access, Daily newspaper and Airline boarding pass printing.",
+         "rooms":[
+            {
+               "id":"daf8e848e7f6e0f25de908d00340ec3e",
+               "name":"Deluxe King - Room Only",
+               "hotel":"ARIA Resort and Casino",
+               "code":"524104RO",
+               "price":"111.68"
+            },
+            {
+               "id":"f9588a9b57e0b22b23bc3a71c3ff0449",
+               "name":"Deluxe Room with Guaranteed 2 Queens - Room Only",
+               "hotel":"ARIA Resort and Casino",
+               "code":"524105RO",
+               "price":"137.29"
+            },
+            {
+               "id":"609beecaa8752adf8595dcc0214786f7",
+               "name":"Deluxe City View King - Room Only",
+               "hotel":"ARIA Resort and Casino",
+               "code":"524106RO",
+               "price":"144.61"
+            },
+            {
+               "id":"10accf5694196adc0b41cb20366a6526",
+               "name":"Deluxe City View Room qith Guaranteed 2 Queens - Room Only",
+               "hotel":"ARIA Resort and Casino",
+               "code":"524107RO",
+               "price":"170.2"
+            },
+            {
+               "id":"794d7cb736c9cb8f80743433910655c7",
+               "name":"Corner Suite - Room Only",
+               "hotel":"ARIA Resort and Casino",
+               "code":"524108RO",
+               "price":"183.01"
+            },
+            {
+               "id":"ddc17e649529a61fd87499a0895d3c87",
+               "name":"One Bedroom ARIA Suite - Room Only",
+               "hotel":"ARIA Resort and Casino",
+               "code":"524109RO",
+               "price":"417.7"
+            },
+            {
+               "id":"a6b7abb4436b43773c1adb8387254d57",
+               "name":"One-Bedroom Penthouse Suite - Room Only",
+               "hotel":"ARIA Resort and Casino",
+               "code":"524110RO",
+               "price":"460.37"
+            }
+         ]
+      },
+      {
+         "name":"Aria",
+         "description":"The resort features a variety of dining experiences, from the casual comfort of bistros and cafes to culinary masterpieces. Guests will also enjoy ARIA's dynamic collection of lounges, bars and nightclubs. For a day of relaxation, ARIA's luxurious spa will offer a complete menu of skincare, massage and hydrotherapy treatments to be enjoyed in its 62 individual treatment rooms or three spa suites, designed to accommodate couples treatments, bachelorette parties, or small group events. Guests also may savor a quiet moment on the spa's co-ed balcony overlooking the resort's beautiful pools. The spa will be complemented by the resort's full service salon, barbershop, deluxe fitness room and group exercise studio.ARIA's 4,004 guest rooms will incorporate integrated technologies never before used in the hospitality industry. Guest room corridors streaming with natural light will open to areas of enclosed glass, delivering spectacular city or mountain views. Guests can also enjoy these breathtaking views from the privacy of their own rooms as all rooms feature expansive floor to ceiling windows",
+         "rooms":[
+            {
+               "id":"daf8e848e7f6e0f25de908d00340ec3e",
+               "name":"Deluxe King - Room Only",
+               "hotel":"Aria",
+               "code":"524104RO",
+               "price":"111.68"
+            },
+            {
+               "id":"f9588a9b57e0b22b23bc3a71c3ff0449",
+               "name":"Deluxe Room with Guaranteed 2 Queens - Room Only",
+               "hotel":"Aria",
+               "code":"524105RO",
+               "price":"137.29"
+            },
+            {
+               "id":"609beecaa8752adf8595dcc0214786f7",
+               "name":"Deluxe City View King - Room Only",
+               "hotel":"Aria",
+               "code":"524106RO",
+               "price":"144.61"
+            },
+            {
+               "id":"10accf5694196adc0b41cb20366a6526",
+               "name":"Deluxe City View Room qith Guaranteed 2 Queens - Room Only",
+               "hotel":"Aria",
+               "code":"524107RO",
+               "price":"170.2"
+            },
+            {
+               "id":"794d7cb736c9cb8f80743433910655c7",
+               "name":"Corner Suite - Room Only",
+               "hotel":"Aria",
+               "code":"524108RO",
+               "price":"183.01"
+            },
+            {
+               "id":"ddc17e649529a61fd87499a0895d3c87",
+               "name":"One Bedroom ARIA Suite - Room Only",
+               "hotel":"Aria",
+               "code":"524109RO",
+               "price":"417.7"
+            },
+            {
+               "id":"a6b7abb4436b43773c1adb8387254d57",
+               "name":"One-Bedroom Penthouse Suite - Room Only",
+               "hotel":"Aria",
+               "code":"524110RO",
+               "price":"460.37"
+            }
+         ]
+      }
+   ]
+}

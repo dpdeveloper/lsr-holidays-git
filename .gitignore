@@ -7,6 +7,7 @@ pear/
 .pearrc
 .bash_history
 .ssh
+.sass-cache
 *~
 *.geany
 public_html/.htaccess

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: collections/multicom-flight.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: collections/multicom-flight.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/* collections/multicom-flight
+ *
+ * David Anderson 2012
+ *
+*/
+
+define([
+	'jquery','underscore','backbone','marionette','config',
+	'models/multicom/multicom-flight'
+	
+], function($,_,Backbone,Marionette,config,MulticomFlight){
+	
+	"use strict";
+	
+	/**
+		@module Collection: MulticomFlightCollection
+		@exports: MulticomFlightCollection
+	*/
+	
+	var MulticomFlightCollection= Backbone.Collection.extend({
+		model: MulticomFlight,
+		
+		_root: config.root,
+		_testMode: false,
+		_status: -1,
+		_error: null,
+		
+		STATES: {
+			NULL: -1,
+			INIT: 0,
+			LOADING: 1,
+			COMPLETE: 2,
+			ERROR: 3
+		},
+		
+		_apiVersion: 3,
+		
+		_apiParams: [
+			'oneWay',
+			'directFlights',
+			'numAdults',
+			'numChildren',
+			'numInfants',
+			'dateStart',
+			'departureAirport',
+			'destinationAirport',
+			'destinationResortId',
+			'destinationCountry',
+			'flightClass',
+			'numNights',
+			'setSupplier'
+		],
+		
+		/**
+		 * initialize
+		 *
+		 * Setup the correct state & mode
+		 *
+		*/
+		initialize : function() {
+			_.bindAll();
+			this._status = this.STATES.INIT;
+			
+			if (this._root === "/"){
+				this._root = "";
+			}
+			
+			//if test mode
+			if(config.multicomMode === 'test'){
+				this._testMode = true;
+			}
+		},
+		
+		/**
+		 * isLoading
+		 *
+		 * Returns true if the multicom request is still loading
+		 *
+		*/
+		isLoading: function(){
+			if(this._status === this.STATES.LOADING){
+				return true;
+			}
+			return false;
+		},
+		
+		/**
+		 * setTestMode
+		 *
+		 * @param {Boolean} mode
+		*/
+		setTestMode: function(mode){
+			this._testMode = mode;
+		},
+		
+		
+		/**
+		 * getError
+		 *
+		*/
+		getError: function(){
+			return this._error;
+		},
+		
+		
+		/**
+		 * getSearchUrl
+		 *
+		 * @param data {Object}
+		 *
+		 * Function to build the aboslute API link
+		 * If multicom is in test mode then it will return the test link (static JSON)
+		*/
+		getSearchUrl: function(data){
+			if(this._testMode){
+				var testUrl = "/json-test/flights-search.json";
+				return this._root+testUrl;
+			}
+			else{
+				return this._root+"json/multicom-api/?"+this.buildSearchQueryUrl(data);
+			}
+		},
+		
+		/* BuildSearchQueryUrl
+		 *
+		 * @param {Object} Object Hash of Params
+		 *
+		 * @return {String} A query string to query the api with
+		*/
+		buildSearchQueryUrl: function(data){
+			var str="";
+			var self = this;
+			
+			_.each(data,function(val,key){
+				
+				if($.inArray(key,self._apiParams) !== -1){
+
+					if(	typeof val === "string"){
+						val = val.replace(/ /g,"+");
+					}
+					
+					str=str+key+"=";
+					str=str+ encodeURI(val)+"&";
+				}
+			});
+			//add the api version and request type
+			str = str+"v="+this._apiVersion+"&action=runFlightSearch";
+			return str;
+		},
+		
+		/**
+		 * performSearch
+		 *
+		 * @param data {Object}
+		 * @param forceUrl {String} Can be used to force the search url
+		 *
+		 * Performs a search and
+		 *
+		*/
+		performSearch: function(data, forceUrl){
+			
+			var self = this;
+			
+			if(typeof(forceUrl) !== 'undefined'){
+				this.url=forceUrl;
+			}
+			else{
+				this.url = this.getSearchUrl(data);
+				self._status = this.STATES.LOADING;
+				
+				if(this._testMode){
+					console.log('MulticomFlightCollection is currently in test mode');
+					console.log('Loaded Data: '+this.url);
+				}
+			}
+			
+			this.fetch({
+				success: function(collection,xhr,options){
+					if(xhr.result === 'success'){
+						self.trigger('complete');
+						self._status = self.STATES.COMPLETE;
+					}
+					else{
+						self._error=xhr.error;
+						self.trigger('error');
+						self._status = self.STATES.ERROR;
+					}
+				},
+				error: function(collection,xhr,options){
+					self.trigger('error');
+					self._status = self.STATES.ERROR;
+				}
+			});
+		},
+		
+		
+		/**
+		 *
+		 * searchWithHolidaySearch
+		 *
+		 * @param {HolidaySearch Model} holidaySearch
+		 *
+		*/
+		searchWithHolidaySearch: function(holidaySearch){
+			this.performSearch(holidaySearch.getFlightTrip());
+		},
+		
+		/**
+		 * parse
+		 *
+		 * @param response {Object}
+		 *
+		 * Converts the API JSON to an array for the collection
+		*/
+		parse: function(response){
+			return response.data;
+		},
+		
+		
+		/**
+		 * filterByOutboundFlight
+		 *
+		 * @param {MulticomFlight} outFlight
+		 *
+		 * Filters the collection to the flights that have the same outbound flight as contained in outFlight
+		 *
+		 *
+		*/
+		filterByOutboundFlight: function(outFlight){
+			return this.filter(function(item){
+				if(	item.get('outboundFlightNum') === outFlight.get('outboundFlightNum') &&
+					item.get('arrivalDate') === outFlight.get('arrivalDate') &&
+					item.get('arrivalTime') === outFlight.get('arrivalTime')){
+						return true;
+					}
+				else{
+					return false;
+				}
+					
+			});
+		},
+		
+		/**
+		 * filterByReturnFlight
+		 *
+		 * @param {MulticomFlight} retFlight
+		 *
+		 * @return: {Array} of models
+		 *
+		 * Filters the collection to the flights that have the same return flight as contained in retFlight
+		 *
+		*/
+		filterByReturnFlight: function(retFlight){
+			return this.filter(function(item){
+				if(	item.get('returnFlightNum') === retFlight.get('returnFlightNum') &&
+					item.get('returnHomeDate') === retFlight.get('returnHomeDate') &&
+					item.get('returnHomeTime') === retFlight.get('returnHomeTime')){
+						return true;
+					}
+				else{
+					return false;
+				}
+					
+			});
+		},
+		
+		/**
+		 * filterByFlightFilter
+		 *
+		 * @param {FlightFilter} filter
+		 * @return {Array} of models
+		 *
+		 * Filters the collection by the given filter
+		 *
+		*/
+		filterByFlightFilter: function(filter){
+			return this.filter(function(item){
+				
+				var outboundCarrier = filter.getProperty('outboundAirline'),
+					outboundNoStops = filter.getProperty('outboundNoStops'),
+					returnCarrier = filter.getProperty('returnAirline'),
+					returnNoStops = filter.getProperty('returnNoStops');
+					
+				var match = true;
+
+				//outbound
+				if(outboundCarrier !== null &&  _.indexOf(outboundCarrier,item.get('outboundCarrier')) === -1){match=false;}
+				if(outboundNoStops !== null &&  _.indexOf(outboundNoStops,item.get('outboundNumStops'))=== -1){match=false;}
+				if(!filter.isDepartureTimeFiltered('outboundDepartureTimes',item.get('departureTime'))){match=false;}
+				
+				//return
+				if(returnCarrier !== null &&  _.indexOf(returnCarrier,item.get('returnCarrier')) === -1){match=false;}
+				if(returnNoStops !== null &&  _.indexOf(returnNoStops,item.get('returnNumStops')) === -1){match=false;}
+				if(!filter.isDepartureTimeFiltered('returnDepartureTimes',item.get('returnHomeDepartTime'))){match=false;}
+
+				
+				return match;
+				
+			});
+		},
+		
+		
+		/**
+		 * getUniqueArrayFromParameters
+		 *
+		 * @param {Array} parameter(s) ['outboundCarrier','outboundCarrierName'] etc
+		 *
+		 * @return [{name: 'British Airways', code: 'BA'} ... ]
+		 *
+		 * Returns an of the unique sets of parameters taken from the models
+		 * If multiple parameters are passed, then multiple parameters will be returned, each with a value
+		*/
+		getUniqueArrayFromParameters: function(parameters){
+		
+			var self = this;
+			var uniqueArray = [];
+			
+			this.each(function(item,index,list){
+				var keep = false;
+				
+				var valuesToFilter = {};
+				_.each(parameters, function(param){
+					valuesToFilter[param]=item.get(param);
+				});
+				
+				//see if anyother models match
+				var matchingModels = self.filter(function(potentialMatch){
+					var p = true;
+					_.each(valuesToFilter, function(valueToFilterItem, valueToFilterIndex){
+						if(potentialMatch.get(valueToFilterIndex) !== valueToFilterItem){p=false;}
+					});
+					return p;
+				});
+				
+				if(matchingModels.length > 1){
+					if(self.indexOf(item) === self.indexOf(matchingModels[0])){
+						keep = true;
+					}
+					else{
+						keep = false;
+					}
+				}
+				else{
+					keep = true;
+				}
+				
+				if(keep){
+					uniqueArray.push(valuesToFilter);
+				}
+				
+			});
+			return uniqueArray;
+		}
+		
+		
+	});
+	
+	return MulticomFlightCollection;
+});
+	</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="840a679355.html">Collection: MulticomAccommodationCollection</a></li><li><a href="901c05ffc7.html">Collection: MulticomFlightCollection</a></li><li><a href="7d3bc1a16e.html">Collection: MulticomRoomCollection</a></li><li><a href="e6589d1562.html">Collection: SymphonyAirlineCollection</a></li><li><a href="9c62b508f6.html">Collection: SymphonyHotelCollection</a></li><li><a href="563df19da6.html">Collection: TravellersInfo</a></li><li><a href="283ad868a2.html">ItemView: SearchUIHotelDetailSummaryView</a></li><li><a href="ba2575d9e6.html">Model: Booking</a></li><li><a href="03653e765f.html">Model: HolidaySearch</a></li><li><a href="a998eeaa5f.html">Model: TravellersInfo</a></li><li><a href="module-App.html">App</a></li></ul><h3>Classes</h3><ul><li><a href="7919174809.html">initialize</a></li><li><a href="SearchUIController.html">SearchUIController</a></li><li><a href="SearchUILayout.html">SearchUILayout</a></li><li><a href="TravellersContactView.html">TravellersContactView</a></li><li><a href="TravellersEditCollectionView.html">TravellersEditCollectionView</a></li><li><a href="TravellersEditItemView.html">TravellersEditItemView</a></li><li><a href="TravellersEditLayout.html">TravellersEditLayout</a></li><li><a href="TravellersLayout.html">TravellersLayout</a></li><li><a href="TravellersSummaryView.html">TravellersSummaryView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_isReverseRelation">_isReverseRelation</a></li><li><a href="global.html#_prepareCollection">_prepareCollection</a></li><li><a href="global.html#addReverseRelation">addReverseRelation</a></li><li><a href="global.html#addSubModels">addSubModels</a></li><li><a href="global.html#build">build</a></li><li><a href="global.html#buildFromMulticomHotel">buildFromMulticomHotel</a></li><li><a href="global.html#checkPreconditions">checkPreconditions</a></li><li><a href="global.html#fetchRelated">fetchRelated</a></li><li><a href="global.html#find">find</a></li><li><a href="global.html#findOrCreate">findOrCreate</a></li><li><a href="global.html#getActivitiesByCategory">getActivitiesByCategory</a></li><li><a href="global.html#getActivityCategories">getActivityCategories</a></li><li><a href="global.html#getCollection">getCollection</a></li><li><a href="global.html#getObjectByName">getObjectByName</a></li><li><a href="global.html#getPagination">getPagination</a></li><li><a href="global.html#getProperty">getProperty</a></li><li><a href="global.html#getRelation">getRelation</a></li><li><a href="global.html#getRelations">getRelations</a></li><li><a href="global.html#getReverseRelations">getReverseRelations</a></li><li><a href="global.html#handleAddition">handleAddition</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#handleFlightsEdit">handleFlightsEdit</a></li><li><a href="global.html#handleFlightsPagination">handleFlightsPagination</a></li><li><a href="global.html#handleRemoval">handleRemoval</a></li><li><a href="global.html#handleSelectedEvent">handleSelectedEvent</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#initializeRelations">initializeRelations</a></li><li><a href="global.html#isDepartureTimeFiltered">isDepartureTimeFiltered</a></li><li><a href="global.html#onChange">onChange</a></li><li><a href="global.html#onRender">onRender</a></li><li><a href="global.html#onShow">onShow</a></li><li><a href="global.html#pageLeft">pageLeft</a></li><li><a href="global.html#pagePosition">pagePosition</a></li><li><a href="global.html#pageRight">pageRight</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#processQueue">processQueue</a></li><li><a href="global.html#queue">queue</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#resolveIdForItem">resolveIdForItem</a></li><li><a href="global.html#retroFitRelation">retroFitRelation</a></li><li><a href="global.html#sanitizeOptions">sanitizeOptions</a></li><li><a href="global.html#saveRoomOccupancy">saveRoomOccupancy</a></li><li><a href="global.html#setCollection">setCollection</a></li><li><a href="global.html#setFromSymphony">setFromSymphony</a></li><li><a href="global.html#setMulticomData">setMulticomData</a></li><li><a href="global.html#setProperty">setProperty</a></li><li><a href="global.html#setRelated">setRelated</a></li><li><a href="global.html#setStatus">setStatus</a></li><li><a href="global.html#setTripType">setTripType</a></li><li><a href="global.html#setupSuperModel">setupSuperModel</a></li><li><a href="global.html#toggleFlightsColumn">toggleFlightsColumn</a></li><li><a href="global.html#toJSON">toJSON</a></li><li><a href="global.html#toJSONExpanded">toJSONExpanded</a></li><li><a href="global.html#trigger">trigger</a></li><li><a href="global.html#tryAddRelated">tryAddRelated</a></li><li><a href="global.html#unregister">unregister</a></li><li><a href="global.html#unsanitizeOptions">unsanitizeOptions</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateRelations">updateRelations</a></li><li><a href="global.html#updateRooms">updateRooms</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.0</a> on Tue Feb 26 2013 22:22:40 GMT-0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+</body>
+</html>

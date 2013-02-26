@@ -1,0 +1,85 @@
+<!--<div class="search-ui-flights-browse-item"> ADDED BY VIEW -->
+<div class="flight-item-inner clearfix">
+		
+	<div class="flight-item clearfix">
+	
+		<div class="airline-logo">
+			<% if(outboundAirlineLogo != null){ %>
+				<img src="<%=imageUrl({
+					filename: outboundAirlineLogo.imageFilename,
+					path: outboundAirlineLogo.imagePath,
+					height: outboundAirlineLogo.imageHeight,
+					width: outboundAirlineLogo.imageWidth,
+					},80,30,'fit')%>"/>
+			<%}else{ %>
+				<%= outboundAirlineName%>
+			<%}%>
+		</div>
+		<%
+			var tmpNumStops;
+			if(outboundNumStops == '0'){
+				tmpNumStops = 'Direct';
+			}
+			else if(outboundNumStops == '1'){
+				tmpNumStops = outboundNumStops + ' stop';
+			}
+			else{
+				tmpNumStops = outboundNumStops + ' stops';
+			}
+		%>
+		<h2>Outbound (<%=tmpNumStops%>)</h2>
+		<p>
+			<span><%= originAirport %> </span>
+			<span><%= departureTime %></span>
+			<span> &rarr; </span>
+			<span><%= destinationAirport %> </span>
+			<span><%= arrivalTime %></span>
+		</p>
+	</div>
+	
+	
+	<div class="flight-item last  clearfix">
+		<div class="airline-logo">
+			<% if(returnAirlineLogo != null){ %>
+				<img src="<%=imageUrl({
+					filename: returnAirlineLogo.imageFilename,
+					path: returnAirlineLogo.imagePath,
+					height: returnAirlineLogo.imageHeight,
+					width: returnAirlineLogo.imageWidth,
+					},80,30,'fit')%>"/>
+			<%}else{ %>
+				<%= returnAirlineName%>
+			<%}%>
+		</div>
+		
+		<%
+			var tmpNumStops;
+			if(returnNumStops == '0'){
+				tmpNumStops = 'Direct';
+			}
+			else if(returnNumStops == '1'){
+				tmpNumStops = returnNumStops + ' stop';
+			}
+			else{
+				tmpNumStops = returnNumStops + ' stops';
+			}
+		%>
+		
+		<h2>Return (<%= tmpNumStops %>)</h2>
+		<p>
+			<span><%= destinationAirport %> </span>
+			<span><%= returnHomeDepartTime %></span>
+			<span> &rarr; </span>
+			<span><%= originAirport %> </span>
+			<span><%= returnHomeTime %></span>
+		</p>
+	</div>
+	<div class="clearfix">
+		<div class="price"><%=priceIncrease %> pp</div>
+		<div class="actions">
+			<a href="#" class="action-button action-select"><span class="btn-arrow right"></span>Select</a>
+			<a href="#" class="action-button action-detail">Detail</a>
+		</div>
+		
+	</div>
+</div>

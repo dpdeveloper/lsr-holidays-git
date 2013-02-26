@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: models/travellers-info.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: models/travellers-info.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/* models/travellers.js
+ *
+ * David Anderson 2013
+ *
+*/
+
+define([
+	'jquery','underscore','backbone','backbone-relational'
+], function($,_,Backbone, BackboneRelational){
+	
+	"use strict";
+	
+	/**
+		@module Model: TravellersInfo
+		@exports TravellersInfo
+		
+		@property surname
+		@property firstName
+		@property dob
+		@property title
+		@property middleInitials
+		@property countAs
+		@property passengerId
+		@property idExpiry
+		@property idIssue
+		@property foid
+		@property nationality
+		@property gender
+		
+		@property phone
+		@property email
+		@property middleName
+		@property address1
+		@property address2
+		@property addressCity
+		@property addressPostcode
+		@property addressCountry
+		
+		@property {Boolean} isLeadTraveller
+		@property {String} travellerType (adult | child | infant)
+		@property {Integer} travellerNo  Number to identify the order of the travellers for data entry
+		
+	*/
+	
+	var TravellersInfo = Backbone.RelationalModel.extend({
+		defaults: {
+			//multicom params
+			surname: null,
+			firstName: null,
+			dob: null,
+			title: null,
+			middleInitials: null,
+			countAs: null,
+			passengerId: null,
+			idExpiry: null,
+			idIssue: null,
+			foid: null,
+			nationality: null,
+			gender: null,
+			
+			//symphony params
+			phone: null,
+			email: null,
+			middleName: null,
+			address1: null,
+			address2: null,
+			addressCity: null,
+			addressPostcode: null,
+			addressCountry: null,
+			
+			isLeadTraveller: false,
+			travellerType: null,
+			travellerNo: null
+		},
+		
+		/**
+			Parses a string into the the name fields:
+			surname, firstName, middleInitials, middleName
+			
+			@param {string} name Name to be parsed
+		*/
+		parseName: function(name){
+			name = $.trim(name);
+			
+			//only first name
+			if(name.indexOf(' ') === -1){
+				this.set('firstName',name);
+				return;
+			}
+			
+			var names = name.split(' ');
+			
+			//firstname and surname
+			if(names.length === 2){
+				this.set({
+					firstName: names[0],
+					surname: names[1]
+				});
+				return;
+			}
+			//firstname, middlename and surname
+			if(names.length === 3){
+				this.set({
+					firstName: names[0],
+					middleName: names[1],
+					middleInitials: names[1].charAt(0),
+					surname: names[2]
+				});
+				return;
+			}
+			
+			//multiple middle names
+			var middleNames = _.clone(names);
+			middleNames.splice(0,1);
+			middleNames.splice(middleNames.length-1,1);
+			
+			var middleInitials = [];
+			_.each(middleNames, function(elem, index){
+				middleInitials.push(elem.charAt(0));
+			});
+			
+			this.set({
+				firstName: names[0],
+				surname: names[names.length-1],
+				middleName: middleNames.join(' '),
+				middleInitials: middleInitials.join(' ')
+			});
+			
+		}
+		
+	});
+	
+	return TravellersInfo;
+});
+	</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="840a679355.html">Collection: MulticomAccommodationCollection</a></li><li><a href="901c05ffc7.html">Collection: MulticomFlightCollection</a></li><li><a href="7d3bc1a16e.html">Collection: MulticomRoomCollection</a></li><li><a href="e6589d1562.html">Collection: SymphonyAirlineCollection</a></li><li><a href="9c62b508f6.html">Collection: SymphonyHotelCollection</a></li><li><a href="563df19da6.html">Collection: TravellersInfo</a></li><li><a href="283ad868a2.html">ItemView: SearchUIHotelDetailSummaryView</a></li><li><a href="ba2575d9e6.html">Model: Booking</a></li><li><a href="03653e765f.html">Model: HolidaySearch</a></li><li><a href="a998eeaa5f.html">Model: TravellersInfo</a></li><li><a href="module-App.html">App</a></li></ul><h3>Classes</h3><ul><li><a href="7919174809.html">initialize</a></li><li><a href="SearchUIController.html">SearchUIController</a></li><li><a href="SearchUILayout.html">SearchUILayout</a></li><li><a href="TravellersContactView.html">TravellersContactView</a></li><li><a href="TravellersEditCollectionView.html">TravellersEditCollectionView</a></li><li><a href="TravellersEditItemView.html">TravellersEditItemView</a></li><li><a href="TravellersEditLayout.html">TravellersEditLayout</a></li><li><a href="TravellersLayout.html">TravellersLayout</a></li><li><a href="TravellersSummaryView.html">TravellersSummaryView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_isReverseRelation">_isReverseRelation</a></li><li><a href="global.html#_prepareCollection">_prepareCollection</a></li><li><a href="global.html#addReverseRelation">addReverseRelation</a></li><li><a href="global.html#addSubModels">addSubModels</a></li><li><a href="global.html#build">build</a></li><li><a href="global.html#buildFromMulticomHotel">buildFromMulticomHotel</a></li><li><a href="global.html#checkPreconditions">checkPreconditions</a></li><li><a href="global.html#fetchRelated">fetchRelated</a></li><li><a href="global.html#find">find</a></li><li><a href="global.html#findOrCreate">findOrCreate</a></li><li><a href="global.html#getActivitiesByCategory">getActivitiesByCategory</a></li><li><a href="global.html#getActivityCategories">getActivityCategories</a></li><li><a href="global.html#getCollection">getCollection</a></li><li><a href="global.html#getObjectByName">getObjectByName</a></li><li><a href="global.html#getPagination">getPagination</a></li><li><a href="global.html#getProperty">getProperty</a></li><li><a href="global.html#getRelation">getRelation</a></li><li><a href="global.html#getRelations">getRelations</a></li><li><a href="global.html#getReverseRelations">getReverseRelations</a></li><li><a href="global.html#handleAddition">handleAddition</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#handleFlightsEdit">handleFlightsEdit</a></li><li><a href="global.html#handleFlightsPagination">handleFlightsPagination</a></li><li><a href="global.html#handleRemoval">handleRemoval</a></li><li><a href="global.html#handleSelectedEvent">handleSelectedEvent</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#initializeRelations">initializeRelations</a></li><li><a href="global.html#isDepartureTimeFiltered">isDepartureTimeFiltered</a></li><li><a href="global.html#onChange">onChange</a></li><li><a href="global.html#onRender">onRender</a></li><li><a href="global.html#onShow">onShow</a></li><li><a href="global.html#pageLeft">pageLeft</a></li><li><a href="global.html#pagePosition">pagePosition</a></li><li><a href="global.html#pageRight">pageRight</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#processQueue">processQueue</a></li><li><a href="global.html#queue">queue</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#resolveIdForItem">resolveIdForItem</a></li><li><a href="global.html#retroFitRelation">retroFitRelation</a></li><li><a href="global.html#sanitizeOptions">sanitizeOptions</a></li><li><a href="global.html#saveRoomOccupancy">saveRoomOccupancy</a></li><li><a href="global.html#setCollection">setCollection</a></li><li><a href="global.html#setFromSymphony">setFromSymphony</a></li><li><a href="global.html#setMulticomData">setMulticomData</a></li><li><a href="global.html#setProperty">setProperty</a></li><li><a href="global.html#setRelated">setRelated</a></li><li><a href="global.html#setStatus">setStatus</a></li><li><a href="global.html#setTripType">setTripType</a></li><li><a href="global.html#setupSuperModel">setupSuperModel</a></li><li><a href="global.html#toggleFlightsColumn">toggleFlightsColumn</a></li><li><a href="global.html#toJSON">toJSON</a></li><li><a href="global.html#toJSONExpanded">toJSONExpanded</a></li><li><a href="global.html#trigger">trigger</a></li><li><a href="global.html#tryAddRelated">tryAddRelated</a></li><li><a href="global.html#unregister">unregister</a></li><li><a href="global.html#unsanitizeOptions">unsanitizeOptions</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateRelations">updateRelations</a></li><li><a href="global.html#updateRooms">updateRooms</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.0</a> on Tue Feb 26 2013 22:22:40 GMT-0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: views/search-ui/header/header.form.view.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: views/search-ui/header/header.form.view.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/* @filename views/search-ui/header/header.form.view.js
+ *
+ * David Anderson 2012
+ *
+*/
+
+define([
+	'jquery','underscore','backbone','marionette','vent','config',
+	
+	'tpl!views/search-ui/templates/header.form.view.tpl.html',
+	'models/holiday-search'
+	
+], function(	$,_,Backbone,Marionette,vent, config,
+				HeaderFormTemplate,
+				HolidaySearch
+			){
+	"use strict";
+
+	var HeaderFormView = Backbone.Marionette.ItemView.extend({
+		template: HeaderFormTemplate,
+		
+		roomRowHTML: null,
+		_advancedInit: false,
+		
+		events:{
+			'mouseenter #search-ui-header-form': 'showAdvanced',
+			'click .action-back': 'hideAdvanced',
+			'change #fields-number-of-rooms': 'updateRooms',
+			'click .action-next': 'submitForm'
+		},
+		
+		ui: {
+			//fields
+			destination: '#fields-destination',
+			dateStart: '#fields-date-start',
+			numberOfNights: '#fields-number-of-nights',
+			numberOfRooms: '#fields-number-of-rooms',
+			departureAirport: '#fields-departure-airport',
+			flightClass: '#fields-flight-class',
+			
+			//other things
+			outer: '.three.cols',
+			flightsCol: '.flights-col',
+			rooms: '.rooms'
+	
+		},
+		
+		initialize: function(options){
+			options = options || {};
+			
+			this.model = new HolidaySearch();
+			if(typeof options.model !== 'undefined'){
+				this.model.set(this.options.model.toJSON());
+			}
+			this.bindTo(vent,'search:trip:edit',this.setTrip,this);
+		},
+		
+		/**
+		 * onRender
+		 *
+		 *
+		 * Init the UI Elements
+		*/
+		onShow: function(){
+			this.$el.find(".fields-date-start").datepicker({
+					changeMonth: true,
+					changeYear: true,
+					constrainInput: false,
+					dateFormat: 'dd/mm/yy',
+					numberOfMonths: 2,
+					minDate: 0,
+					maxDate: "+2y",
+					onSelect: function(dateText,inst){
+							$(this).val(dateText);
+					}
+				});
+			this.roomRowHTML= "&lt;div class='room-row room-row-item clearfix'>"+$(".room-row-template", this.$el).html()+"&lt;/div>";
+			
+			//set the select box values
+			this.ui.numberOfNights.val(this.model.get('numNights'));
+			this.ui.numberOfRooms.val(this.model.get('numRooms'));
+			this.ui.destination.val(this.model.get('destination'));
+			this.ui.departureAirport.val(this.model.get('departingFrom'));
+			this.ui.flightClass.val(this.model.get('flightClass'));
+			
+			this.setTripType(this.model.get('tripType'),true);
+			
+			
+			
+			this.updateRooms();
+			
+			/*set the adults/children/infants for the rooms*/
+			var adult = this.model.get('adultCsv').split(',');
+			var child = this.model.get('childCsv').split(',');
+			var infant = this.model.get('infantCsv').split(',');
+			
+			this.$el.find('.room-row-item').each(function(i,el){
+				$(el).find('select.fields-number-of-adults').val(adult[i]);
+				$(el).find('select.fields-number-of-children').val(child[i]);
+				$(el).find('select.fields-number-of-infants').val(infant[i]);
+			});
+			
+			
+		},
+		
+		/* initSelectBoxes
+		*
+		* Inits the Select2.0 select boxes
+		*
+		*/
+		initSelectBoxes: function(){
+			$('select',this.$el).select2({width: 'resolve'});
+			
+			this.ui.departureAirport.select2({
+				width: 'element',
+				placeholder: 'Select an Airport',
+				minimumInputLength: 1,
+				initSelection: function(element,callback){
+					var data = {
+						id: $(element).val(),
+						text: $(element).val()
+					};
+					callback(data);
+				},
+				ajax: {
+					url: config.root+"json/airports/",
+					dataType: 'json',
+					data: function(term,page){
+						return {
+							q: term
+						};
+					},
+					results: function(data,page){
+						var obj = [];
+						
+						_.each(data.airports, function(element){
+							obj.push({
+								id: element.code,
+								text: element.title + " ("+element.code+")"
+							});
+						});
+					
+						return {results: obj};
+					}
+				}
+			});
+		},
+		
+		/**
+		 * setTripType
+		 *
+		 * @param {String} tripType
+		 * @param {Boolean} (optional) whether or not this is the initial load
+		 *
+		 * Sets the trip type and updates the UI as needed
+		 *
+		*/
+		setTripType: function(tripType,initial){
+			if(typeof initial === 'undefined'){initial = false;}
+			
+			var currentType = this.model.get('tripType');
+			
+			if(initial || currentType !== tripType){
+				
+				//update the UI if needed
+				if(	(currentType === this.model.TRIP_TYPES.PACKAGE && tripType === this.model.TRIP_TYPES.FLIGHT) ||
+					initial ){
+					this.toggleFlightsColumn();
+				}
+				
+				if(initial){
+					this.model.set({tripType: tripType});
+				}
+			}
+		},
+		
+		
+		/**
+		 * toggleFlightsColumn
+		 *
+		 * shows/hides the flights column and updates the outer container width to fit with it
+		 *
+		*/
+		toggleFlightsColumn: function(){
+			if(this.ui.flightsCol.css('display')!=='none'){
+				this.ui.flightsCol.hide();
+				this.ui.outer.css({width: 400});
+			}
+			else{
+				this.ui.flightsCol.show();
+				this.ui.outer.css({width: 600});
+			}
+		},
+		
+		
+		/* addRoom
+		*
+		* Adds a room to the UI
+		*
+		*/
+		addRoom: function(){
+			this.ui.rooms.append(this.roomRowHTML);
+			this.initSelectBoxes();
+		},
+		
+		
+		/**
+		* updateRooms
+		*
+		* Callback for when the number of rooms is changed
+		* - Updates the model value
+		* - Triggers a callback if more is selected
+		* - Updates the UI with the correct number of occupancy fields
+		*
+		*/
+		updateRooms: function(){
+			
+			var value = $("#fields-number-of-rooms",this.$el).val();
+		
+			if(value === "more"){
+				var destination = $('#fields-destination',this.$el).val();
+				destination = destination.toLowerCase().replace(' ','-');
+			
+				Backbone.history.navigate('/destination/'+destination+'/group-travel/', {trigger: true});
+				this.trigger('callback');
+			}
+			else{
+				var delta= value - $('.room-row-item',this.$el).length;
+				if(delta > 0){
+					for(var i=0; i&lt;delta; i++){this.addRoom();}
+				}
+				else if(delta &lt; 0){
+					var noRooms = this.ui.rooms.children().length;
+					for(var k=1; k&lt;=-delta; k++){$(this.ui.rooms.children().get(noRooms-k)).remove();}
+				}
+				this.model.set({numRooms: value});
+			}
+		},
+		
+		
+		/* --------------------------------
+		 *
+		 *			UI CALLBACKS
+		 *
+		 * ----------------------------- */
+		
+		
+		 
+		setTrip: function(holidaySearch){
+			this.model.set(holidaySearch.toJSON());
+		},
+		
+		showAdvanced: function(){
+			this.$el.find('.header-overlay').show();
+			this.$el.find('.header-bar .edit').addClass('active');
+			
+			if(!this._advancedInit){
+				this.initSelectBoxes();
+				this._advancedInit = true;
+			}
+			
+		},
+		hideAdvanced: function(){
+			this.$el.find('.header-overlay').hide();
+			this.$el.find('.header-bar .edit').removeClass('active');
+		},
+		
+		
+		/**
+		 * saveRoomOccupancy
+		 *
+		 * @return {Object} the occupancy
+		 *
+		 * Saves the room occupancy into the trip object
+		 *
+		 *
+		*/
+		saveRoomOccupancy: function(){
+		
+			var adultCSV="", childCSV="", infantCSV="";
+			
+			$("select.fields-number-of-adults",this.$el).each(function(i,element){
+				adultCSV=adultCSV+$(element).val()+",";
+			});
+			$("select.fields-number-of-children",this.$el).each(function(i,element){
+				childCSV=childCSV+$(element).val()+",";
+			});
+			$("select.fields-number-of-infants",this.$el).each(function(i,element){
+				infantCSV=infantCSV+$(element).val()+",";
+			});
+			var occupancy = {
+				adultCsv:	adultCSV,
+				childCsv:	childCSV,
+				infantCsv:	infantCSV
+			};
+			this.model.set(occupancy);
+			
+			return occupancy;
+		},
+		
+		
+		/* submitForm
+		*
+		* Callback function for saving and submitting the search
+		* - Parses the 'csv' fields into the correct format
+		* - Saves all the fields into the model
+		*/
+		submitForm: function(event){
+			event.preventDefault();
+		
+			this.saveRoomOccupancy();
+			this.model.set({
+				destination: $("#fields-destination", this.$el).val(),
+				numNights:	$("#fields-number-of-nights",this.$el).val(),
+				numRooms:	$("#fields-number-of-rooms",this.$el).val(),
+				dateStart:	$("#fields-date-start",this.$el).val(),
+				departingFrom: $('#fields-departure-airport',this.$el).val(),
+				flightClass: $('#fields-flight-class',this.$el).val()
+			});
+			
+			this.hideAdvanced();
+			
+			vent.trigger("search:trip:edit",this.model);
+		}
+	});
+	
+	return HeaderFormView;
+});
+	</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="840a679355.html">Collection: MulticomAccommodationCollection</a></li><li><a href="901c05ffc7.html">Collection: MulticomFlightCollection</a></li><li><a href="7d3bc1a16e.html">Collection: MulticomRoomCollection</a></li><li><a href="e6589d1562.html">Collection: SymphonyAirlineCollection</a></li><li><a href="9c62b508f6.html">Collection: SymphonyHotelCollection</a></li><li><a href="563df19da6.html">Collection: TravellersInfo</a></li><li><a href="283ad868a2.html">ItemView: SearchUIHotelDetailSummaryView</a></li><li><a href="ba2575d9e6.html">Model: Booking</a></li><li><a href="03653e765f.html">Model: HolidaySearch</a></li><li><a href="a998eeaa5f.html">Model: TravellersInfo</a></li><li><a href="module-App.html">App</a></li></ul><h3>Classes</h3><ul><li><a href="7919174809.html">initialize</a></li><li><a href="SearchUIController.html">SearchUIController</a></li><li><a href="SearchUILayout.html">SearchUILayout</a></li><li><a href="TravellersContactView.html">TravellersContactView</a></li><li><a href="TravellersEditCollectionView.html">TravellersEditCollectionView</a></li><li><a href="TravellersEditItemView.html">TravellersEditItemView</a></li><li><a href="TravellersEditLayout.html">TravellersEditLayout</a></li><li><a href="TravellersLayout.html">TravellersLayout</a></li><li><a href="TravellersSummaryView.html">TravellersSummaryView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_isReverseRelation">_isReverseRelation</a></li><li><a href="global.html#_prepareCollection">_prepareCollection</a></li><li><a href="global.html#addReverseRelation">addReverseRelation</a></li><li><a href="global.html#addSubModels">addSubModels</a></li><li><a href="global.html#build">build</a></li><li><a href="global.html#buildFromMulticomHotel">buildFromMulticomHotel</a></li><li><a href="global.html#checkPreconditions">checkPreconditions</a></li><li><a href="global.html#fetchRelated">fetchRelated</a></li><li><a href="global.html#find">find</a></li><li><a href="global.html#findOrCreate">findOrCreate</a></li><li><a href="global.html#getActivitiesByCategory">getActivitiesByCategory</a></li><li><a href="global.html#getActivityCategories">getActivityCategories</a></li><li><a href="global.html#getCollection">getCollection</a></li><li><a href="global.html#getObjectByName">getObjectByName</a></li><li><a href="global.html#getPagination">getPagination</a></li><li><a href="global.html#getProperty">getProperty</a></li><li><a href="global.html#getRelation">getRelation</a></li><li><a href="global.html#getRelations">getRelations</a></li><li><a href="global.html#getReverseRelations">getReverseRelations</a></li><li><a href="global.html#handleAddition">handleAddition</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#handleFlightsEdit">handleFlightsEdit</a></li><li><a href="global.html#handleFlightsPagination">handleFlightsPagination</a></li><li><a href="global.html#handleRemoval">handleRemoval</a></li><li><a href="global.html#handleSelectedEvent">handleSelectedEvent</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#initializeRelations">initializeRelations</a></li><li><a href="global.html#isDepartureTimeFiltered">isDepartureTimeFiltered</a></li><li><a href="global.html#onChange">onChange</a></li><li><a href="global.html#onRender">onRender</a></li><li><a href="global.html#onShow">onShow</a></li><li><a href="global.html#pageLeft">pageLeft</a></li><li><a href="global.html#pagePosition">pagePosition</a></li><li><a href="global.html#pageRight">pageRight</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#processQueue">processQueue</a></li><li><a href="global.html#queue">queue</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#resolveIdForItem">resolveIdForItem</a></li><li><a href="global.html#retroFitRelation">retroFitRelation</a></li><li><a href="global.html#sanitizeOptions">sanitizeOptions</a></li><li><a href="global.html#saveRoomOccupancy">saveRoomOccupancy</a></li><li><a href="global.html#setCollection">setCollection</a></li><li><a href="global.html#setFromSymphony">setFromSymphony</a></li><li><a href="global.html#setMulticomData">setMulticomData</a></li><li><a href="global.html#setProperty">setProperty</a></li><li><a href="global.html#setRelated">setRelated</a></li><li><a href="global.html#setStatus">setStatus</a></li><li><a href="global.html#setTripType">setTripType</a></li><li><a href="global.html#setupSuperModel">setupSuperModel</a></li><li><a href="global.html#toggleFlightsColumn">toggleFlightsColumn</a></li><li><a href="global.html#toJSON">toJSON</a></li><li><a href="global.html#toJSONExpanded">toJSONExpanded</a></li><li><a href="global.html#trigger">trigger</a></li><li><a href="global.html#tryAddRelated">tryAddRelated</a></li><li><a href="global.html#unregister">unregister</a></li><li><a href="global.html#unsanitizeOptions">unsanitizeOptions</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateRelations">updateRelations</a></li><li><a href="global.html#updateRooms">updateRooms</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.0</a> on Tue Feb 26 2013 22:22:40 GMT-0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+</body>
+</html>

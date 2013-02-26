@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: models/holiday-search.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: models/holiday-search.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/* models/holiday-search.js
+ *
+ * THIS IS COPIED AND RENAMED FROM HOLIDAY-BOOKING/TRIP - trip remains for compatibility purposes.
+ *
+ * David Anderson 2012
+ *
+*/
+
+define([
+	'jquery','underscore','backbone','backbone-relational'
+], function($,_,Backbone){
+	
+	"use strict";
+	
+	/**
+		@module Model: HolidaySearch
+		@exports HolidaySearch
+		
+		@property {TRIP_TYPE} tripType
+		@property {string} destination
+		@property {string} hotelName
+		@property {string - DD/MM/YY} dateStart
+		@property {Integer} numNights
+		@property {Integer} numRooms
+		@property {string} adultCsv
+		@property {string} infantCsv
+		@property {string} childCsv
+		@property {string} childAges
+		
+		@property {string} departingFrom
+		@property {string} flightClass
+		@property {string} oneWay
+		@property {string} directFlights
+		@property {string} thirdPartyInsurance
+		@property {string} thurdPartyInsuranceName
+	*/
+
+	var HolidaySearch = Backbone.RelationalModel.extend({
+		defaults: {
+			
+			//type
+			tripType: null,
+			
+			//basics
+			destination: 'las vegas',
+			hotelName: '',
+			dateStart: null,
+			numNights: 5,
+			
+			
+			//rooms
+			numRooms: 1,
+			adultCsv: "2",
+			infantCsv: "",
+			childCsv: "",
+			childAges: "",
+			
+			//flights
+			departingFrom: "LHR",
+			flightClass: 'economy',
+			oneWay: 'no',
+			directFlights: 'no',
+			
+			//party info
+			thirdPartyInsurance: null,
+			thirdPartyInsuranceName: null
+		},
+		
+		TRIP_TYPES: {
+			HOTEL: 'hotel',
+			FLIGHT: 'flight',
+			PACKAGE: 'package'
+		},
+		
+		initialize: function(){
+			_.bindAll(this);
+			
+			//set the initial date
+			var d = new Date();
+			d.setDate(d.getDate()+7);
+			var day = d.getDate();
+			var month = d.getMonth() + 1; //Months are zero based
+			var year = d.getFullYear().toString().substr(2,4);
+			
+			this.set({dateStart: day+"/"+month+"/"+year});
+			
+			this.set({tripType: this.TRIP_TYPES.PACKAGE});
+		},
+		
+		setType: function(type){
+			if($.inArray(type, _.toArray(this.TRIP_TYPES)) !== -1){
+				this.set('tripType',type);
+			}
+		},
+		
+		/**
+			@returns {Array} An array of the room occupancies
+		*/
+		getRoomOccupancy: function(){
+			var data = [];
+			
+			var adult = this.get('adultCsv');
+			var infant = this.get('infantCsv');
+			var child  = this.get('childCsv');
+			
+			adult = adult.split(',');
+			infant = infant.split(',');
+			child = child.split(',');
+			
+			for(var i=0; i&lt; this.get('numRooms'); i++){
+				data[i] = [];
+			
+				if(i &lt; adult.length){
+					data[i].adults = adult[i];
+				}
+				if(i &lt; child.length){
+					data[i].children = child[i];
+				}
+				if(i &lt; infant.length){
+					data[i].infants = infant[i];
+				}
+			}
+			return data;
+		},
+		
+		
+		/**
+			Set the Room Occupancy from an array
+			
+			@param {Array} occupancy Array of room occupancies in the format
+		*/
+		setOccupancy: function(occupancy){
+			if(occupancy === null || occupancy.length === 0){return;}
+			
+			var adult = '', children = '', infant = '';
+			
+			_.each(occupancy,function(elem, index){
+				if(!('adults' in elem)){elem.adults=0;}
+				if(!('children' in elem)){elem.children=0;}
+				if(!('infants' in elem)){elem.infants=0;}
+				
+				adult = adult + elem.adults.toString() + ',';
+				children = children + elem.children.toString() + ',';
+				infant = infant + elem.infants.toString() + ',';
+			});
+			
+			this.set({
+				'numRooms':occupancy.length,
+				adultCsv: adult,
+				childCsv: children,
+				infantCsv: infant
+			});
+		},
+		
+		
+		/**
+			Get an array of travellers in the format
+			{type: "adult|child|infant" room: 0}
+			
+			@return {array}
+		*/
+		getTravellers: function(){
+			var occ = this.getRoomOccupancy();
+			
+			var data = [];
+			
+			_.each(occ, function(el,index){
+				var i =0;
+				for(i=0;i&lt;parseInt(el.adults, 10);i++){
+					data.push({room: index,type: 'adult'});
+				}
+				for(i=0;i&lt;parseInt(el.children, 10);i++){
+					data.push({room: index,type: 'child'});
+				}
+				for(i=0;i&lt;parseInt(el.infants, 10);i++){
+					data.push({room: index,type: 'infant'});
+				}
+			});
+			return data;
+		},
+			
+		/**
+			@returns {Object} A JSON object of the holidaySearch for Multicom flight searching
+			@TODO Should probably be refactored into the MulticomFlightCollectionObject
+		*/
+		getFlightTrip: function(){
+			
+			var adults=this._countCsv(this.get('adultCsv')),
+				children=this._countCsv(this.get('childCsv')),
+				infants=this._countCsv(this.get('infantCsv'));
+			
+			return {
+				oneWay: 'no',
+				directFlights: 'no',
+				numAdults: adults.toString(),
+				numChildren: children.toString(),
+				numInfants: infants.toString(),
+				dateStart: this.get('dateStart'),
+				departureAirport: this.get('departingFrom'),
+				flightClass: this.get('flightClass'),
+				numNights: this.get('numNights'),
+				destinationAirport: this._getAirportFromDestination(this.get('destination'))
+			};
+		},
+		
+		/**
+			Returns the total number of adults, children and infants
+			@returns {Object}
+		*/
+		getOccupancyTotals: function(){
+			return {
+				adults: this._countCsv(this.get('adultCsv')),
+				children: this._countCsv(this.get('childCsv')),
+				infants: this._countCsv(this.get('infantCsv'))
+			};
+		},
+		
+		/**
+			@param {String} destination
+			@returns {String} An aiport from the destination
+		*/
+		_getAirportFromDestination: function(destination){
+			
+			var destinationAirports= {
+				'las vegas': 'LAS',
+				'miami': 'MIA',
+				'new york': 'JFK',
+				'los angeles': 'LAX',
+				'dubai': 'DXB'
+			};
+		
+			if(typeof destinationAirports[destination] === 'undefined'){
+				return null;
+			}
+			else{
+				return destinationAirports[destination];
+			}
+		},
+		
+		
+		/**
+			@param {String} csv CSV to be counted
+		*/
+		_countCsv: function(csv){
+			if(typeof csv === 'undefined' || csv.length === 0 || csv === ','){ return 0;}
+			
+			var ret=0;
+			_.each(csv.split(','), function(el){
+				ret = ret + parseInt(el, 10);
+			});
+			return ret;
+		}
+	});
+	
+	return HolidaySearch;
+});
+	</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="840a679355.html">Collection: MulticomAccommodationCollection</a></li><li><a href="901c05ffc7.html">Collection: MulticomFlightCollection</a></li><li><a href="7d3bc1a16e.html">Collection: MulticomRoomCollection</a></li><li><a href="e6589d1562.html">Collection: SymphonyAirlineCollection</a></li><li><a href="9c62b508f6.html">Collection: SymphonyHotelCollection</a></li><li><a href="563df19da6.html">Collection: TravellersInfo</a></li><li><a href="283ad868a2.html">ItemView: SearchUIHotelDetailSummaryView</a></li><li><a href="ba2575d9e6.html">Model: Booking</a></li><li><a href="03653e765f.html">Model: HolidaySearch</a></li><li><a href="a998eeaa5f.html">Model: TravellersInfo</a></li><li><a href="module-App.html">App</a></li></ul><h3>Classes</h3><ul><li><a href="7919174809.html">initialize</a></li><li><a href="SearchUIController.html">SearchUIController</a></li><li><a href="SearchUILayout.html">SearchUILayout</a></li><li><a href="TravellersContactView.html">TravellersContactView</a></li><li><a href="TravellersEditCollectionView.html">TravellersEditCollectionView</a></li><li><a href="TravellersEditItemView.html">TravellersEditItemView</a></li><li><a href="TravellersEditLayout.html">TravellersEditLayout</a></li><li><a href="TravellersLayout.html">TravellersLayout</a></li><li><a href="TravellersSummaryView.html">TravellersSummaryView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_isReverseRelation">_isReverseRelation</a></li><li><a href="global.html#_prepareCollection">_prepareCollection</a></li><li><a href="global.html#addReverseRelation">addReverseRelation</a></li><li><a href="global.html#addSubModels">addSubModels</a></li><li><a href="global.html#build">build</a></li><li><a href="global.html#buildFromMulticomHotel">buildFromMulticomHotel</a></li><li><a href="global.html#checkPreconditions">checkPreconditions</a></li><li><a href="global.html#fetchRelated">fetchRelated</a></li><li><a href="global.html#find">find</a></li><li><a href="global.html#findOrCreate">findOrCreate</a></li><li><a href="global.html#getActivitiesByCategory">getActivitiesByCategory</a></li><li><a href="global.html#getActivityCategories">getActivityCategories</a></li><li><a href="global.html#getCollection">getCollection</a></li><li><a href="global.html#getObjectByName">getObjectByName</a></li><li><a href="global.html#getPagination">getPagination</a></li><li><a href="global.html#getProperty">getProperty</a></li><li><a href="global.html#getRelation">getRelation</a></li><li><a href="global.html#getRelations">getRelations</a></li><li><a href="global.html#getReverseRelations">getReverseRelations</a></li><li><a href="global.html#handleAddition">handleAddition</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#handleFlightsEdit">handleFlightsEdit</a></li><li><a href="global.html#handleFlightsPagination">handleFlightsPagination</a></li><li><a href="global.html#handleRemoval">handleRemoval</a></li><li><a href="global.html#handleSelectedEvent">handleSelectedEvent</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#initializeRelations">initializeRelations</a></li><li><a href="global.html#isDepartureTimeFiltered">isDepartureTimeFiltered</a></li><li><a href="global.html#onChange">onChange</a></li><li><a href="global.html#onRender">onRender</a></li><li><a href="global.html#onShow">onShow</a></li><li><a href="global.html#pageLeft">pageLeft</a></li><li><a href="global.html#pagePosition">pagePosition</a></li><li><a href="global.html#pageRight">pageRight</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#processQueue">processQueue</a></li><li><a href="global.html#queue">queue</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#resolveIdForItem">resolveIdForItem</a></li><li><a href="global.html#retroFitRelation">retroFitRelation</a></li><li><a href="global.html#sanitizeOptions">sanitizeOptions</a></li><li><a href="global.html#saveRoomOccupancy">saveRoomOccupancy</a></li><li><a href="global.html#setCollection">setCollection</a></li><li><a href="global.html#setFromSymphony">setFromSymphony</a></li><li><a href="global.html#setMulticomData">setMulticomData</a></li><li><a href="global.html#setProperty">setProperty</a></li><li><a href="global.html#setRelated">setRelated</a></li><li><a href="global.html#setStatus">setStatus</a></li><li><a href="global.html#setTripType">setTripType</a></li><li><a href="global.html#setupSuperModel">setupSuperModel</a></li><li><a href="global.html#toggleFlightsColumn">toggleFlightsColumn</a></li><li><a href="global.html#toJSON">toJSON</a></li><li><a href="global.html#toJSONExpanded">toJSONExpanded</a></li><li><a href="global.html#trigger">trigger</a></li><li><a href="global.html#tryAddRelated">tryAddRelated</a></li><li><a href="global.html#unregister">unregister</a></li><li><a href="global.html#unsanitizeOptions">unsanitizeOptions</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateRelations">updateRelations</a></li><li><a href="global.html#updateRooms">updateRooms</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.0</a> on Tue Feb 26 2013 22:22:40 GMT-0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+</body>
+</html>

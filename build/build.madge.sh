@@ -1,0 +1,1 @@
+madge public_html/workspace/js --image dependancies-graph.png --format amd --exclude '^backbone$|jquery$|underscore$|vent$|reqres$|boilerplate$|backbone-relational$|marionette$|jquery-ui$|config$|modernizr' --layout dot
