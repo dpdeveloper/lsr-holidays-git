@@ -12,12 +12,9 @@ define([
 	
 	"use strict";
 	
-	/**
-		@module Collection: MulticomFlightCollection
-		@exports: MulticomFlightCollection
-	*/
-	
-	var MulticomFlightCollection= Backbone.Collection.extend({
+	var MulticomFlightCollection= Backbone.Collection.extend(
+	/** @lends MulticomFlightCollection */
+	{
 		model: MulticomFlight,
 		
 		_root: config.root,
@@ -52,12 +49,16 @@ define([
 		],
 		
 		/**
-		 * initialize
-		 *
-		 * Setup the correct state & mode
-		 *
+			Constructor
+			
+			Sets the correct state & mode
+			
+			@class Collection to search, fetch and manipulate multicom flight results
+			@constructs
+			@param {Object} [options] Options Hash
 		*/
-		initialize : function() {
+		initialize : function(options) {
+			options = options || {};
 			_.bindAll();
 			this._status = this.STATES.INIT;
 			

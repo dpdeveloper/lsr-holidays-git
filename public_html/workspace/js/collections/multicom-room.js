@@ -11,15 +11,22 @@ define([
 	
 	"use strict";
 
-	/**
-		@module Collection: MulticomRoomCollection
-		@exports MulticomRoomCollection
-	*/
-
-	var MulticomRoomCollection= Backbone.Collection.extend({
-		
+	var MulticomRoomCollection= Backbone.Collection.extend(
+	/** @lends MulticomRoomCollection */
+	{
 		model: MulticomRoom,
 		
+		
+		/**
+			Constructor
+			
+			@class Collection manipulate Multicom Rooms
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
+		initialize: function(options){
+			options = options || {};	
+		},
 		
 		/**
 		 * buildPackageFromAccommodation

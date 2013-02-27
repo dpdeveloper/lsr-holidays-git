@@ -11,14 +11,22 @@ define([
 ], function($,_,Backbone,config,TravellersInfo){
 	"use strict";
 	
-	/**
-		@module Collection: TravellersInfo
-		@exports TravellersInfoCollection
-	*/
-	
-	var TravellersInfoCollection = Backbone.Collection.extend({
+	var TravellersInfoCollection = Backbone.Collection.extend(
+	/** @lends TravellersInfoCollection */
+	{
 		model: TravellersInfo,
-	
+		
+		/**
+			Constructor
+			
+			@class Collection to store and manipulate travellersInfo objects
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
+		initialize: function(options){
+			options = options || {};
+		},
+		
 		/**
 			Get the Lead Traveller.
 			Returns null if none found

@@ -10,29 +10,53 @@ define([
 	'underscore',
 	'backbone',
 	'marionette',
-	'router'
-], function($,_,Backbone,Marionette,Router){
+	'vent',
+	'router',
+	'views/page/header.view',
+	'views/page/footer.view'
+], function(
+	$,_,Backbone,Marionette,vent,
+	AppRouter,
+	HeaderView,
+	FooterView
+	){
 	"use strict";
 	
-	/**
-		The Backbone Marionette Application Object
-		
-		@module App
-		@exports App
-		@version 1.0
-	*/
+	/** @class */
+	var App = new Backbone.Marionette.Application(
+	{
+		index: function(){
+			
+			
+		}
+	});
 	
-	var App = new Marionette.Application();
-	
-	/*
-	App.addRegions({
-		main: '#main',
-	});*/
-	
-	
+	/* Init Page */
 	App.addInitializer(function(options){
-		this.router = Router;
-		this.router.setupPage();
+		App.addRegions({
+			header: '#header',
+			main: '#main',
+			footer: '#footer'
+		});
+		
+		//initialize header and footer
+		this.header.show(
+			new HeaderView()
+		);
+		this.footer.show(
+			new FooterView()
+		);
+		
+	});
+	
+	/* Init Router */
+	App.addInitializer(function(options){
+		this.router = new AppRouter({
+			controller: App
+		});
+		if( ! Backbone.History.started){
+			Backbone.history.start();
+		}
 	});
 	
 	return App;

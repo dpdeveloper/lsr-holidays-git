@@ -12,12 +12,20 @@ define([
 ], function($,_,Backbone,config,SymphonyAirline){
 	"use strict";
 	
-	/**
-		@module Collection: SymphonyAirlineCollection
-		@exports SymphonyAirlineCollection
-	*/
-	
-	var SymphonyAirlineCollection = Backbone.Collection.extend({
+	var SymphonyAirlineCollection = Backbone.Collection.extend(
+	/** @lends SymphonyAirlineCollection */
+	{
+		
+		/**
+			Constructor
+			
+			@class Collection manipulate Multicom Rooms
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
+		initialize: function(options){
+			options = options || {};
+		},
 	
 		model: SymphonyAirline,
 		url: config.root+'json/airlines',

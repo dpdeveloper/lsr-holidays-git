@@ -12,12 +12,9 @@ define([
 	
 	"use strict";
 	
-	/**
-		@module Collection: MulticomAccommodationCollection
-		@exports MulticomAccommodationCollection
-	*/
-	
-	var MulticomAccommodationCollection= Backbone.Collection.extend({
+	var MulticomAccommodationCollection= Backbone.Collection.extend(
+	/** @lends MulticomAccommodationCollection# */
+	{
 		model: MulticomAccommodation,
 		
 		_root: config.root,
@@ -54,12 +51,17 @@ define([
 		],
 		
 		/**
-		 * initialize
-		 *
-		 * Setup the correct state & mode
-		 *
+			Constructor
+			
+			Sets the correct state & mode
+			
+			@class Collection to search, fetch and manipulate multicom accommodation results
+			@constructs
+			@param {Object} [options] Options Hash
 		*/
-		initialize : function() {
+		initialize : function(options) {
+			options = options || {};
+			
 			_.bindAll();
 			this._status = this.STATES.INIT;
 			

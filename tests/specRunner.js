@@ -115,7 +115,13 @@ require([
 		'spec/collections/travellers-info.spec',
 		
 		/*
-		 * !VIEWS
+		 * ! PAGE VIEWS
+		*/
+		'spec/views/page/footer.view.spec',
+		'spec/views/page/header.view.spec',
+		
+		/*
+		 * ! SEARCH VIEWS
 		*/
 		'spec/views/search-ui/search-ui.controller.spec',
 		'spec/views/search-ui/search-ui.layout.spec',

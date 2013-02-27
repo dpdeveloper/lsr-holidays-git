@@ -14,12 +14,9 @@ define([
 ], function($,_,Backbone,Marionette,vent,config, SymphonyHotelModel){
 	"use strict";
 	
-	/**
-		@module Collection: SymphonyHotelCollection
-		@exports SymphonyHotelCollection
-	*/
-	
-	var SymphonyHotelCollection = Backbone.Collection.extend({
+	var SymphonyHotelCollection = Backbone.Collection.extend(
+	/** @lends SymphonyHotelCollection */
+	{
 		destination: '',
 		model: SymphonyHotelModel,
 		
@@ -27,7 +24,15 @@ define([
 		_mode: config.multicomMode,
 		
 		
-		initialize: function(){
+		/**
+			Constructor
+			
+			@class Collection to fetch and manipulate Symphony Hotel Objects
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
+		initialize: function(options){
+			options = options || {};
 			this._loading = false;
 			//_.bindAll(this);
 		},
