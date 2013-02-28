@@ -101,6 +101,7 @@ require([
 		'spec/models/holiday-search.spec',
 		'spec/models/travellers-info.spec',
 		'spec/models/booking.spec',
+		'spec/models/content/deal.spec',
 		
 		/*
 		 * !COLLECTIONS
@@ -114,11 +115,19 @@ require([
 		'spec/collections/symphony-hotel.spec',
 		'spec/collections/travellers-info.spec',
 		
+		'spec/collections/content/deal.spec',
+		
 		/*
 		 * ! PAGE VIEWS
 		*/
 		'spec/views/page/footer.view.spec',
 		'spec/views/page/header.view.spec',
+		
+		/*
+		 * ! HOME VIEWS
+		*/
+		'spec/views/home/deal.slideshow.item.view.spec',
+		'spec/views/home/deal.slideshow.view.spec',
 		
 		/*
 		 * ! SEARCH VIEWS
@@ -134,11 +143,7 @@ require([
 		'spec/views/search-ui/travellers/travellers.tac.view.spec',
 		'spec/views/search-ui/travellers/travellers.edit.layout.spec',
 		'spec/views/search-ui/travellers/travellers.edit.collection.view.spec',
-		'spec/views/search-ui/travellers/travellers.edit.item.view.spec',
-		
-		/*
-		 * CONTROLLERS
-		*/
+		'spec/views/search-ui/travellers/travellers.edit.item.view.spec'
 
 		
 	];

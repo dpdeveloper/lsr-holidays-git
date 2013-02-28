@@ -26,7 +26,9 @@ define([
 		initialize: function(options){
 
 		},
-
+		
+		tagName: 'div',
+		attributes: {'class':'page-header-view'},
 		template: Template
 	});
 	

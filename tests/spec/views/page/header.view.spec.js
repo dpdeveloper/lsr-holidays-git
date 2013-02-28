@@ -32,5 +32,9 @@ describe("Page HeaderView", function() {
 		it('Is Not Null', function(){
 			expect(this.view).not.toBeNull();
 		});
+		it('Can add to DOM', function(){
+			this.region.show(this.view);
+			expect(this.view.$el).toBeVisible();
+		});
 	});
 });

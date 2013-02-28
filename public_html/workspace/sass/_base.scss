@@ -15,7 +15,7 @@
 @import "compass/reset";
 @import "compass/utilities";
 @import "compass/typography";
-@import "blueprint";
+@import "bourbon";
 
 
 /*===========================================*/
@@ -24,7 +24,127 @@
 
 /*===========================================*/
 
+$colourWhite: #fff;
+
+$colourGreyBg: #E6E7E8;
+$colourBlueFg: #0095da;
+$colorDarkGreyFg: #373737;
+
+/*Legacy*/
 $yellow: #FBFF00;
 $purple: #8B1FAC;
 $grey-light: #ccc;
 $grey-dark: #444;
+
+
+@mixin gradientBgBlue(){
+	@include background-image(linear-gradient(#009FE1, #0084C7));
+}
+
+
+/*===========================================*/
+
+/* !UTILS*/
+
+/*===========================================*/
+
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom:1;
+}
+
+
+/*===========================================*/
+
+/* !BUTTONS*/
+
+/*===========================================*/
+
+span.btn-arrow{
+	width: 8px;
+	height: 12px;
+	display: block;
+	background: url(../images/main/sprite-button-arrow.png) no-repeat 0 0;
+}
+span.btn-arrow.left{float: left; margin: 1px 4px 0px 4px;}
+span.btn-arrow.right{float: right; margin: 1px 4px 0px 6px;}
+
+span.btn-arrow.white.right{background-position: 0px 0px;}
+span.btn-arrow.white.left{background-position: -13px 0px;}
+span.btn-arrow.black.right{background-position: -26px 0px;}
+span.btn-arrow.black.left{background-position: -39px 0px;}
+
+a:hover span.btn-arrow.white.right{background-position: -26px 0px;}
+a:hover span.btn-arrow.white.left{background-position: -39px 0px;}
+a:hover span.btn-arrow.black.right{background-position: 0px 0px;}
+a:hover span.btn-arrow.black.left{background-position: -13px 0px;}
+
+
+
+a.action-button, input[type="submit"]{
+	background: #8A22AB;
+	padding: 8px 8px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;	
+	border: none;
+	text-transform: uppercase;
+	text-shadow: none;
+	border-radius: 0px;
+	font-size: 14px; line-height: 14px;
+	font-weight: 400;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	letter-spacing: 0px;
+}
+	.action-button:hover,
+	input[type="submit"]:hover{
+		background: #FFF700;
+		color: #222;	
+	}
+	
+	a.action-button.yellow,
+	input[type="submit"].yellow{
+		color: #000;	
+		background: #FBFF00;
+	}
+	.action-button.yellow:hover,
+	input[type="submit"].yellow:hover{
+		color: #fff;
+		background: #109b10;
+	}
+	
+	a.action-button.action-back{}
+		a.action-button.action-back:hover{background: #c00; color: #fff;}
+	a.action-button.action-back:hover span.btn-arrow.left{
+		background-position: -13px 0px; 
+	}
+
+
+.submit-wrapper{
+	position: relative;
+	float: left;
+}
+.submit-wrapper.right{float: right;}
+
+	.submit-wrapper input[type="submit"].btn-arrow.right{
+		padding-right: 24px;
+	}
+	.submit-wrapper span.btn-arrow.right{
+		position: absolute;
+		right: 6px;
+		top: 10px;
+		float: none;
+	}
+	
+	.submit-wrapper:hover span.btn-arrow.right{
+		background-position: -26px 0px;
+	}
+

@@ -1,4 +1,3 @@
-
 /* collections/symphony-airline.js
  *
  * David Anderson 2013
@@ -19,7 +18,7 @@ define([
 		/**
 			Constructor
 			
-			@class Collection manipulate Multicom Rooms
+			@class Collection manipulate Symphony Airlines
 			@constructs
 			@param {Object} [options] Options Hash
 		*/

@@ -17,12 +17,9 @@
 /*===========================================*/
 
 html{
-	background-color: $grey-light;
-}
-body {
-	font: 14px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
-	background-color: $grey-light;
-	color: $grey-dark;
+	body {
+		font: 14px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
 }
 
 strong{
@@ -81,135 +78,169 @@ h1 a,h2 a,h3 a,h4 a{
 
 /*===========================================*/
 
-/* !APPLICATION / BACKGROUND / FOREGROUND */
+/* !APPLICATION */
 
 /*===========================================*/
+
+html, body{
+	background: $colourGreyBg;
+}
 
 #application{
+	
 	position: relative;
-	width: 100%;
-	/*overflow: hidden;*/
-}
-	.application-inner, .application-inner-old{
-		z-index: 0;
-		left: 0px;
-		top: 0px;
-		min-height: 300px;
-		background: #222;
-	}
 	
-	.application-left{
+	#header{}
+	#main{}
+	#footer{}
+}
+
+
+
+/*===========================================*/
+
+/* !HEADER */
+
+/*===========================================*/
+
+.page-header-view{
+	@include background-image(linear-gradient(#fff,#E5E5E5));
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
+	padding: 15px 40px;
+	margin: 20px 40px 0px;
+	
+	#header-logo{
 		float: left;
-		margin: 0 2% 0 0;
-		width: 18%;
+		background: url(../images/page/header-logo.png) no-repeat;
+		width: 191px;
+		height: 33px;
+		margin: 5px 0px 0px;
 	}
-	.application-middle{
+	.header-contact{
+		float: right;
+		width: 240px;
+		
+		.phone-logo{
+			background: url(../images/page/header-phone-logo.png) no-repeat 0 0;
+			height: 37px;
+			width: 37px;
+			float: left;
+		}
+		.contact-details{
+			float: left;
+			width: 193px;
+			padding-left: 10px;
+		
+			h2{
+				color: $colourBlueFg;
+				font-size: 20px; line-height: normal;	
+				margin: 0px;
+				padding: 0px;
+			}
+			p{
+				color: $colorDarkGreyFg;
+				font-size: 12px; line-height: normal;
+				margin: 0px;
+				padding: 0px;
+				font-weight: 700;
+			}
+		}
+		
+	}
+	
+}
+
+
+
+/*===========================================*/
+
+/* !FOOTER */
+
+/*===========================================*/
+
+.page-footer-view{
+	
+	@include gradientBgBlue;
+	padding: 15px 40px;
+	margin: 20px 40px;
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
+	
+	.menu{
 		float: left;
-		margin: 0px;
-		width: 700px;
-	}
-
-
-/*===========================================*/
-/*===========================================*/
-
-
-/* DESTINATION SEARCH */
-
-
-/*===========================================*/
-/*===========================================*/
-
-
-
-/*===========================================*/
-
-/* !BUTTONS*/
-
-/*===========================================*/
-
-span.btn-arrow{
-	width: 8px;
-	height: 12px;
-	display: block;
-	background: url(../images/main/sprite-button-arrow.png) no-repeat 0 0;
-}
-span.btn-arrow.left{float: left; margin: 1px 4px 0px 4px;}
-span.btn-arrow.right{float: right; margin: 1px 4px 0px 6px;}
-
-span.btn-arrow.white.right{background-position: 0px 0px;}
-span.btn-arrow.white.left{background-position: -13px 0px;}
-span.btn-arrow.black.right{background-position: -26px 0px;}
-span.btn-arrow.black.left{background-position: -39px 0px;}
-
-a:hover span.btn-arrow.white.right{background-position: -26px 0px;}
-a:hover span.btn-arrow.white.left{background-position: -39px 0px;}
-a:hover span.btn-arrow.black.right{background-position: 0px 0px;}
-a:hover span.btn-arrow.black.left{background-position: -13px 0px;}
-
-
-
-a.action-button, input[type="submit"]{
-	background: #8A22AB;
-	padding: 8px 8px;
-	text-align: center;
-	text-transform: uppercase;
-	color: #fff;	
-	border: none;
-	text-transform: uppercase;
-	text-shadow: none;
-	border-radius: 0px;
-	font-size: 14px; line-height: 14px;
-	font-weight: 400;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	letter-spacing: 0px;
-}
-	.action-button:hover,
-	input[type="submit"]:hover{
-		background: #FFF700;
-		color: #222;	
+		width: 40%;
+		ul.links{
+			li{
+				float: left;
+				margin: 0px 10px 0px 00px;
+				a{
+					color: $colourWhite;
+					font-size: 12px;
+					font-weight: 700;
+				}
+				a:hover{
+					text-decoration: underline;
+				}
+			}
+		}
+		.terms{
+			display: block;
+			color: $colourWhite;
+			font-size: 11px; line-height: normal;
+			padding: 4px 0px 0px;
+		}
 	}
 	
-	a.action-button.yellow,
-	input[type="submit"].yellow{
-		color: #000;	
-		background: #FBFF00;
-	}
-	.action-button.yellow:hover,
-	input[type="submit"].yellow:hover{
-		color: #fff;
-		background: #109b10;
+	//sprites
+	.atol,.cc,.pts,.verisign{background-repeat: no-repeat;background-image: url(../images/page/footer-logos.png);}
+	
+	
+	.trusted{
+		float: right;
+		width: 60%;
+		.trusted-inner{
+			float: right;
+			
+			div{
+				float: left;
+				margin-right: 8px;
+			}
+			
+			.cc{
+				background-position:-35px 0px;width:194px;height:31px;
+				margin-right: 20px;
+				margin-top: 6px;
+			}
+			
+			.msg{
+				width: 120px;
+				color: $colourWhite;
+				font-size: 17px; line-height: normal;
+				padding: 12px 0px 0px;
+				margin-right: 20px;	
+			}
+			
+			.atol{
+				background-position:0px 0px;width:33px;height:34px;
+				margin-top: 4px;	
+			}
+		
+			.pts{
+				background-position:-231px 0px;width:40px;height:42px;
+				margin-top: 2px;
+			}
+			.verisign{
+				background-position:-273px 0px;width:74px;height:41px;
+				margin-right: 0px;	
+			}
+		}
 	}
 	
-	a.action-button.action-back{}
-		a.action-button.action-back:hover{background: #c00; color: #fff;}
-	a.action-button.action-back:hover span.btn-arrow.left{
-		background-position: -13px 0px; 
-	}
-
-
-.submit-wrapper{
-	position: relative;
-	float: left;
 }
-.submit-wrapper.right{float: right;}
-
-	.submit-wrapper input[type="submit"].btn-arrow.right{
-		padding-right: 24px;
-	}
-	.submit-wrapper span.btn-arrow.right{
-		position: absolute;
-		right: 6px;
-		top: 10px;
-		float: none;
-	}
-	
-	.submit-wrapper:hover span.btn-arrow.right{
-		background-position: -26px 0px;
-	}
 
 
-
+/*===========================================*/
 
 /*===========================================*/
 
