@@ -28,7 +28,10 @@ $colourWhite: #fff;
 
 $colourGreyBg: #E6E7E8;
 $colourBlueFg: #0095da;
-$colorDarkGreyFg: #373737;
+$colourDarkGreyFg: #373737;
+$colourYellowFg: #fff200;
+
+$colourMidBlueBg: #006290;
 
 /*Legacy*/
 $yellow: #FBFF00;
@@ -39,6 +42,23 @@ $grey-dark: #444;
 
 @mixin gradientBgBlue(){
 	@include background-image(linear-gradient(#009FE1, #0084C7));
+}
+
+
+@mixin actionButton(){
+	@include background-image(linear-gradient(#FCFA00,#FFCA00));
+	color: #58595B; font-weight: 700;
+	text-align: center;
+	border-radius: 3px;
+	padding: 6px 15px;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+	border: 1px solid rgba(198,136,69,0.4);
+	
+	&:hover{
+		@include background-image(linear-gradient(#FFCA00,#FCFA00));	
+		box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+		color: #333;
+	}
 }
 
 

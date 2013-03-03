@@ -90,7 +90,11 @@ html, body{
 	
 	position: relative;
 	
-	#header{}
+	#header{
+		position: absolute;
+		z-index: 50;
+		width: 100%;
+	}
 	#main{}
 	#footer{}
 }
@@ -139,7 +143,7 @@ html, body{
 				padding: 0px;
 			}
 			p{
-				color: $colorDarkGreyFg;
+				color: $colourDarkGreyFg;
 				font-size: 12px; line-height: normal;
 				margin: 0px;
 				padding: 0px;
@@ -161,11 +165,8 @@ html, body{
 
 .page-footer-view{
 	
-	@include gradientBgBlue;
+	background: $colourMidBlueBg;
 	padding: 15px 40px;
-	margin: 20px 40px;
-	border-radius: 4px;
-	box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
 	
 	.menu{
 		float: left;
@@ -235,9 +236,123 @@ html, body{
 				margin-right: 0px;	
 			}
 		}
+	}	
+}
+
+/*===========================================*/
+
+/* !HOME LAYOUT */
+
+/*===========================================*/
+.home-layout{
+	.home-layout-deals{}
+	.home-layout-search{}
+	.home-layout-groups{}
+	.home-layout-about-us{}
+}
+
+
+/*===========================================*/
+
+/* !DEALS SLIDESHOW */
+
+/*===========================================*/
+.deal-slideshow-view{
+	position: relative;
+	
+	.slides{
+		position: relative;
+		height: 570px;
+		width: 100%;
+		
+		.deal-slideshow-item-view{
+			display: none;
+			position: absolute;
+		}
+	}
+
+	.slide-left, .slide-right{
+		position: absolute;
+		top: 300px;
+		z-index: 20;
+		display: block;
+		background-repeat: no-repeat;
+		background-image: url('../images/page/home-slides-arrows.png');
+		
+		&:hover{cursor: pointer;}
 	}
 	
+	.slide-left{
+		left: 10px;
+		background-position:-4px -78px;width:27px;height:37px;
+		&:hover{
+			background-position:-4px -115px;width:27px;height:37px;
+		}	
+	}
+	.slide-right{
+		right: 10px;
+		background-position:-4px -4px;width:26px;height:37px;
+		&:hover{
+			background-position:-4px -41px;width:26px;height:37px;	
+		}	
+	}
 }
+
+
+.deal-slideshow-item-view{
+	width: 100%;
+	top: 0;
+	
+	.item-bg{
+		background-repeat: none;
+		background-position: center center;
+		background-size: cover;
+		padding-top: 90px;
+		height: 480px;
+		
+		
+		
+		.item-fg{
+			width: 300px;
+			margin: 60px 0px 0px 10%;
+			text-align: right;
+			
+			p{
+				font-size: 32px; 
+				font-weight: 700;
+				color: $colourWhite;
+				margin: 0;
+				text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+				
+				strong{
+					font-size: 55px; line-height: 60px;
+					font-weight: 700;
+					color: $colourYellowFg;	
+				}
+				em{
+					font-size: 22px; 
+					line-height: 22px;	
+				}
+			}
+			
+			h2{
+				font-size: 80px; line-height: 75px;
+				font-weight: 700;
+				color: $colourYellowFg;
+				margin: 0;
+				text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+			}	
+			
+			a{
+				margin: 20px 0px 0px 160px;
+				display: block;
+				@include actionButton();
+			}		
+		}
+		
+	}
+}
+
 
 
 /*===========================================*/

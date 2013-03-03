@@ -27,7 +27,7 @@ define([
 		},
 	
 		model: ContentDeal,
-		url: config.root+'json/home/deals',
+		url: config.contentRoot+'json/home/deals',
 		
 		
 		/**
@@ -37,10 +37,10 @@ define([
 		*/
 		setTestMode: function(testMode){
 			if(testMode){
-				this.url = config.root+'json-test/content/deals.jsonp';
+				this.url = config.contentRoot+'json-test/content/deals.jsonp';
 			}
 			else{
-				this.url = config.root+'json/home/deals';
+				this.url = config.contentRoot+'json/home/deals';
 			}
 		},
 		

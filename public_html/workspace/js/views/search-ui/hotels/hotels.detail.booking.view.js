@@ -13,12 +13,21 @@ define([
 			){
 	"use strict";
 	
-	/**
-		@module ItemView: SearchUIHotelDetailSummaryView
-		@exports SearchUIHotelDetailSummaryView
-	*/
+	var SearchUIHotelDetailSummaryView = Backbone.Marionette.ItemView.extend(
+	/** @lends SearchUIHotelDetailSummaryView */
+	{
+		/**
+			Constructor
+			
+			@class View to show the Booking Summary View
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
+		initialize: function(options){
+			this._data.callUsMessage = this._lang.callUsMessage;
+		},
 	
-	var SearchUIHotelDetailSummaryView = Backbone.Marionette.ItemView.extend({
+	
 		template: SearchUIHotelBookingViewTemplate,
 		
 		tagName: 'div',
@@ -36,12 +45,7 @@ define([
 			callUsMessage: '<p>Or call us on <strong>01372 253 229</strong></p>'
 		},
 		
-		/**
-			@constructor
-		*/
-		initialize: function(options){
-			this._data.callUsMessage = this._lang.callUsMessage;
-		},
+		
 		
 		/**
 			SerializeData callback

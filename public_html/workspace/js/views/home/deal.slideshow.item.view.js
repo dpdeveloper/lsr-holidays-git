@@ -6,10 +6,12 @@
 
 define([
 	'jquery','underscore','backbone','marionette','vent',
-	'tpl!views/home/templates/deal.slideshow.item.view.tpl.html'
-	
+	'tpl!views/home/templates/deal.slideshow.item.view.tpl.html',
+	'helpers/view-helper',
+	'libs/string-helpers'
 ], function($,_,Backbone,Marionette,vent,
-			Template
+			Template,
+			viewHelper
 			){
 	"use strict";
 
@@ -24,11 +26,25 @@ define([
 			@param {Object} [options] Options Hash
 		*/
 		initialize: function(options){
-
+			options = options || {};
 		},
+		
 		tagName: 'div',
-		attributes: {'class':'deal-slideshow-view'},
-		template: Template
+		attributes: {'class':'deal-slideshow-item-view'},
+		template: Template,
+		templateHelpers: viewHelper,
+		
+		/**
+			Serialize the Data for the render
+		*/
+		serializeData: function(){
+			if('model' in this && this.model !== null){
+			
+				var obj = this.model.toJSON();
+				obj.backgroundImage = viewHelper.imageUrl(this.model.get('image'),1200,1200,'crop-fill');
+				return obj;
+			}
+		}
 	});
 	
 	return DealSlideshowItemView;

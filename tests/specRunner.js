@@ -90,6 +90,7 @@ require([
 	};
 	
 	var specs = [
+		'reqres',
 		
 		/*
 		 * !MODELS
@@ -102,6 +103,7 @@ require([
 		'spec/models/travellers-info.spec',
 		'spec/models/booking.spec',
 		'spec/models/content/deal.spec',
+		'spec/models/multiload.spec',
 		
 		/*
 		 * !COLLECTIONS
@@ -126,6 +128,7 @@ require([
 		/*
 		 * ! HOME VIEWS
 		*/
+		'spec/views/home/home.layout.spec',
 		'spec/views/home/deal.slideshow.item.view.spec',
 		'spec/views/home/deal.slideshow.view.spec',
 		
@@ -144,14 +147,20 @@ require([
 		'spec/views/search-ui/travellers/travellers.edit.layout.spec',
 		'spec/views/search-ui/travellers/travellers.edit.collection.view.spec',
 		'spec/views/search-ui/travellers/travellers.edit.item.view.spec'
-
-		
 	];
 	
 
 	
 	$(function(){
-		require(specs, function(){
+		require(specs, function(reqres){
+			
+			//override
+			reqres.addHandler('config:get',function(){
+				return {
+					contentUrl: $('base').attr('href').replace(window.location.protocol + "//" + window.location.hostname,"")
+				};
+			});
+		
 			jasmineEnv.execute();
 		});
 	});

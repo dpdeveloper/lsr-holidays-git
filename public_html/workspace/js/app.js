@@ -13,12 +13,14 @@ define([
 	'vent',
 	'router',
 	'views/page/header.view',
-	'views/page/footer.view'
+	'views/page/footer.view',
+	'views/home/home.layout'
 ], function(
 	$,_,Backbone,Marionette,vent,
 	AppRouter,
 	HeaderView,
-	FooterView
+	FooterView,
+	HomeLayout
 	){
 	"use strict";
 	
@@ -26,8 +28,7 @@ define([
 	var App = new Backbone.Marionette.Application(
 	{
 		index: function(){
-			
-			
+			this.main.show(new HomeLayout());
 		}
 	});
 	

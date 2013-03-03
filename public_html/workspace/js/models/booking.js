@@ -29,11 +29,9 @@ define([
 			){
 	"use strict";
 	
+	var Booking = Backbone.RelationalModel.extend(
 	/**
-		A Booking model
-		
-		@module Model: Booking
-		@exports Booking
+		@lends Booking
 		
 		@property status
 		@property entryId
@@ -41,11 +39,8 @@ define([
 		@property bookedDate
 		@property itinerary
 		@property itineraryCost
-		
 	*/
-	
-	
-	var Booking = Backbone.RelationalModel.extend({
+	{
 		
 		relations: [
 			{
@@ -95,10 +90,11 @@ define([
 		},
 		
 		/**
-		 * initialize
-		 *
-		 * @param {Object} options
-		 *
+			Constructor
+			
+			@class Booking Object
+			@constructs
+			@param {Object} [options] Options Hash
 		*/
 		initialize: function(options){
 			//set the date to today
@@ -113,10 +109,7 @@ define([
 		},
 		
 		/**
-		 * _setStatus
-		 *
-		 * @param state {string} from this.STATES
-		 *
+			@param state {string} from this.STATES
 		*/
 		_setStatus: function(state){
 			
@@ -153,7 +146,7 @@ define([
 		},
 		
 		/**
-		 * Returns the holidaySeaerch
+			Returns the holidaySeaerch
 		*/
 		getSearch: function(){
 			return this.get('holidaySearch');
@@ -161,8 +154,7 @@ define([
 		 
 		
 		/**
-		 * @param {SymphonyHotel}
-		 *
+			@param {SymphonyHotel} hotel
 		*/
 		setSelectedHotel: function(hotel){
 			this.set('selectedHotel',hotel);
@@ -171,9 +163,7 @@ define([
 		},
 		
 		/**
-		 *
-		 * @param {MulticomFlight}
-		 *
+			@param {MulticomFlight} flight
 		*/
 		setSelectedFlight: function(flight){
 			this.set('selectedFlight',flight);

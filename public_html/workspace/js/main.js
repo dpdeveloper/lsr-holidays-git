@@ -25,6 +25,7 @@ define(function(){
 				backbone: 'libs/backbone',
 				underscore: 'libs/underscore',
 				jquery: 'libs/jquery.min',
+				'jquery-ui': 'libs/jquery-ui',
 				marionette: 'libs/backbone.marionette',
 				'backbone-relational': 'libs/backbone-relational',
 				moment: 'libs/moment.min'
@@ -50,7 +51,7 @@ define(function(){
 				},
 		
 				'modernizr': {exports: 'Modernizr'},
-				'libs/jquery-ui': {deps: ['jquery']},
+				'jquery-ui': {deps: ['jquery']},
 				'libs/jquery.transit': {deps: ['jquery']},
 				'libs/jquery.colorbox-min': {deps: ['jquery']},
 				'libs/select2.min': {deps: ['jquery']}
@@ -59,17 +60,26 @@ define(function(){
 		});
 	
 		appRequire([
-			'app',
+			'reqres',
 			'modernizr'
-		], function(App){
+		], function(reqres ){
 			
 			//delegate animations to animate if no css support
 			if(!$.support.transition){
 				$.fn.transition = $.fn.animate;
 			}
 			
-			//Init the App
-			App.start();
+			//register a reqres callback
+			reqres.addHandler('config:get', function(){
+				return {
+					contentUrl: url
+				};
+			});
+			
+			appRequire(['app'], function(App){
+				//Init the App
+				App.start();
+			});
 		});
 	};
 	return app;

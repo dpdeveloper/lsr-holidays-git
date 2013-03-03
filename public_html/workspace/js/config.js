@@ -4,12 +4,16 @@
  *
 */
 define([
-	'jquery'
-],function ($) {
-	
-	var origin = window.location.protocol + "//" + window.location.hostname;
+	'jquery',
+	'reqres'
+],function ($, reqres) {
+	"use strict";
+
 	var config = {
-		root: $('base').attr('href').replace(origin,""),
+		root: $('base').attr('href').replace(window.location.protocol + "//" + window.location.hostname,""),
+		
+		contentRoot: reqres.request('config:get').contentUrl + '/',
+		
 		multicomMode: 'test' //'live' or 'test'
     };
     

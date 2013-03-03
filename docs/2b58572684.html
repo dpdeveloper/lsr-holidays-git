@@ -25,56 +25,56 @@
     
     <section>
         <article>
-            <pre class="prettyprint source"><code>/* mixins/navigation-controller.js
+            <pre class="prettyprint source"><code>/* helpers/view-helper.js
  *
  * David Anderson 2012
  *
 */
 
 define([
-	'jquery','underscore','backbone',
-	'config'
+	'jquery','underscore','backbone','config'
 ], function($,_,Backbone,config){
-
+	"use strict";
+	
+	
+	/** @class ViewHelper */
 	var viewHelper = {
 	
 	
 		/**
-		 * imageUrl
-		 *
-		 * @param image: An image object that should contain
-		 					image.path
-		 					image.filename
-		 					image.height
-		 					image.fit
-		 * @param width: The desired width of the resulting image
-		 * @param height: The desired height of the resulting image
-		 * @param mode: Supported: (full | crop-fill | fit) Unsupported ( resize | resize-canvas | image-fit)
-		 * @param external: If the image is from an external source
-		 *
-		 * Generates a jit image url for symphony JIT image resizing
-		 *
+			Generates a jit image url for symphony JIT image resizing
+			
+			@param image: An image object that should contain
+				image.path
+				image.filename
+				image.height
+				image.fit
+			@param width: The desired width of the resulting image
+			@param height: The desired height of the resulting image
+			@param mode: Supported: (full | crop-fill | fit) Unsupported ( resize | resize-canvas | image-fit)
+			@param external: If the image is from an external source
+			
 		*/
 		imageUrl: function(image, width, height, mode){
 			
-			if(mode==undefined || mode==null){
+			if(mode === undefined || mode === null){
 				mode = 'crop-fill';
 			}
-			var url= config['root'] + 'image/';
+			var url= config.contentRoot + 'image/';
 			
 			//external images
 			var external=0;
-			if(image.external==1){
+			if(image.external === 1){
 				external=1;
 				
 				//remove http from url if possible
 				image.filename = image.filename.replace('http://', '');
 					
 			}
-			if(mode=='crop-fill'){
+			if( mode === 'crop-fill'){
 				url = url + "2/"+width+"/"+height+"/5/"+external+image.path+"/"+image.filename;
 			}
-			else if(mode=='fit'){
+			else if( mode === 'fit'){
 				var srcHeight = image.height;
 				var srcWidth = image.width;
 				var destHeight = height;
@@ -93,7 +93,6 @@ define([
 				}
 				
 				url = url + "2/"+Math.round(srcWidth * sf)+"/"+Math.round(srcHeight * sf)+"/5/"+external+image.path+"/"+image.filename;
-				
 			}
 			else{
 				url = url + external+image.path+"/"+image.filename;
@@ -103,12 +102,10 @@ define([
 		},
 		
 		/**
-		 * stars
-		 * @param n = The number of 'active stars'
-		 * @param total = The total number of possible stars
-		 *
-		 * Function to render star ratings
-		 *
+			Function to render star ratings
+			
+			@param n = The number of 'active stars'
+			@param total = The total number of possible stars
 		*/
 		stars: function(n,total){
 			var output="";
@@ -118,36 +115,30 @@ define([
 					output=output + "&lt;span class='star'>&lt;/span>";
 				}
 				else{
-					output=output + "&lt;span class='star grey'>&lt;/span>";	
+					output=output + "&lt;span class='star grey'>&lt;/span>";
 				}
 			}
-			
 			return output;
 		},
 		
-		
-		
 		/**
-		 * flattenAndTruncate
-		 *
-		 * @param html = The html to be truncated
-		 * @param len = The length to truncate to
-		 *
-		 * Takes HTML, flattens out any tags and truncates to the specified length
-		 * 'word aware' so  will attempt to truncate to the nearest word
-		 *
+			Takes HTML, flattens out any tags and truncates to the specified length
+			'word aware' so  will attempt to truncate to the nearest word
+			
+			@param html = The html to be truncated
+			@param len = The length to truncate to
 		*/
 		flattenAndTruncate: function(html, len){
 			
-			str = $(html).contents().text();
+			var str = $(html).contents().text();
 			
 			if(str.length > len){
 				for(var i=len; i > 0; i++){
-					if(str.charAt(i)==' '){
+					if(str.charAt(i) === ' '){
 						break;
 					}
 				}
-				if(i==0){
+				if(i === 0){
 					str = str.substr(0, len);
 				}
 				else{
@@ -160,24 +151,21 @@ define([
 		
 		
 		/**
-		 * formatMulticomDate
-		 *
-		 * @param date
-		 *
-		 * Expects a date in the format YYYYMMDD
-		 * 
-		 * @return a date in the format dd/mm/yyyy
+			Expects a date in the format YYYYMMDD
+			
+			@param date
+			@return a date in the format dd/mm/yyyy
 		*/
 		formatMulticomDate: function(date){
 			var y = date.substring(0,4);
 			var m = date.substring(4,6);
 			var d = date.substring(6);
 			return d + "/" + m + "/" + y;
-		},
+		}
 		
 		
 	};
-	return viewHelper;	
+	return viewHelper;
 });</code></pre>
         </article>
     </section>
@@ -188,13 +176,13 @@ define([
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="283ad868a2.html">ItemView: SearchUIHotelDetailSummaryView</a></li><li><a href="ba2575d9e6.html">Model: Booking</a></li><li><a href="03653e765f.html">Model: HolidaySearch</a></li><li><a href="a998eeaa5f.html">Model: TravellersInfo</a></li></ul><h3>Classes</h3><ul><li><a href="ContentDeal.html">ContentDeal</a></li><li><a href="ContentDealCollection.html">ContentDealCollection</a></li><li><a href="DealSlideshowItemView.html">DealSlideshowItemView</a></li><li><a href="DealSlideShowView.html">DealSlideShowView</a></li><li><a href="FooterView.html">FooterView</a></li><li><a href="HeaderView.html">HeaderView</a></li><li><a href="7919174809.html">initialize</a></li><li><a href="MulticomAccommodationCollection.html">MulticomAccommodationCollection</a></li><li><a href="MulticomFlightCollection.html">MulticomFlightCollection</a></li><li><a href="MulticomRoomCollection.html">MulticomRoomCollection</a></li><li><a href="Router.html">Router</a></li><li><a href="SearchUIController.html">SearchUIController</a></li><li><a href="SearchUILayout.html">SearchUILayout</a></li><li><a href="SymphonyAirline.html">SymphonyAirline</a></li><li><a href="SymphonyAirlineCollection.html">SymphonyAirlineCollection</a></li><li><a href="SymphonyHotelCollection.html">SymphonyHotelCollection</a></li><li><a href="TravellersContactView.html">TravellersContactView</a></li><li><a href="TravellersEditCollectionView.html">TravellersEditCollectionView</a></li><li><a href="TravellersEditItemView.html">TravellersEditItemView</a></li><li><a href="TravellersEditLayout.html">TravellersEditLayout</a></li><li><a href="TravellersInfoCollection.html">TravellersInfoCollection</a></li><li><a href="TravellersLayout.html">TravellersLayout</a></li><li><a href="TravellersSummaryView.html">TravellersSummaryView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_isReverseRelation">_isReverseRelation</a></li><li><a href="global.html#_prepareCollection">_prepareCollection</a></li><li><a href="global.html#addReverseRelation">addReverseRelation</a></li><li><a href="global.html#addSubModels">addSubModels</a></li><li><a href="global.html#build">build</a></li><li><a href="global.html#buildFromMulticomHotel">buildFromMulticomHotel</a></li><li><a href="global.html#checkPreconditions">checkPreconditions</a></li><li><a href="global.html#fetchRelated">fetchRelated</a></li><li><a href="global.html#find">find</a></li><li><a href="global.html#findOrCreate">findOrCreate</a></li><li><a href="global.html#getActivitiesByCategory">getActivitiesByCategory</a></li><li><a href="global.html#getActivityCategories">getActivityCategories</a></li><li><a href="global.html#getCollection">getCollection</a></li><li><a href="global.html#getObjectByName">getObjectByName</a></li><li><a href="global.html#getPagination">getPagination</a></li><li><a href="global.html#getProperty">getProperty</a></li><li><a href="global.html#getRelation">getRelation</a></li><li><a href="global.html#getRelations">getRelations</a></li><li><a href="global.html#getReverseRelations">getReverseRelations</a></li><li><a href="global.html#handleAddition">handleAddition</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#handleFlightsEdit">handleFlightsEdit</a></li><li><a href="global.html#handleFlightsPagination">handleFlightsPagination</a></li><li><a href="global.html#handleRemoval">handleRemoval</a></li><li><a href="global.html#handleSelectedEvent">handleSelectedEvent</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#initializeRelations">initializeRelations</a></li><li><a href="global.html#isDepartureTimeFiltered">isDepartureTimeFiltered</a></li><li><a href="global.html#onChange">onChange</a></li><li><a href="global.html#onRender">onRender</a></li><li><a href="global.html#onShow">onShow</a></li><li><a href="global.html#pageLeft">pageLeft</a></li><li><a href="global.html#pagePosition">pagePosition</a></li><li><a href="global.html#pageRight">pageRight</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#processQueue">processQueue</a></li><li><a href="global.html#queue">queue</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#resolveIdForItem">resolveIdForItem</a></li><li><a href="global.html#retroFitRelation">retroFitRelation</a></li><li><a href="global.html#sanitizeOptions">sanitizeOptions</a></li><li><a href="global.html#saveRoomOccupancy">saveRoomOccupancy</a></li><li><a href="global.html#setCollection">setCollection</a></li><li><a href="global.html#setFromSymphony">setFromSymphony</a></li><li><a href="global.html#setMulticomData">setMulticomData</a></li><li><a href="global.html#setProperty">setProperty</a></li><li><a href="global.html#setRelated">setRelated</a></li><li><a href="global.html#setStatus">setStatus</a></li><li><a href="global.html#setTripType">setTripType</a></li><li><a href="global.html#setupSuperModel">setupSuperModel</a></li><li><a href="global.html#toggleFlightsColumn">toggleFlightsColumn</a></li><li><a href="global.html#toJSON">toJSON</a></li><li><a href="global.html#toJSONExpanded">toJSONExpanded</a></li><li><a href="global.html#trigger">trigger</a></li><li><a href="global.html#tryAddRelated">tryAddRelated</a></li><li><a href="global.html#unregister">unregister</a></li><li><a href="global.html#unsanitizeOptions">unsanitizeOptions</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateRelations">updateRelations</a></li><li><a href="global.html#updateRooms">updateRooms</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="03653e765f.html">Model: HolidaySearch</a></li><li><a href="a998eeaa5f.html">Model: TravellersInfo</a></li></ul><h3>Classes</h3><ul><li><a href="Booking.html">Booking</a></li><li><a href="ContentDeal.html">ContentDeal</a></li><li><a href="ContentDealCollection.html">ContentDealCollection</a></li><li><a href="DealSlideshowItemView.html">DealSlideshowItemView</a></li><li><a href="DealSlideShowView.html">DealSlideShowView</a></li><li><a href="FooterView.html">FooterView</a></li><li><a href="HeaderView.html">HeaderView</a></li><li><a href="HomeLayout.html">HomeLayout</a></li><li><a href="MulticomAccommodationCollection.html">MulticomAccommodationCollection</a></li><li><a href="MulticomFlightCollection.html">MulticomFlightCollection</a></li><li><a href="MulticomRoomCollection.html">MulticomRoomCollection</a></li><li><a href="Multiload.html">Multiload</a></li><li><a href="Router.html">Router</a></li><li><a href="SearchUIController.html">SearchUIController</a></li><li><a href="SearchUIHotelDetailSummaryView.html">SearchUIHotelDetailSummaryView</a></li><li><a href="SearchUILayout.html">SearchUILayout</a></li><li><a href="SymphonyAirline.html">SymphonyAirline</a></li><li><a href="SymphonyAirlineCollection.html">SymphonyAirlineCollection</a></li><li><a href="SymphonyHotelCollection.html">SymphonyHotelCollection</a></li><li><a href="TravellersContactView.html">TravellersContactView</a></li><li><a href="TravellersEditCollectionView.html">TravellersEditCollectionView</a></li><li><a href="TravellersEditItemView.html">TravellersEditItemView</a></li><li><a href="TravellersEditLayout.html">TravellersEditLayout</a></li><li><a href="TravellersInfoCollection.html">TravellersInfoCollection</a></li><li><a href="TravellersLayout.html">TravellersLayout</a></li><li><a href="TravellersSummaryView.html">TravellersSummaryView</a></li><li><a href="ViewHelper.html">ViewHelper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_isReverseRelation">_isReverseRelation</a></li><li><a href="global.html#_prepareCollection">_prepareCollection</a></li><li><a href="global.html#addReverseRelation">addReverseRelation</a></li><li><a href="global.html#addSubModels">addSubModels</a></li><li><a href="global.html#build">build</a></li><li><a href="global.html#buildFromMulticomHotel">buildFromMulticomHotel</a></li><li><a href="global.html#checkPreconditions">checkPreconditions</a></li><li><a href="global.html#fetchRelated">fetchRelated</a></li><li><a href="global.html#find">find</a></li><li><a href="global.html#findOrCreate">findOrCreate</a></li><li><a href="global.html#getActivitiesByCategory">getActivitiesByCategory</a></li><li><a href="global.html#getActivityCategories">getActivityCategories</a></li><li><a href="global.html#getCollection">getCollection</a></li><li><a href="global.html#getObjectByName">getObjectByName</a></li><li><a href="global.html#getPagination">getPagination</a></li><li><a href="global.html#getProperty">getProperty</a></li><li><a href="global.html#getRelation">getRelation</a></li><li><a href="global.html#getRelations">getRelations</a></li><li><a href="global.html#getReverseRelations">getReverseRelations</a></li><li><a href="global.html#handleAddition">handleAddition</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#handleFlightsEdit">handleFlightsEdit</a></li><li><a href="global.html#handleFlightsPagination">handleFlightsPagination</a></li><li><a href="global.html#handleRemoval">handleRemoval</a></li><li><a href="global.html#handleSelectedEvent">handleSelectedEvent</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#initializeRelations">initializeRelations</a></li><li><a href="global.html#isDepartureTimeFiltered">isDepartureTimeFiltered</a></li><li><a href="global.html#onChange">onChange</a></li><li><a href="global.html#onRender">onRender</a></li><li><a href="global.html#onShow">onShow</a></li><li><a href="global.html#pageLeft">pageLeft</a></li><li><a href="global.html#pagePosition">pagePosition</a></li><li><a href="global.html#pageRight">pageRight</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#processQueue">processQueue</a></li><li><a href="global.html#queue">queue</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#resolveIdForItem">resolveIdForItem</a></li><li><a href="global.html#retroFitRelation">retroFitRelation</a></li><li><a href="global.html#sanitizeOptions">sanitizeOptions</a></li><li><a href="global.html#saveRoomOccupancy">saveRoomOccupancy</a></li><li><a href="global.html#setCollection">setCollection</a></li><li><a href="global.html#setFromSymphony">setFromSymphony</a></li><li><a href="global.html#setMulticomData">setMulticomData</a></li><li><a href="global.html#setProperty">setProperty</a></li><li><a href="global.html#setRelated">setRelated</a></li><li><a href="global.html#setStatus">setStatus</a></li><li><a href="global.html#setTripType">setTripType</a></li><li><a href="global.html#setupSuperModel">setupSuperModel</a></li><li><a href="global.html#toggleFlightsColumn">toggleFlightsColumn</a></li><li><a href="global.html#toJSON">toJSON</a></li><li><a href="global.html#toJSONExpanded">toJSONExpanded</a></li><li><a href="global.html#trigger">trigger</a></li><li><a href="global.html#tryAddRelated">tryAddRelated</a></li><li><a href="global.html#unregister">unregister</a></li><li><a href="global.html#unsanitizeOptions">unsanitizeOptions</a></li><li><a href="global.html#update">update</a></li><li><a href="global.html#updateRelations">updateRelations</a></li><li><a href="global.html#updateRooms">updateRooms</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.0</a> on Thu Feb 28 2013 21:58:19 GMT-0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.0</a> on Sun Mar 03 2013 23:03:36 GMT-0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>
