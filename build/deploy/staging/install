@@ -17,7 +17,7 @@
 
 ###MAY NEED CHANGING
 
-#git submodule update --init
+git submodule update --init
 
 #copy the install directory
 cp -r build/lib/install/ public_html/install/
