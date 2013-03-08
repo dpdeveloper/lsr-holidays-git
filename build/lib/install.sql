@@ -503,6 +503,10 @@ INSERT INTO`tbl_entries_data_9` (`id`, `entry_id`, `relation_id`) VALUES (1, 3, 
 
 -- *** DATA:`tbl_ckeditor_link_templates` ***
 
+-- *** DATA:`tbl_ckeditor_presets` ***
+
+-- *** DATA:`tbl_dim_versions` ***
+
 -- *** DATA:`tbl_entries` ***
 INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (1, 1, 1, '2013-02-24 23:28:39', '2013-02-24 23:28:39', '2013-02-24 23:28:39', '2013-02-24 23:28:39');
 INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (2, 2, 1, '2013-02-25 07:50:27', '2013-02-25 07:50:27', '2013-02-25 07:50:27', '2013-02-25 07:50:27');
@@ -512,7 +516,7 @@ INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `cre
 INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (6, 4, 1, '2013-03-03 21:47:52', '2013-03-03 21:47:52', '2013-03-03 21:47:52', '2013-03-03 21:47:52');
 
 -- *** DATA:`tbl_extensions` ***
-INSERT INTO`tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (1, 'ckeditor', 'enabled', '1.3.3');
+INSERT INTO`tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (32, 'ckeditor', 'enabled', '1.3.3');
 INSERT INTO`tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (2, 'content_type_mappings', 'enabled', 1.5);
 INSERT INTO`tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (3, 'datetime', 'enabled', '3.0.6');
 INSERT INTO`tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (4, 'debugdevkit', 'enabled', '1.2.3');
@@ -545,10 +549,9 @@ INSERT INTO`tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (30, 'xml
 INSERT INTO`tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (31, 'xssfilter', 'enabled', '1.1.1');
 
 -- *** DATA:`tbl_extensions_delegates` ***
-INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (1, 1, '/backend/', 'ModifyTextareaFieldPublishWidget', 'applyCKEditor');
-INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (2, 1, '/backend/', 'ModifyTextBoxFullFieldPublishWidget', 'applyCKEditor');
-INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (3, 1, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPresets');
-INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (4, 1, '/system/preferences/', 'Save', 'savePresets');
+INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (67, 32, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPresets');
+INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (66, 32, '/backend/', 'ModifyTextBoxFullFieldPublishWidget', 'applyCKEditor');
+INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (65, 32, '/backend/', 'ModifyTextareaFieldPublishWidget', 'applyCKEditor');
 INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (5, 2, '/frontend/', 'FrontendPreRenderHeaders', 'setContentType');
 INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (6, 2, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'addCustomPreferenceFieldsets');
 INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (7, 2, '/system/preferences/', 'Save', 'save');
@@ -609,6 +612,7 @@ INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`,
 INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (62, 31, '/blueprints/events/new/', 'AppendEventFilter', 'appendEventFilter');
 INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (63, 31, '/blueprints/events/edit/', 'AppendEventFilter', 'appendEventFilter');
 INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (64, 31, '/frontend/', 'EventPreSaveFilter', 'eventPreSaveFilter');
+INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (68, 32, '/system/preferences/', 'Save', 'savePresets');
 
 -- *** DATA:`tbl_fields` ***
 INSERT INTO`tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (10, 'Overview View', 'overview-view', 'publish_tabs', 4, 'no', 0, 'main', 'no');

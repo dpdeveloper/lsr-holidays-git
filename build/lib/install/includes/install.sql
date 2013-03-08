@@ -44,6 +44,29 @@ CREATE TABLE`tbl_ckeditor_link_templates` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+-- *** STRUCTURE: `sym_ckeditor_presets` ***
+DROP TABLE IF EXISTS`tbl_ckeditor_presets`;
+CREATE TABLE`tbl_ckeditor_presets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `toolbar` text,
+  `plugins` text,
+  `resize` int(1) DEFAULT NULL,
+  `ouline` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- *** STRUCTURE: `sym_dim_versions` ***
+DROP TABLE IF EXISTS`tbl_dim_versions`;
+CREATE TABLE`tbl_dim_versions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `version` int(11) NOT NULL,
+  `state` varchar(100) NOT NULL,
+  `message` varchar(1024) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- *** STRUCTURE: `sym_entries` ***
 DROP TABLE IF EXISTS`tbl_entries`;
 CREATE TABLE`tbl_entries` (
