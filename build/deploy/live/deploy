@@ -1,0 +1,20 @@
+### live/deploy.sh
+#
+# To be run by a cron job
+#
+# - Checks if a deploy has been requested (by a file created)
+# - Deploys the site
+#
+# Credit to: http://theme.fm/2011/07/github-playground-servers-auto-pull-from-master-1113/
+# 
+# @author: David Anderson
+# @date: 08-03-2013
+#
+###
+
+if [ -f build/deploy/req/pull.deploy ]
+then
+	rm -f build/deploy/req/pull.deploy ]
+	echo 'Deploying'
+	sh build/deploy/live/update
+fi

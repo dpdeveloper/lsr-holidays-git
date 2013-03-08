@@ -1,0 +1,24 @@
+### live/update
+#
+# Used to update the repository on the  staging server
+#
+# INSTALL STEPS
+#
+# NB: SSH must be setup
+# 
+# @author: David Anderson
+# @date: 08-03-2013
+#
+###
+
+#Pull the latest and force a merge (incase tracked files have accumulated)
+git reset HEAD --hard
+
+git fetch origin
+git merge origin/live --quiet
+
+##Update Submodules
+git submodule update --init
+
+#install any updates via curl
+curl --request GET 'http://content.lsrholidays.com/extensions/database_integration_manager/server/index.php?email={}&auth-key={}'

@@ -1,1 +1,0 @@
-sudo sh build/jsdoc/jsdoc public_html/workspace/js -r -d docs

@@ -91,3 +91,6 @@
 [submodule "public_html/extensions/content_type_mappings"]
 	path = public_html/extensions/content_type_mappings
 	url = git@github.com:symphonists/content_type_mappings.git
+[submodule "public_html/extensions/database_integration_manager"]
+	path = public_html/extensions/database_integration_manager
+	url = git@github.com:davjand/database_integration_manager
