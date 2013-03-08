@@ -21,4 +21,4 @@ git merge origin/master --quiet
 git submodule update --init
 
 #install any updates via curl
-curl --request GET 'http://staging.content.lsrholidays.com/extensions/database_integration_manager/server/index.php?email={}&auth-key={}'
+curl --request GET 'http://content.staging.lsrholidays.com/extensions/database_integration_manager/server/index.php?email=dev@veodesign.co.uk&auth-key=628db314605afb80bdd23baa199efc85ad94a15c'

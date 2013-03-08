@@ -1,0 +1,15 @@
+# BOOT File
+# Can be dropped into an empty directory and run
+
+# SSH needs to be run and setup manually
+# mkdir ~/.ssh
+# /usr/bin/ssh-keygen -t rsa -C "dave@veodesign.co.uk"
+# 
+
+git init
+git remote add origin git@github.com:davjand/lsrholidays-content
+git pull origin master
+
+sh build/deploy/staging/install
+
+# sh build/deploy/live/install
