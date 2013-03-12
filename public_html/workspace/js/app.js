@@ -10,26 +10,42 @@ define([
 	'underscore',
 	'backbone',
 	'marionette',
-	'vent',
+	'vent','config',
 	'router',
 	'views/page/header.view',
 	'views/page/footer.view',
-	'views/home/home.layout'
+	'views/home/home.layout',
+	'views/search-ui/search-ui.layout'
 ], function(
-	$,_,Backbone,Marionette,vent,
+	$,_,Backbone,Marionette,vent,config,
 	AppRouter,
 	HeaderView,
 	FooterView,
-	HomeLayout
+	HomeLayout,
+	SearchUILayout
 	){
 	"use strict";
 	
 	/** @class */
 	var App = new Backbone.Marionette.Application(
 	{
+		//routes
+		
 		index: function(){
 			this.main.show(new HomeLayout());
+		},
+		
+		search: function(){
+			//this.main.show(new SearchUILayout());
+		},
+		
+		
+		//transitions
+		handleSearchTransition: function(search){
+			this.main.show(new SearchUILayout(search));
 		}
+		
+		
 	});
 	
 	/* Init Page */
@@ -47,7 +63,11 @@ define([
 		this.footer.show(
 			new FooterView()
 		);
-		
+	});
+	
+	/* Event Bindings */
+	App.addInitializer(function(options){
+		this.bindTo(vent,"page:search",this.handleSearchTransition,this);
 	});
 	
 	/* Init Router */
@@ -56,7 +76,7 @@ define([
 			controller: App
 		});
 		if( ! Backbone.History.started){
-			Backbone.history.start();
+			Backbone.history.start({pushState: true, root: config.root});
 		}
 	});
 	

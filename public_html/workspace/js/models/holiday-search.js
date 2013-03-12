@@ -7,8 +7,8 @@
 */
 
 define([
-	'jquery','underscore','backbone','backbone-relational'
-], function($,_,Backbone){
+	'jquery','underscore','backbone','backbone-relational','moment'
+], function($,_,Backbone, BackboneRelational, moment){
 	
 	"use strict";
 	
@@ -213,6 +213,27 @@ define([
 				children: this._countCsv(this.get('childCsv')),
 				infants: this._countCsv(this.get('infantCsv'))
 			};
+		},
+		
+		
+		/**
+			Sets the start date and number of nights from two dates
+			
+			@param {String} start dd/mm/yyy
+			@param {String} end dd/mm/yyyy
+		*/
+		setDatesFromStartFinish: function(start,end){
+			var format="DD/MM/YYYY";
+			
+			var s = moment(start,format);
+			var e = moment(end,format);
+		
+			var nights = (e.diff(s, 'days')).toString();
+			
+			this.set({
+				dateStart: start,
+				numNights: nights	
+			});
 		},
 		
 		/**

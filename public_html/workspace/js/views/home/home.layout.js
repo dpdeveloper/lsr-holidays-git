@@ -9,13 +9,15 @@ define([
 	'tpl!views/home/templates/home.layout.tpl.html',
 	'models/multiload',
 	'collections/content/deal',
-	'views/home/deal.slideshow.view'
+	'views/home/deal.slideshow.view',
+	'views/page/search.form.view'
 	
 ], function($,_,Backbone,Marionette,vent,
 			Template,
 			MultiLoad,
 			ContentDealCollection,
-			DealSlideshowView
+			DealSlideshowView,
+			SearchFormView
 			){
 	"use strict";
 
@@ -66,6 +68,10 @@ define([
 				self.deals.show(new DealSlideshowView({
 					collection: self.data.deals
 				}));
+				self.search.show(new SearchFormView());
+				
+				self.bindTo(self.search.currentView,"save",self.handleSearchEvent,this);
+				
 			});
 		},
 		
@@ -73,6 +79,11 @@ define([
 			return {
 				isReady: this.loader.get('isReady')
 			};
+		},
+		
+		handleSearchEvent: function(holidaySearch){
+			Backbone.history.navigate('/search');
+			vent.trigger("page:search",holidaySearch);	
 		}
 	});
 	

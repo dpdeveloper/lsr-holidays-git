@@ -4,18 +4,21 @@ require.config({
 	baseUrl: "../public_html/workspace/js/",
 	//urlArgs: 'cb=' + Math.random(),
 	paths: {
+		modernizr: 'libs/modernizr.min',
 		jquery: 'libs/jquery.min',
+		'jquery-ui': 'libs/jquery-ui',
 		underscore: 'libs/underscore',
 		backbone: 'libs/backbone',
 		marionette: 'libs/backbone.marionette',
 		'backbone-relational': 'libs/backbone-relational',
+		
 		jasmine: '../../../tests/lib/jasmine-1.3.1/jasmine',
 		'jasmine-jquery': '../../../tests/lib/jasmine-jquery',
 		'jasmine-html': '../../../tests/lib/jasmine-1.3.1/jasmine-html',
 		spec: '../../../tests/spec',
 		moment: 'libs/moment.min'
 	},
-	
+
 	shim: {
 		'jquery': {
 			exports: '$'
@@ -47,7 +50,8 @@ require.config({
 		},
 
 		'modernizr': {exports: 'Modernizr'},
-		'libs/jquery-ui': {deps: ['jquery']},
+		'jquery-ui': {deps: ['jquery']},
+		
 		'libs/jquery.transit': {deps: ['jquery']},
 		'libs/avgrund': {deps: ['jquery'],exports: 'Avgrund'},
 		'libs/reveal': {deps: ['jquery'],exports: 'Reveal'},
@@ -66,14 +70,7 @@ require([
 	'backbone',
 	'marionette',
 	'jasmine-html',
-	'jasmine-jquery',
-	
-	'libs/respond.min',
-	'libs/string-helpers',
-	'libs/jquery-ui',
-	'libs/jquery.transit',
-	'libs/jquery.colorbox-min',
-	'libs/select2.min'
+	'jasmine-jquery'
 	], function(_, $, Backbone, Marionette, jasmine){
 	
 	"use strict";
@@ -124,6 +121,7 @@ require([
 		*/
 		'spec/views/page/footer.view.spec',
 		'spec/views/page/header.view.spec',
+		'spec/views/page/search.form.view.spec',
 		
 		/*
 		 * ! HOME VIEWS

@@ -171,8 +171,14 @@ describe("Holiday Search Model", function() {
 			
 			expect(t[9].type).toEqual('adult');
 			expect(t[9].room).toEqual(2);
-			
-
+		});
+	});
+	
+	describe('Date Parsing Functionality', function(){
+		it('setDateFromCheckInOut should set the number of nights from two dates', function(){
+			this.model.setDatesFromStartFinish('01/01/2012','10/01/2012');
+			expect(this.model.get('numNights')).toEqual('9');
+			expect(this.model.get('dateStart')).toEqual('01/01/2012');
 		});
 	});
 });

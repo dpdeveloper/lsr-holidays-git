@@ -83,20 +83,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /*===========================================*/
 /* !UTILS*/
 /*===========================================*/
-/* line 72, ../sass/_base.scss */
+/* line 73, ../sass/_base.scss */
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
 
-/* line 76, ../sass/_base.scss */
+/* line 77, ../sass/_base.scss */
 .clearfix:after {
   clear: both;
 }
 
 /* For IE 6/7 (trigger hasLayout) */
-/* line 80, ../sass/_base.scss */
+/* line 81, ../sass/_base.scss */
 .clearfix {
   zoom: 1;
 }
@@ -104,7 +104,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /*===========================================*/
 /* !BUTTONS*/
 /*===========================================*/
-/* line 91, ../sass/_base.scss */
+/* line 92, ../sass/_base.scss */
 span.btn-arrow {
   width: 8px;
   height: 12px;
@@ -112,59 +112,59 @@ span.btn-arrow {
   background: url(../images/main/sprite-button-arrow.png) no-repeat 0 0;
 }
 
-/* line 97, ../sass/_base.scss */
+/* line 98, ../sass/_base.scss */
 span.btn-arrow.left {
   float: left;
   margin: 1px 4px 0px 4px;
 }
 
-/* line 98, ../sass/_base.scss */
+/* line 99, ../sass/_base.scss */
 span.btn-arrow.right {
   float: right;
   margin: 1px 4px 0px 6px;
 }
 
-/* line 100, ../sass/_base.scss */
+/* line 101, ../sass/_base.scss */
 span.btn-arrow.white.right {
   background-position: 0px 0px;
 }
 
-/* line 101, ../sass/_base.scss */
+/* line 102, ../sass/_base.scss */
 span.btn-arrow.white.left {
   background-position: -13px 0px;
 }
 
-/* line 102, ../sass/_base.scss */
+/* line 103, ../sass/_base.scss */
 span.btn-arrow.black.right {
   background-position: -26px 0px;
 }
 
-/* line 103, ../sass/_base.scss */
+/* line 104, ../sass/_base.scss */
 span.btn-arrow.black.left {
   background-position: -39px 0px;
 }
 
-/* line 105, ../sass/_base.scss */
+/* line 106, ../sass/_base.scss */
 a:hover span.btn-arrow.white.right {
   background-position: -26px 0px;
 }
 
-/* line 106, ../sass/_base.scss */
+/* line 107, ../sass/_base.scss */
 a:hover span.btn-arrow.white.left {
   background-position: -39px 0px;
 }
 
-/* line 107, ../sass/_base.scss */
+/* line 108, ../sass/_base.scss */
 a:hover span.btn-arrow.black.right {
   background-position: 0px 0px;
 }
 
-/* line 108, ../sass/_base.scss */
+/* line 109, ../sass/_base.scss */
 a:hover span.btn-arrow.black.left {
   background-position: -13px 0px;
 }
 
-/* line 112, ../sass/_base.scss */
+/* line 113, ../sass/_base.scss */
 a.action-button, input[type="submit"] {
   background: #8A22AB;
   padding: 8px 8px;
@@ -182,55 +182,55 @@ a.action-button, input[type="submit"] {
   letter-spacing: 0px;
 }
 
-/* line 128, ../sass/_base.scss */
+/* line 129, ../sass/_base.scss */
 .action-button:hover,
 input[type="submit"]:hover {
   background: #FFF700;
   color: #222;
 }
 
-/* line 134, ../sass/_base.scss */
+/* line 135, ../sass/_base.scss */
 a.action-button.yellow,
 input[type="submit"].yellow {
   color: #000;
   background: #FBFF00;
 }
 
-/* line 139, ../sass/_base.scss */
+/* line 140, ../sass/_base.scss */
 .action-button.yellow:hover,
 input[type="submit"].yellow:hover {
   color: #fff;
   background: #109b10;
 }
 
-/* line 145, ../sass/_base.scss */
+/* line 146, ../sass/_base.scss */
 a.action-button.action-back:hover {
   background: #c00;
   color: #fff;
 }
 
-/* line 146, ../sass/_base.scss */
+/* line 147, ../sass/_base.scss */
 a.action-button.action-back:hover span.btn-arrow.left {
   background-position: -13px 0px;
 }
 
-/* line 151, ../sass/_base.scss */
+/* line 152, ../sass/_base.scss */
 .submit-wrapper {
   position: relative;
   float: left;
 }
 
-/* line 155, ../sass/_base.scss */
+/* line 156, ../sass/_base.scss */
 .submit-wrapper.right {
   float: right;
 }
 
-/* line 157, ../sass/_base.scss */
+/* line 158, ../sass/_base.scss */
 .submit-wrapper input[type="submit"].btn-arrow.right {
   padding-right: 24px;
 }
 
-/* line 160, ../sass/_base.scss */
+/* line 161, ../sass/_base.scss */
 .submit-wrapper span.btn-arrow.right {
   position: absolute;
   right: 6px;
@@ -238,7 +238,7 @@ a.action-button.action-back:hover span.btn-arrow.left {
   float: none;
 }
 
-/* line 167, ../sass/_base.scss */
+/* line 168, ../sass/_base.scss */
 .submit-wrapper:hover span.btn-arrow.right {
   background-position: -26px 0px;
 }
@@ -1464,7 +1464,7 @@ body .ui-tooltip {
 /* line 231, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-widget-content {
   border: 1px solid black;
-  background: #111111 url(images/ui-bg_gloss-wave_20_111111_500x100.png) 50% top repeat-x;
+  background: #111111 url(../sass/plugins/jqueryui/images/ui-bg_gloss-wave_20_111111_500x100.png) 50% top repeat-x;
   color: #d9d9d9;
   box-shadow: 0px 3px 10px black;
 }
@@ -1477,7 +1477,7 @@ body .ui-tooltip {
 /* line 234, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-widget-header {
   border: 1px solid #0b3e6f;
-  background: #0b3e6f url(images/ui-bg_diagonals-thick_15_0b3e6f_40x40.png) 50% 50% repeat;
+  background: #0b3e6f url(../sass/plugins/jqueryui/images/ui-bg_diagonals-thick_15_0b3e6f_40x40.png) 50% 50% repeat;
   color: #f6f6f6;
   font-weight: bold;
 }
@@ -1492,7 +1492,7 @@ body .ui-tooltip {
 /* line 239, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
   border: 1px solid #333333;
-  background: #333333 url(images/ui-bg_dots-small_20_333333_2x2.png) 50% 50% repeat;
+  background: #333333 url(../sass/plugins/jqueryui/images/ui-bg_dots-small_20_333333_2x2.png) 50% 50% repeat;
   font-weight: bold;
   color: #ffffff;
 }
@@ -1506,7 +1506,7 @@ body .ui-tooltip {
 /* line 241, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
   border: 1px solid #222222;
-  background: #00498f url(images/ui-bg_dots-small_40_00498f_2x2.png) 50% 50% repeat;
+  background: #00498f url(../sass/plugins/jqueryui/images/ui-bg_dots-small_40_00498f_2x2.png) 50% 50% repeat;
   font-weight: bold;
   color: #ffffff;
 }
@@ -1520,7 +1520,7 @@ body .ui-tooltip {
 /* line 243, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
   border: 1px solid #096ac8;
-  background: #292929 url(images/ui-bg_flat_40_292929_40x100.png) 50% 50% repeat-x;
+  background: #292929 url(../sass/plugins/jqueryui/images/ui-bg_flat_40_292929_40x100.png) 50% 50% repeat-x;
   font-weight: bold;
   color: #75abff;
 }
@@ -1536,7 +1536,7 @@ body .ui-tooltip {
 /* line 248, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
   border: 1px solid #052f57;
-  background: #0b58a2 url(images/ui-bg_dots-medium_30_0b58a2_4x4.png) 50% 50% repeat;
+  background: #0b58a2 url(../sass/plugins/jqueryui/images/ui-bg_dots-medium_30_0b58a2_4x4.png) 50% 50% repeat;
   color: #ffffff;
 }
 
@@ -1548,7 +1548,7 @@ body .ui-tooltip {
 /* line 250, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
   border: 1px solid #cd0a0a;
-  background: #a32d00 url(images/ui-bg_dots-small_30_a32d00_2x2.png) 50% 50% repeat;
+  background: #a32d00 url(../sass/plugins/jqueryui/images/ui-bg_dots-small_30_a32d00_2x2.png) 50% 50% repeat;
   color: #ffffff;
 }
 
@@ -1588,42 +1588,42 @@ body .ui-tooltip {
 .ui-icon {
   width: 16px;
   height: 16px;
-  background-image: url(images/ui-icons_9ccdfc_256x240.png);
+  background-image: url(../sass/plugins/jqueryui/images/ui-icons_9ccdfc_256x240.png);
 }
 
 /* line 262, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-widget-content .ui-icon {
-  background-image: url(images/ui-icons_9ccdfc_256x240.png);
+  background-image: url(../sass/plugins/jqueryui/images/ui-icons_9ccdfc_256x240.png);
 }
 
 /* line 263, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-widget-header .ui-icon {
-  background-image: url(images/ui-icons_98d2fb_256x240.png);
+  background-image: url(../sass/plugins/jqueryui/images/ui-icons_98d2fb_256x240.png);
 }
 
 /* line 264, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-default .ui-icon {
-  background-image: url(images/ui-icons_9ccdfc_256x240.png);
+  background-image: url(../sass/plugins/jqueryui/images/ui-icons_9ccdfc_256x240.png);
 }
 
 /* line 265, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
-  background-image: url(images/ui-icons_ffffff_256x240.png);
+  background-image: url(../sass/plugins/jqueryui/images/ui-icons_ffffff_256x240.png);
 }
 
 /* line 266, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-active .ui-icon {
-  background-image: url(images/ui-icons_00498f_256x240.png);
+  background-image: url(../sass/plugins/jqueryui/images/ui-icons_00498f_256x240.png);
 }
 
 /* line 267, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-highlight .ui-icon {
-  background-image: url(images/ui-icons_ffffff_256x240.png);
+  background-image: url(../sass/plugins/jqueryui/images/ui-icons_ffffff_256x240.png);
 }
 
 /* line 268, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
-  background-image: url(images/ui-icons_ffffff_256x240.png);
+  background-image: url(../sass/plugins/jqueryui/images/ui-icons_ffffff_256x240.png);
 }
 
 /* positioning */
@@ -2536,7 +2536,7 @@ body .ui-tooltip {
 /* Overlays */
 /* line 458, ../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-widget-overlay {
-  background: #aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+  background: #aaaaaa url(../sass/plugins/jqueryui/images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
   opacity: .3;
   filter: Alpha(Opacity=30);
 }
@@ -2545,7 +2545,7 @@ body .ui-tooltip {
 .ui-widget-shadow {
   margin: -8px 0 0 -8px;
   padding: 8px;
-  background: #aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+  background: #aaaaaa url(../sass/plugins/jqueryui/images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
   opacity: .3;
   filter: Alpha(Opacity=30);
   -moz-border-radius: 8px;
@@ -2653,7 +2653,7 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
   width: 12px;
   height: 12px;
   font-size: 1px;
-  background: url("select2.png") right top no-repeat;
+  background: url("../sass/plugins/select2/select2.png") right top no-repeat;
   cursor: pointer;
   text-decoration: none;
   border: 0;
@@ -2727,7 +2727,7 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
 
 /* line 159, ../sass/plugins/select2/_select2.scss */
 .select2-container .select2-choice div b {
-  background: url("select2.png") no-repeat 0 1px;
+  background: url("../sass/plugins/select2/select2.png") no-repeat 0 1px;
   display: block;
   width: 100%;
   height: 100%;
@@ -2754,13 +2754,13 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
 
 /* line 183, ../sass/plugins/select2/_select2.scss */
 .select2-search input {
-  background: white url("select2.png") no-repeat 100% -22px;
-  background: url("select2.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-  background: url("select2.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: url("select2.png") no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: url("select2.png") no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-  background: url("select2.png") no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
-  background: url("select2.png") no-repeat 100% -22px, linear, top, white 85%, #eeeeee 99%;
+  background: white url("../sass/plugins/select2/select2.png") no-repeat 100% -22px;
+  background: url("../sass/plugins/select2/select2.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url("../sass/plugins/select2/select2.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("../sass/plugins/select2/select2.png") no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("../sass/plugins/select2/select2.png") no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+  background: url("../sass/plugins/select2/select2.png") no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
+  background: url("../sass/plugins/select2/select2.png") no-repeat 100% -22px, linear, top, white 85%, #eeeeee 99%;
   padding: 4px 20px 4px 5px;
   outline: 0;
   border: 1px solid #aaaaaa;
@@ -2785,13 +2785,13 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
 
 /* line 213, ../sass/plugins/select2/_select2.scss */
 .select2-search input.select2-active {
-  background: white url("spinner.gif") no-repeat 100%;
-  background: url("spinner.gif") no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-  background: url("spinner.gif") no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: url("spinner.gif") no-repeat 100%, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: url("spinner.gif") no-repeat 100%, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-  background: url("spinner.gif") no-repeat 100%, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
-  background: url("spinner.gif") no-repeat 100%, linear, top, white 85%, #eeeeee 99%;
+  background: white url("../sass/plugins/select2/spinner.gif") no-repeat 100%;
+  background: url("../sass/plugins/select2/spinner.gif") no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url("../sass/plugins/select2/spinner.gif") no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("../sass/plugins/select2/spinner.gif") no-repeat 100%, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("../sass/plugins/select2/spinner.gif") no-repeat 100%, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+  background: url("../sass/plugins/select2/spinner.gif") no-repeat 100%, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
+  background: url("../sass/plugins/select2/spinner.gif") no-repeat 100%, linear, top, white 85%, #eeeeee 99%;
 }
 
 /* line 225, ../sass/plugins/select2/_select2.scss */
@@ -2955,7 +2955,7 @@ disabled look for already selected choices in the results dropdown
 
 /* line 338, ../sass/plugins/select2/_select2.scss */
 .select2-more-results.select2-active {
-  background: #f4f4f4 url("spinner.gif") no-repeat 100%;
+  background: #f4f4f4 url("../sass/plugins/select2/spinner.gif") no-repeat 100%;
 }
 
 /* line 342, ../sass/plugins/select2/_select2.scss */
@@ -3047,7 +3047,7 @@ disabled look for already selected choices in the results dropdown
 
 /* line 421, ../sass/plugins/select2/_select2.scss */
 .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-  background: white url("spinner.gif") no-repeat 100% !important;
+  background: white url("../sass/plugins/select2/spinner.gif") no-repeat 100% !important;
 }
 
 /* line 425, ../sass/plugins/select2/_select2.scss */
@@ -3102,7 +3102,7 @@ disabled look for already selected choices in the results dropdown
   width: 12px;
   height: 13px;
   font-size: 1px;
-  background: url("select2.png") right top no-repeat;
+  background: url("../sass/plugins/select2/select2.png") right top no-repeat;
   outline: none;
 }
 
@@ -3624,25 +3624,44 @@ html, body {
 /*===========================================*/
 /* !HOME LAYOUT */
 /*===========================================*/
+/* line 248, ../sass/screen.scss */
+.home-layout .home-layout-deals {
+  position: relative;
+  z-index: 20;
+}
+/* line 252, ../sass/screen.scss */
+.home-layout .home-layout-about-us {
+  float: left;
+  width: 70%;
+}
+/* line 256, ../sass/screen.scss */
+.home-layout .home-layout-search {
+  float: right;
+  width: 30%;
+  position: relative;
+  z-index: 50;
+  margin-top: -150px;
+}
+
 /*===========================================*/
 /* !DEALS SLIDESHOW */
 /*===========================================*/
-/* line 260, ../sass/screen.scss */
+/* line 273, ../sass/screen.scss */
 .deal-slideshow-view {
   position: relative;
 }
-/* line 263, ../sass/screen.scss */
+/* line 276, ../sass/screen.scss */
 .deal-slideshow-view .slides {
   position: relative;
-  height: 570px;
+  height: 500px;
   width: 100%;
 }
-/* line 268, ../sass/screen.scss */
+/* line 281, ../sass/screen.scss */
 .deal-slideshow-view .slides .deal-slideshow-item-view {
   display: none;
   position: absolute;
 }
-/* line 274, ../sass/screen.scss */
+/* line 287, ../sass/screen.scss */
 .deal-slideshow-view .slide-left, .deal-slideshow-view .slide-right {
   position: absolute;
   top: 300px;
@@ -3651,57 +3670,57 @@ html, body {
   background-repeat: no-repeat;
   background-image: url("../images/page/home-slides-arrows.png");
 }
-/* line 282, ../sass/screen.scss */
+/* line 295, ../sass/screen.scss */
 .deal-slideshow-view .slide-left:hover, .deal-slideshow-view .slide-right:hover {
   cursor: pointer;
 }
-/* line 285, ../sass/screen.scss */
+/* line 298, ../sass/screen.scss */
 .deal-slideshow-view .slide-left {
   left: 10px;
   background-position: -4px -78px;
   width: 27px;
   height: 37px;
 }
-/* line 288, ../sass/screen.scss */
+/* line 301, ../sass/screen.scss */
 .deal-slideshow-view .slide-left:hover {
   background-position: -4px -115px;
   width: 27px;
   height: 37px;
 }
-/* line 292, ../sass/screen.scss */
+/* line 305, ../sass/screen.scss */
 .deal-slideshow-view .slide-right {
   right: 10px;
   background-position: -4px -4px;
   width: 26px;
   height: 37px;
 }
-/* line 295, ../sass/screen.scss */
+/* line 308, ../sass/screen.scss */
 .deal-slideshow-view .slide-right:hover {
   background-position: -4px -41px;
   width: 26px;
   height: 37px;
 }
 
-/* line 302, ../sass/screen.scss */
+/* line 315, ../sass/screen.scss */
 .deal-slideshow-item-view {
   width: 100%;
   top: 0;
 }
-/* line 306, ../sass/screen.scss */
+/* line 319, ../sass/screen.scss */
 .deal-slideshow-item-view .item-bg {
   background-repeat: none;
   background-position: center center;
   background-size: cover;
   padding-top: 90px;
-  height: 480px;
+  height: 410px;
 }
-/* line 315, ../sass/screen.scss */
+/* line 328, ../sass/screen.scss */
 .deal-slideshow-item-view .item-bg .item-fg {
   width: 300px;
-  margin: 60px 0px 0px 10%;
+  margin: 50px 0px 0px 10%;
   text-align: right;
 }
-/* line 320, ../sass/screen.scss */
+/* line 333, ../sass/screen.scss */
 .deal-slideshow-item-view .item-bg .item-fg p {
   font-size: 32px;
   font-weight: 700;
@@ -3709,19 +3728,19 @@ html, body {
   margin: 0;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
 }
-/* line 327, ../sass/screen.scss */
+/* line 340, ../sass/screen.scss */
 .deal-slideshow-item-view .item-bg .item-fg p strong {
   font-size: 55px;
   line-height: 60px;
   font-weight: 700;
   color: #fff200;
 }
-/* line 332, ../sass/screen.scss */
+/* line 345, ../sass/screen.scss */
 .deal-slideshow-item-view .item-bg .item-fg p em {
   font-size: 22px;
   line-height: 22px;
 }
-/* line 338, ../sass/screen.scss */
+/* line 351, ../sass/screen.scss */
 .deal-slideshow-item-view .item-bg .item-fg h2 {
   font-size: 80px;
   line-height: 75px;
@@ -3730,7 +3749,7 @@ html, body {
   margin: 0;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
 }
-/* line 346, ../sass/screen.scss */
+/* line 359, ../sass/screen.scss */
 .deal-slideshow-item-view .item-bg .item-fg a {
   margin: 20px 0px 0px 160px;
   display: block;
@@ -3747,7 +3766,7 @@ html, body {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(198, 136, 69, 0.4);
 }
-/* line 57, ../sass/_base.scss */
+/* line 58, ../sass/_base.scss */
 .deal-slideshow-item-view .item-bg .item-fg a:hover {
   background-image: -webkit-linear-gradient(#ffca00, #fcfa00);
   background-image: -moz-linear-gradient(#ffca00, #fcfa00);
@@ -3762,185 +3781,187 @@ html, body {
 /*===========================================*/
 /* !SEARCH FORM */
 /*===========================================*/
-/* line 366, ../sass/screen.scss */
+/* line 379, ../sass/screen.scss */
 .destination-search {
-  width: 240px;
-  background: #8A22AB;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  background: #1d1d1e;
 }
-/* line 373, ../sass/screen.scss */
+/* line 384, ../sass/screen.scss */
 .destination-search form,
 .destination-search form input,
 .destination-search form select {
   margin: 0px;
 }
-/* line 374, ../sass/screen.scss */
+/* line 386, ../sass/screen.scss */
+.destination-search input {
+  color: #0095da;
+  font-weight: 700;
+  border-radius: 5px;
+  background: white;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  line-height: 13px;
+}
+/* line 395, ../sass/screen.scss */
 .destination-search label {
-  font-size: 11px;
-  line-height: 11px;
-  text-transform: uppercase;
-  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 700;
   padding-bottom: 2px;
-}
-/* line 381, ../sass/screen.scss */
-.destination-search .header {
-  padding: 15px 15px 0px 15px;
-  border-top-left-radius: 4px;
-}
-/* line 385, ../sass/screen.scss */
-.destination-search .header h2 {
-  margin: 0px;
-  padding: 0px 0px 6px;
-  border-bottom: 1px solid white;
-  text-transform: none;
-  font-size: 28px;
-  line-height: 1em;
-}
-/* line 393, ../sass/screen.scss */
-.destination-search .body {
-  padding: 15px 15px 15px 15px;
-}
-/* line 396, ../sass/screen.scss */
-.destination-search .body .row {
-  margin-bottom: 12px;
-}
-/* line 398, ../sass/screen.scss */
-.destination-search .body .body-full select {
-  width: 210px;
-}
-/* line 399, ../sass/screen.scss */
-.destination-search .body .body-full input {
-  width: 200px;
-  padding: 4px;
+  color: white;
 }
 /* line 402, ../sass/screen.scss */
+.destination-search .header {
+  padding: 25px 40px 0px 40px;
+}
+/* line 405, ../sass/screen.scss */
+.destination-search .header h2 {
+  margin: 0px;
+  font-size: 26px;
+  line-height: 1em;
+  font-weight: 700;
+  color: white;
+}
+/* line 413, ../sass/screen.scss */
+.destination-search .body {
+  padding: 20px 40px 25px 40px;
+  /* TRIP TYPE*/
+  /*ROOM LAYOUT */
+}
+/* line 416, ../sass/screen.scss */
+.destination-search .body .row {
+  margin-bottom: 16px;
+}
+/* line 418, ../sass/screen.scss */
+.destination-search .body .body-full select {
+  width: 100%;
+  padding: 0;
+}
+/* line 419, ../sass/screen.scss */
+.destination-search .body .body-full input {
+  width: 94%;
+  padding: 4px 3%;
+}
+/* line 423, ../sass/screen.scss */
+.destination-search .body .body-half .one, .destination-search .body .body-half .two {
+  float: left;
+  width: 47.5%;
+}
+/* line 426, ../sass/screen.scss */
+.destination-search .body .body-half .two {
+  margin-left: 5%;
+}
+/* line 428, ../sass/screen.scss */
+.destination-search .body .body-half input {
+  width: 90%;
+  padding: 8px 5% 6px;
+}
+/* line 432, ../sass/screen.scss */
 .destination-search .body ul.trip-type {
   margin: 0px;
   padding: 0px;
+  border: 1px solid #12181b;
+  border-radius: 3px;
 }
-/* line 405, ../sass/screen.scss */
+/* line 437, ../sass/screen.scss */
 .destination-search .body ul.trip-type li {
   float: left;
-  padding: 10px 0px;
-  margin: 0px;
+  width: 50%;
+  margin: 0;
+  padding: 0;
   cursor: pointer;
 }
-/* line 410, ../sass/screen.scss */
+/* line 443, ../sass/screen.scss */
 .destination-search .body ul.trip-type li span {
-  background: url(../images/main/holiday-types-sprite.png) no-repeat 0px 0px;
-  height: 30px;
+  padding: 10px;
+  text-align: center;
   display: block;
-  margin: 0 auto;
+  color: white;
+  font-size: 14px;
+  line-height: 1em;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  background: #005CA9;
+  border: 1px solid #005ca9;
 }
-/* line 417, ../sass/screen.scss */
-.destination-search .body ul.trip-type li:hover {
-  background: rgba(255, 255, 255, 0.3);
+/* line 455, ../sass/screen.scss */
+.destination-search .body ul.trip-type li:hover span, .destination-search .body ul.trip-type li.active span {
+  background-image: -webkit-linear-gradient(#29abff, #008ed2);
+  background-image: -moz-linear-gradient(#29abff, #008ed2);
+  background-image: -ms-linear-gradient(#29abff, #008ed2);
+  background-image: -o-linear-gradient(#29abff, #008ed2);
+  background-image: linear-gradient(#29abff, #008ed2);
+  text-shadow: none;
+  border: 1px solid #0064a2;
 }
-/* line 422, ../sass/screen.scss */
-.destination-search .body ul.trip-type li.hotel {
-  width: 50%;
-}
-/* line 424, ../sass/screen.scss */
-.destination-search .body ul.trip-type li.hotel span {
-  width: 40px;
-  background-position: -50px 0px;
-}
-/* line 429, ../sass/screen.scss */
-.destination-search .body ul.trip-type li.hotel.active {
-  background: #fbff00;
-}
-/* line 431, ../sass/screen.scss */
-.destination-search .body ul.trip-type li.hotel.active span {
-  background-position: -50px -40px;
-}
-/* line 436, ../sass/screen.scss */
-.destination-search .body ul.trip-type li.package {
-  width: 50%;
-}
-/* line 438, ../sass/screen.scss */
+/* line 461, ../sass/screen.scss */
 .destination-search .body ul.trip-type li.package span {
-  width: 90px;
-  background-position: -100px 0px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
-/* line 442, ../sass/screen.scss */
-.destination-search .body ul.trip-type li.package.active {
-  background: #fbff00;
+/* line 465, ../sass/screen.scss */
+.destination-search .body ul.trip-type li.hotel span {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-left: 1px solid #12181b;
 }
-/* line 444, ../sass/screen.scss */
-.destination-search .body ul.trip-type li.package.active span {
-  background-position: -100px -40px;
-}
-/* line 452, ../sass/screen.scss */
-.destination-search .body .body-left {
+/* line 475, ../sass/screen.scss */
+.destination-search .body .body-rooms .body-rooms-one, .destination-search .body .body-rooms .body-rooms-two {
   float: left;
-  width: 95px;
-  margin-right: 15px;
+  width: 30%;
 }
-/* line 457, ../sass/screen.scss */
-.destination-search .body .body-left select {
-  width: 95px;
+/* line 479, ../sass/screen.scss */
+.destination-search .body .body-rooms .body-rooms-two {
+  margin-left: 5%;
+  width: 65%;
 }
-/* line 460, ../sass/screen.scss */
-.destination-search .body .body-right {
-  float: left;
-  width: 95px;
+/* line 484, ../sass/screen.scss */
+.destination-search .body .body-rooms label {
+  display: block;
+  margin-bottom: 4px;
 }
-/* line 464, ../sass/screen.scss */
-.destination-search .body .body-right select {
-  width: 95px;
-}
-/* line 468, ../sass/screen.scss */
-.destination-search .room-row {
+/* line 492, ../sass/screen.scss */
+.destination-search .room-row.room-row-item {
   margin: 0px 0px 10px;
 }
-/* line 471, ../sass/screen.scss */
-.destination-search .room-row .one, .destination-search .room-row .two, .destination-search .room-row .three {
-  width: 60px;
-  margin-right: 15px;
-  float: left;
-}
-/* line 476, ../sass/screen.scss */
-.destination-search .room-row .three {
-  margin-right: 0px;
-}
-/* line 477, ../sass/screen.scss */
-.destination-search .room-row select {
-  width: 60px;
-}
-/* line 480, ../sass/screen.scss */
-.destination-search .room-row.room-header {
-  margin-bottom: 6px;
-}
-/* line 485, ../sass/screen.scss */
-.destination-search .submit-buttons {
-  padding: 10px 0px 5px;
-}
-/* line 486, ../sass/screen.scss */
-.destination-search .search-submit {
-  float: right;
-}
-/* line 487, ../sass/screen.scss */
-.destination-search .search-cancel {
-  float: left;
-}
-
-/* line 491, ../sass/screen.scss */
-#ds-browse-search .destination-search {
-  background: #272827;
-  border: 1px solid #19191d;
-  width: 240px;
-}
-
 /* line 496, ../sass/screen.scss */
-#ds-browse-search .destination-search .header h2 {
-  font-size: 22px;
-  line-height: 22px;
+.destination-search .room-row .one, .destination-search .room-row .two {
+  float: left;
+  width: 46.15%;
+}
+/* line 500, ../sass/screen.scss */
+.destination-search .room-row .two {
+  margin-left: 7.69%;
+}
+/* line 505, ../sass/screen.scss */
+.destination-search .submit-buttons .search-submit {
+  background-image: -webkit-linear-gradient(#fcfb00, #ffca00);
+  background-image: -moz-linear-gradient(#fcfb00, #ffca00);
+  background-image: -ms-linear-gradient(#fcfb00, #ffca00);
+  background-image: -o-linear-gradient(#fcfb00, #ffca00);
+  background-image: linear-gradient(#fcfb00, #ffca00);
+  border-radius: 6px;
+  color: #1d1d1e;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+}
+/* line 516, ../sass/screen.scss */
+.destination-search .submit-buttons .search-submit:hover {
+  background-image: -webkit-linear-gradient(#ffca00, #fcfb00);
+  background-image: -moz-linear-gradient(#ffca00, #fcfb00);
+  background-image: -ms-linear-gradient(#ffca00, #fcfb00);
+  background-image: -o-linear-gradient(#ffca00, #fcfb00);
+  background-image: linear-gradient(#ffca00, #fcfb00);
+  box-shadow: 1px 1px 12px 0px rgba(0, 0, 0, 0.6);
 }
 
 /*===========================================*/
 /* !SEARCH RESULTS */
 /*===========================================*/
-/* line 507, ../sass/screen.scss */
+/* line 532, ../sass/screen.scss */
 .star {
   background: url(../images/main/star-sprite.png) -19px 0px;
   height: 17px;
@@ -3950,7 +3971,7 @@ html, body {
   margin-right: 2px;
 }
 
-/* line 515, ../sass/screen.scss */
+/* line 540, ../sass/screen.scss */
 .star.grey {
   background-position: 0px 0px;
 }
@@ -3958,12 +3979,12 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI */
 /*===========================================*/
-/* line 526, ../sass/screen.scss */
+/* line 551, ../sass/screen.scss */
 #search-ui {
   background: #8b1fac;
 }
 
-/* line 530, ../sass/screen.scss */
+/* line 555, ../sass/screen.scss */
 #search-ui .ui-body {
   padding-top: 86px;
 }
@@ -3971,14 +3992,14 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI HEADER */
 /*===========================================*/
-/* line 547, ../sass/screen.scss */
+/* line 572, ../sass/screen.scss */
 #search-ui-header {
   background: #fff;
   position: fixed;
   z-index: 40;
   width: 100%;
 }
-/* line 552, ../sass/screen.scss */
+/* line 577, ../sass/screen.scss */
 #search-ui-header .header-top {
   background: #8B1FAC;
   height: 40px;
@@ -3988,12 +4009,12 @@ html, body {
   top: 0px;
   /*box-shadow: 0px 2px 5px rgba(0,0,0,0.4);*/
 }
-/* line 561, ../sass/screen.scss */
+/* line 586, ../sass/screen.scss */
 #search-ui-header .header-top .header-left {
   float: left;
   width: 30%;
 }
-/* line 565, ../sass/screen.scss */
+/* line 590, ../sass/screen.scss */
 #search-ui-header .header-top .header-left .header-logo {
   float: left;
   background: url(../images/main/indulge-by-lsr-compact.png) no-repeat center center;
@@ -4001,7 +4022,7 @@ html, body {
   height: 30px;
   margin: 5px 20px 0px 20px;
 }
-/* line 572, ../sass/screen.scss */
+/* line 597, ../sass/screen.scss */
 #search-ui-header .header-top .header-left .header-logo a {
   display: block;
   height: 30px;
@@ -4010,12 +4031,12 @@ html, body {
   cursor: pointer;
   z-index: 99;
 }
-/* line 582, ../sass/screen.scss */
+/* line 607, ../sass/screen.scss */
 #search-ui-header .header-top .header-right {
   float: right;
   width: 60%;
 }
-/* line 586, ../sass/screen.scss */
+/* line 611, ../sass/screen.scss */
 #search-ui-header .header-top .header-right .header-help a {
   background: #8B1FAC;
   display: block;
@@ -4027,34 +4048,34 @@ html, body {
   line-height: 14px;
   float: right;
 }
-/* line 596, ../sass/screen.scss */
+/* line 621, ../sass/screen.scss */
 #search-ui-header .header-top .header-right .header-help a strong {
   font-size: 16px;
   line-height: 16px;
 }
-/* line 601, ../sass/screen.scss */
+/* line 626, ../sass/screen.scss */
 #search-ui-header .header-top .header-right .header-help a:hover,
 #search-ui-header .header-top .header-right .header-help a:hover strong {
   color: #333;
   background-color: #fff;
 }
-/* line 609, ../sass/screen.scss */
+/* line 634, ../sass/screen.scss */
 #search-ui-header .header-bottom {
   padding: 10px 0px 0px;
 }
-/* line 613, ../sass/screen.scss */
+/* line 638, ../sass/screen.scss */
 #search-ui-header .header-bottom .header-status {
   float: left;
   width: 20%;
   margin: 0 0 0 2.5%;
 }
-/* line 618, ../sass/screen.scss */
+/* line 643, ../sass/screen.scss */
 #search-ui-header .header-bottom .header-progress {
   float: left;
   width: 55%;
   margin: 0 2.5% 0 2.5%;
 }
-/* line 622, ../sass/screen.scss */
+/* line 647, ../sass/screen.scss */
 #search-ui-header .header-bottom .header-form {
   float: left;
   width: 15%;
@@ -4064,7 +4085,7 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI HEADER STATUS */
 /*===========================================*/
-/* line 636, ../sass/screen.scss */
+/* line 661, ../sass/screen.scss */
 .search-ui-status .search-ui-status-inner {
   background: #fff;
   color: #aaa;
@@ -4073,16 +4094,16 @@ html, body {
   font-size: 12px;
   line-height: 12px;
 }
-/* line 643, ../sass/screen.scss */
+/* line 668, ../sass/screen.scss */
 .search-ui-status p {
   margin: 0px;
   padding: 0px 0px 5px;
 }
-/* line 647, ../sass/screen.scss */
+/* line 672, ../sass/screen.scss */
 .search-ui-status p.last {
   padding: 0px;
 }
-/* line 650, ../sass/screen.scss */
+/* line 675, ../sass/screen.scss */
 .search-ui-status strong {
   color: #aaa;
   font-weight: 700;
@@ -4091,17 +4112,17 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI HEADER PROGRESS */
 /*===========================================*/
-/* line 661, ../sass/screen.scss */
+/* line 686, ../sass/screen.scss */
 .search-ui-header-progress {
   background: #fff;
 }
-/* line 664, ../sass/screen.scss */
+/* line 689, ../sass/screen.scss */
 .search-ui-header-progress ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 669, ../sass/screen.scss */
+/* line 694, ../sass/screen.scss */
 .search-ui-header-progress ul li {
   float: left;
   width: 33%;
@@ -4114,7 +4135,7 @@ html, body {
   padding: 8px 0px 8px;
   margin: 0px;
 }
-/* line 680, ../sass/screen.scss */
+/* line 705, ../sass/screen.scss */
 .search-ui-header-progress ul li.active {
   background: #8b1fac;
   color: #fff;
@@ -4124,11 +4145,11 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI HEADER FORM */
 /*===========================================*/
-/* line 693, ../sass/screen.scss */
+/* line 718, ../sass/screen.scss */
 #search-ui-header-form {
   position: relative;
 }
-/* line 698, ../sass/screen.scss */
+/* line 723, ../sass/screen.scss */
 #search-ui-header-form .header-bar .edit {
   color: #000;
   color: rgba(0, 0, 0, 0.4);
@@ -4141,12 +4162,12 @@ html, body {
   text-transform: capitalize;
   padding: 8px;
 }
-/* line 709, ../sass/screen.scss */
+/* line 734, ../sass/screen.scss */
 #search-ui-header-form .header-bar .edit:hover,
 #search-ui-header-form .header-bar .edit.active {
   color: #000;
 }
-/* line 714, ../sass/screen.scss */
+/* line 739, ../sass/screen.scss */
 #search-ui-header-form .header-overlay {
   display: none;
   top: 36px;
@@ -4154,22 +4175,22 @@ html, body {
   right: 0px;
   z-index: 99;
 }
-/* line 721, ../sass/screen.scss */
+/* line 746, ../sass/screen.scss */
 #search-ui-header-form .header-overlay input, #search-ui-header-form .header-overlay select {
   margin: 0px;
 }
-/* line 724, ../sass/screen.scss */
+/* line 749, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols {
   background: #cccccc;
   color: #444;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.42);
 }
-/* line 729, ../sass/screen.scss */
+/* line 754, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three {
   width: 600px;
   padding: 10px;
 }
-/* line 734, ../sass/screen.scss */
+/* line 759, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .col {
   float: left;
   width: 180px;
@@ -4177,49 +4198,49 @@ html, body {
   padding: 0px 10px 0px 0px;
   border-right: 1px solid #cccccc;
 }
-/* line 740, ../sass/screen.scss */
+/* line 765, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .col input {
   width: 174px;
 }
-/* line 741, ../sass/screen.scss */
+/* line 766, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .col select {
   width: 174px;
 }
-/* line 743, ../sass/screen.scss */
+/* line 768, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .col.last {
   margin-right: 0px;
   border: none;
   padding-right: 0px;
 }
-/* line 749, ../sass/screen.scss */
+/* line 774, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .row {
   margin: 0px;
   padding: 0px 0px 6px;
 }
-/* line 755, ../sass/screen.scss */
+/* line 780, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .row.dates .row-left {
   float: left;
   width: 110px;
 }
-/* line 759, ../sass/screen.scss */
+/* line 784, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .row.dates .row-left input {
   width: 110px;
 }
-/* line 760, ../sass/screen.scss */
+/* line 785, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .row.dates .row-right {
   float: left;
   width: 55px;
   margin-left: 15px;
 }
-/* line 764, ../sass/screen.scss */
+/* line 789, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .row.dates .row-right select {
   width: 50px;
 }
-/* line 767, ../sass/screen.scss */
+/* line 792, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .room-row {
   margin: 0px 0px 10px;
 }
-/* line 772, ../sass/screen.scss */
+/* line 797, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .room-row .one,
 #search-ui-header-form .header-overlay .cols.three .room-row .two,
 #search-ui-header-form .header-overlay .cols.three .room-row .three {
@@ -4227,31 +4248,31 @@ html, body {
   margin-right: 5px;
   float: left;
 }
-/* line 778, ../sass/screen.scss */
+/* line 803, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .room-row .three {
   margin-right: 0px;
 }
-/* line 779, ../sass/screen.scss */
+/* line 804, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .cols.three .room-row select {
   width: 50px;
 }
-/* line 783, ../sass/screen.scss */
+/* line 808, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .actions {
   float: right;
 }
-/* line 786, ../sass/screen.scss */
+/* line 811, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .actions .action-next {
   float: right;
   text-decoration: none;
   cursor: pointer;
 }
-/* line 789, ../sass/screen.scss */
+/* line 814, ../sass/screen.scss */
 #search-ui-header-form .header-overlay .actions .action-back {
   float: left;
   text-decoration: none;
   cursor: pointer;
 }
-/* line 794, ../sass/screen.scss */
+/* line 819, ../sass/screen.scss */
 #search-ui-header-form .room-row.room-header {
   margin-bottom: 6px;
 }
@@ -4263,7 +4284,7 @@ html, body {
 /*===========================================*/
 /*===========================================*/
 /*===========================================*/
-/* line 812, ../sass/screen.scss */
+/* line 837, ../sass/screen.scss */
 .search-ui-loading {
   background: #8b1fac;
   /*background: linear-gradient(#a10cb4 0%, #a120a9 100%);;
@@ -4274,7 +4295,7 @@ html, body {
   position: relative;
 }
 
-/* line 821, ../sass/screen.scss */
+/* line 846, ../sass/screen.scss */
 .search-ui-loading .search-ui-loading-inner {
   position: absolute;
   text-align: center;
@@ -4294,7 +4315,7 @@ html, body {
 /*===========================================*/
 /*===========================================*/
 /*===========================================*/
-/* line 847, ../sass/screen.scss */
+/* line 872, ../sass/screen.scss */
 .search-ui-flights {
   background: #222;
   padding: 40px 0px 10px;
@@ -4303,18 +4324,18 @@ html, body {
   z-index: 20;
 }
 
-/* line 854, ../sass/screen.scss */
+/* line 879, ../sass/screen.scss */
 .search-ui-flights .flights-header {
   padding: 15px 20px 15px;
 }
 
-/* line 855, ../sass/screen.scss */
+/* line 880, ../sass/screen.scss */
 .search-ui-flights .flights-header .flights-title {
   float: left;
   width: 25%;
 }
 
-/* line 856, ../sass/screen.scss */
+/* line 881, ../sass/screen.scss */
 .search-ui-flights .flights-header .flights-title h2 {
   text-align: left;
   font-size: 28px;
@@ -4327,7 +4348,7 @@ html, body {
   font-weight: 700;
 }
 
-/* line 865, ../sass/screen.scss */
+/* line 890, ../sass/screen.scss */
 .search-ui-flights .flights-header .flights-title p {
   font-size: 14px;
   line-height: 14px;
@@ -4336,7 +4357,7 @@ html, body {
   color: #eee;
 }
 
-/* line 870, ../sass/screen.scss */
+/* line 895, ../sass/screen.scss */
 .search-ui-flights .flights-header .flights-filter {
   float: right;
   width: 75%;
@@ -4345,25 +4366,25 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI - FLIGHTS FILTER */
 /*===========================================*/
-/* line 881, ../sass/screen.scss */
+/* line 906, ../sass/screen.scss */
 .search-ui-flights-filter .flights-filter-inner {
   width: 820px;
   float: right;
 }
 
-/* line 885, ../sass/screen.scss */
+/* line 910, ../sass/screen.scss */
 .search-ui-flights-filter .filter-section {
   float: left;
   margin-right: 20px;
   width: 400px;
 }
 
-/* line 890, ../sass/screen.scss */
+/* line 915, ../sass/screen.scss */
 .search-ui-flights-filter .filter-section.last {
   margin-right: 0px;
 }
 
-/* line 893, ../sass/screen.scss */
+/* line 918, ../sass/screen.scss */
 .search-ui-flights-filter .filter-section h4 {
   color: #fff;
   text-transform: none;
@@ -4375,51 +4396,51 @@ html, body {
   font-weight: 700;
 }
 
-/* line 901, ../sass/screen.scss */
+/* line 926, ../sass/screen.scss */
 .search-ui-flights-filter .filter-section-inner {
   background: #fff;
   border-radius: 2px;
   padding: 6px 10px;
 }
 
-/* line 906, ../sass/screen.scss */
+/* line 931, ../sass/screen.scss */
 .search-ui-flights-filter .filter-item {
   float: left;
   margin-right: 10px;
 }
 
-/* line 910, ../sass/screen.scss */
+/* line 935, ../sass/screen.scss */
 .search-ui-flights-filter .filter-item.first {
   width: 180px;
 }
 
-/* line 913, ../sass/screen.scss */
+/* line 938, ../sass/screen.scss */
 .search-ui-flights-filter .filter-item.first select {
   width: 180px;
 }
 
-/* line 914, ../sass/screen.scss */
+/* line 939, ../sass/screen.scss */
 .search-ui-flights-filter .filter-item.second {
   width: 70px;
 }
 
-/* line 917, ../sass/screen.scss */
+/* line 942, ../sass/screen.scss */
 .search-ui-flights-filter .filter-item.second select {
   width: 70px;
 }
 
-/* line 918, ../sass/screen.scss */
+/* line 943, ../sass/screen.scss */
 .search-ui-flights-filter .filter-item.last {
   margin-right: 0px;
   width: 110px;
 }
 
-/* line 922, ../sass/screen.scss */
+/* line 947, ../sass/screen.scss */
 .search-ui-flights-filter .filter-item.last select {
   width: 110px;
 }
 
-/* line 923, ../sass/screen.scss */
+/* line 948, ../sass/screen.scss */
 .search-ui-flights-filter .filter-item label {
   color: #222;
   font-size: 11px;
@@ -4429,13 +4450,13 @@ html, body {
   font-weight: 700;
 }
 
-/* line 929, ../sass/screen.scss */
+/* line 954, ../sass/screen.scss */
 .search-ui-flights-filter .filter-item .select-outer {
   padding: 0px;
   margin: 6px 0px 0px 0px;
 }
 
-/* line 932, ../sass/screen.scss */
+/* line 957, ../sass/screen.scss */
 .search-ui-flights-filter .select2-container-multi .select2-choices .select2-search-choice {
   font-size: 12px;
 }
@@ -4443,13 +4464,13 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI - FLIGHTS BROWSE */
 /*===========================================*/
-/* line 942, ../sass/screen.scss */
+/* line 967, ../sass/screen.scss */
 .search-ui-flights-browse {
   margin: 0px 0px 0px;
   padding: 0px 0px 30px;
 }
 
-/* line 948, ../sass/screen.scss */
+/* line 973, ../sass/screen.scss */
 .search-ui-flights-browse .flights-browse-body .body-left,
 .search-ui-flights-browse .flights-browse-body .body-right {
   float: left;
@@ -4464,13 +4485,13 @@ html, body {
   cursor: pointer;
 }
 
-/* line 959, ../sass/screen.scss */
+/* line 984, ../sass/screen.scss */
 .search-ui-flights-browse .flights-browse-body .body-right {
   float: right;
   margin: 40px 20px 20px 20px;
 }
 
-/* line 964, ../sass/screen.scss */
+/* line 989, ../sass/screen.scss */
 .search-ui-flights-browse .flights-browse-body .body-left:hover,
 .search-ui-flights-browse .flights-browse-body .body-right:hover {
   background: #000;
@@ -4478,7 +4499,7 @@ html, body {
   color: #fff;
 }
 
-/* line 971, ../sass/screen.scss */
+/* line 996, ../sass/screen.scss */
 .search-ui-flights-browse .flights-browse-body .body-middle {
   float: left;
   position: relative;
@@ -4487,7 +4508,7 @@ html, body {
   overflow: hidden;
 }
 
-/* line 978, ../sass/screen.scss */
+/* line 1003, ../sass/screen.scss */
 .search-ui-flights-browse .flights-browse-body .body-middle .body-middle-inner {
   position: absolute;
   width: 5000px;
@@ -4498,7 +4519,7 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI - FLIGHTS BROWSE ITEM */
 /*===========================================*/
-/* line 989, ../sass/screen.scss */
+/* line 1014, ../sass/screen.scss */
 .search-ui-flights-browse-item {
   float: left;
   width: 260px;
@@ -4506,7 +4527,7 @@ html, body {
   cursor: pointer;
 }
 
-/* line 996, ../sass/screen.scss */
+/* line 1021, ../sass/screen.scss */
 .search-ui-flights-browse-item .flight-item-inner {
   background: #fff;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
@@ -4515,21 +4536,21 @@ html, body {
   color: #222;
 }
 
-/* line 1003, ../sass/screen.scss */
+/* line 1028, ../sass/screen.scss */
 .search-ui-flights-browse-item .flight-item-inner .flight-item {
   margin-bottom: 15px;
   padding: 0px 0px 15px;
   border-bottom: 1px solid #8b1fac;
 }
 
-/* line 1008, ../sass/screen.scss */
+/* line 1033, ../sass/screen.scss */
 .search-ui-flights-browse-item .flight-item-inner .flight-item.last {
   margin: 0px 0px 0px 0px;
   padding: 0px;
   border: none;
 }
 
-/* line 1012, ../sass/screen.scss */
+/* line 1037, ../sass/screen.scss */
 .search-ui-flights-browse-item .airline-logo {
   float: right;
   height: 30px;
@@ -4540,7 +4561,7 @@ html, body {
   font-weight: 700;
 }
 
-/* line 1020, ../sass/screen.scss */
+/* line 1045, ../sass/screen.scss */
 .search-ui-flights-browse-item .flight-item h2 {
   color: #8B1FAC;
   font-size: 14px;
@@ -4552,7 +4573,7 @@ html, body {
   letter-spacing: 0px;
 }
 
-/* line 1027, ../sass/screen.scss */
+/* line 1052, ../sass/screen.scss */
 .search-ui-flights-browse-item .flight-item p {
   padding: 10px 0px 0px;
   margin: 0px;
@@ -4561,12 +4582,12 @@ html, body {
   line-height: 13px;
 }
 
-/* line 1031, ../sass/screen.scss */
+/* line 1056, ../sass/screen.scss */
 .search-ui-flights-browse-item .flight-item p strong {
   color: #222;
 }
 
-/* line 1034, ../sass/screen.scss */
+/* line 1059, ../sass/screen.scss */
 .search-ui-flights-browse-item .price {
   float: left;
   width: 35%;
@@ -4576,13 +4597,13 @@ html, body {
   font-size: 16px;
 }
 
-/* line 1041, ../sass/screen.scss */
+/* line 1066, ../sass/screen.scss */
 .search-ui-flights-browse-item .actions {
   float: right;
   width: 65%;
 }
 
-/* line 1042, ../sass/screen.scss */
+/* line 1067, ../sass/screen.scss */
 .search-ui-flights-browse-item .actions a {
   float: right;
   margin-top: 10px;
@@ -4591,18 +4612,18 @@ html, body {
   padding: 4px;
 }
 
-/* line 1047, ../sass/screen.scss */
+/* line 1072, ../sass/screen.scss */
 .search-ui-flights-browse-item .actions .action-detail {
   margin-right: 8px;
 }
 
-/* line 1051, ../sass/screen.scss */
+/* line 1076, ../sass/screen.scss */
 .search-ui-flights-browse-item:hover {
   background: #FBFF00;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* line 1055, ../sass/screen.scss */
+/* line 1080, ../sass/screen.scss */
 .search-ui-flights-browse-item:hover .flight-item-inner {
   box-shadow: none;
 }
@@ -4614,12 +4635,12 @@ html, body {
 /*===========================================*/
 /*===========================================*/
 /*===========================================*/
-/* line 1071, ../sass/screen.scss */
+/* line 1096, ../sass/screen.scss */
 .search-ui-hotel-browse {
   background: #8b1fac;
   position: relative;
 }
-/* line 1077, ../sass/screen.scss */
+/* line 1102, ../sass/screen.scss */
 .search-ui-hotel-browse .hotel-browse-body .body-left,
 .search-ui-hotel-browse .hotel-browse-body .body-right {
   position: absolute;
@@ -4635,29 +4656,29 @@ html, body {
   cursor: pointer;
   border-radius: 3px;
 }
-/* line 1090, ../sass/screen.scss */
+/* line 1115, ../sass/screen.scss */
 .search-ui-hotel-browse .hotel-browse-body .body-left:hover,
 .search-ui-hotel-browse .hotel-browse-body .body-right:hover {
   background: #000;
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
 }
-/* line 1097, ../sass/screen.scss */
+/* line 1122, ../sass/screen.scss */
 .search-ui-hotel-browse .hotel-browse-body .body-left {
   left: 20px;
 }
-/* line 1098, ../sass/screen.scss */
+/* line 1123, ../sass/screen.scss */
 .search-ui-hotel-browse .hotel-browse-body .body-right {
   right: 20px;
 }
-/* line 1100, ../sass/screen.scss */
+/* line 1125, ../sass/screen.scss */
 .search-ui-hotel-browse .hotel-browse-body .body-middle {
   position: relative;
   height: 360px;
   margin: 0px 78px;
   overflow: hidden;
 }
-/* line 1107, ../sass/screen.scss */
+/* line 1132, ../sass/screen.scss */
 .search-ui-hotel-browse .hotel-browse-body .body-middle .body-middle-inner {
   position: absolute;
   width: 5000px;
@@ -4668,7 +4689,7 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI - HOTELS BROWSE ITEM */
 /*===========================================*/
-/* line 1123, ../sass/screen.scss */
+/* line 1148, ../sass/screen.scss */
 .search-ui-hotel-browse-item {
   float: left;
   width: 220px;
@@ -4677,29 +4698,29 @@ html, body {
   cursor: pointer;
 }
 
-/* line 1131, ../sass/screen.scss */
+/* line 1156, ../sass/screen.scss */
 .search-ui-hotel-browse-item .browse-item-inner {
   background: #fff;
   border-radius: 2px;
 }
 
-/* line 1136, ../sass/screen.scss */
+/* line 1161, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-top {
   min-height: 160px;
 }
 
-/* line 1139, ../sass/screen.scss */
+/* line 1164, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-top img {
   display: block;
 }
 
-/* line 1142, ../sass/screen.scss */
+/* line 1167, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-middle {
   padding: 10px;
   height: 100px;
 }
 
-/* line 1146, ../sass/screen.scss */
+/* line 1171, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-middle h2 {
   color: #8B1FAC;
   font-size: 14px;
@@ -4710,32 +4731,32 @@ html, body {
   margin: 0px;
 }
 
-/* line 1153, ../sass/screen.scss */
+/* line 1178, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-middle .description {
   font-size: 13px;
   line-height: 15px;
   color: #222;
 }
 
-/* line 1157, ../sass/screen.scss */
+/* line 1182, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-middle .description ul {
   list-style: outside url(../images/main/bullet-purple-small.png);
   padding: 0px;
   margin: 0px 0px 0px 16px;
 }
 
-/* line 1161, ../sass/screen.scss */
+/* line 1186, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-middle .description ul li {
   padding: 0px 0px 2px;
   margin: 0px;
 }
 
-/* line 1164, ../sass/screen.scss */
+/* line 1189, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-bottom {
   padding: 0px 10px 10px;
 }
 
-/* line 1165, ../sass/screen.scss */
+/* line 1190, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-bottom .price {
   float: left;
   color: #8B1FAC;
@@ -4745,17 +4766,17 @@ html, body {
   padding: 10px 0px 0px;
 }
 
-/* line 1172, ../sass/screen.scss */
+/* line 1197, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-bottom .actions {
   float: right;
 }
 
-/* line 1175, ../sass/screen.scss */
+/* line 1200, ../sass/screen.scss */
 .search-ui-hotel-browse-item .item-bottom .actions a.action-button {
   float: right;
 }
 
-/* line 1179, ../sass/screen.scss */
+/* line 1204, ../sass/screen.scss */
 .search-ui-hotel-browse-item:hover,
 .search-ui-hotel-browse-item.selected {
   background: #fff;
@@ -4763,7 +4784,7 @@ html, body {
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* line 1185, ../sass/screen.scss */
+/* line 1210, ../sass/screen.scss */
 .search-ui-hotel-browse-item:hover .browse-item-inner,
 .search-ui-hotel-browse-item.selected .browse-item-inner {
   box-shadow: none;
@@ -4772,52 +4793,52 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI - HOTELS DETAIL */
 /*===========================================*/
-/* line 1195, ../sass/screen.scss */
+/* line 1220, ../sass/screen.scss */
 .search-ui-hotels-detail-layout {
   background: #fff;
   margin: 0px 40px;
 }
 
-/* line 1199, ../sass/screen.scss */
+/* line 1224, ../sass/screen.scss */
 .search-ui-hotels-detail-layout .hotels-detail-layout-tabs {
   float: left;
   width: 75%;
 }
 
-/* line 1203, ../sass/screen.scss */
+/* line 1228, ../sass/screen.scss */
 .search-ui-hotels-detail-layout .hotels-detail-layout-sidebar {
   float: left;
   width: 25%;
 }
 
-/* line 1210, ../sass/screen.scss */
+/* line 1235, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-left {
   float: left;
   width: 200px;
   padding: 20px 20px;
 }
 
-/* line 1215, ../sass/screen.scss */
+/* line 1240, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-left .image {
   margin-bottom: 10px;
 }
 
-/* line 1218, ../sass/screen.scss */
+/* line 1243, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-left .image img {
   display: block;
 }
 
-/* line 1219, ../sass/screen.scss */
+/* line 1244, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-right {
   margin-left: 240px;
 }
 
-/* line 1222, ../sass/screen.scss */
+/* line 1247, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-top {
   padding: 30px;
 }
 
-/* line 1225, ../sass/screen.scss */
+/* line 1250, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-top h1 {
   font-size: 46px;
   line-height: 46px;
@@ -4828,20 +4849,20 @@ html, body {
   color: #8B1FAC;
 }
 
-/* line 1234, ../sass/screen.scss */
+/* line 1259, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-menu {
   float: left;
   width: 25%;
 }
 
-/* line 1238, ../sass/screen.scss */
+/* line 1263, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-menu ul {
   list-style: none;
   margin: 0px;
   padding: 50px 0px 0px 0px;
 }
 
-/* line 1242, ../sass/screen.scss */
+/* line 1267, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-menu ul li {
   float: right;
   width: 100%;
@@ -4849,7 +4870,7 @@ html, body {
   margin: 0px;
 }
 
-/* line 1248, ../sass/screen.scss */
+/* line 1273, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-menu ul li a {
   display: block;
   font-size: 20px;
@@ -4860,20 +4881,20 @@ html, body {
   margin: 0px;
 }
 
-/* line 1257, ../sass/screen.scss */
+/* line 1282, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-menu ul li a.active,
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-menu ul li a:hover {
   color: #fff;
   background: #8B1FAC;
 }
 
-/* line 1261, ../sass/screen.scss */
+/* line 1286, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-tabs {
   float: left;
   width: 75%;
 }
 
-/* line 1266, ../sass/screen.scss */
+/* line 1291, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-tabs .tab {
   color: #333;
   border-left: 1px solid #8b1fac;
@@ -4881,7 +4902,7 @@ html, body {
   padding: 10px 20px 20px;
 }
 
-/* line 1272, ../sass/screen.scss */
+/* line 1297, ../sass/screen.scss */
 .search-ui-hotels-detail-tabs .hotels-detail-tabs-tabs .tab h2 {
   color: #8B1FAC;
   text-transform: none;
@@ -4889,7 +4910,7 @@ html, body {
   padding: 0px 0px 16px;
 }
 
-/* line 1281, ../sass/screen.scss */
+/* line 1306, ../sass/screen.scss */
 .room-table .room-header {
   border-bottom: 1px solid #8b1fac;
   color: #8B1FAC;
@@ -4897,7 +4918,7 @@ html, body {
   background: #ddd;
 }
 
-/* line 1290, ../sass/screen.scss */
+/* line 1315, ../sass/screen.scss */
 .room-table .room-row:hover {
   background: #8B1FAC;
   color: #fff;
@@ -4905,19 +4926,19 @@ html, body {
   cursor: pointer;
 }
 
-/* line 1297, ../sass/screen.scss */
+/* line 1322, ../sass/screen.scss */
 .room-table .col-one {
   float: left;
 }
 
-/* line 1301, ../sass/screen.scss */
+/* line 1326, ../sass/screen.scss */
 .room-table .col-one {
   float: left;
   width: 80px;
   padding: 10px;
 }
 
-/* line 1306, ../sass/screen.scss */
+/* line 1331, ../sass/screen.scss */
 .room-table .col-one span {
   display: inline-block;
   background: #FBFF00;
@@ -4928,13 +4949,13 @@ html, body {
   text-transform: uppercase;
 }
 
-/* line 1316, ../sass/screen.scss */
+/* line 1341, ../sass/screen.scss */
 .room-table .col-two {
   margin: 0px 100px 0px 90px;
   padding: 10px;
 }
 
-/* line 1320, ../sass/screen.scss */
+/* line 1345, ../sass/screen.scss */
 .room-table .col-three {
   float: right;
   width: 80px;
@@ -4944,7 +4965,7 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI HOTEL DETAIL FLIGHT */
 /*===========================================*/
-/* line 1336, ../sass/screen.scss */
+/* line 1361, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-header h2 {
   color: #cccccc;
   font-size: 22px;
@@ -4954,11 +4975,11 @@ html, body {
   text-transform: capitalize;
   font-weight: 700;
 }
-/* line 1344, ../sass/screen.scss */
+/* line 1369, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer {
   padding: 0px 20px 20px 0px;
 }
-/* line 1347, ../sass/screen.scss */
+/* line 1372, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner {
   padding: 12px 1px 1px 12px;
   background: #fff;
@@ -4966,13 +4987,13 @@ html, body {
   min-height: 160px;
   background: #fff;
 }
-/* line 1355, ../sass/screen.scss */
+/* line 1380, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .loading {
   text-align: center;
   color: #ccc;
   margin-top: 40px;
 }
-/* line 1360, ../sass/screen.scss */
+/* line 1385, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .loading h2 {
   text-transform: lowercase;
   padding: 0px;
@@ -4981,23 +5002,23 @@ html, body {
   color: #ccc;
   text-shadow: none;
 }
-/* line 1366, ../sass/screen.scss */
+/* line 1391, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .loading p {
   font-weight: 700;
 }
-/* line 1369, ../sass/screen.scss */
+/* line 1394, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .flight-item {
   margin-bottom: 10px;
   padding: 0px 0px 12px;
   border-bottom: 1px solid #8b1fac;
 }
-/* line 1374, ../sass/screen.scss */
+/* line 1399, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .flight-item.last {
   margin: 0px 0px 0px 0px;
   padding: 0px;
   border: none;
 }
-/* line 1378, ../sass/screen.scss */
+/* line 1403, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .flight-item .airline-logo {
   float: right;
   width: 100px;
@@ -5008,7 +5029,7 @@ html, body {
   font-weight: 700;
   margin-right: 12px;
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1412, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .flight-item h3 {
   color: #8B1FAC;
   font-size: 16px;
@@ -5019,28 +5040,28 @@ html, body {
   margin: 0px;
   letter-spacing: 0px;
 }
-/* line 1394, ../sass/screen.scss */
+/* line 1419, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .flight-item p {
   padding: 10px 0px 0px;
   margin: 0px;
   color: #222;
 }
-/* line 1397, ../sass/screen.scss */
+/* line 1422, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .flight-item p strong {
   color: #222;
 }
-/* line 1399, ../sass/screen.scss */
+/* line 1424, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .flight-item .flight-class {
   text-transform: uppercase;
   font-size: 12px;
   line-height: 12px;
   color: #777;
 }
-/* line 1406, ../sass/screen.scss */
+/* line 1431, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .actions {
   padding: 10px 0px 0px;
 }
-/* line 1409, ../sass/screen.scss */
+/* line 1434, ../sass/screen.scss */
 .search-ui-hotels-detail-flight .summary-flight-outer .summary-flight-inner .actions a {
   float: right;
   margin-left: 10px;
@@ -5049,7 +5070,7 @@ html, body {
 /*===========================================*/
 /* !SEARCH UI HOTEL DETAIL BOOKING */
 /*===========================================*/
-/* line 1426, ../sass/screen.scss */
+/* line 1451, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-header h2 {
   color: #cccccc;
   font-size: 22px;
@@ -5059,62 +5080,62 @@ html, body {
   text-transform: capitalize;
   font-weight: 700;
 }
-/* line 1434, ../sass/screen.scss */
+/* line 1459, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer {
   margin: 5px 20px 0px 0px;
   border: 1px solid #8b1fac;
 }
-/* line 1438, ../sass/screen.scss */
+/* line 1463, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner {
   color: #777;
 }
-/* line 1442, ../sass/screen.scss */
+/* line 1467, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item {
   padding: 15px;
   position: relative;
 }
-/* line 1446, ../sass/screen.scss */
+/* line 1471, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item ul {
   list-style: outside url(../images/main/bullet-purple-small.png);
   padding: 0px;
   margin: 0px 0px 0px 20px;
 }
-/* line 1451, ../sass/screen.scss */
+/* line 1476, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item ul li {
   margin: 0px;
   padding: 3px 0px 0px;
 }
-/* line 1456, ../sass/screen.scss */
+/* line 1481, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item .total {
   float: right;
   color: #c00;
   font-weight: 700;
   font-size: 18px;
 }
-/* line 1464, ../sass/screen.scss */
+/* line 1489, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-holiday .total {
   position: absolute;
   float: none;
   bottom: 10px;
   right: 15px;
 }
-/* line 1471, ../sass/screen.scss */
+/* line 1496, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-atol {
   border-top: 1px solid #8b1fac;
   padding: 10px 0px;
   margin: 0px 15px 0px;
 }
-/* line 1477, ../sass/screen.scss */
+/* line 1502, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-proceed {
   background: #8b1fac;
 }
-/* line 1481, ../sass/screen.scss */
+/* line 1506, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-proceed .total {
   color: #fff;
   font-size: 22px;
   line-height: 22px;
 }
-/* line 1485, ../sass/screen.scss */
+/* line 1510, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-proceed .total-left {
   float: left;
   color: #fff;
@@ -5122,29 +5143,29 @@ html, body {
   font-size: 22px;
   line-height: 22px;
 }
-/* line 1492, ../sass/screen.scss */
+/* line 1517, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-proceed .book-now {
   padding: 15px 0px 0px;
 }
-/* line 1496, ../sass/screen.scss */
+/* line 1521, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-proceed .book-now a.action-next {
   display: block;
   float: none;
   text-align: center;
 }
-/* line 1501, ../sass/screen.scss */
+/* line 1526, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-proceed .book-now .proceed-message {
   color: #fff;
   padding: 15px 0px 0px;
   font-size: 14px;
   line-height: 14px;
 }
-/* line 1506, ../sass/screen.scss */
+/* line 1531, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-proceed .book-now .proceed-message p {
   margin: 0px;
   padding: 0px 0px 5px;
 }
-/* line 1508, ../sass/screen.scss */
+/* line 1533, ../sass/screen.scss */
 .search-ui-hotel-detail-booking .summary-outer .summary-inner .item.item-proceed .book-now .proceed-message strong {
   color: #eee;
   font-weight: 700;
@@ -5154,22 +5175,22 @@ html, body {
 /*===========================================*/
 /* !TRAVELLERS LAYOUT */
 /*===========================================*/
-/* line 1526, ../sass/screen.scss */
+/* line 1551, ../sass/screen.scss */
 .search-ui-travellers-layout {
   background: #fff;
 }
-/* line 1529, ../sass/screen.scss */
+/* line 1554, ../sass/screen.scss */
 .search-ui-travellers-layout .travellers-layout-left {
   float: left;
   width: 70%;
 }
-/* line 1533, ../sass/screen.scss */
+/* line 1558, ../sass/screen.scss */
 .search-ui-travellers-layout .travellers-layout-right {
   float: left;
   width: 30%;
 }
 
-/* line 1545, ../sass/screen.scss */
+/* line 1570, ../sass/screen.scss */
 h2.travellers, .search-ui-travellers-contact-view .form-header h2, .search-ui-travellers-edit-layout .edit-layout-inner h2 {
   color: #8b1fac;
   text-transform: none;
@@ -5185,32 +5206,32 @@ h2.travellers, .search-ui-travellers-contact-view .form-header h2, .search-ui-tr
 /*===========================================*/
 /* !CONTACT VIEW */
 /*===========================================*/
-/* line 1561, ../sass/screen.scss */
+/* line 1586, ../sass/screen.scss */
 .search-ui-travellers-contact-view {
   background: #fff;
   padding: 15px 20px;
 }
-/* line 1566, ../sass/screen.scss */
+/* line 1591, ../sass/screen.scss */
 .search-ui-travellers-contact-view .form-header {
   padding: 0px 0px 12px;
   margin: 0px;
 }
-/* line 1576, ../sass/screen.scss */
+/* line 1601, ../sass/screen.scss */
 .search-ui-travellers-contact-view .form-row .form-col {
   float: left;
   width: 30%;
   margin-right: 1.5%;
   padding: 0px 0px 18px;
 }
-/* line 1582, ../sass/screen.scss */
+/* line 1607, ../sass/screen.scss */
 .search-ui-travellers-contact-view .form-row .form-col input {
   margin: 0px;
 }
-/* line 1585, ../sass/screen.scss */
+/* line 1610, ../sass/screen.scss */
 .search-ui-travellers-contact-view .form-row .form-col input.placeholder {
   color: #bbb;
 }
-/* line 1589, ../sass/screen.scss */
+/* line 1614, ../sass/screen.scss */
 .search-ui-travellers-contact-view .form-row .form-col.last {
   margin-right: 0;
 }
@@ -5218,23 +5239,23 @@ h2.travellers, .search-ui-travellers-contact-view .form-header h2, .search-ui-tr
 /*===========================================*/
 /* !TRAVELLERS SUMMARY VIEW */
 /*===========================================*/
-/* line 1600, ../sass/screen.scss */
+/* line 1625, ../sass/screen.scss */
 .search-ui-travellers-summary-view {
   padding: 40px 20px;
 }
-/* line 1602, ../sass/screen.scss */
+/* line 1627, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner {
   border: 1px solid #8b1fac;
 }
-/* line 1604, ../sass/screen.scss */
+/* line 1629, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner .summary-top {
   padding: 10px 15px 5px;
 }
-/* line 1607, ../sass/screen.scss */
+/* line 1632, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner .summary-top .item {
   padding-bottom: 8px;
 }
-/* line 1610, ../sass/screen.scss */
+/* line 1635, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner .summary-top .item h3 {
   font-weight: 700;
   font-size: 14px;
@@ -5245,7 +5266,7 @@ h2.travellers, .search-ui-travellers-contact-view .form-header h2, .search-ui-tr
   text-transform: none;
   text-shadow: none;
 }
-/* line 1619, ../sass/screen.scss */
+/* line 1644, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner .summary-top .item p {
   line-height: 13px;
   font-size: 13px;
@@ -5253,19 +5274,19 @@ h2.travellers, .search-ui-travellers-contact-view .form-header h2, .search-ui-tr
   padding: 0px 0px 4px 10px;
   margin: 0px;
 }
-/* line 1629, ../sass/screen.scss */
+/* line 1654, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner .summary-bottom {
   padding: 10px;
   background: #8b1fac;
   color: #fff;
 }
-/* line 1634, ../sass/screen.scss */
+/* line 1659, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner .summary-bottom .bottom-left {
   float: left;
   width: 40%;
   font-weight: 700;
 }
-/* line 1638, ../sass/screen.scss */
+/* line 1663, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner .summary-bottom .bottom-right {
   float: left;
   width: 60%;
@@ -5274,12 +5295,12 @@ h2.travellers, .search-ui-travellers-contact-view .form-header h2, .search-ui-tr
   font-size: 20px;
   line-height: 20px;
 }
-/* line 1644, ../sass/screen.scss */
+/* line 1669, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner .summary-bottom .bottom-msg {
   text-align: center;
   padding: 10px 0px 0px;
 }
-/* line 1648, ../sass/screen.scss */
+/* line 1673, ../sass/screen.scss */
 .search-ui-travellers-summary-view .summary-inner .summary-bottom .bottom-msg strong {
   color: #fff;
 }
@@ -5287,7 +5308,7 @@ h2.travellers, .search-ui-travellers-contact-view .form-header h2, .search-ui-tr
 /*===========================================*/
 /* !TRAVELLERS EDIT LAYOUT */
 /*===========================================*/
-/* line 1659, ../sass/screen.scss */
+/* line 1684, ../sass/screen.scss */
 .search-ui-travellers-edit-layout {
   background: #fff;
   padding: 15px 20px;
@@ -5299,7 +5320,7 @@ h2.travellers, .search-ui-travellers-contact-view .form-header h2, .search-ui-tr
 /*===========================================*/
 /* !TRAVELLERS EDIT ITEM */
 /*===========================================*/
-/* line 1695, ../sass/screen.scss */
+/* line 1720, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-header {
   background: #8b1fac;
   color: #fff;
@@ -5308,91 +5329,91 @@ h2.travellers, .search-ui-travellers-contact-view .form-header h2, .search-ui-tr
   font-size: 12px;
   line-height: 12px;
 }
-/* line 1707, ../sass/screen.scss */
+/* line 1732, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top {
   background: #eee;
   padding: 6px 15px 6px;
 }
-/* line 1711, ../sass/screen.scss */
+/* line 1736, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col {
   float: left;
   margin: 0 1% 0 0;
 }
-/* line 1715, ../sass/screen.scss */
+/* line 1740, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.title {
   width: 10%;
 }
-/* line 1718, ../sass/screen.scss */
+/* line 1743, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.gender {
   width: 10%;
 }
-/* line 1721, ../sass/screen.scss */
+/* line 1746, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.first-name {
   width: 22%;
 }
-/* line 1724, ../sass/screen.scss */
+/* line 1749, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.middle-name {
   width: 15%;
 }
-/* line 1727, ../sass/screen.scss */
+/* line 1752, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.last-name {
   width: 22%;
 }
-/* line 1730, ../sass/screen.scss */
+/* line 1755, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.dob {
   width: 16%;
 }
-/* line 1733, ../sass/screen.scss */
+/* line 1758, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.last {
   margin-right: 0;
 }
-/* line 1738, ../sass/screen.scss */
+/* line 1763, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col .field-wrapper input {
   width: 94%;
   padding: 6px 3%;
   margin: 0px;
 }
-/* line 1743, ../sass/screen.scss */
+/* line 1768, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col .field-wrapper select {
   width: 100%;
 }
-/* line 1749, ../sass/screen.scss */
+/* line 1774, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom {
   background: #eee;
   padding: 4px 15px 15px;
 }
-/* line 1753, ../sass/screen.scss */
+/* line 1778, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col {
   float: left;
   margin: 0 1% 0 0;
 }
-/* line 1757, ../sass/screen.scss */
+/* line 1782, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.nation {
   width: 21%;
 }
-/* line 1760, ../sass/screen.scss */
+/* line 1785, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.passport-no {
   width: 38%;
 }
-/* line 1763, ../sass/screen.scss */
+/* line 1788, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.passport-issue {
   width: 19%;
 }
-/* line 1766, ../sass/screen.scss */
+/* line 1791, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.passport-expiry {
   width: 19%;
 }
-/* line 1770, ../sass/screen.scss */
+/* line 1795, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.last {
   margin-right: 0;
 }
-/* line 1775, ../sass/screen.scss */
+/* line 1800, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col .field-wrapper input {
   width: 94%;
   padding: 6px 3%;
   margin: 0px;
 }
-/* line 1780, ../sass/screen.scss */
+/* line 1805, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col .field-wrapper select {
   width: 100%;
 }

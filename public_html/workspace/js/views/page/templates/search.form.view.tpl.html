@@ -1,0 +1,108 @@
+<div class="destination-search clearfix">
+	<form id="destination-search-form">
+		
+		<div class="header">
+			<h2>Search it. Like it. Book it.</h2>
+		</div>
+		
+		<div class="body">
+			
+			<div class="row clearfix">
+				<div class="body-full">
+					<ul class="trip-type">
+						<li class="package"><span>Flight &amp; Hotel</span></li>
+						<li class="hotel"><span>Hotel Only</span></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="row clearfix">
+				<div class="body-full">
+					<select name="fields[destination]" id="fields-destination" class="select-standard" data-placeholder="Destination">
+						<option value="las vegas">Las Vegas</option>
+						<option value="miami">Miami</option>
+						<option value="lost angeles">Los Angeles</option>
+						<option value="dubai">Dubai</option>
+						<option value="new york">New York</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="row clearfix fields-departure-wrapper">
+				<div class="body-full">
+					<input type="hidden" id="fields-departure"/>
+				</div>
+			</div>
+			
+			<div class="row clearfix">
+				<div class="body-half clearfix">
+					<div class="one">
+						<input name="fields[date-start]" id="fields-date-start" class="fields-date-start" title="" class="text" type="text" value="" placeholder="Check In" />
+					</div>
+					<div class="two">
+						<input name="fields[date-end]" id="fields-date-end" class="fields-date-end" title="" class="text" type="text"  placeholder="Check Out" />
+					</div>
+				</div>
+			</div>
+			
+			<div class="row clearfix">
+				
+				<div class="body-rooms">
+					<div class="body-rooms-one">
+						<label for="fields-number-of-nights">Rooms</label>
+						<select name="fields[number-of-rooms]" id="fields-number-of-rooms" title="" class="styled select-standard">
+							<option value="1" selected="selected">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</div>
+					<div class="body-rooms-two">
+						<div class="room-row clearfix">
+							<div class="one">
+								<label>Adults</label>
+							</div>
+							<div class="two">
+								<label>Children</label>
+							</div>
+						</div>
+						
+						<div class="rooms">
+							<div class="room-row room-row-item room-row-template clearfix">
+								<div class="one">
+									<select name="fields[number-of-adults][]" class="fields-number-of-adults" title="" class="styled select-standard">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2" selected="selected">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+									</select>
+								</div>
+								<div class="two">
+									<select name="fields[number-of-children][]" class="fields-number-of-children" title="" class="styled select-standard">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>			
+			</div>
+			
+			
+			
+			<div class="clearfix submit-buttons">						
+				<a href="#" class="search-submit">Search Holidays</a>
+			</div>
+		</div>
+	</form>
+</div>

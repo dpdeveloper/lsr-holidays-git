@@ -70,15 +70,4 @@ describe("Search UI Controller", function() {
 			expect(this.reqres.request('search:get:flight:selected').get('test')).toEqual('test');
 		});
 	});
-	
-	/* Default Spec Code */
-	/*
-	describe('TEST', function(){
-		it('SPEC', function(){
-			expect(EXPECTATION).toEqual(true);
-		});
-	});
-	*/
-	
-
 });
