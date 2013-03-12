@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: views/search-ui/header/header.form.view.js</title>
+    <title>JSDoc: Source: views/page/search.form.view.js</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Source: views/search-ui/header/header.form.view.js</h1>
+    <h1 class="page-title">Source: views/page/search.form.view.js</h1>
     
     
 
@@ -25,130 +25,102 @@
     
     <section>
         <article>
-            <pre class="prettyprint source"><code>/* @filename views/search-ui/header/header.form.view.js
+            <pre class="prettyprint source"><code>/* @filename views/page/search.form.view
  *
- * David Anderson 2012
+ * David Anderson 2013
  *
 */
 
 define([
 	'jquery','underscore','backbone','marionette','vent','config',
+	'tpl!views/page/templates/search.form.view.tpl.html',
+	'models/holiday-search',
 	
-	'tpl!views/search-ui/templates/header.form.view.tpl.html',
-	'models/holiday-search'
-	
-], function(	$,_,Backbone,Marionette,vent, config,
-				HeaderFormTemplate,
-				HolidaySearch
+	'moment',
+	'jquery-ui',
+	'libs/string-helpers',
+	'libs/select2.min'
+], function($,_,Backbone,Marionette,vent,config,
+			Template,
+			HolidaySearch,
+			moment
 			){
 	"use strict";
 
-	var HeaderFormView = Backbone.Marionette.ItemView.extend({
-		template: HeaderFormTemplate,
-		
-		roomRowHTML: null,
-		_advancedInit: false,
-		
-		events:{
-			'mouseenter #search-ui-header-form': 'showAdvanced',
-			'click .action-back': 'hideAdvanced',
-			'change #fields-number-of-rooms': 'updateRooms',
-			'click .action-next': 'submitForm'
-		},
-		
-		ui: {
-			//fields
-			destination: '#fields-destination',
-			dateStart: '#fields-date-start',
-			numberOfNights: '#fields-number-of-nights',
-			numberOfRooms: '#fields-number-of-rooms',
-			departureAirport: '#fields-departure-airport',
-			flightClass: '#fields-flight-class',
+	var SearchFormView = Backbone.Marionette.ItemView.extend(
+	/** @lends SearchFormView */
+	{
+		/**
+			Constructor
 			
-			//other things
-			outer: '.three.cols',
-			flightsCol: '.flights-col',
-			rooms: '.rooms'
-	
-		},
-		
+			@class View to allow searching
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(options){
 			options = options || {};
+			_.bindAll(this);
 			
-			this.model = new HolidaySearch();
-			if(typeof options.model !== 'undefined'){
-				this.model.set(this.options.model.toJSON());
+			if('holidaySearch' in options && options.holidaySearch !== null){
+				this.model = new HolidaySearch(options.holidaySearch.toJSON());	
 			}
-			this.bindTo(vent,'search:trip:edit',this.setTrip,this);
+			else{
+				this.model = new HolidaySearch();	
+			}
+		},
+		
+		template: Template,
+		
+		$roomContainer: null,
+		roomRowHTML: null,
+		
+		STATES: {
+			NEW: 0,
+			EDIT: 1
+		},
+		_state: 0,
+		
+		events: {
+			'change #fields-number-of-rooms': 'updateRooms',
+			'click .search-submit': 'submitForm',
+			'click .trip-type li': 'handleTripTypeChange'
+		},
+		ui: {
+			tripType: '.trip-type'
+		},		
+		
+		/**
+			Close the form
+		*/
+		close: function(){
+			this.$el.find(".fields-date-start").datepicker('destroy');
 		},
 		
 		/**
-		 * onRender
-		 *
-		 *
-		 * Init the UI Elements
+			Updates the mode that the form is in
+			@param {String} mode 'new' / 'edit'
 		*/
-		onShow: function(){
-			this.$el.find(".fields-date-start").datepicker({
-					changeMonth: true,
-					changeYear: true,
-					constrainInput: false,
-					dateFormat: 'dd/mm/yy',
-					numberOfMonths: 2,
-					minDate: 0,
-					maxDate: "+2y",
-					onSelect: function(dateText,inst){
-							$(this).val(dateText);
-					}
-				});
-			this.roomRowHTML= "&lt;div class='room-row room-row-item clearfix'>"+$(".room-row-template", this.$el).html()+"&lt;/div>";
-			
-			//set the select box values
-			this.ui.numberOfNights.val(this.model.get('numNights'));
-			this.ui.numberOfRooms.val(this.model.get('numRooms'));
-			this.ui.destination.val(this.model.get('destination'));
-			this.ui.departureAirport.val(this.model.get('departingFrom'));
-			this.ui.flightClass.val(this.model.get('flightClass'));
-			
-			this.setTripType(this.model.get('tripType'),true);
-			
-			
-			
-			this.updateRooms();
-			
-			/*set the adults/children/infants for the rooms*/
-			var adult = this.model.get('adultCsv').split(',');
-			var child = this.model.get('childCsv').split(',');
-			var infant = this.model.get('infantCsv').split(',');
-			
-			this.$el.find('.room-row-item').each(function(i,el){
-				$(el).find('select.fields-number-of-adults').val(adult[i]);
-				$(el).find('select.fields-number-of-children').val(child[i]);
-				$(el).find('select.fields-number-of-infants').val(infant[i]);
-			});
-			
-			
+		setMode: function(mode){
+			if(mode === 'new'){
+				this._state = this.STATES.NEW;
+			}
+			else if(mode === 'edit'){
+				this._state = this.STATES.EDIT;
+			}
 		},
 		
 		/* initSelectBoxes
-		*
-		* Inits the Select2.0 select boxes
-		*
+		 *
+		 * Inits the Select2.0 select boxes
+		 *
 		*/
 		initSelectBoxes: function(){
-			$('select',this.$el).select2({width: 'resolve'});
+			$('select',this.$el).select2({width: '100%'});
 			
-			this.ui.departureAirport.select2({
-				width: 'element',
-				placeholder: 'Select an Airport',
+			$('#fields-departure',this.$el).select2({
+				width: '100%',
+				placeholder: 'Flying From',
 				minimumInputLength: 1,
-				initSelection: function(element,callback){
-					var data = {
-						id: $(element).val(),
-						text: $(element).val()
-					};
-					callback(data);
-				},
 				ajax: {
 					url: config.root+"json/airports/",
 					dataType: 'json',
@@ -173,72 +145,74 @@ define([
 			});
 		},
 		
+		
 		/**
 		 * setTripType
 		 *
-		 * @param {String} tripType
-		 * @param {Boolean} (optional) whether or not this is the initial load
+		 * @param: {String - from Trip.TRIP_TYPES} tripType
+		 * @param: {Boolean}	(optional) Used to specify that this is the initial setup
+		 *						So don't save it into the trip
 		 *
 		 * Sets the trip type and updates the UI as needed
-		 *
 		*/
-		setTripType: function(tripType,initial){
-			if(typeof initial === 'undefined'){initial = false;}
+		setTripType: function(tripType, initial){
+			if(typeof initial === 'undefined'){initial=false;}
 			
-			var currentType = this.model.get('tripType');
+			var currentTripType = this.model.get('tripType');
 			
-			if(initial || currentType !== tripType){
+			if(initial || currentTripType !== tripType){
 				
-				//update the UI if needed
-				if(	(currentType === this.model.TRIP_TYPES.PACKAGE && tripType === this.model.TRIP_TYPES.FLIGHT) ||
-					initial ){
-					this.toggleFlightsColumn();
+				$(this.ui.tripType).find('.active').removeClass('active');
+				
+				switch(tripType){
+					case this.model.TRIP_TYPES.FLIGHT:
+						this.$el.find(this.ui.tripType).find('.flight').addClass('active');
+						
+						//show / hide the needed fields
+						this.$el.find('.fields-departure-wrapper').show();
+						
+						break;
+					case this.model.TRIP_TYPES.HOTEL:
+						this.$el.find(this.ui.tripType).find('.hotel').addClass('active');
+						
+						//show / hide the needed fields
+						this.$el.find('.fields-departure-wrapper').hide();
+						
+						break;
+					case this.model.TRIP_TYPES.PACKAGE:
+						this.$el.find(this.ui.tripType).find('.package').addClass('active');
+						
+						//show / hide the needed fields
+						this.$el.find('.fields-departure-wrapper').show();
+						
+						break;
 				}
 				
-				if(initial){
-					this.model.set({tripType: tripType});
-				}
 			}
+			
+			if(!initial){
+				this.model.setType(tripType);
+			}
+			
 		},
-		
-		
-		/**
-		 * toggleFlightsColumn
-		 *
-		 * shows/hides the flights column and updates the outer container width to fit with it
-		 *
-		*/
-		toggleFlightsColumn: function(){
-			if(this.ui.flightsCol.css('display')!=='none'){
-				this.ui.flightsCol.hide();
-				this.ui.outer.css({width: 400});
-			}
-			else{
-				this.ui.flightsCol.show();
-				this.ui.outer.css({width: 600});
-			}
-		},
-		
-		
+		 
 		/* addRoom
 		*
 		* Adds a room to the UI
 		*
 		*/
 		addRoom: function(){
-			this.ui.rooms.append(this.roomRowHTML);
+			$(this.$roomContainer).append(this.roomRowHTML);
 			this.initSelectBoxes();
 		},
 		
-		
-		/**
-		* updateRooms
-		*
-		* Callback for when the number of rooms is changed
-		* - Updates the model value
-		* - Triggers a callback if more is selected
-		* - Updates the UI with the correct number of occupancy fields
-		*
+		/* updateRooms
+		 *
+		 * Callback for when the number of rooms is changed
+		 * - Updates the model value
+		 * - Triggers a callback if more is selected
+		 * - Updates the UI with the correct number of occupancy fields
+		 *
 		*/
 		updateRooms: function(){
 			
@@ -257,53 +231,95 @@ define([
 					for(var i=0; i&lt;delta; i++){this.addRoom();}
 				}
 				else if(delta &lt; 0){
-					var noRooms = this.ui.rooms.children().length;
-					for(var k=1; k&lt;=-delta; k++){$(this.ui.rooms.children().get(noRooms-k)).remove();}
+					var noRooms = this.$roomContainer.children().length;
+					for(var j=1; j&lt;=-delta; j++){$(this.$roomContainer.children().get(noRooms-j)).remove();}
 				}
 				this.model.set({numRooms: value});
 			}
 		},
+
 		
-		
-		/* --------------------------------
-		 *
-		 *			UI CALLBACKS
-		 *
-		 * ----------------------------- */
-		
-		
-		 
-		setTrip: function(holidaySearch){
-			this.model.set(holidaySearch.toJSON());
+		/**
+			After Render Callback function
+		*/
+		onRender: function(){
+			this.$roomContainer = $(".rooms", this.$el);
+			this.roomRowHTML= "&lt;div class='room-row room-row-item clearfix'>"+$(".room-row-template", this.$el).html()+"&lt;/div>";	
 		},
 		
-		showAdvanced: function(){
-			this.$el.find('.header-overlay').show();
-			this.$el.find('.header-bar .edit').addClass('active');
+		/**
+			onShow Callback function
+		*/
+		onShow: function(){
+			this.setTripType(this.model.get('tripType'),true);
 			
-			if(!this._advancedInit){
-				this.initSelectBoxes();
-				this._advancedInit = true;
+			this.$el.find(".fields-date-start, .fields-date-end").datepicker({
+				changeMonth: true,
+				changeYear: true,
+				constrainInput: false,
+				dateFormat: 'dd/mm/yy',
+				numberOfMonths: 2,
+				minDate: 0,
+				maxDate: "+2y",
+				onSelect: function(dateText,inst){
+						$(this).val(dateText);
+				}
+			});
+			
+			//if in edit mode, set the correct field values
+			if(this._state === this.STATES.EDIT){
+			
+				this.$el.find('#fields-destination').val(this.model.get('destination').capitalize());
+				
+				this.$el.find('#fields-number-of-nights').val(this.model.get('numNights'));
+				this.$el.find('#fields-number-of-rooms').val(this.model.get('numRooms'));
+				
+				this.updateRooms();
+				
+				/*set the adults/children/infants for the rooms*/
+				var adult = this.model.get('adultCsv').split(',');
+				var child = this.model.get('childCsv').split(',');
+				
+				this.$el.find('.room-row-item').each(function(i,el){
+					$(el).find('select.fields-number-of-adults').val(adult[i]);
+					$(el).find('select.fields-number-of-children').val(child[i]);
+				});
+				
 			}
-			
-		},
-		hideAdvanced: function(){
-			this.$el.find('.header-overlay').hide();
-			this.$el.find('.header-bar .edit').removeClass('active');
+			else{
+				this.updateRooms();
+			}
+			this.initSelectBoxes();
 		},
 		
 		
 		/**
-		 * saveRoomOccupancy
-		 *
-		 * @return {Object} the occupancy
-		 *
-		 * Saves the room occupancy into the trip object
-		 *
-		 *
+			Extracts the correct type to change mode to from the css class and calls the changeTypeFunction
+			
+			@param event {jQuery Event Object}
 		*/
-		saveRoomOccupancy: function(){
-		
+		handleTripTypeChange: function(event){
+			var self=this;
+			event.preventDefault();
+			var classList =$(event.currentTarget).attr('class').split(/\s+/);
+			
+			_.each(classList,function(element){
+				if(element!=='active'){
+					self.setTripType(element);
+				}
+			});
+		},
+			 
+		/**
+			Callback function for saving and submitting the search
+			- Parses the 'csv' fields into the correct format
+			- Saves all the fields into the model
+			
+			@param {jQuery Event} event
+		*/
+		submitForm: function(event){
+			event.preventDefault();
+			
 			var adultCSV="", childCSV="", infantCSV="";
 			
 			$("select.fields-number-of-adults",this.$el).each(function(i,element){
@@ -315,45 +331,26 @@ define([
 			$("select.fields-number-of-infants",this.$el).each(function(i,element){
 				infantCSV=infantCSV+$(element).val()+",";
 			});
-			var occupancy = {
-				adultCsv:	adultCSV,
-				childCsv:	childCSV,
-				infantCsv:	infantCSV
-			};
-			this.model.set(occupancy);
 			
-			return occupancy;
-		},
-		
-		
-		/* submitForm
-		*
-		* Callback function for saving and submitting the search
-		* - Parses the 'csv' fields into the correct format
-		* - Saves all the fields into the model
-		*/
-		submitForm: function(event){
-			event.preventDefault();
-		
-			this.saveRoomOccupancy();
+			//work out num nights
+			
+			this.model.setDatesFromStartFinish($("#fields-date-start",this.$el).val(), $("#fields-date-end",this.$el).val());
+			
 			this.model.set({
 				destination: $("#fields-destination", this.$el).val(),
-				numNights:	$("#fields-number-of-nights",this.$el).val(),
-				numRooms:	$("#fields-number-of-rooms",this.$el).val(),
-				dateStart:	$("#fields-date-start",this.$el).val(),
-				departingFrom: $('#fields-departure-airport',this.$el).val(),
-				flightClass: $('#fields-flight-class',this.$el).val()
+				adultCsv:	adultCSV,
+				childCsv:	childCSV,
+				infantCsv:	infantCSV,
+				departingFrom: $('#fields-departure',this.$el).val()
 			});
 			
-			this.hideAdvanced();
-			
-			vent.trigger("search:trip:edit",this.model);
+			this.trigger("save", this);
 		}
+
 	});
 	
-	return HeaderFormView;
-});
-	</code></pre>
+	return SearchFormView;
+});</code></pre>
         </article>
     </section>
 
