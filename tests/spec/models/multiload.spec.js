@@ -50,6 +50,16 @@ describe("Multiload", function() {
 			this.model.addLoadingRequest(function(){return;});
 			expect(this.model.get('fetchRequestTotal')).toEqual(2);
 		});
+		it('addLoadingRequest can accept arrays and incremenets per each array item', function(){
+			this.model.addLoadingRequest([
+				function(){return;},
+				function(){return;},
+				function(){return;}
+			]);
+			
+			expect(this.model.get('fetchRequestTotal')).toEqual(3);
+			
+		});
 		it('Should callback when all requests are loaded', function(){
 			var a = false;
 			
@@ -68,7 +78,24 @@ describe("Multiload", function() {
 			
 			this.model.loadingCallback();
 			expect(a).toBeTruthy();
-				
+		});
+		it('Should callback immediately if no loading requests by default', function(){
+			var a = false;
+			
+			var fx = function(){
+				a = true;
+			};
+			this.model.loadingQueue(fx);
+			expect(a).toBeTruthy();
+		});
+		it('Should not callback immediately if executeNow is false', function(){
+			var a = false;
+			
+			var fx = function(){
+				a = true;
+			};
+			this.model.loadingQueue(fx,false);
+			expect(a).toBeFalsy();
 		});
 		
 		it('c Should serve as a shortcut to callback', function(){

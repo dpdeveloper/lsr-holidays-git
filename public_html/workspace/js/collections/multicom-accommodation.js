@@ -17,7 +17,6 @@ define([
 	{
 		model: MulticomAccommodation,
 		
-		_root: config.root,
 		_testMode: false,
 		_status: -1,
 		_error: null,
@@ -64,10 +63,6 @@ define([
 			
 			_.bindAll();
 			this._status = this.STATES.INIT;
-			
-			if (this._root === "/"){
-				this._root = "";
-			}
 			
 			//if test mode
 			if(config.multicomMode ==='test'){
@@ -132,11 +127,11 @@ define([
 		*/
 		getSearchUrl: function(data){
 			if(this._testMode){
-				var testUrl = "/json-test/hotels-las-vegas.json";
-				return this._root+testUrl;
+				var testUrl = "json-test/hotels-las-vegas.json";
+				return config.contentRoot+testUrl;
 			}
 			else{
-				return this._root+"json/multicom-api/?"+this.buildSearchQueryUrl(data);
+				return config.root+"json/multicom-api/?"+this.buildSearchQueryUrl(data);
 			}
 		},
 		

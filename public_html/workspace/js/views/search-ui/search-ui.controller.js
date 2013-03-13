@@ -7,23 +7,23 @@
 define([
 	'jquery','underscore','backbone','vent','reqres',
 	'models/booking',
-	'views/search-ui/search-ui.layout',
 	'collections/multicom-accommodation',
 	'collections/multicom-flight',
 	'collections/symphony-hotel',
 	'collections/symphony-airline',
 	'models/symphony-hotel',
-	'models/multicom/multicom-flight'
+	'models/multicom/multicom-flight',
+	'models/multiload'
 	
 ], function(	$,_,Backbone,vent,reqres,
 				Booking,
-				SearchUILayout,
 				MulticomAccommodationCollection,
 				MulticomFlightCollection,
 				SymphonyHotelCollection,
 				SymphonyAirlineCollection,
 				SymphonyHotel,
-				MulticomFlight
+				MulticomFlight,
+				MultiLoad
 				){
 	"use strict";
 	
@@ -46,15 +46,11 @@ define([
 		_airlineCollection: null,
 		
 		
-		/* Not really nice marionette code but we've bundled up a region in here due to the legacy router code */
-		_layout: null,
-		_region: null,
-		
-		
 		/**
 			Constructor
 			
 			options.testMode can be used to force the collections into test mode
+			options.holidaySearch can be used to initiate a load
 			
 			@class A Controller to co-ordinate all searching UI and activity
 			
@@ -81,7 +77,7 @@ define([
 			}
 			
 			//load needed 'init' data
-			this.addLoadingRequest(this._airlineCollection.fetch({success: this.loadingCallback})); //get the data initially
+			this._airlineCollection.fetch(); //get the data initially
 			
 			//bind to collections
 			this.bindTo(this._mcFlightCollection,'complete',this.processFlightSearchResults,this);
@@ -89,8 +85,6 @@ define([
 			this.bindTo(this._hotelCollection,'complete',this.processHotelSearchResults,this);
 			
 			//initiator events
-			this.bindTo(vent,'search:new',this.saveSearchData,this);
-			this.bindTo(vent,'search:new:destination',this.saveSearchDestination,this);
 			this.bindTo(vent,'search:trip:edit',this.saveSearchEdit,this);
 			
 			//feedback from selections
@@ -100,7 +94,6 @@ define([
 			//shortlisting
 			this.bindTo(vent,'search:shortlist',this.onShortlistRequest, this);
 			
-			
 			//add response handlers for retrieving data in a decoupled maneer
 			reqres.addHandler('search:get:booking', this.getBooking);
 			reqres.addHandler('search:get:flight:results', this.getFlightCollection);
@@ -109,8 +102,9 @@ define([
 			reqres.addHandler('search:get:hotel:selected', this.getHotelSelected);
 			reqres.addHandler('search:get:airlines', this.getAirlines);
 			
-			//init our region
-			this._region = new Backbone.Marionette.Region({el: options.el});
+			if('holidaySearch' in options && options.holidaySearch !== null){
+				this.saveSearchEdit(options.holidaySearch);
+			}
 		},
 		
 		getBooking: function(){
@@ -146,111 +140,12 @@ define([
 		 *
 		 *
 		*/
-		
-		/**
-		 * addLoadingRequest
-		 *
-		 * @param {function} - a dummy param to wrap the function call in
-		 *
-		 * Inits (if needed) and increments the to be loaded count
-		 *
-		*/
-		addLoadingRequest: function(request){
-			if(this._fetchRequestTotal === null){
-				this._isReady = false;
-				this._fetchRequestTotal = 0;
-				this._fetchRequestComplete = 0;
-			}
-			this._fetchRequestTotal++;
-		},
-		
-		/**
-		 * loadingCallback
-		 *
-		 * A function to be used as a 'success' callback for any function in order to perform
-		 * the loading logic
-		 *
-		*/
-		loadingCallback: function(){
-			this._fetchRequestComplete++;
-			
-			if(this._fetchRequestTotal <= this._fetchRequestComplete){
-				this._isReady = true;
-				if(this._toCallWhenLoaded !== null){
-					this._toCallWhenLoaded();
-					this._toCallWhenLoaded = null;
-				}
-			}
-		},
-		
-		/**
-		 * loadingQueue
-		 *
-		 * @param {function} fx - A function to call when loaded
-		 *
-		*/
-		loadingQueue: function(fx){
-			if(this._isReady === false){
-				this._toCallWhenLoaded = fx;
-			}
-			else{
-				fx();
-			}
-		},
-		
-		
-		/*
-		 *
-		 *
-		 * SHOW / HIDE FUNCTIONS
-		 *
-		 *
-		*/
-		
-		show: function(){
-			this.loadingQueue(this.showInterface);
-		},
-		
-		showInterface: function(){
-			this._layout = new SearchUILayout({
-				holidaySearch: this._booking.get('holidaySearch'),
-				flightsLoading: this.isFlightsLoading(),
-				accommodationLoading: this.isAccommodationLoading()
-			});
-			
-			this._region.show(this._layout);
-		},
-		
-		hide: function(){
-			this._region.close();
-		},
-		
-		
+				
 		/* ================================================ */
 		
 		/* CALLBACK FUNCTIONS */
 		
 		/* ================================================ */
-		
-		/**
-			Callback function to initiate a search with full data
-			
-			@param {holidaySearch model} A holidaySearch object with the search data
-		*/
-		saveSearchData: function(holidaySearch){
-			vent.trigger('search:trip:edit',holidaySearch);
-		},
-		
-		/**
-			Callback function to initiate a search with a destination
-
-			@param {string} The destination to search for
-		*/
-		saveSearchDestination: function(destination){
-			this._booking.get('holidaySearch').set({'destination':destination.replace('-',' ')});
-			vent.trigger('search:trip:edit',this._booking.get('holidaySearch'));
-		},
-		
 		
 		/**
 			Callback function for when the search is edited

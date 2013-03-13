@@ -9,15 +9,19 @@ define([
 	'tpl!views/home/templates/home.layout.tpl.html',
 	'models/multiload',
 	'collections/content/deal',
+	'models/content/home-about',
 	'views/home/deal.slideshow.view',
-	'views/page/search.form.view'
+	'views/page/search.form.view',
+	'views/home/home.aboutus.view'
 	
 ], function($,_,Backbone,Marionette,vent,
 			Template,
 			MultiLoad,
 			ContentDealCollection,
+			ContentHomeAbout,
 			DealSlideshowView,
-			SearchFormView
+			SearchFormView,
+			HomeAboutUsView
 			){
 	"use strict";
 
@@ -37,14 +41,20 @@ define([
 			this.loader = new MultiLoad();
 			this.bindTo(this.loader,'complete', this._loadingCallback, this);
 			
-			
 			this.data = {
-				deals: new ContentDealCollection()
+				deals: new ContentDealCollection(),
+				homeAbout: new ContentHomeAbout()
 			};
 			
-			this.loader.l(this.data.deals.fetch({
-				success: this.loader.c, error: this.loader.c
-			}));
+			this.loader.l([
+				this.data.deals.fetch({
+					success: this.loader.c, error: this.loader.c
+				}),
+				this.data.homeAbout.fetch({
+					success: this.loader.c, error: this.loader.c
+				})
+			]);
+
 		},
 		
 		_loadingCallback: function(){
@@ -69,8 +79,11 @@ define([
 					collection: self.data.deals
 				}));
 				self.search.show(new SearchFormView());
-				
 				self.bindTo(self.search.currentView,"save",self.handleSearchEvent,this);
+				
+				self.about.show(new HomeAboutUsView({
+					model: self.data.homeAbout
+				}));
 				
 			});
 		},

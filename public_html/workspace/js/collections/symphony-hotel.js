@@ -69,11 +69,11 @@ define([
 			
 			if(this._mode === 'test'){
 				console.log("Symphony Hotel Collection is in Test Mode: Loading Test Data");
-				this.url=config.root+'json-test/symphony-hotels-vegas.json';
+				this.url=config.contentRoot+'json-test/symphony-hotels-vegas.json';
 			}
 			else{
 				this.destination = destination;
-				this.url=config.root+'json/hotels/'+destination+"/?limit="+ limit;
+				this.url=config.contentRoot+'json/hotels/'+destination+"/?limit="+ limit;
 			}
 				
 			var self = this;

@@ -317,7 +317,7 @@ define([
 				departingFrom: $('#fields-departure',this.$el).val()
 			});
 			
-			this.trigger("save", this);
+			this.trigger("save", this.model);
 		}
 
 	});

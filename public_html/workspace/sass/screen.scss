@@ -245,20 +245,22 @@ html, body{
 
 /*===========================================*/
 .home-layout{
+	position: relative;
+	
 	.home-layout-deals{
 		position: relative;
 		z-index: 20;
 	}
-	.home-layout-about-us{
+	.home-layout-about{
 		float: left;
 		width: 70%;
 	}
 	.home-layout-search{
-		float: right;
 		width: 30%;
-		position: relative;
+		position: absolute;
 		z-index: 50;
-		margin-top: -150px;
+		bottom: 0px;
+		right: 0px;
 	}
 	.home-layout-groups{}
 
@@ -275,7 +277,7 @@ html, body{
 	
 	.slides{
 		position: relative;
-		height: 500px;
+		height: 460px;
 		width: 100%;
 		
 		.deal-slideshow-item-view{
@@ -286,7 +288,7 @@ html, body{
 
 	.slide-left, .slide-right{
 		position: absolute;
-		top: 300px;
+		top: 220px;
 		z-index: 20;
 		display: block;
 		background-repeat: no-repeat;
@@ -321,13 +323,13 @@ html, body{
 		background-position: center center;
 		background-size: cover;
 		padding-top: 90px;
-		height: 410px;
+		height: 370px;
 		
 		
 		
 		.item-fg{
-			width: 300px;
-			margin: 50px 0px 0px 10%;
+			width: 420px;
+			margin: 50px 0px 0px 7%;
 			text-align: right;
 			
 			p{
@@ -356,8 +358,8 @@ html, body{
 				text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
 			}	
 			
-			a{
-				margin: 20px 0px 0px 160px;
+			span.action, a{
+				margin: 20px 0px 0px 100px;
 				display: block;
 				@include actionButton();
 			}		
@@ -366,9 +368,90 @@ html, body{
 	}
 }
 
+/*===========================================*/
 
+/* !ABOUT US PANEL */
 
 /*===========================================*/
+.home-aboutus{
+	
+	background: $colourLightBlueBg;
+	padding: 40px;
+
+	h1{
+		color: #fff;
+		font-size: 40px; line-height: 40px;
+		font-weight: 400;
+		text-align: left;
+		margin: 0px; padding: 0px;
+	}
+	h3{
+		color: $colourYellowFg;
+		font-size: 20px; line-height: 26px;
+		font-weight: 400;
+		margin: 0px; padding: 0px 0px 15px;
+	}
+	p{
+		color: $colourWhite;
+		font-weight: 700;
+		padding: 0px 0px 8px;
+		margin: 0px;	
+	}
+	.header{
+		padding-bottom: 30px;		
+	}
+	.body{
+		overflow: hidden;
+	
+		.body-one, .body-two, .body-three{
+			float: left;
+			width: 33.3%;
+		}
+		
+		.body-inner{
+			border-left: 1px solid #6ECBF0;
+			border-right: 1px solid #00678C;
+			
+			margin-bottom: -99999px;
+			padding-bottom: 99999px;
+		
+			.body-l{
+				float: left;
+				text-align: center;
+				width: 10%;
+				margin: 0 2% 0 5%;
+			}
+			.body-r{
+				float: left;
+				width: 78%;
+				margin: 0 5% 0 0;
+			}
+		}
+		
+		.body-one .body-inner{border-left: none;}
+		.body-three .body-inner{border-right: none;}
+		
+		.logos{
+		
+			.atol,.pts{
+				background-repeat: no-repeat;
+				background-image: url(../images/page/home-about-logos.png);
+				float: right;
+				margin-left: 15px;
+			}
+			.atol{
+				background-position:-3px -3px;
+				width:45px;height:45px;
+				margin-top: 4px;}
+			.pts{
+				background-position:-3px -51px;
+				width:52px;height:56px;
+			}
+		}	
+	}
+}
+
+
 
 /*===========================================*/
 
@@ -503,20 +586,11 @@ html, body{
 		
 	.submit-buttons{
 		.search-submit{
-			@include background-image(linear-gradient(#FCFB00,#FFCA00));
-			border-radius: 6px;
-			color: #1d1d1e;	
+			@include actionButton();
 			display: block;
-			text-align: center;
 			padding: 10px;
 			font-size: 16px;
 			line-height: 16px;
-			font-weight: 700;
-			
-			&:hover{
-				@include background-image(linear-gradient(#FFCA00,#FCFB00));
-				box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.6);	
-			}
 		}
 	}
 }

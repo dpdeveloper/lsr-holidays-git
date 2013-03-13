@@ -8,6 +8,7 @@ define([
 	'jquery','underscore','backbone','marionette','vent', 'reqres',
 	
 	'tpl!views/search-ui/templates/search-ui.layout.tpl.html',
+	'views/search-ui/search-ui.controller',
 	'views/search-ui/header/header.layout',
 	'views/search-ui/search-ui.pane.layout',
 	'views/search-ui/loading/loading.view',
@@ -18,6 +19,7 @@ define([
 	
 ], function(	$,_,Backbone,Marionette, vent, reqres,
 				SearchUITemplate,
+				SearchUIController,
 				SearchUIHeaderLayout,
 				SearchUIPaneLayout,
 				SearchUILoadingView,
@@ -36,6 +38,8 @@ define([
 		
 		tagName: 'div',
 		attributes: {'id': 'search-ui'},
+		
+		_controller: null,
 		
 		_headerView: null,
 		_loadingView: null,
@@ -101,10 +105,9 @@ define([
 			Constructor. Can Pass:
 			
 			options.holidaySearch
-			
 			options.flightsLoading
-			
 			options.accommodationLoading
+			options.testMode
 			
 			@class Layout for Search UI
 			@constructs
@@ -119,6 +122,8 @@ define([
 				hotel: null,
 				flight: null
 			};
+			
+			this._controller = new SearchUIController(options);
 			
 			if(typeof options.holidaySearch !== 'undefined'){
 				this.setModeFromHolidaySearch(options.holidaySearch);
@@ -172,7 +177,6 @@ define([
 			@param {HolidaySearch Model} holidaySearch
 		*/
 		setModeFromHolidaySearch: function(holidaySearch){
-			
 			
 			switch(holidaySearch.get('tripType')){
 				case holidaySearch.TRIP_TYPES.PACKAGE:

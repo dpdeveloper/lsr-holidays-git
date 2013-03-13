@@ -99,8 +99,10 @@ require([
 		'spec/models/holiday-search.spec',
 		'spec/models/travellers-info.spec',
 		'spec/models/booking.spec',
-		'spec/models/content/deal.spec',
 		'spec/models/multiload.spec',
+		
+		'spec/models/content/deal.spec',
+		'spec/models/content/home-about.spec',
 		
 		/*
 		 * !COLLECTIONS
@@ -129,6 +131,7 @@ require([
 		'spec/views/home/home.layout.spec',
 		'spec/views/home/deal.slideshow.item.view.spec',
 		'spec/views/home/deal.slideshow.view.spec',
+		'spec/views/home/home.aboutus.view.spec',
 		
 		/*
 		 * ! SEARCH VIEWS

@@ -36,13 +36,12 @@ define([
 		},
 		
 		search: function(){
-			//this.main.show(new SearchUILayout());
+			this.main.show(new SearchUILayout());
 		},
-		
 		
 		//transitions
 		handleSearchTransition: function(search){
-			this.main.show(new SearchUILayout(search));
+			this.main.show(new SearchUILayout({holidaySearch: search}));
 		}
 		
 		

@@ -53,9 +53,14 @@ define([
 			Shortcut for loadingQueue
 			
 			@param {function} fx - A function to call when loaded
+			@param {Boolean} [executeNow] = true
 		*/
-		q: function(fx){
-			this.loadingQueue(fx);
+		q: function(fx, executeNow){
+			if(typeof executeNow === 'undefined'){
+				executeNow = true;
+			}
+			
+			this.loadingQueue(fx,executeNow);
 		},
 		
 		
@@ -65,8 +70,15 @@ define([
 			@param {function} - a dummy param to wrap the function call in
 		*/
 		addLoadingRequest: function(request){
+		
+			var requestAmount = 1;
+			
+			if($.isArray(request)){
+				requestAmount = request.length;
+			}
+		
 			this.set({
-				fetchRequestTotal: this.get('fetchRequestTotal')+1,
+				fetchRequestTotal: this.get('fetchRequestTotal')+requestAmount,
 				isReady: false
 			});
 		},
@@ -93,16 +105,24 @@ define([
 		},
 		
 		/**
-			Fx to Queue a callback
+			Function to Queue a callback
+			
+			If executeNow is ommited or set to trye then the callback function will be executed immendiately if the queue has been processed.
 
 			@param {function} fx - A function to call when loaded
+			@param {Boolean} [executeNow] = true
 
 		*/
-		loadingQueue: function(fx){
+		loadingQueue: function(fx, executeNow){
+		
+			if(typeof executeNow === 'undefined'){
+				executeNow = true;
+			}
+		
 			if(this.get('isReady') === false){
 				this.set({toCallWhenLoaded: fx});
 			}
-			else{
+			else if(executeNow === true){
 				fx();
 			}
 		}
