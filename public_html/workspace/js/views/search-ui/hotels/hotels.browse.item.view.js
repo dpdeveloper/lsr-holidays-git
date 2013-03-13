@@ -29,7 +29,7 @@ define([
 		},
 		
 		initialize: function(){
-			this.bindTo(vent,'search:hotel:selected',this.handleSelectedEvent,this);	
+			this.listenTo(vent,'search:hotel:selected',this.handleSelectedEvent);	
 		},
 		
 		events: {

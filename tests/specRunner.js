@@ -6,10 +6,10 @@ require.config({
 	paths: {
 		modernizr: 'libs/modernizr.min',
 		jquery: 'libs/jquery.min',
-		'jquery-ui': 'libs/jquery-ui',
+		'jquery-ui': 'libs/jquery-ui.min',
 		underscore: 'libs/underscore',
 		backbone: 'libs/backbone',
-		marionette: 'libs/backbone.marionette',
+		marionette: 'libs/backbone.marionette.min',
 		'backbone-relational': 'libs/backbone-relational',
 		
 		jasmine: '../../../tests/lib/jasmine-1.3.1/jasmine',

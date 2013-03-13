@@ -49,13 +49,13 @@ define([
 			options = options || {};
 			this._data.middleMessage = this.lang.middleMessage.loadingBoth;
 			
-			this.bindTo(vent,'search:flight:loaded',function(){
+			this.listenTo(vent,'search:flight:loaded',function(){
 				this.processEvent('search:flight:loaded');
-			},this);
+			});
 			
-			this.bindTo(vent,'search:hotel:loaded',function(){
+			this.listenTo(vent,'search:hotel:loaded',function(){
 				this.processEvent('search:hotel:loaded');
-			},this);
+			});
 			
 			if(typeof options.status !== 'undefined'){
 				this.setStatus(options.status.hotelLoaded,options.status.flightsLoaded);

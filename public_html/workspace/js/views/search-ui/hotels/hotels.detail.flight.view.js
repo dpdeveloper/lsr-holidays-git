@@ -49,9 +49,9 @@ define([
 				this._flightSelected = true;
 			}
 		
-			this.bindTo(vent,'search:flight:selected',this.handleFlightSelected,this);
-			this.bindTo(vent,'search:flight:edit', this.handleFlightEdit,this);
-			this.bindTo(vent,'search:hotel:selected',this.handleHotelSelected, this);
+			this.listenTo(vent,'search:flight:selected',this.handleFlightSelected);
+			this.listenTo(vent,'search:flight:edit', this.handleFlightEdit);
+			this.listenTo(vent,'search:hotel:selected',this.handleHotelSelected);
 			
 		},
 		

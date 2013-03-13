@@ -66,7 +66,7 @@ define([
 	
 	/* Event Bindings */
 	App.addInitializer(function(options){
-		this.bindTo(vent,"page:search",this.handleSearchTransition,this);
+		this.listenTo(vent,"page:search",this.handleSearchTransition);
 	});
 	
 	/* Init Router */

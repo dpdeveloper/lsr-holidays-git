@@ -31,7 +31,7 @@ define([
 		_detailsPaneView: null,
 		
 		initialize: function(){
-			this.bindTo(vent,'search:hotel:selected',this.handleHotelSelected, this);
+			this.listenTo(vent,'search:hotel:selected',this.handleHotelSelected);
 			
 		},
 		

@@ -58,8 +58,8 @@ define([
 		 *
 		*/
 		initialize: function(options){
-			this.bindTo($(window),'resize',this.resize,this);
-			this.bindTo(vent,'search:hotel:loaded',this.setCollection,this);
+			this.listenTo($(window),'resize',this.resize);
+			this.listenTo(vent,'search:hotel:loaded',this.setCollection);
 		},
 		
 		/**

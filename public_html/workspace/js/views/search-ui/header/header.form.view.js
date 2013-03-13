@@ -52,7 +52,7 @@ define([
 			if(typeof options.model !== 'undefined'){
 				this.model.set(this.options.model.toJSON());
 			}
-			this.bindTo(vent,'search:trip:edit',this.setTrip,this);
+			this.listenTo(vent,'search:trip:edit',this.setTrip);
 		},
 		
 		/**

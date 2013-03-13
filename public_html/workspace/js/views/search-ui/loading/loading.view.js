@@ -26,8 +26,8 @@ define([
 			
 			this._isClosing = false;
 			
-			this.bindTo($(window),'resize',this.resize,this);
-			this.bindTo(vent,'search:resize',this.resize,this);
+			this.listenTo($(window),'resize',this.resize);
+			this.listenTo(vent,'search:resize',this.resize);
 		},
 		
 		

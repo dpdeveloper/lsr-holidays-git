@@ -25,8 +25,8 @@ define(function(){
 				backbone: 'libs/backbone',
 				underscore: 'libs/underscore',
 				jquery: 'libs/jquery.min',
-				'jquery-ui': 'libs/jquery-ui',
-				marionette: 'libs/backbone.marionette',
+				'jquery-ui': 'libs/jquery-ui.min',
+				marionette: 'libs/backbone.marionette.min',
 				'backbone-relational': 'libs/backbone-relational',
 				moment: 'libs/moment.min'
 			},

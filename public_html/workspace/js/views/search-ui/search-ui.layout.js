@@ -137,15 +137,15 @@ define([
 				this.setStatus('hotel',this.STATES.HOTEL.BROWSE);
 			}
 			
-			this.bindTo(vent,'search:hotel:loaded',this.hotelSearchLoad,this);
-			this.bindTo(vent,'search:flight:loaded',this.flightSearchLoad,this);
-			this.bindTo(vent,'search:flight:edit',this.handleFlightEdit,this);
-			this.bindTo(vent,'search:hotel:selected',this.handleHotelSelected,this);
-			this.bindTo(vent,'search:flight:selected',this.handleFlightSelected,this);
-			this.bindTo(vent,'search:trip:edit', this.setModeFromHolidaySearch,this);
+			this.listenTo(vent,'search:hotel:loaded',this.hotelSearchLoad);
+			this.listenTo(vent,'search:flight:loaded',this.flightSearchLoad);
+			this.listenTo(vent,'search:flight:edit',this.handleFlightEdit);
+			this.listenTo(vent,'search:hotel:selected',this.handleHotelSelected);
+			this.listenTo(vent,'search:flight:selected',this.handleFlightSelected);
+			this.listenTo(vent,'search:trip:edit', this.setModeFromHolidaySearch);
 			
-			this.bindTo(vent, 'search:shortlist', this.onShortlist,this);
-			this.bindTo(vent, 'search:shortlist:complete', this.onShortlistComplete,this);
+			this.listenTo(vent, 'search:shortlist', this.onShortlist);
+			this.listenTo(vent, 'search:shortlist:complete', this.onShortlistComplete);
 		},
 		
 		

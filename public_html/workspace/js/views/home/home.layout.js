@@ -39,7 +39,7 @@ define([
 			options = options || {};
 			
 			this.loader = new MultiLoad();
-			this.bindTo(this.loader,'complete', this._loadingCallback, this);
+			this.listenTo(this.loader,'complete', this._loadingCallback);
 			
 			this.data = {
 				deals: new ContentDealCollection(),
@@ -79,7 +79,7 @@ define([
 					collection: self.data.deals
 				}));
 				self.search.show(new SearchFormView());
-				self.bindTo(self.search.currentView,"save",self.handleSearchEvent,this);
+				self.listenTo(self.search.currentView,"save",self.handleSearchEvent);
 				
 				self.about.show(new HomeAboutUsView({
 					model: self.data.homeAbout

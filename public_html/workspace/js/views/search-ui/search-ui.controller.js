@@ -80,19 +80,19 @@ define([
 			this._airlineCollection.fetch(); //get the data initially
 			
 			//bind to collections
-			this.bindTo(this._mcFlightCollection,'complete',this.processFlightSearchResults,this);
-			this.bindTo(this._mcAccommCollection,'complete',this.processHotelSearchResults,this);
-			this.bindTo(this._hotelCollection,'complete',this.processHotelSearchResults,this);
+			this.listenTo(this._mcFlightCollection,'complete',this.processFlightSearchResults);
+			this.listenTo(this._mcAccommCollection,'complete',this.processHotelSearchResults);
+			this.listenTo(this._hotelCollection,'complete',this.processHotelSearchResults);
 			
 			//initiator events
-			this.bindTo(vent,'search:trip:edit',this.saveSearchEdit,this);
+			this.listenTo(vent,'search:trip:edit',this.saveSearchEdit,this);
 			
 			//feedback from selections
-			this.bindTo(vent,'search:flight:selected',this.handleFlightSelection,this);
-			this.bindTo(vent,'search:hotel:selected',this.handleHotelSelection,this);
+			this.listenTo(vent,'search:flight:selected',this.handleFlightSelection);
+			this.listenTo(vent,'search:hotel:selected',this.handleHotelSelection);
 			
 			//shortlisting
-			this.bindTo(vent,'search:shortlist',this.onShortlistRequest, this);
+			this.listenTo(vent,'search:shortlist',this.onShortlistRequest);
 			
 			//add response handlers for retrieving data in a decoupled maneer
 			reqres.addHandler('search:get:booking', this.getBooking);

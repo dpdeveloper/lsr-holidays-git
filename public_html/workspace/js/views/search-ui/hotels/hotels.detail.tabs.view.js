@@ -39,7 +39,7 @@ define([
 		},
 		
 		initialize: function(){
-			this.bindTo(vent,'search:hotel:selected', this.handleHotelSelection, this);
+			this.listenTo(vent,'search:hotel:selected', this.handleHotelSelection);
 		},
 		
 		handleHotelSelection: function(selectedHotel){

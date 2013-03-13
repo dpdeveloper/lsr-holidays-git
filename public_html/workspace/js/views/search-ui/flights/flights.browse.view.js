@@ -87,8 +87,8 @@ define([
 			}
 			
 		
-			this.bindTo($(window),'resize',this.resize,this);
-			this.bindTo(vent,'search:flight:filter',this.handleFlightFilter,this);
+			this.listenTo($(window),'resize',this.resize);
+			this.listenTo(vent,'search:flight:filter',this.handleFlightFilter);
 		},
 		
 		onRender: function(){

@@ -33,7 +33,7 @@ define([
 		_browseView: null,
 		
 		initialize: function(){
-			this.bindTo(vent,'search:flight:edit', this.handleFlightsEdit, this);
+			this.listenTo(vent,'search:flight:edit', this.handleFlightsEdit);
 		},
 		
 		onRender: function(){},
@@ -54,7 +54,7 @@ define([
 			this.filter.show(this._filterView);
 			
 			//bind pagination
-			this.bindTo(this._browseView,'change:pagination',this.handleFlightsPagination,this);
+			this.listenTo(this._browseView,'change:pagination',this.handleFlightsPagination);
 			this.handleFlightsPagination(this._browseView.getPagination());
 		},
 		

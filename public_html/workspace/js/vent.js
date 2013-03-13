@@ -3,8 +3,8 @@
  *
 */
 define([
-	'marionette'
-],function(Marionette){
+	'backbone','marionette'
+],function(Backbone,Marionette){
   "use strict";
-  return new Marionette.EventAggregator();
+  return new Backbone.Wreqr.EventAggregator();
 });
