@@ -3657,7 +3657,7 @@ html, body {
 /* line 278, ../sass/screen.scss */
 .deal-slideshow-view .slides {
   position: relative;
-  height: 460px;
+  height: 480px;
   width: 100%;
 }
 /* line 283, ../sass/screen.scss */
@@ -3716,7 +3716,7 @@ html, body {
   background-position: center center;
   background-size: cover;
   padding-top: 90px;
-  height: 370px;
+  height: 390px;
 }
 /* line 330, ../sass/screen.scss */
 .deal-slideshow-item-view .item-bg .item-fg {

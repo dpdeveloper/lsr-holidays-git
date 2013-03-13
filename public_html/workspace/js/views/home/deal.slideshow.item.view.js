@@ -41,7 +41,7 @@ define([
 			if('model' in this && this.model !== null){
 			
 				var obj = this.model.toJSON();
-				obj.backgroundImage = viewHelper.imageUrl(this.model.get('image'),1200,1200,'crop-fill');
+				obj.backgroundImage = viewHelper.imageUrl(this.model.get('image'),0,0,'full');
 				return obj;
 			}
 		}
