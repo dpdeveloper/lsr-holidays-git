@@ -5,11 +5,13 @@
 */
 
 define([
-	'underscore','jquery','backbone',
+	'underscore','jquery','backbone'
 ], function(_,$,Backbone){
 	'use strict';
 
-	var FlightFilter = Backbone.Model.extend({
+	var FlightFilter = Backbone.Model.extend(
+	/** @lends FlightFilter */
+	{
 		defaults: {
 			outboundAirline: null,
 			outboundNoStops: null,
@@ -17,13 +19,13 @@ define([
 			
 			returnAirline: null,
 			returnNoStops: null,
-			returnDepartureTimes: null,
+			returnDepartureTimes: null
 		},
 		
 		TIMES:{
 			MORNING: 'm',
 			AFTERNOON: 'a',
-			EVENING: 'e',
+			EVENING: 'e'
 		},
 		
 		
@@ -37,7 +39,7 @@ define([
 		 * The result is stored as a CSV either way
 		*/
 		setProperty: function(attrib,val){
-			if(val==null){
+			if(val === null){
 				return this.set(attrib,null);
 			}
 			else if(typeof val === 'string'){
@@ -57,8 +59,8 @@ define([
 		*/
 		getProperty: function(attrib){
 			var val = this.get(attrib);
-			if(val==null)return null;
-			if(val.indexOf(',')==-1){
+			if(val === null){ return null; }
+			if(val.indexOf(',') === -1){
 				return [val];
 			}
 			else{
@@ -91,22 +93,22 @@ define([
 		*/
 		isDepartureTimeFiltered: function(parameter,departureTime){
 			var f = this.getProperty(parameter);
-			if(f==null) return true;	
+			if(f === null){ return true; }
 			
-			var times = new Array();
+			var times = [];
 		
 			//if all set then return true
-			if(_.indexOf(f,this.TIMES.MORNING)!=-1){
+			if(_.indexOf(f,this.TIMES.MORNING) !== -1){
 				times.push({start: 0, end: 1200});
 			}
-			if(_.indexOf(f,this.TIMES.AFTERNOON)!=-1){
+			if(_.indexOf(f,this.TIMES.AFTERNOON) !== -1){
 				times.push({start: 1200, end: 1800});
 			}
-			if(_.indexOf(f,this.TIMES.EVENING)!=-1){
+			if(_.indexOf(f,this.TIMES.EVENING) !== -1){
 				times.push({start: 1800, end: 2400});
 			}
 
-			departureTime = parseInt(departureTime);
+			departureTime = parseInt(departureTime,10);
 			if(isNaN(departureTime)){return true;}
 			
 			//do the filtering

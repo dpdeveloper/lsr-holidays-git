@@ -8,7 +8,7 @@ define([
 	'jquery','underscore','backbone','marionette','vent',
 	'tpl!views/search-ui/templates/hotels.browse.item.view.tpl.html',
 	'models/symphony-hotel',
-	'helpers/view-helper',
+	'helpers/view-helper'
 	
 ], function($,_,Backbone,Marionette,vent,
 			SearchUIHotelBrowseItemTemplate,
@@ -17,7 +17,9 @@ define([
 			){
 	"use strict";
 	
-	var SearchUIHotelsBrowseItemView = Backbone.Marionette.ItemView.extend({
+	var SearchUIHotelsBrowseItemView = Backbone.Marionette.ItemView.extend(
+	/** @lends SearchUIHotelsBrowseItemView */
+	{
 
 		template: SearchUIHotelBrowseItemTemplate,
 		model: SymphonyHotel,
@@ -25,24 +27,29 @@ define([
 		
 		tagName: 'div',
 		attributes: {
-			'class': 'search-ui-hotel-browse-item',
+			'class': 'search-ui-hotel-browse-item'
 		},
 		
+		
+		/**
+			Constructor
+			@class View to display an individual hotel item
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(){
 			this.listenTo(vent,'search:hotel:selected',this.handleSelectedEvent);	
 		},
 		
 		events: {
-			'click': 'handleClick',
+			'click': 'handleClick'
 		},
 		
 		
 		/**
-		 * handleClick
-		 *
-		 * @param {jQuery Event} ev
-		 *
-		 * Adds selected CSS and fires an event
+			Adds selected CSS and fires an event
+			
+			@param {jQuery Event} ev
 		*/
 		handleClick: function(ev){
 			ev.preventDefault();
@@ -51,18 +58,16 @@ define([
 		},
 		
 		/**
-		 * handleSelectedEvent
-		 *
-		 * @param {SymphonyHotel} selectedModel
-		 *
-		 * Callback for when a hotels:selected event is fired
-		 * Unselects the current element if it isn't the selected item
+			Callback for when a hotels:selected event is fired
+			Unselects the current element if it isn't the selected item
+			
+			@param {SymphonyHotel} selectedModel
 		*/
 		handleSelectedEvent: function(selectedModel){
-			if(selectedModel != null && selectedModel != this.model){
+			if(selectedModel !== null && selectedModel !== this.model){
 				this.$el.removeClass('selected');
 			}	
-		},
+		}
 		
 	});
 	

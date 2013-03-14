@@ -19,7 +19,9 @@ define([
 		){
 	"use strict";
 	
-	var HeaderLayout = Backbone.Marionette.Layout.extend({
+	var SearchHeaderLayout = Backbone.Marionette.Layout.extend(
+	/** @lends SearchHeaderLayout */
+	{
 
 		template: HeaderLayoutTemplate,
 		regions: {
@@ -32,6 +34,13 @@ define([
 		_progressView: null,
 		_statusView: null,
 		
+		/**
+			Constructor
+			
+			@class Layout to display search ui header
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(options){
 			
 		},
@@ -50,6 +59,6 @@ define([
 		
 	});
 	
-	return HeaderLayout;
+	return SearchHeaderLayout;
 });
 	

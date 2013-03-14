@@ -11,7 +11,7 @@ define([
 	'collections/multicom-flight',
 	'collections/symphony-airline',
 	'models/multicom/multicom-flight',
-	'libs/jquery.transit',
+	'libs/jquery.transit'
 	
 ], function($,_,Backbone,Marionette,vent,
 			SearchUIFlightsBrowseTemplate,
@@ -22,7 +22,9 @@ define([
 			){
 	"use strict";
 	
-	var SearchUIFlightsBrowseView = Backbone.Marionette.CompositeView.extend({
+	var SearchUIFlightsBrowseView = Backbone.Marionette.CompositeView.extend(
+	/** @lends SearchUIFlightsBrowseView */
+	{
 		
 		template: SearchUIFlightsBrowseTemplate,
 		itemView: SearchUIFlightsBrowseItemView,
@@ -36,7 +38,7 @@ define([
 		
 		events: {
 			'click .body-left': 'pageLeft',
-			'click .body-right': 'pageRight',
+			'click .body-right': 'pageRight'
 		},
 		
 		_visibe: false,
@@ -46,11 +48,18 @@ define([
 		
 		ui: {
 			inner: '.body-middle-inner',
-			outer: '.body-middle',
+			outer: '.body-middle'
 		},
 		
 		itemViewOptions: {},
 		
+		/**
+			Constructor
+			
+			@class View to display hotel browse interface
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(options){
 			
 			this.collection = new MCFlightCollection();
@@ -59,14 +68,14 @@ define([
 			this._airlineCollection = new SymphonyAirlineCollection();			
 			
 			this._filterRender = false;
-			this._pagination = { pageWidth: 5, position: 1,	};
+			this._pagination = { pageWidth: 5, position: 1};
 			this._size = {
 				itemWidth: 280,
 				itemMargin: 0,
 				itemMinMargin: 2,
 				containerWidth: 0,
 				containerMargin: 156,	
-				innerWidth: 0,
+				innerWidth: 0
 			};
 			this._visible = false;
 			
@@ -129,7 +138,7 @@ define([
 				var rem= this._size.containerWidth % this._size.itemWidth;
 				while(rem/(itemCount-1) < this._size.itemMinMargin){
 					rem = rem + this._size.itemWidth;
-					if(itemCount <= 1) break;
+					if(itemCount <= 1) {break;}
 					itemCount--;
 				} 
 				this._size.itemMargin = Math.floor(rem/(itemCount-1));
@@ -153,7 +162,7 @@ define([
 		},				
 
 		pageLeft: function(){
-			if(this._pagination.position == 1){
+			if(this._pagination.position === 1){
 				return;
 			}
 			var pos = 1;
@@ -166,7 +175,7 @@ define([
 		pageRight: function(){
 			var maxPos = this.collection.length - (this._pagination.pageWidth - 1);
 			
-			if(this._pagination.position == maxPos){
+			if(this._pagination.position === maxPos){
 				return;
 			}
 			var pos = maxPos;
@@ -207,9 +216,9 @@ define([
 				position: this._pagination.position,
 				width: this._pagination.pageWidth,
 				pages: Math.ceil(this.collection.length / this._pagination.pageWidth),
-				currentPage: Math.floor(this._pagination.position / this._pagination.pageWidth) +1,
+				currentPage: Math.floor(this._pagination.position / this._pagination.pageWidth) +1
 			};
-		},
+		}
 		
 		
 	});

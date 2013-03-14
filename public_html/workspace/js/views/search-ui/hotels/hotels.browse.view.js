@@ -18,13 +18,14 @@ define([
 			){
 	"use strict";
 	
-	var SearchUIHotelsBrowseView = Backbone.Marionette.CompositeView.extend({
+	var SearchUIHotelsBrowseView = Backbone.Marionette.CompositeView.extend(
+	/** @lends SearchUIHotelsBrowseView */
+	{
 		
 		template: SearchUIHotelBrowseTemplate,
 		itemView: SearchUIHotelBrowseItemView,
 		itemViewContainer: '.body-middle-inner',
 		
-		//completeCollection: new SymphonyHotelCollection(), //unfiltered version
 		collection: new SymphonyHotelCollection(),
 		
 		events: {
@@ -53,9 +54,11 @@ define([
 		},
 		
 		/**
-		 * initialize
-		 *
-		 *
+			Constructor
+			
+			@class View to browse hotel objects
+			@constructs
+			@param {Object} [options] Options Hash
 		*/
 		initialize: function(options){
 			this.listenTo($(window),'resize',this.resize);
@@ -63,18 +66,14 @@ define([
 		},
 		
 		/**
-		 * onRender
-		 *
-		 *
+			Render callback
 		*/
 		onRender: function(){
 			this.resize();
 		},
 		
 		/**
-		 * onShow
-		 *
-		 *
+			Show Callback
 		*/
 		onShow: function(){
 			this._visible = true;
@@ -82,9 +81,7 @@ define([
 		},
 		
 		/**
-		 * resize
-		 *
-		 *
+			Resize the view
 		*/
 		resize: function(){
 			
@@ -119,10 +116,9 @@ define([
 		},
 		
 		/**
-		 * setCollection
-		 *
-		 * @param {SymphonyHotelCollection} newCollection
-		 *
+			Set the Collection
+
+			@param {SymphonyHotelCollection} newCollection
 		*/
 		setCollection: function(newCollection){
 			if(this._visible){
@@ -135,9 +131,7 @@ define([
 		
 		
 		/**
-		 * pageLeft
-		 *
-		 *
+			move the navigation a page to the left
 		*/
 		pageLeft: function(){
 			if(this._pagination.position === 1){
@@ -151,9 +145,7 @@ define([
 		},
 		
 		/**
-		 * pageRight
-		 *
-		 *
+			Move the navigation a page to the right
 		*/
 		pageRight: function(){
 			var maxPos = this.collection.length - (this._pagination.pageWidth - 1);
@@ -169,10 +161,8 @@ define([
 		},
 		
 		/**
-		 * pagePosition
-		 *
-		 * @param {Integer} pos
-		 *
+			Navigate to a specific position in the collection
+			@param {Integer} pos
 		*/
 		pagePosition: function(pos){
 			var left = -1 * (pos -1) * (this._size.itemWidth + this._size.itemMargin);

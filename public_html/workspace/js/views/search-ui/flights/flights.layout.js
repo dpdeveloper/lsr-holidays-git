@@ -17,7 +17,9 @@ define([
 			){
 	"use strict";
 	
-	var SearchUIFlightsLayout = Backbone.Marionette.Layout.extend({
+	var SearchUIFlightsLayout = Backbone.Marionette.Layout.extend(
+	/** @lends SearchUIFlightsLayout */
+	{
 		template: SearchUIFlightsLayoutTemplate,
 		
 		regions: {
@@ -32,6 +34,13 @@ define([
 		_filterView: null,
 		_browseView: null,
 		
+		/**
+			Constructor
+			
+			@class Layout to display Flights area
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(){
 			this.listenTo(vent,'search:flight:edit', this.handleFlightsEdit);
 		},

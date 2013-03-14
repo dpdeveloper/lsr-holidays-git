@@ -10,17 +10,19 @@ define([
 	'models/flight-filter',
 	'collections/multicom-flight',
 	'helpers/view-helper',
-	'libs/select2.min',
+	'libs/select2.min'
 	
 ], function($,_,Backbone,Marionette,vent,
 			SearchUIFlightsFilterViewTemplate,
 			FlightFilter,
-			mcFlightCollection,
+			MCFlightCollection,
 			viewHelper
 			){
 	"use strict";
 	
-	var SearchUIFlightsFilterView = Backbone.Marionette.ItemView.extend({
+	var SearchUIFlightsFilterView = Backbone.Marionette.ItemView.extend(
+	/** @lends SearchUIFlightsFilterView */
+	{
 		template: SearchUIFlightsFilterViewTemplate,
 		templateHelpers: viewHelper,
 		model: null,
@@ -31,13 +33,19 @@ define([
 		attributes: {'class':'search-ui-flights-filter'},
 		
 		events: {
-			'change select': 'handleFormChange',	
+			'change select': 'handleFormChange'
 		},
 		
-		
+		/**
+			Constructor
+			
+			@class View to display flights filtering options
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(options){
 			this.model = new FlightFilter();
-			this._flightCollection = new mcFlightCollection();
+			this._flightCollection = new MCFlightCollection();
 			
 			if(options.collection){
 				this._flightCollection = options.collection;
@@ -50,14 +58,14 @@ define([
 				outboundAirlines: this._flightCollection.getUniqueArrayFromParameters(['outboundCarrier','outboundAirlineName']),
 				outboundNumStops: this._flightCollection.getUniqueArrayFromParameters(['outboundNumStops']),
 				returnAirlines: this._flightCollection.getUniqueArrayFromParameters(['returnCarrier','returnAirlineName']),
-				returnNumStops: this._flightCollection.getUniqueArrayFromParameters(['returnNumStops']),
+				returnNumStops: this._flightCollection.getUniqueArrayFromParameters(['returnNumStops'])
 			};
 		},
 		
 		onShow: function(){
 			var self = this;
 			setTimeout(function(){
-				$('select',self.$el).select2({width: 'resolve', allowClear: true,});	
+				$('select',self.$el).select2({width: 'resolve', allowClear: true});	
 			},10);	
 		},
 		

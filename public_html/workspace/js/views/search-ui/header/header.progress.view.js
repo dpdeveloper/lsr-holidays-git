@@ -13,8 +13,10 @@ define([
 				HeaderProgressForm
 			){
 
-	var HeaderProgressView = Backbone.Marionette.ItemView.extend({
-		template: HeaderProgressForm,
+	var SearchHeaderProgressView = Backbone.Marionette.ItemView.extend(
+	/** @lends SearchHeaderProgressView */
+	{
+		template: SearchHeaderProgressForm,
 		
 	});
 	

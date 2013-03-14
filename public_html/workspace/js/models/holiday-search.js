@@ -13,8 +13,13 @@ define([
 	"use strict";
 	
 	/**
-		@module Model: HolidaySearch
+		@module Models
 		@exports HolidaySearch
+	*/
+
+	var HolidaySearch = Backbone.RelationalModel.extend(
+	/** 
+		@lends HolidaySearch
 		
 		@property {TRIP_TYPE} tripType
 		@property {string} destination
@@ -34,8 +39,7 @@ define([
 		@property {string} thirdPartyInsurance
 		@property {string} thurdPartyInsuranceName
 	*/
-
-	var HolidaySearch = Backbone.RelationalModel.extend({
+	{
 		defaults: {
 			
 			//type

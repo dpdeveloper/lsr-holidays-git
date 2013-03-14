@@ -17,7 +17,9 @@ define([
 			){
 	"use strict";
 	
-	var SearchUIPaneLayout = Backbone.Marionette.Layout.extend({
+	var SearchUIPaneLayout = Backbone.Marionette.Layout.extend(
+	/** @lends SearchUIPaneLayout */
+	{
 		
 		template: SearchUIPaneTemplate,
 		tagName: 'div',
@@ -41,6 +43,13 @@ define([
 			ANIMATING: 2
 		},
 		
+		/**
+			Constructor
+			
+			@class View to encapsulate another view for animation purposes
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(options){
 			/*
 				options.subView (required)

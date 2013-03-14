@@ -29,6 +29,11 @@ define([
 			){
 	"use strict";
 	
+	/**
+		@module Models
+		@exports Booking
+	*/
+	
 	var Booking = Backbone.RelationalModel.extend(
 	/**
 		@lends Booking

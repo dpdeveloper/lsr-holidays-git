@@ -16,7 +16,9 @@ define([
 			){
 	"use strict";
 
-	var HeaderFormView = Backbone.Marionette.ItemView.extend({
+	var HeaderFormView = Backbone.Marionette.ItemView.extend(
+	/** @lends HeaderFormView */
+	{
 		template: HeaderFormTemplate,
 		
 		roomRowHTML: null,
@@ -45,6 +47,13 @@ define([
 	
 		},
 		
+		/**
+			Constructor
+			
+			@class View to display the search ui header
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(options){
 			options = options || {};
 			

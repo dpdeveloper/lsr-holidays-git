@@ -14,8 +14,10 @@ define([
 				MulticomAccommodation
 				){
 	'use strict';
-
-	var SymphonyHotel = Backbone.RelationalModel.extend({
+	
+	var SymphonyHotel = Backbone.RelationalModel.extend(
+	/** @lends SymphonyHotel */
+	{
 		
 		relations: [{
 			type: 'HasOne',
@@ -43,8 +45,10 @@ define([
 		
 		
 		/**
-		 * initialize
-		 *
+			Constructor
+			@class Symphony Hotel Model
+			@constructs
+			@param {Object} [options] Options Hash
 		*/
 		initialize: function(){
 			_.bindAll(this);
@@ -52,10 +56,7 @@ define([
 		},
 		
 		/**
-		 * parse
-		 *
-		 * Overridden parse function to set the symData param to true
-		 *
+			Overridden parse function to set the symData param to true
 		*/
 		parse: function(result){
 			result.symData = true;
@@ -63,9 +64,7 @@ define([
 		},
 		
 		/**
-		 * setDataFromSymphony
-		 *
-		 * Sets data from symphony (mainly for testing purposes) and sets the flag correctly.
+			Sets data from symphony (mainly for testing purposes) and sets the flag correctly.
 		*/
 		setFromSymphony: function(data){
 			this.set(data);
@@ -73,10 +72,7 @@ define([
 		},
 		
 		/**
-		 * setMulticomData
-		 *
-		 * Sets the multicom data and sets the flag correctly
-		 *
+			Sets the multicom data and sets the flag correctly
 		*/
 		setMulticomData: function(mcHotel){
 			this.set('multicomHotel',mcHotel);
@@ -84,10 +80,10 @@ define([
 		},
 		
 		/**
-		 * buildFromMulticomHotel
-		 *
-		 * Builds the parameters as best it can from the multicom data
-		 *
+			Builds the parameters as best it can from the multicom data
+			
+			@param {MulticomHotel} mcHotel
+			
 		*/
 		buildFromMulticomHotel: function(mcHotel){
 			var imgArr = [];
@@ -112,9 +108,7 @@ define([
 		},
 		
 		/**
-		 * getActivityCategories
-		 *
-		 * Returns an array of category groups for the activities in the hotel (if any)
+			Returns an array of category groups for the activities in the hotel (if any)
 		*/
 		getActivityCategories: function(){
 			var ret = [];
@@ -145,11 +139,9 @@ define([
 		},
 		
 		/**
-		 * getActivitiesByCategory
-		 *
-		 * @param category
-		 *
-		 * Returns an array of activity objects based on the filter category provided
+			Returns an array of activity objects based on the filter category provided
+			
+			@param {String} category
 		*/
 		getActivitiesByCategory: function(category){
 			

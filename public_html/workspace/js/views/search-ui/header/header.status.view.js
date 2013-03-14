@@ -13,7 +13,9 @@ define([
 			){
 	"use strict";
 	
-	var SearchUIHeaderStatusView = Backbone.Marionette.ItemView.extend({
+	var SearchUIHeaderStatusView = Backbone.Marionette.ItemView.extend(
+	/** @lends SearchUIHeaderStatusView */
+	{
 		template: SearchUIHeaderStatusTemplate,
 		
 		tagName: 'div',
@@ -33,19 +35,23 @@ define([
 		},
 		
 		/**
-		 * intialize
-		 *
-		 * @options {Object}
-		 *
-		 * Options accepts
-		 *
-		 * { status: {
-		 *		flightLoaded: (true | false),
-		 *		hotelLoaded: (true | false)
-		 * }
-		 *
+			Constructor
+			
+			@class View to display search header status
+			@constructs
+			@param {Object} [options] Options Hash
 		*/
 		initialize: function(options){
+			
+			/* Options accepts
+			 *
+			 * { status: {
+			 *		flightLoaded: (true | false),
+			 *		hotelLoaded: (true | false)
+			 * }
+			 *
+			*/
+			
 			options = options || {};
 			this._data.middleMessage = this.lang.middleMessage.loadingBoth;
 			
@@ -67,15 +73,13 @@ define([
 		},
 		
 		/**
-		 * setStatus
-		 *
-		 * @param {Boolean | null} hotelLoaded
-		 * @param {Boolean | null} flightLoaded
-		 *
-		 * Sets the correct status depending on whether the flights / hotels are loaded
-		 *
-		 * Supports search types where it is flight only or vice verca
-		 * if there are no hotels loading then hotelLoaded = null (flightLoaded = null) for flights
+			Sets the correct status depending on whether the flights / hotels are loaded
+			
+			Supports search types where it is flight only or vice verca
+			if there are no hotels loading then hotelLoaded = null (flightLoaded = null) for flights
+			
+			@param {Boolean | null} hotelLoaded
+			@param {Boolean | null} flightLoaded
 		*/
 		setStatus: function(hotelLoaded,flightLoaded){
 			if(	hotelLoaded === true && flightLoaded === true ||
@@ -95,6 +99,9 @@ define([
 			}
 		},
 		
+		/**
+			@param {String} message
+		*/
 		processEvent: function(message){
 			
 			var m = this.lang.middleMessage; //shortcut
