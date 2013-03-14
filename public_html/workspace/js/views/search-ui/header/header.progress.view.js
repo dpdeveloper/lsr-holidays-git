@@ -6,20 +6,20 @@
 
 define([
 	'jquery','underscore','backbone','marionette','vent',
-	
-	'tpl!views/search-ui/templates/header.progress.view.tpl.html',
+	'tpl!views/search-ui/templates/header.progress.view.tpl.html'
 	
 ], function(	$,_,Backbone,Marionette,vent,
 				HeaderProgressForm
 			){
-
+	"use strict";
+	
 	var SearchHeaderProgressView = Backbone.Marionette.ItemView.extend(
 	/** @lends SearchHeaderProgressView */
 	{
-		template: SearchHeaderProgressForm,
+		template: HeaderProgressForm
 		
 	});
 	
-	return HeaderProgressView;
+	return SearchHeaderProgressView;
 });
 	
