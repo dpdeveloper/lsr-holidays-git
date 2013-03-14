@@ -12,10 +12,11 @@ define([
 	'models/holiday-search',
 	
 	'views/search-ui/travellers/travellers.contact.view',
-	'views/search-ui/travellers/travellers.summary.view',
-	'views/search-ui/travellers/travellers.static.view',
 	'views/search-ui/travellers/travellers.edit.layout',
-	'views/search-ui/travellers/travellers.tac.view'
+	'views/search-ui/travellers/travellers.tac.view',
+	
+	'views/search-ui/sidebar/sidebar.summary.view',
+	'views/search-ui/sidebar/sidebar.static.view'
 	
 ], function($,_,Backbone,Marionette,vent,
 			TravellersLayoutTemplate,
@@ -24,10 +25,11 @@ define([
 			HolidaySearch,
 			
 			TravellersContactView,
-			TravellersSummaryView,
-			TravellersStaticView,
 			TravellersEditLayout,
-			TravellersTacView
+			TravellersTacView,
+			
+			SidebarSummaryView,
+			SidebarStaticView
 			){
 	"use strict";
 	
@@ -100,8 +102,8 @@ define([
 		*/
 		onShow: function(){
 			this._contactView = new TravellersContactView({model: this.model.get('travellersInfo').getLeadTraveller()});
-			this._summaryView = new TravellersSummaryView({model: this.model});
-			this._staticView = new TravellersStaticView();
+			this._summaryView = new SidebarSummaryView({model: this.model});
+			this._staticView = new SidebarStaticView();
 			this._tacView = new TravellersTacView({model: this.model});
 			this._editView = new TravellersEditLayout({model: this.model});
 			

@@ -5,22 +5,29 @@
 	<title>Javascript Designer</title>
   
 	<base href="../public_html/" />
-	<link rel="stylesheet" type="text/css" href="workspace/css/base.css" />
-	<link rel="stylesheet" type="text/css" href="workspace/css/skeleton.css" />
-	<link rel="stylesheet" type="text/css" href="workspace/css/layout.css" />
+	<link rel="shortcut icon" href="../public_html/workspace/images/favicon.ico"/>
 	
-	<link rel="stylesheet" type="text/css" href="workspace/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="workspace/css/responsive.css" />
+	<link rel="apple-touch-icon" href="../public_html/workspace/images/apple-touch-icon.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="../public_html/workspace/images/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="../public_html/workspace/images/apple-touch-icon-114x114.png"/>
 	
-	<link rel="stylesheet" href="workspace/css/jqueryui-dotluv/jquery-ui-1.9.0.custom.css" type="text/css"/>
-	<link rel="stylesheet" href="workspace/css/select2/select2.css" type="text/css"/>
+    <!-- Template CSS
+	================================================== -->   
+	<link rel="stylesheet" href="../public_html/workspace/stylesheets/screen.css" media="screen, projection" type="text/css"/>
+	<link rel="stylesheet" href="../public_html/workspace/stylesheets/print.css" media="print" type="text/css"/>
 	
 	<!-- include source files here... -->
 	<script src="../public_html/workspace/js/libs/require.js" data-main="../tests/designer"></script>
 </head>
 
 <body>
-	<div id="sandbox"></div>
+	<div id="sandbox">
+		<div id="application">
+			<div id="header"></div>
+			<div id="main"></div>
+			<div id="footer"></div>
+		</div>
+	</div>
 </body>
 </html>
 

@@ -623,12 +623,11 @@ html, body{
 /*===========================================*/
 
 #search-ui{
-	background: $purple;
+	background: $colourLightBlueBg;
+	padding-top: 90px;
 }
 	#search-ui .ui-header{}
-	#search-ui .ui-body{
-		padding-top: 86px;
-	}
+	#search-ui .ui-body{}
 		#search-ui .ui-body .ui-loading{}
 		#search-ui .ui-body .ui-flights{}
 		#search-ui .ui-body .ui-hotels{}
@@ -644,83 +643,27 @@ html, body{
 /*===========================================*/
 
 #search-ui-header{
-	background: #fff;
-	position: fixed; z-index: 40;
-	width: 100%;
+	margin: 10px 40px 20px;
 	
-	.header-top{
-		background: #8B1FAC;
-		height: 40px; color: #fff;
-		padding: 0px 0px 0px 0px;
-		
-		width: 100%;
-		top: 0px;
-		/*box-shadow: 0px 2px 5px rgba(0,0,0,0.4);*/
+	@include background-image(linear-gradient(#fff,#E5E5E5));
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
+	padding: 10px 30px;
 	
-		.header-left{
-			float: left;
-			width: 30%;
-		
-			.header-logo{
-				float: left;
-				background: url(../images/main/indulge-by-lsr-compact.png) no-repeat center center;
-				width: 200px;
-				height: 30px;
-				margin: 5px 20px 0px 20px;
-			
-				a{
-					display: block;
-					height: 30px;
-					text-decoration: none;
-					width: 200px;
-					cursor: pointer;
-					z-index: 99;
-				}
-			}
-		}
-		.header-right{
-			float: right; width: 60%;
-		
-			.header-help{
-				a{
-					background: #8B1FAC;
-					display: block;
-					height:22px;
-					padding: 10px 10px 8px;
-					color: #fff;
-					text-transform: uppercase;
-					font-size: 14px;line-height: 14px;
-					float: right;
-				
-					strong{
-						font-size: 16px;line-height: 16px;	
-					}
-				}
-				a:hover,
-				a:hover strong{
-					color: #333;;
-					background-color: #fff;	
-				}
-				
-			}
-		}
-	}
-	.header-bottom{
-		
-		padding: 10px 0px 0px;
+	.header-inner{
 	
 		.header-status{
 			float: left;
-			width: 20%;
-			margin: 0 0 0 2.5%;
+			width: 27.5%;
+			margin: 0;
 		}
 		.header-progress{
-			float: left; width: 55%;
-			margin: 0 2.5% 0 2.5%;
+			float: left; width: 47.5%;
+			margin: 0 5% 0 5%;
 		}
 		.header-form{
 			float: left; width: 15%;
-			margin: 0 2.5% 0 0;
+			margin: 0;
 		}
 		
 	}
@@ -733,22 +676,15 @@ html, body{
 /*===========================================*/
 .search-ui-status{
 	.search-ui-status-inner{
-		background: #fff;
-		color: #aaa;
+		color: $colourDarkGreyFg;
 		font-weight: 400;
-		padding: 0px;
-		font-size: 12px; line-height: 12px;
-	}
-		p{
-			margin: 0px;
-			padding: 0px 0px 5px;
-			
-			&.last{padding: 0px;}
-		}
+		padding: 10px 0px 0px;
+		font-size: 13px; line-height: 13px;
+	
+		p{margin: 0px; padding: 0px;}
 		
-		strong{
-			color: #aaa; font-weight: 700;	
-		}		
+		strong{color: $colourBlueFg; font-weight: 700;}
+	}	
 }
 		
 /*===========================================*/
@@ -758,7 +694,6 @@ html, body{
 /*===========================================*/
 
 .search-ui-header-progress{
-	background: #fff;
 
 	ul{
 		list-style: none;
@@ -767,18 +702,27 @@ html, body{
 	
 		li{
 			float: left;
-			width: 33%; 
-			text-align: center;
-			font-weight: 700;
-			font-size: 20px; line-height: 20px;
-			color: #ccc;
-			text-transform: capitalize;
-			padding: 8px 0px 8px;
-			margin: 0px;
+			width: 32%; 
+			margin: 0 2% 0 0;
+			
+			&.last{margin-right: 0;}
+			
+			span{
+				display: block;
+				background: #EBEBEB;
+				color: $colourLightGreyFg;
+				padding: 8px 15px 7px;
+				text-align: left;
+				font-weight: 700;
+				font-size: 13px; line-height: 13px;
+				border-radius: 3px;
+			}
 		}
-		li.active{
-			background: $purple;
-			color: #fff; color: rgba(255,255,255,0.5);
+		li.active span{
+			background: $colourBlueFg;
+			@include background-image(linear-gradient(#36D0F8,#009CC4));
+			color: $colourWhite;
+			color: #fff;
 		}
 	}
 }
@@ -793,16 +737,17 @@ html, body{
 	position:relative;
 	
 	.header-bar{
-
 		.edit{
-			color: #000; color: rgba(0,0,0,0.4);
 			text-align: center;
 			font-weight: 700;
 			cursor: pointer;
-			background: $grey-light;
-			font-size: 20px; line-height: 20px;
-			text-transform: capitalize;
-			padding: 8px;
+			font-size: 15px; line-height: 15px;
+			padding: 4px 0px 4px;
+			margin: 2px 0px 0px;
+			border-left: 1px solid #C2C2C2;
+			color: $colorMidGreyFg;
+			
+			text-shadow: 2px 2px 5px rgba(255,255,255,0.8);
 		}
 		.edit:hover,
 		.edit.active{
@@ -1168,7 +1113,7 @@ html, body{
 /*===========================================*/
 
 .search-ui-hotel-browse{
-	background: $purple;
+	background: $colourLightBlueBg;
 	position: relative;
 
 	.hotel-browse-body{
@@ -1178,18 +1123,16 @@ html, body{
 			top: 70px;
 			height: 20px;
 			width: 18px;
-			padding: 80px 10px 100px 10px;
-			background: #fff;
-			background: rgba(255,255,255,0.4);
-			font-size: 30px; font-weight: 700; 
-			color: #222;
+			padding: 10px 10px 25px 10px;
+			margin: 80px 0px 0px;
+			font-size: 30px; font-weight: 700; line-height: 30px;
+			color: #fff;color: rgba(255,255,255,0.6);
 			cursor: pointer;
 			border-radius: 3px;
 			
 			&:hover{
-				background: #000;
-				background: rgba(0,0,0,0.6);
-				color: #fff;
+				background: $colourWhite;
+				color: $colourBlueFg;
 			}
 			.arrow{}
 		}
@@ -1226,64 +1169,78 @@ html, body{
 	margin: 15px 20px 0px 0px;	
 	cursor: pointer;
 	
-}		
-	.search-ui-hotel-browse-item .browse-item-inner{
+	.browse-item-inner{
 		background: #fff;	
 		border-radius: 2px;
 		
-	}
-		.search-ui-hotel-browse-item .item-top{
+	
+		.item-top{
 			min-height: 160px;
+			img{display: block;}
 		}
-			.search-ui-hotel-browse-item .item-top img{
-				display: block;
-			}
-		.search-ui-hotel-browse-item .item-middle{
+		.item-middle{
 			padding: 10px;
 			height: 100px;
-		}
-			.search-ui-hotel-browse-item .item-middle h2{
-				color: #8B1FAC;
+
+			h2{
+				color: $colourBlueFg;
 				font-size: 14px; line-height: 14px;
 				font-weight: 700; text-transform: none;
 				padding: 0px 0px 10px; margin: 0px;
 				
 			}
-			.search-ui-hotel-browse-item .item-middle .description{
+			.description{
 				font-size: 13px; line-height: 15px;	
 				color: #222;
-			}
-				.search-ui-hotel-browse-item .item-middle .description ul{
-					list-style: outside url(../images/main/bullet-purple-small.png);
-					padding: 0px; margin: 0px 0px 0px 16px;
-				}
-					.search-ui-hotel-browse-item .item-middle .description ul li{
+			
+				ul{
+					list-style: outside disc;
+					
+					padding: 0px; margin: 0px 0px 0px 12px;
+				
+					li{
 						padding: 0px 0px 2px; margin: 0px;
+						color: black;
+						
 					}
-		.search-ui-hotel-browse-item .item-bottom{padding: 0px 10px 10px;}
-			.search-ui-hotel-browse-item .item-bottom .price{
+				}
+			}
+		}
+		.item-bottom{
+			padding: 0px 10px 10px;
+		
+			.price{
 				float: left;
-				color: #8B1FAC;
+				color: $colourBlueFg;
 				font-weight: 700;
 				font-size: 16px; line-height: 16px;
 				padding: 10px 0px 0px;
 			}
-			.search-ui-hotel-browse-item .item-bottom .actions{
+			.actions{
 				float: right;
-			}
-				.search-ui-hotel-browse-item .item-bottom .actions a.action-button{
+			
+				a{
+					@include actionButton();
+					box-shadow: none;
 					float: right;
+					
+					&:hover{box-shadow: none;}
 				}
-	.search-ui-hotel-browse-item:hover,
-	.search-ui-hotel-browse-item.selected{
+			}
+		}
+	}
+	&:hover,
+	&.selected{
 		background: #fff;
 		border-radius: 4px;
 		box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
 	}
-	.search-ui-hotel-browse-item:hover .browse-item-inner,
-	.search-ui-hotel-browse-item.selected .browse-item-inner{
+	&:hover .browse-item-inner,
+	&.selected .browse-item-inner{
 		box-shadow: none;
 	}
+	
+}
 
 /*===========================================*/
 
@@ -1619,6 +1576,66 @@ html, body{
 
 /*===========================================*/
 
+/* !SIDEBAR SUMMARY VIEW */
+
+/*===========================================*/
+.search-ui-sidebar-summary-view{
+	padding: 40px 20px;
+	.summary-inner{
+		border: 1px solid $purple;
+		.summary-top{
+			padding: 10px 15px 5px;	
+			
+			.item{
+				padding-bottom: 8px;
+				
+				h3{
+					font-weight: 700;
+					font-size: 14px; line-height: normal;
+					padding: 0px;
+					margin: 0px 0px 6px 0px;
+					color: $purple;
+					text-transform: none;
+					text-shadow: none;
+				}
+				p{
+					line-height: 13px;
+					font-size: 13px;
+					color: #333;
+					padding: 0px 0px 4px 10px;
+					margin: 0px;
+				}
+			}
+			
+		}
+		.summary-bottom{
+			padding: 10px;	
+			background: $purple;
+			color: #fff;
+			
+			.bottom-left{
+				float: left; width: 40%;
+				font-weight: 700;
+			}
+			.bottom-right{
+				float: left; width: 60%;
+				text-align: right;
+				font-weight: 700;
+				font-size: 20px; line-height: 20px;
+			}
+			.bottom-msg{
+				text-align: center;
+				padding: 10px 0px 0px;
+				
+				strong{color: #fff;}
+			}
+		}
+	}
+}
+
+
+/*===========================================*/
+
 /* !TRAVELLERS LAYOUT */
 
 /*===========================================*/
@@ -1690,65 +1707,6 @@ h2.travellers{
 	}
 }
 
-
-/*===========================================*/
-
-/* !TRAVELLERS SUMMARY VIEW */
-
-/*===========================================*/
-.search-ui-travellers-summary-view{
-	padding: 40px 20px;
-	.summary-inner{
-		border: 1px solid $purple;
-		.summary-top{
-			padding: 10px 15px 5px;	
-			
-			.item{
-				padding-bottom: 8px;
-				
-				h3{
-					font-weight: 700;
-					font-size: 14px; line-height: normal;
-					padding: 0px;
-					margin: 0px 0px 6px 0px;
-					color: $purple;
-					text-transform: none;
-					text-shadow: none;
-				}
-				p{
-					line-height: 13px;
-					font-size: 13px;
-					color: #333;
-					padding: 0px 0px 4px 10px;
-					margin: 0px;
-				}
-			}
-			
-		}
-		.summary-bottom{
-			padding: 10px;	
-			background: $purple;
-			color: #fff;
-			
-			.bottom-left{
-				float: left; width: 40%;
-				font-weight: 700;
-			}
-			.bottom-right{
-				float: left; width: 60%;
-				text-align: right;
-				font-weight: 700;
-				font-size: 20px; line-height: 20px;
-			}
-			.bottom-msg{
-				text-align: center;
-				padding: 10px 0px 0px;
-				
-				strong{color: #fff;}
-			}
-		}
-	}
-}
 
 /*===========================================*/
 

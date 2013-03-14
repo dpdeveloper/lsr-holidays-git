@@ -4,14 +4,21 @@ require.config({
 	baseUrl: "../public_html/workspace/js/",
 	//urlArgs: 'cb=' + Math.random(),
 	paths: {
-		jquery: 'libs/jquery',
+		modernizr: 'libs/modernizr.min',
+		jquery: 'libs/jquery.min',
+		'jquery-ui': 'libs/jquery-ui.min',
 		underscore: 'libs/underscore',
 		backbone: 'libs/backbone',
-		marionette: 'libs/backbone.marionette',
+		marionette: 'libs/backbone.marionette.min',
 		'backbone-relational': 'libs/backbone-relational',
+		
+		jasmine: '../../../tests/lib/jasmine-1.3.1/jasmine',
+		'jasmine-jquery': '../../../tests/lib/jasmine-jquery',
+		'jasmine-html': '../../../tests/lib/jasmine-1.3.1/jasmine-html',
+		spec: '../../../tests/spec',
 		moment: 'libs/moment.min'
 	},
-	
+
 	shim: {
 		'jquery': {
 			exports: '$'
@@ -43,7 +50,8 @@ require.config({
 		},
 
 		'modernizr': {exports: 'Modernizr'},
-		'libs/jquery-ui': {deps: ['jquery']},
+		'jquery-ui': {deps: ['jquery']},
+		
 		'libs/jquery.transit': {deps: ['jquery']},
 		'libs/avgrund': {deps: ['jquery'],exports: 'Avgrund'},
 		'libs/reveal': {deps: ['jquery'],exports: 'Reveal'},
@@ -55,65 +63,46 @@ require.config({
 		}
 	}
 });
-
 require([
-	'underscore',
-	'jquery',
-	'backbone',
-	'marionette',
-	'libs/respond.min',
-	'libs/string-helpers',
-	'libs/jquery-ui',
-	'libs/jquery.transit',
-	'libs/jquery.colorbox-min',
-	'libs/select2.min'
-	], function(_, $, Backbone, Marionette){
+	'underscore','jquery','backbone','marionette','reqres','libs/respond.min', 'libs/string-helpers'
+	], function(_, $, Backbone, Marionette,reqres){
 	
 	"use strict";
 	
+	reqres.addHandler('config:get',function(){
+		return {
+			contentUrl: $('base').attr('href').replace(window.location.protocol + "//" + window.location.hostname,"")
+		};
+	});
+	
 	require([
-		'views/search-ui/travellers/travellers.layout',
-		'models/booking',
-		'models/symphony-hotel',
-		'models/multicom/multicom-flight',
-		'models/multicom/multicom-room'
-	],function(
-		View,
-		Booking,
-		SymphonyHotel,
-		MulticomFlight,
-		MulticomRoom
-	){
-		var region = new Backbone.Marionette.Region({el: '#sandbox'});
+		'app',
+		'views/search-ui/search-ui.layout',
+		'models/holiday-search'
+	],function( App, SearchUILayout, HolidaySearch){	
 		
-		var model = new Booking();
+		//CUSTOM CODE
+		
+		//var region = new Backbone.Marionette.Region({el: '#sandbox'});
+		//region.show(home);
+		
+		App.start();
+
+		var model = new HolidaySearch();
 		model.set({
-			selectedHotel: new SymphonyHotel({
-				title: 'The Aria',
-				destination: 'Las Vegas',
-				starRating: '4*'
-			}),
-			selectedFlight: new MulticomFlight({
-				originAirport: 'LHR',
-				originAirportName: 'Heathrow',
-				destinationAirport: 'JFK',
-				destinationAirportName: 'Kennedy',
-				outboundCarrier: "Ryanair"
-			})
+			tripType: model.TRIP_TYPES.PACKAGE,
+			destination: 'las-vegas',
+			dateStart: '01/04/2013',
+			numNights: '4',
+			numRooms: '1',
+			adultCsv: '2',
+			childCsv: '0',
+			infantCsv: '0',
+			
+			departingFrom: 'LHR',
+			directFLights: 'no'	
 		});
-		model.get('selectedRooms').reset([
-			new MulticomRoom({
-				name: 'deluxe room'
-			}),
-			new MulticomRoom({
-				name: 'standard room'
-			})
-		]);
+		App.handleSearchTransition(model);
 		
-		var view = new View({model: model});
-		
-		$(region.el).css({width: 1200});
-		
-		region.show(view);
 	});
 });

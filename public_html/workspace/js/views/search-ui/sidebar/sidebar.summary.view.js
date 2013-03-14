@@ -1,4 +1,4 @@
-/* @filename views/search-ui/travellers/travellers.summary.view
+/* @filename views/search-ui/sidebar/sidebar.summary.view
  *
  * David Anderson 2013
  *
@@ -6,7 +6,7 @@
 
 define([
 	'jquery','underscore','backbone','marionette','vent','moment',
-	'tpl!views/search-ui/templates/travellers.summary.view.tpl.html',
+	'tpl!views/search-ui/templates/sidebar.summary.view.tpl.html',
 	'models/booking'
 	
 ], function($,_,Backbone,Marionette,vent,moment,
@@ -15,13 +15,13 @@ define([
 			){
 	"use strict";
 
-	var TravellersSummaryView = Backbone.Marionette.ItemView.extend(
-	/** @lends TravellersSummaryView# */
+	var SidebarSummaryView = Backbone.Marionette.ItemView.extend(
+	/** @lends SidebarSummaryView# */
 	{
 		template: Template,
 		
 		tagName: 'div',
-		attributes: {'class': 'search-ui-travellers-summary-view'},
+		attributes: {'class': 'search-ui-sidebar-summary-view'},
 		
 		/**
 			Constructor
@@ -61,6 +61,6 @@ define([
 		
 	});
 	
-	return TravellersSummaryView;
+	return SidebarSummaryView;
 });
 	

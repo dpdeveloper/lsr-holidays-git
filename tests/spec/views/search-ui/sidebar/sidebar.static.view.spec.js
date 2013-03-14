@@ -1,4 +1,4 @@
-describe("TravellersStaticView", function() {
+describe("SidebarStaticView", function() {
 	"use strict";
 	
 	beforeEach(function() {
@@ -9,10 +9,10 @@ describe("TravellersStaticView", function() {
 		
 		require([
 			'backbone','marionette',
-			'views/search-ui/travellers/travellers.static.view'
-			], function(Backbone, Marionette, TravellersStaticView) {
+			'views/search-ui/sidebar/sidebar.static.view'
+			], function(Backbone, Marionette, SidebarStaticView) {
 
-			that.view = new TravellersStaticView();
+			that.view = new SidebarStaticView();
 			
 			that.region = new Backbone.Marionette.Region({el: '#sandbox'});
 			flag = true;

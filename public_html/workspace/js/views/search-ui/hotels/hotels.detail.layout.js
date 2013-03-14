@@ -9,52 +9,60 @@ define([
 	'tpl!views/search-ui/templates/hotels.detail.layout.tpl.html',
 	'views/search-ui/hotels/hotels.detail.tabs.view',
 	'views/search-ui/hotels/hotels.detail.flight.view',
-	'views/search-ui/hotels/hotels.detail.booking.view'
+	'views/search-ui/hotels/hotels.detail.booking.view',
+	
+	'views/search-ui/sidebar/sidebar.summary.view',
+	'views/search-ui/sidebar/sidebar.static.view'
 	
 ], function($,_,Backbone,Marionette,vent, reqres,
 			SearchUIHotelsDetailLayoutTemplate,
 			HotelsDetailTabView,
 			FlightView,
-			BookingView
+			BookingView,
+			
+			SidebarSummaryView,
+			SidebarStaticView
 			){
 	"use strict";
 	
-	var SearchUIHotelsDetailLayout = Backbone.Marionette.Layout.extend({
+	var SearchUIHotelsDetailLayout = Backbone.Marionette.Layout.extend(
+	/** @lends SearchUIHotelsDetailLayout */
+	{
 		template: SearchUIHotelsDetailLayoutTemplate,
 		
 		tagName: 'div',
 		attributes: {'class': 'search-ui-hotels-detail-layout'},
 		
-		_tabView: null,
-		_flightView: null,
-		_bookingView: null,
-		
 		regions: {
 			tabs: '.hotels-detail-layout-tabs',
-			flight: '.sidebar-flights',
+			summary: '.sidebar-summary',
 			booking: '.sidebar-booking',
+			staticView: '.sidebar-static'
 		},
 		
+		/**
+			Constructor
+			
+			@class Layout to display hotel details
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(options){},
 		
+		/**
+			Callback function to render view
+			
+		*/
 		onShow: function(){
-			this._tabView = new HotelsDetailTabView({model: reqres.request('search:get:hotel:selected')});
 			
-			this._flightView = new FlightView({
-				isSelected: false,
-				airlineCollection: reqres.request('search:get:airlines'),
-				model: reqres.request('search:get:flight:selected'),
-			});
+			this.tabs.show(
+				new HotelsDetailTabView({model: reqres.request('search:get:hotel:selected')})
+			);
 			
-			this._bookingView = new BookingView({
-				model: reqres.request('search:get:booking')
-			});
-			
-			this.tabs.show(this._tabView);
-			this.flight.show(this._flightView);
-			this.booking.show(this._bookingView);
+			this.summary.show(new SidebarSummaryView({model: reqres.request('search:get:booking')}));
+			this.staticView.show(new SidebarStaticView());
 
-		},
+		}
 		
 	});
 	

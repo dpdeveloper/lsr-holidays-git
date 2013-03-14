@@ -134,6 +134,12 @@ require([
 		'spec/views/home/home.aboutus.view.spec',
 		
 		/*
+			!Sidebar
+		*/
+		'spec/views/search-ui/sidebar/sidebar.summary.view.spec',
+		'spec/views/search-ui/sidebar/sidebar.static.view.spec',
+		
+		/*
 		 * ! SEARCH VIEWS
 		*/
 		'spec/views/search-ui/search-ui.controller.spec',
@@ -142,8 +148,6 @@ require([
 		
 		'spec/views/search-ui/travellers/travellers.layout.spec',
 		'spec/views/search-ui/travellers/travellers.contact.view.spec',
-		'spec/views/search-ui/travellers/travellers.summary.view.spec',
-		'spec/views/search-ui/travellers/travellers.static.view.spec',
 		'spec/views/search-ui/travellers/travellers.tac.view.spec',
 		'spec/views/search-ui/travellers/travellers.edit.layout.spec',
 		'spec/views/search-ui/travellers/travellers.edit.collection.view.spec',

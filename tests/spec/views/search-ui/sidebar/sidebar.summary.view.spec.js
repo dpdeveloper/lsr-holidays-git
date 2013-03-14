@@ -1,4 +1,4 @@
-describe("TravellersSummaryView", function() {
+describe("SidebarSummaryView", function() {
 	"use strict";
 	
 	beforeEach(function() {
@@ -9,14 +9,14 @@ describe("TravellersSummaryView", function() {
 		
 		require([
 			'backbone','marionette',
-			'views/search-ui/travellers/travellers.summary.view',
+			'views/search-ui/sidebar/sidebar.summary.view',
 			'models/booking'
 			], function(Backbone, Marionette,
-						TravellersSummaryView,
+						SidebarSummaryView,
 						Booking
 						) {
 
-			that.view = new TravellersSummaryView();
+			that.view = new SidebarSummaryView();
 			that.Booking = Booking;
 			
 			that.region = new Backbone.Marionette.Region({el: '#sandbox'});
