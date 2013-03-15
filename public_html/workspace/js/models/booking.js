@@ -10,7 +10,7 @@ define([
 	'models/holiday-search',
 	
 	'models/multicom/multicom-flight',
-	'models/symphony-hotel',
+	'models/multicom/multicom-accommodation',
 	'models/multicom/multicom-room',
 	'models/travellers-info',
 	'collections/multicom-room',
@@ -20,7 +20,7 @@ define([
 ], function($,_,Backbone, BackboneRelational,
 			HolidaySearch,
 			MulticomFlight,
-			SymphonyHotel,
+			MulticomAccommodation,
 			MulticomRoom,
 			TravellersInfo,
 			MulticomRoomCollection,
@@ -56,7 +56,7 @@ define([
 			{
 				type: 'HasOne',
 				key: 'selectedHotel',
-				relatedModel: SymphonyHotel
+				relatedModel: MulticomAccommodation
 			},
 			{
 				type: 'HasOne',
@@ -205,9 +205,9 @@ define([
 			
 			if(this.get('selectedHotel') !== null){
 				hotel = {
-					name: this.get('selectedHotel').get('title'),
-					destination: this.get('selectedHotel').get('destination'),
-					stars: this.get('selectedHotel').get('starRating')
+					accommodationName: this.get('selectedHotel').get('accommodationName'),
+					rating: this.get('selectedHotel').get('rating'),
+					resortName: this.get('holidaySearch').get('resortName')
 				};
 			}
 			
@@ -235,7 +235,8 @@ define([
 				nights: this.get('holidaySearch').get('numNights'),
 				hotel: hotel,
 				flight: flight,
-				rooms: rooms
+				rooms: rooms,
+				holidaySearch: this.get('holidaySearch').toJSON()
 			};
 		}
 		

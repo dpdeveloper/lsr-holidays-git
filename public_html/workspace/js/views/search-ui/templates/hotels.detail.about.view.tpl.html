@@ -1,0 +1,27 @@
+<!--<div class="hotels-detail-about-view">-->
+<div class="detail-about-inner">
+	<h1>
+		<%= accommodationName %>
+		<span class="rating"><%= stars(classCode,5) %></span>
+	</h1>
+	
+	<h2>The Low Down</h2>
+	<div class="description-wrapper">
+		<p class="description short-text">
+			<%= flattenAndTruncate('<div>'+description+'</div>',300) %>
+		</p>
+		<% if (description.length > 300){ %>
+		
+			<p class="description full-text">
+				<%= description %>
+			</p>
+			
+			
+		<% } %>
+	</div>
+	<% if (description.length > 300){ %>
+		<p class="clearfix">
+			<a class="read-more">Read More</a>
+		</p>
+	<% } %>
+</div>

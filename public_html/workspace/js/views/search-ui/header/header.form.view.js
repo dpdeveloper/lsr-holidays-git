@@ -25,7 +25,7 @@ define([
 		_advancedInit: false,
 		
 		events:{
-			'mouseenter #search-ui-header-form': 'showAdvanced',
+			'click #search-ui-header-form': 'showAdvanced',
 			'click .action-back': 'hideAdvanced',
 			'change #fields-number-of-rooms': 'updateRooms',
 			'click .action-next': 'submitForm'
@@ -93,8 +93,6 @@ define([
 			this.ui.flightClass.val(this.model.get('flightClass'));
 			
 			this.setTripType(this.model.get('tripType'),true);
-			
-			
 			
 			this.updateRooms();
 			
@@ -260,6 +258,12 @@ define([
 		},
 		
 		showAdvanced: function(){
+			
+			if(this.$el.find('.header-overlay').is(':visible')){
+				this.hideAdvanced();
+				return;	
+			}
+		
 			this.$el.find('.header-overlay').show();
 			this.$el.find('.header-bar .edit').addClass('active');
 			

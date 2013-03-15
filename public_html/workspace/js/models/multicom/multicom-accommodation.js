@@ -17,7 +17,9 @@ define([
 	
 	"use strict";
 	
-	var MulticomAccommodation = Backbone.RelationalModel.extend({
+	var MulticomAccommodation = Backbone.RelationalModel.extend(
+	/** @lends MulticomAccommodation */
+	{
 		relations: [{
 			type: 'HasMany',
 			key: 'rooms',
@@ -26,41 +28,41 @@ define([
 		}],
 		
 		defaults: {
-			itineraryId: null,
-			accommodationId: null,
-			accommodationName: null,
-			normalisedName: null,
-			resortName: null,
-			resortId: null,
-			maxChildAge: null,
-			infantAge: null,
-			startDate: null,
-			endData: null,
-			suppliersBoardCode: null,
-			boardCode: null,
-			classCode: null,
-			officialRating: null,
+			itineraryId: '',
+			accommodationId: '',
+			accommodationName: '',
+			normalisedName: '',
+			resortName: '',
+			resortId: '',
+			maxChildAge: '',
+			infantAge: '',
+			startDate: '',
+			endData: '',
+			suppliersBoardCode: '',
+			boardCode: '',
+			classCode: '',
+			officialRating: '',
 			
-			supplier: null,
+			supplier: '',
 			
-			numNights: null,
-			basicAdultCost: null,
-			currency: null,
-			availability: null,
-			supplierLocationId: null,
-			type: null,
-			contractCode: null,
-			bookableByFAB: null,
+			numNights: '',
+			basicAdultCost: '',
+			currency: '',
+			availability: '',
+			supplierLocationId: '',
+			type: '',
+			contractCode: '',
+			bookableByFAB: '',
 			
-			syndicatorRanking: null,
-			availableBoardBasis: null,
+			syndicatorRanking: '',
+			availableBoardBasis: '',
 			
-			address: {address1: null, address2: null, cityOrTown: null, postcode: null, country: null},
+			address: {address1: '', address2: '', cityOrTown: '', postcode: '', country: ''},
 			
-			telephoneNumber: null,
-			description: null,
-			rating: null,
-			basicCost: null,
+			telephoneNumber: '',
+			description: '',
+			rating: '',
+			basicCost: '',
 			images: []
 		}
 	});

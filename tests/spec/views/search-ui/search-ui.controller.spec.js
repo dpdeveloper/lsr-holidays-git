@@ -12,8 +12,8 @@ describe("Search UI Controller", function() {
 			'models/booking',
 			'models/holiday-search',
 			'models/multicom/multicom-flight',
-			'models/symphony-hotel'
-			], function(vent, reqres, SearchUIController, Booking, HolidaySearch, MulticomFlight, SymphonyHotel) {
+			'models/multicom/multicom-accommodation'
+			], function(vent, reqres, SearchUIController, Booking, HolidaySearch, MulticomFlight, MulticomAccommodation) {
 			
 			that.reqres = reqres;
 			that.vent = vent;
@@ -23,7 +23,7 @@ describe("Search UI Controller", function() {
 			that.booking = new Booking();
 			
 			that.MulticomFlight = MulticomFlight;
-			that.SymphonyHotel = SymphonyHotel;
+			that.MulticomAccommodation = MulticomAccommodation;
 			
 			flag = true;
 		});
@@ -49,7 +49,7 @@ describe("Search UI Controller", function() {
 			expect(this.reqres.request('search:get:booking')._error).toEqual('test');
 		});
 		it('Returns the hotel collection from a search:get:hotel:results', function(){
-			this.controller._hotelCollection._test = 'test';
+			this.controller._mcAccommCollection._test = 'test';
 			expect(this.reqres.request('search:get:hotel:results')._test).toEqual('test');
 		});
 		it('Returns the flight collection from a search:get:flight:results', function(){
@@ -59,7 +59,7 @@ describe("Search UI Controller", function() {
 		
 		it('Returns the selected hotel from a search:get:hotel:selected', function(){
 			
-			this.controller._booking.set({selectedHotel: new this.SymphonyHotel({test: 'test'})});
+			this.controller._booking.set({selectedHotel: new this.MulticomAccommodation({test: 'test'})});
 			
 			expect(this.reqres.request('search:get:hotel:selected').get('test')).toEqual('test');
 		});

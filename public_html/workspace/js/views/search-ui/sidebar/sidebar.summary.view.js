@@ -40,6 +40,17 @@ define([
 			else{
 				this.model = new Booking();
 			}
+			
+			if('displayBooking' in options && options.displayBooking !== true)
+			{
+				this._displayBooking = false;
+			}
+			else{
+				this._displayBooking = true;
+			}
+			
+			this.listenTo(vent,"search:hotel:selected",this.handleHotelSelected);
+			this.listenTo(vent,"search:flight:selected",this.handleFlightSelected);
 		},
 		
 		/**
@@ -50,13 +61,27 @@ define([
 			
 			var data = this.model.getSummary();
 
-			//do some date formatting
-			var d = moment(data.date,'DD/MM/YY').format('Do MMMM YYYY');
-			var n = ' for '+data.nights+' Night';
-			if(parseInt(n,10)>1){n=n+'s';}
-			data.dateString = d + n;
+			//do some date formatting &rarr;œ
+			
+			var d = moment(data.date,'DD/MM/YY');
+			var n = moment(data.date,'DD/MM/YY').add('days',data.nights);
+			
+			data.dateString = d.format('DD/MM/YYYY') +" &rarr; " + n.format('DD/MM/YYYY');
+			data.displayBooking = this._displayBooking;
+			
+			data.occupancy = {};
+			data.occupancy = this.model.get('holidaySearch').getOccupancyTotals();
 			
 			return data;
+		},
+		
+		handleHotelSelected: function(hotel){
+			this.model.set('selectedHotel',hotel);
+			this.render();
+		},
+		handleFlightSelected: function(flight){
+			this.model.set('selectedFlight',flight);
+			this.render();
 		}
 		
 	});

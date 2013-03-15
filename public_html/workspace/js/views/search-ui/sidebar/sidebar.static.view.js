@@ -16,11 +16,16 @@ define([
 	var SidebarStaticView = Backbone.Marionette.ItemView.extend(
 	/** @lends SidebarStaticView# */
 	{
-		template: Template
+		template: Template,
+		tagName: 'div',
+		attributes: {'class':'sidebar-static-view'},
 		
 		/**
 			@class Static view for sidebar Interface
 		*/
+		initialize: function(options){
+			options = options || {};
+		}
 	});
 	
 	return SidebarStaticView;

@@ -9,9 +9,8 @@ define([
 	'models/booking',
 	'collections/multicom-accommodation',
 	'collections/multicom-flight',
-	'collections/symphony-hotel',
 	'collections/symphony-airline',
-	'models/symphony-hotel',
+	'models/multicom/multicom-accommodation',
 	'models/multicom/multicom-flight',
 	'models/multiload'
 	
@@ -19,9 +18,8 @@ define([
 				Booking,
 				MulticomAccommodationCollection,
 				MulticomFlightCollection,
-				SymphonyHotelCollection,
 				SymphonyAirlineCollection,
-				SymphonyHotel,
+				MulticomAccommodation,
 				MulticomFlight,
 				MultiLoad
 				){
@@ -41,9 +39,10 @@ define([
 		
 		_mcAccommCollection: null,
 		_mcFlightCollection: null,
-		_hotelCollection: null,
 
 		_airlineCollection: null,
+		
+		_loader: null,
 		
 		
 		/**
@@ -68,7 +67,6 @@ define([
 			//init collections
 			this._mcAccommCollection = new MulticomAccommodationCollection();
 			this._mcFlightCollection = new MulticomFlightCollection();
-			this._hotelCollection = new SymphonyHotelCollection();
 			this._airlineCollection = new SymphonyAirlineCollection();
 			
 			// TEST MODE
@@ -77,12 +75,13 @@ define([
 			}
 			
 			//load needed 'init' data
-			this._airlineCollection.fetch(); //get the data initially
+			this._loader = new MultiLoad();
+			
+			this._loader.l(this._airlineCollection.fetch({success: this._loader.c, error: this._loader.c})); //get the data initially
 			
 			//bind to collections
 			this.listenTo(this._mcFlightCollection,'complete',this.processFlightSearchResults);
 			this.listenTo(this._mcAccommCollection,'complete',this.processHotelSearchResults);
-			this.listenTo(this._hotelCollection,'complete',this.processHotelSearchResults);
 			
 			//initiator events
 			this.listenTo(vent,'search:trip:edit',this.saveSearchEdit,this);
@@ -120,7 +119,7 @@ define([
 		},
 		
 		getHotelCollection: function(){
-			return this._hotelCollection;
+			return this._mcAccommCollection;
 		},
 		
 		getHotelSelected: function(){
@@ -178,12 +177,12 @@ define([
 		},
 		
 		/**
-			@param {SymphonyHotel Model} hotel
+			@param {MulticomAccommodation Model} hotel
 		*/
 		handleHotelSelection: function(hotel){
 		
 			if(this._booking.get('selectedHotel') === null){
-				this._booking.set({selectedHotel: new SymphonyHotel()});
+				this._booking.set({selectedHotel: new MulticomAccommodation()});
 			}
 			this._booking.get('selectedHotel').set(hotel.toJSON());
 		},
@@ -201,16 +200,20 @@ define([
 		*/
 		performSearch: function(){
 			var holSearch= this._booking.getSearch();
-			this._mcAccommCollection.searchWithHolidaySearch(holSearch);
-			this._mcFlightCollection.performSearch(holSearch.getFlightTrip());
-			this._hotelCollection.fetchDestination(holSearch.get('destination'));
+			
+			this._loader.q(this.processPackageLoaded, false);
+			
+			this._loader.l([
+				this._mcAccommCollection.searchWithHolidaySearch(holSearch),
+				this._mcFlightCollection.performSearch(holSearch.getFlightTrip())
+			]);
 		},
 		
 		/**
 		 * @returns {Boolean}
 		*/
 		isAccommodationLoading: function(){
-			return this._mcAccommCollection.isLoading() || this._hotelCollection.isLoading();
+			return this._mcAccommCollection.isLoading();
 		},
 		
 		/**
@@ -226,22 +229,13 @@ define([
 			Callback to process hotel search results
 		*/
 		processHotelSearchResults: function(){
-			if(!this._mcAccommCollection.isLoading() && !this._hotelCollection.isLoading()){
 				
-				this._hotelCollection.combineWithMulticomData(this._mcAccommCollection);
-				vent.trigger('search:hotel:loaded', this._hotelCollection);
-				
-				/*
-				 * A small amount of logic to trigger a package loading event
-				 *
-				 * Useful for views that want to know when everything is loaded
-				 *
-				 * See Also: processFlightSearchResults
-				*/
-				if(!this._mcFlightCollection.isLoading()){
-					vent.trigger('search:package:loaded');
-				}
-			}
+			this.handleHotelSelection(this._mcAccommCollection.at(0));
+			
+			vent.trigger('search:hotel:loaded', this._mcAccommCollection);
+			vent.trigger('search:hotel:selected', this._mcAccommCollection.at(0));
+			
+			this._loader.c(); //stimulate a loader callback
 		},
 		
 		
@@ -249,20 +243,23 @@ define([
 			Callback to process flight results
 		*/
 		processFlightSearchResults: function(){
-			vent.trigger('search:flight:selected', this._mcFlightCollection.at(0));
-			vent.trigger('search:flight:loaded', this._mcFlightCollection);
+		
+			this.handleFlightSelection(this._mcFlightCollection.at(0));
 			
-			/*
-			 * A small amount of logic to trigger a package loading event
-			 *
-			 * Useful for views that want to know when everything is loaded
-			 *
-			 * See Also: processHotelSearchResults
-			*/
+			vent.trigger('search:flight:loaded', this._mcFlightCollection);
+			vent.trigger('search:flight:selected', this._mcFlightCollection.at(0));
+			
+			this._loader.c(); //stimulate a loader callback
 
-			if(!this._mcAccommCollection.isLoading() && !this._hotelCollection.isLoading()){
-				vent.trigger('search:package:loaded');
-			}
+		},
+		
+		/**
+			Callback for when both hotels and flights have loaded
+			
+			Will be called by the multiload
+		*/
+		processPackageLoaded: function(){
+			vent.trigger('search:package:loaded');	
 		},
 		
 		

@@ -77,10 +77,22 @@ define([
 		/**
 			Function to render star ratings
 			
-			@param n = The number of 'active stars'
-			@param total = The total number of possible stars
+			@param {Integer | String} n  The number of 'active stars'
+			@param {Integer} total  The total number of possible stars
 		*/
 		stars: function(n,total){
+			
+			// cope with a passed string
+			if(typeof n === "string"){
+				if(n.indexOf('*')!== -1){
+					n = parseInt(n.substring(0,(n.indexOf('*'))),10);	
+				}
+				else{
+					n = parseInt(n,10);	
+				}
+				
+			}
+		
 			var output="";
 			for(var i=1; i<=total; i++){
 				

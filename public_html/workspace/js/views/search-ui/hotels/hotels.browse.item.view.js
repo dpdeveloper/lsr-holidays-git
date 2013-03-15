@@ -7,12 +7,12 @@
 define([
 	'jquery','underscore','backbone','marionette','vent',
 	'tpl!views/search-ui/templates/hotels.browse.item.view.tpl.html',
-	'models/symphony-hotel',
+	'models/multicom/multicom-accommodation',
 	'helpers/view-helper'
 	
 ], function($,_,Backbone,Marionette,vent,
 			SearchUIHotelBrowseItemTemplate,
-			SymphonyHotel,
+			MulticomAccommodation,
 			viewHelper
 			){
 	"use strict";
@@ -22,7 +22,7 @@ define([
 	{
 
 		template: SearchUIHotelBrowseItemTemplate,
-		model: SymphonyHotel,
+		model: new MulticomAccommodation(),
 		templateHelpers: viewHelper,
 		
 		tagName: 'div',
@@ -61,7 +61,7 @@ define([
 			Callback for when a hotels:selected event is fired
 			Unselects the current element if it isn't the selected item
 			
-			@param {SymphonyHotel} selectedModel
+			@param {MulticomAccommodation} selectedModel
 		*/
 		handleSelectedEvent: function(selectedModel){
 			if(selectedModel !== null && selectedModel !== this.model){

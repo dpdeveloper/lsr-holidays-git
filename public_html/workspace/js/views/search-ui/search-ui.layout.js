@@ -14,7 +14,7 @@ define([
 	'views/search-ui/loading/loading.view',
 	'views/search-ui/flights/flights.layout',
 	'views/search-ui/hotels/hotels.browse.view',
-	'views/search-ui/hotels/hotels.detail.layout',
+	'views/search-ui/hotels/detail/hotels.detail.layout',
 	'views/search-ui/travellers/travellers.layout'
 	
 ], function(	$,_,Backbone,Marionette, vent, reqres,
@@ -139,6 +139,8 @@ define([
 			
 			this.listenTo(vent,'search:hotel:loaded',this.hotelSearchLoad);
 			this.listenTo(vent,'search:flight:loaded',this.flightSearchLoad);
+			this.listenTo(vent,'search:package:loaded',this.searchComplete);
+			
 			this.listenTo(vent,'search:flight:edit',this.handleFlightEdit);
 			this.listenTo(vent,'search:hotel:selected',this.handleHotelSelected);
 			this.listenTo(vent,'search:flight:selected',this.handleFlightSelected);
@@ -223,6 +225,15 @@ define([
 			Callback for when the hotel search has loaded
 		*/
 		hotelSearchLoad: function(){
+			this.setStatus('hotel',this.STATES.HOTEL.BROWSE);
+		},
+		
+		
+		/**
+			Callback for when the entire search has loaded
+		*/
+		searchComplete: function(){
+		
 			this._hotelsBrowseView = new SearchUIPaneLayout({
 				subView: new SearchUIHotelsBrowseView({collection: reqres.request('search:get:hotel:results')}),
 				showByDefault: true
@@ -236,7 +247,7 @@ define([
 				this.hotelsBrowse.show(this._hotelsBrowseView);
 			}
 			
-			this.setStatus('hotel',this.STATES.HOTEL.BROWSE);
+			
 		},
 		
 		/**
@@ -267,7 +278,7 @@ define([
 		
 		/**
 			Callback for when a hotel is selected
-			@param {SymphonyHotel} hotel
+			@param {MulticomAccommodation} hotel
 		*/
 		handleHotelSelected: function(hotel){
 			
@@ -281,7 +292,7 @@ define([
 				scrollTop: this.hotelsDetail.$el.offset().top - 80
 			}, 800);
 			
-			this.setStatus('flight',this.STATES.HOTEL.SELECTED);
+			this.setStatus('hotel',this.STATES.HOTEL.SELECTED);
 		},
 		
 		

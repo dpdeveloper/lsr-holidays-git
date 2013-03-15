@@ -1,23 +1,11 @@
 <!--<div class="search-ui-hotels-detail-flight">-->
-<div class="summary-flight-header"><h2>Your Flights</h2></div>
+<h2 class="summary-flight-header">Your Flights</h2>
 
-<div class="summary-flight-outer">
-	<div class="summary-flight-inner clearfix">
-		<% if(flightSelected){ %>
-			
+<div class="summary-flight-inner clearfix">
+	
+	<% if(flightSelected){ %>
+		<div class="clearfix">
 			<div class="flight-item clearfix">
-				<div class="airline-logo">
-					<% if(outboundFlightLogo != null){ %>
-						<img src="<%=imageUrl({
-							filename: outboundFlightLogo.imageFilename,
-							path: outboundFlightLogo.imagePath,
-							height: outboundFlightLogo.imageHeight,
-							width: outboundFlightLogo.imageWidth,
-							},100,40,'fit')%>"/>
-					<%}else{ %>
-						<%= outboundAirlineName%>
-					<%}%>
-				</div>
 				<%
 					var tmpNumStops;
 					if(outboundNumStops == '0'){
@@ -31,31 +19,34 @@
 					}
 				%>
 				<h3>Outbound (<%=tmpNumStops%>)</h3>
-				<p class="flight-class">
-					<%=outboundCabinClass%> Class
-				</p>
-				<p>
-					<span><%= originAirport %> </span>
-					<span><%= departureTime %></span>
-					<span> &rarr; </span>
-					<span><%= destinationAirport %> </span>
-					<span><%= arrivalTime %></span>
-				</p>
+				<div class="clearfix">
+					<div class="airline-logo">
+						<% if(outboundFlightLogo != null){ %>
+							<img src="<%=imageUrl({
+								filename: outboundFlightLogo.imageFilename,
+								path: outboundFlightLogo.imagePath,
+								height: outboundFlightLogo.imageHeight,
+								width: outboundFlightLogo.imageWidth,
+								},80,40,'fit')%>"/>
+						<%}else{ %>
+							<%= outboundAirlineName%>
+						<%}%>
+					</div>
+					<div class="flight-info">
+						<p class="flight-class">
+							<%=outboundCabinClass%> Class
+						</p>
+						<p>
+							<span><%= originAirport %> </span>
+							<span><%= departureTime %></span>
+							<span> &rarr; </span>
+							<span><%= destinationAirport %> </span>
+							<span><%= arrivalTime %></span>
+						</p>
+					</div>
+				</div>
 			</div>
 			<div class="flight-item last clearfix">
-			
-				<div class="airline-logo">
-					<% if(returnFlightLogo != null){ %>
-						<img src="<%=imageUrl({
-							filename: returnFlightLogo.imageFilename,
-							path: returnFlightLogo.imagePath,
-							height: returnFlightLogo.imageHeight,
-							width: returnFlightLogo.imageWidth,
-							},100,40,'fit')%>"/>
-					<%}else{ %>
-						<%= returnAirlineName%>
-					<%}%>
-				</div>
 				
 				<%
 					var tmpNumStops;
@@ -71,27 +62,44 @@
 				%>
 				
 				<h3>Return (<%= tmpNumStops %>)</h3>
-				<p class="flight-class">
-					<%=outboundCabinClass%> Class
-				</p>
-				<p>
-					<span><%= destinationAirport %> </span>
-					<span><%= returnHomeDepartTime %></span>
-					<span> &rarr; </span>
-					<span><%= originAirport %> </span>
-					<span><%= returnHomeTime %></span>
-				</p>
+				<div class="clearfix">
+					<div class="airline-logo">
+						<% if(returnFlightLogo != null){ %>
+							<img src="<%=imageUrl({
+								filename: returnFlightLogo.imageFilename,
+								path: returnFlightLogo.imagePath,
+								height: returnFlightLogo.imageHeight,
+								width: returnFlightLogo.imageWidth,
+								},100,40,'fit')%>"/>
+						<%}else{ %>
+							<%= returnAirlineName%>
+						<%}%>
+					</div>
+					<div class="flight-info">
+					
+						<p class="flight-class">
+							<%=outboundCabinClass%> Class
+						</p>
+						<p>
+							<span><%= destinationAirport %> </span>
+							<span><%= returnHomeDepartTime %></span>
+							<span> &rarr; </span>
+							<span><%= originAirport %> </span>
+							<span><%= returnHomeTime %></span>
+						</p>
+					</div>
+				</div>
 			</div>
-			
-			<div class="actions clearfix">
-				<a href="#" class="action-button action-detail">Detail</a>
-				<a href="#" class="action-button action-edit">Change</a>
-			</div>
-			
-		<% }else{ %>
-			<div class="loading">
-				<h2>Flights Loading...</h2>
-			</div>
-		<%}%>
-	</div>
+		</div>
+		
+		<div class="actions clearfix">
+			<a href="#" class="action action-edit">Change Flight</a>
+			<a href="#" class="action action-detail">Flight Detail</a>
+		</div>
+		
+	<% }else{ %>
+		<div class="loading">
+			<h2>Flights Loading...</h2>
+		</div>
+	<%}%>
 </div>

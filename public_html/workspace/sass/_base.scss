@@ -27,6 +27,7 @@
 $colourWhite: #fff;
 
 $colourBlueFg: #0095da;
+$colourLightBlueFg: #129BE0;
 $colourDarkGreyFg: #373737;
 $colourYellowFg: #fff200;
 $colourLightGreyFg: #aaa;
@@ -55,12 +56,13 @@ $grey-dark: #444;
 	text-align: center;
 	border-radius: 3px;
 	padding: 6px 15px;
-	box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
 	border: 1px solid rgba(198,136,69,0.4);
+	cursor: pointer;
 	
 	&:hover{
 		@include background-image(linear-gradient(#FFCA00,#FCFA00));	
-		box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+		box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
 		color: #333;
 	}
 }

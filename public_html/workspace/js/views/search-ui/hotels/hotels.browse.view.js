@@ -8,13 +8,13 @@ define([
 	'jquery','underscore','backbone','marionette','vent',
 	'tpl!views/search-ui/templates/hotels.browse.view.tpl.html',
 	'views/search-ui/hotels/hotels.browse.item.view',
-	'collections/symphony-hotel',
+	'collections/multicom-accommodation',
 	'libs/jquery.transit'
 	
 ], function($,_,Backbone,Marionette,vent,
 			SearchUIHotelBrowseTemplate,
 			SearchUIHotelBrowseItemView,
-			SymphonyHotelCollection
+			MulticomAccommodationCollection
 			){
 	"use strict";
 	
@@ -26,7 +26,7 @@ define([
 		itemView: SearchUIHotelBrowseItemView,
 		itemViewContainer: '.body-middle-inner',
 		
-		collection: new SymphonyHotelCollection(),
+		collection: new MulticomAccommodationCollection(),
 		
 		events: {
 			'click .body-left': 'pageLeft',
@@ -118,7 +118,7 @@ define([
 		/**
 			Set the Collection
 
-			@param {SymphonyHotelCollection} newCollection
+			@param {MulticomAccommodationCollection} newCollection
 		*/
 		setCollection: function(newCollection){
 			if(this._visible){

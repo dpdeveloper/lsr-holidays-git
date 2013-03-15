@@ -146,6 +146,19 @@ require([
 		'spec/views/search-ui/search-ui.layout.spec',
 		'spec/views/search-ui/header/header.form.view.spec',
 		
+		'spec/views/search-ui/hotels/hotels.browse.item.view.spec',
+		'spec/views/search-ui/hotels/hotels.browse.view.spec',
+		
+		'spec/views/search-ui/hotels/detail/hotels.detail.about.view.spec',
+/*		'spec/views/search-ui/hotels/detail/hotels.detail.flight.view.spec',
+		
+		'spec/views/search-ui/hotels/detail/hotels.detail.rooms.item.view.spec',
+		'spec/views/search-ui/hotels/detail/hotels.detail.rooms.view.spec', */
+		'spec/views/search-ui/hotels/detail/hotels.detail.layout.spec',
+		
+		
+		'spec/views/search-ui/hotels/hotels.layout.spec',
+		
 		'spec/views/search-ui/travellers/travellers.layout.spec',
 		'spec/views/search-ui/travellers/travellers.contact.view.spec',
 		'spec/views/search-ui/travellers/travellers.tac.view.spec',

@@ -1,37 +1,52 @@
 <!--<div class="search-ui-travellers-summary-view">-->
+<h2>Holiday Summary</h2>
 <div class="summary-inner">
-	<div class="summary-top">
-		<div class="item">
-			<h3>Dates</h3>
-			<p><%= dateString %></p>
-		</div>
-		<div class="item">
-			<h3>Hotel</h3>
-			<p><%= hotel.name %> <%= hotel.destination %></p>
+	<div class="item">
+		<h3>Hotel</h3>
+		<ul>
+			<li><%= hotel.accommodationName %> <%= hotel.resortName %></li>
+			<li><%= dateString %></li>
 			<% _.each(rooms, function(elem, index){ %>
-				<p><%= index+1%>) <%= elem.name %></p>
+				<li><%= index+1%>) <%= elem.name %></li>
 			<% }); %>
-		</div>
-		<div class="item">
-			<h3>Flights</h3>
-			<p><%= flight.carrier %> Flights</p>
-		</div>
-		<div class="item">
-			<h3>Insurance</h3>
-			<p>ATOL Protected</p>
-		</div>
+		</ul>
 	</div>
-	<div class="summary-bottom">
-		<div class="clearfix">
-			<div class="bottom-left">
-				Total
-			</div>
-			<div class="bottom-right">
-				£1000.00
-			</div>
+	<div class="item">
+		<h3>Flights</h3>
+		<ul>
+			<li>
+				<%= flight.originAirport %> &rarr; <%= flight.destinationAirport %> 
+				 (<%= holidaySearch.oneWay !== 'true' ? "Return Flights" : "One Way Flights" %>)	
+			</li>
+				
+			<li><%= occupancy.adults %> Adult<%= occupancy.adults === 1 ? '' : 's' %></li>
+			<% if(occupancy.children){ %>
+				<li><%= occupancy.children %> Child<%= occupancy.adults === 1 ? '' : 'ren' %></li>
+			<% } %>
+		</ul>
+	</div>
+	<div class="item">
+		<h3>Extras</h3>
+		<ul>
+			<li>ATOL Protected</li>
+		</ul>
+	</div>
+	<div class="item bottom clearfix">
+		<div class="bottom-left">
+			Total
 		</div>
-		<div class="bottom-msg">
-			Need Help? Call <strong>1234 56789</strong>
+		<div class="bottom-right">
+			£1000.00
 		</div>
 	</div>
 </div>
+
+<% if(displayBooking === true){ %>
+	<div class="summary-booking">
+		<a href="#" class="action">Book Online Now</a>
+		<div class="msg">
+			<p>Or Call Us On</p>
+			<h3>01372 253 229</h3>
+		</div>
+	</div>
+<% } %>

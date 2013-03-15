@@ -10,13 +10,13 @@ describe("Booking Model", function() {
 		require([
 			'models/booking',
 			'models/multicom/multicom-flight',
-			'models/symphony-hotel',
+			'models/multicom/multicom-accommodation',
 			'models/multicom/multicom-room'
-			], function(Booking, MulticomFlight, SymphonyHotel, MulticomRoom) {
+			], function(Booking, MulticomFlight, MulticomAccommodation, MulticomRoom) {
 			that.model = new Booking();
 			
 			that.MulticomFlight = MulticomFlight;
-			that.SymphonyHotel = SymphonyHotel;
+			that.MulticomAccommodation = MulticomAccommodation;
 			that.MulticomRoom = MulticomRoom;
 			
 			flag = true;
@@ -111,10 +111,9 @@ describe("Booking Model", function() {
 			});
 			
 			this.model.set({
-				selectedHotel: new this.SymphonyHotel({
-					title: 'The Aria',
-					destination: 'Las Vegas',
-					starRating: '4*'
+				selectedHotel: new this.MulticomAccommodation({
+					accommodationName: 'The Aria',
+					rating: '4*'
 				}),
 				selectedFlight: new this.MulticomFlight({
 					originAirport: 'LHR',
@@ -137,9 +136,8 @@ describe("Booking Model", function() {
 			
 			expect(v.date).toEqual('14/08/2013');
 			expect(v.nights).toEqual('5');
-			expect(v.hotel.name).toEqual('The Aria');
-			expect(v.hotel.destination).toEqual('Las Vegas');
-			expect(v.hotel.stars).toEqual('4*');
+			expect(v.hotel.accommodationName).toEqual('The Aria');
+			expect(v.hotel.rating).toEqual('4*');
 			expect(v.flight.originAirport).toEqual('LHR');
 			expect(v.flight.originAirportName).toEqual('Heathrow');
 			expect(v.flight.destinationAirport).toEqual('JFK');

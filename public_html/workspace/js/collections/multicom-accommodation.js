@@ -163,8 +163,7 @@ define([
 		},
 		
 		/**
-		 * performSearch
-		 *
+
 		 * @param data {Object}
 		 * @param forceUrl {String} Can be used to force the search url
 		 *
@@ -210,25 +209,72 @@ define([
 		},
 		
 		/**
-		 *
-		 * searchWithHolidaySearch
-		 *
-		 * @param {HolidaySearch Model} holidaySearch
-		 *
+			searchWithHolidaySearch
+			
+			@param {HolidaySearch Model} holidaySearch
 		*/
 		searchWithHolidaySearch: function(holidaySearch){
 			this.performSearch(holidaySearch.toJSON());
 		},
 		
 		/**
-		 * parse
-		 *
-		 * @param response {Object}
-		 *
-		 * Converts the API JSON to an array for the collection
+			Converts the API JSON to an array for the collection
+			
+			@param response {Object}
 		*/
 		parse: function(response){
 			return response.data;
+		},
+		
+		
+		/**
+			Filters the collection using the filter object
+			
+			@param {Filter} filter
+		*/
+		filterHotels: function(filter){
+			alert("error - filter not implemented");
+			if(filter === null){
+				return this.models;
+			}
+			else{
+				
+				var filtered = this.models;
+				
+				//filter only the featured
+				if(filter.get('filterFeaturedOnly') === true){
+					filtered = _.filter(filtered,function(item){
+						return item.get('symData') && item.get('mcData');
+					});
+				}
+				
+				//filter by star Rating
+				if(filter.get('filterStarRatings') !== ''){
+					
+					var starRatings = filter.get('filterStarRatings').split(',');
+					
+					if(starRatings.length > 0){
+						filtered = _.filter(filtered,function(item){
+							if($.inArray(item.get('starRating').toString(),starRatings)>-1){
+								return true;
+							}
+							return false;
+						});
+					}
+							
+				}
+				
+				//filter by Accom Name
+				if(filter.get('filterHotelName') !== ''){
+					filtered = _.filter(filtered,function(item){
+						if(item.get('title').toLowercase().indexOf(filter.get('filterHotelName').toLowerCase()) >=0){
+							return true;
+						}
+						return false;
+					});
+				}
+				return filtered;
+			}
 		}
 		
 	});

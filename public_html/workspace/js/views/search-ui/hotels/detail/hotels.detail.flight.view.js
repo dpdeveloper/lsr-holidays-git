@@ -19,7 +19,9 @@ define([
 			){
 	"use strict";
 	
-	var SearchUIHotelsDetailFlightView = Backbone.Marionette.ItemView.extend({
+	var SearchUIHotelsDetailFlightView = Backbone.Marionette.ItemView.extend(
+	/** @lends SearchUIHotelsDetailFlightView */
+	{
 		template: SearchUIHotelsDetailFlightTemplate,
 		model: new MulticomFlight(),
 		templateHelpers: viewHelper,
@@ -29,14 +31,21 @@ define([
 		
 		events: {
 			'click .summary-flight-outer': 'handleClick',
-			'click .action-edit': 'handleClick',	
+			'click .action-edit': 'handleClick'
 		},
 		
 		_flightSelected: false,
 		_isSelected: false,
-		
 		_airlineCollection: null,
 		
+		
+		/**
+			Constructor
+			
+			@class View to display the chosen flights
+			@constructs
+			@param {Object} [options] Options Hash
+		*/
 		initialize: function(options){
 			
 			this._airlineCollection = new SymphonyAirlineCollection();
@@ -44,9 +53,12 @@ define([
 			if(options.airlineCollection){
 				this._airlineCollection.reset(options.airlineCollection.models,{silent: true});
 			}
-			if(options.model && options.model!=null){
+			if(options.model && options.model !== null){
 				this.model.set(options.model.toJSON());
 				this._flightSelected = true;
+			}
+			else{
+				this.model = new MulticomFlight();
 			}
 		
 			this.listenTo(vent,'search:flight:selected',this.handleFlightSelected);
@@ -80,7 +92,7 @@ define([
 			return $.extend({
 					flightSelected: this._flightSelected,
 					outboundFlightLogo: this._airlineCollection.getAirlineFromCode(this.model.get('outboundCarrier')),
-					returnFlightLogo: this._airlineCollection.getAirlineFromCode(this.model.get('returnCarrier')),
+					returnFlightLogo: this._airlineCollection.getAirlineFromCode(this.model.get('returnCarrier'))
 				},
 				this.model.toJSON()
 				);
@@ -98,7 +110,7 @@ define([
 		handleClick: function(ev){
 			ev.preventDefault();
 			vent.trigger('search:flight:edit');	
-		},
+		}
 	});
 	
 	return SearchUIHotelsDetailFlightView;

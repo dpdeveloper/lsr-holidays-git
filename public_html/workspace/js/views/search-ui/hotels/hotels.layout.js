@@ -9,7 +9,7 @@ define([
 	'tpl!views/search-ui/templates/hotels.layout.tpl.html',
 	'views/search-ui/search-ui.pane.layout',
 	'views/search-ui/hotels/hotels.browse.view',
-	'views/search-ui/hotels/hotels.detail.layout'
+	'views/search-ui/hotels/detail/hotels.detail.layout'
 	
 ], function(	$,_,Backbone,Marionette,vent, reqres,
 				SearchUIHotelsLayoutTemplate,
@@ -19,7 +19,9 @@ define([
 ){
 	"use strict";
 
-	var SeachUIHotelsLayout = Backbone.Marionette.Layout.extend({
+	var SeachUIHotelsLayout = Backbone.Marionette.Layout.extend(
+	/**@lends SearchUIHotelsLayout */
+	{
 		template: SearchUIHotelsLayoutTemplate,
 		
 		regions: {
@@ -36,12 +38,15 @@ define([
 		},
 		
 		onShow: function(){
+			
 			this._browseView = new SearchUIPaneLayout({
 				subView: new SearchUIHotelsBrowseView({collection: reqres.request('search:get:hotel:results')}),
 				showByDefault: true
 			});
+			this._detailsPaneView = new SearchUIPaneLayout({subView: new SearchUIHotelsDetailLayout()});
 			
 			this.browse.show(this._browseView);
+			this.detail.show(this._detailsPaneView);
 			
 		},
 		

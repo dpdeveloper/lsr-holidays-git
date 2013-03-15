@@ -435,16 +435,16 @@ html, body{
 		
 			.atol,.pts{
 				background-repeat: no-repeat;
-				background-image: url(../images/page/home-about-logos.png);
+				background-image: url(../images/page/atol-pts.png);
 				float: right;
 				margin-left: 15px;
 			}
 			.atol{
-				background-position:-3px -3px;
+				background-position:0px 0px;
 				width:45px;height:45px;
 				margin-top: 4px;}
 			.pts{
-				background-position:-3px -51px;
+				background-position:0px -104px;
 				width:52px;height:56px;
 			}
 		}	
@@ -587,10 +587,15 @@ html, body{
 	.submit-buttons{
 		.search-submit{
 			@include actionButton();
+			box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 			display: block;
 			padding: 10px;
 			font-size: 16px;
 			line-height: 16px;
+			
+			&:hover{
+				box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+			}
 		}
 	}
 }
@@ -854,7 +859,7 @@ html, body{
 /*===========================================*/
 
 .search-ui-loading{
-	background: $purple;
+	background: $colourLightBlueBg;
 	/*background: linear-gradient(#a10cb4 0%, #a120a9 100%);;
 	background: -webkit-linear-gradient(#a10cb4 0%, #a120a9 100%);
 	background: -moz-linear-gradient(#a10cb4 0%, #a120a9 100%);
@@ -1141,7 +1146,7 @@ html, body{
 		
 		.body-middle{
 			position: relative;
-			height: 360px;
+			height: 354px;
 			margin: 0px 78px;
 			
 			overflow: hidden;
@@ -1166,7 +1171,7 @@ html, body{
 	float: left;
 	width: 220px;
 	padding: 10px 10px 20px 10px;
-	margin: 15px 20px 0px 0px;	
+	margin: 0px 20px 0px 0px;	
 	cursor: pointer;
 	
 	.browse-item-inner{
@@ -1234,6 +1239,8 @@ html, body{
 		background: #fff;
 		border-radius: 4px;
 		box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px
 	}
 	&:hover .browse-item-inner,
 	&.selected .browse-item-inner{
@@ -1244,22 +1251,108 @@ html, body{
 
 /*===========================================*/
 
-/* !SEARCH UI - HOTELS DETAIL */
+/*===========================================*/
+
+
+/* !SEARCH UI - HOTELS DETAIL LAYOUT */
+
+
+/*===========================================*/
 
 /*===========================================*/					
 
 .search-ui-hotels-detail-layout{
 	background: #fff;
 	margin: 0px 40px;
-}
-	.search-ui-hotels-detail-layout .hotels-detail-layout-tabs{
+	
+	.hotels-detail-layout-main{
 		float: left;
 		width: 75%;
+		
+		.main-sidebar{
+			float: left; width: 200px;
+			
+			
+			.main-images{}
+			.main-location{}
+		}
+		.main-content{
+			margin-left: 200px;
+			
+			.main-about{}
+			.main-rooms{}
+			.main-flights{}
+		}
+		
 	}
-	.search-ui-hotels-detail-layout .hotels-detail-layout-sidebar{
+	
+	.hotels-detail-layout-sidebar{
 		float: left;
 		width: 25%;
+		
+		.sidebar-summary{}
+		.sidebar-static{}
 	}
+}
+
+/*===========================================*/
+
+/* !SEARCH UI - HOTELS DETAIL ABOUT VIEW */
+
+/*===========================================*/	
+
+.hotels-detail-about-view{
+	.detail-about-inner{
+		padding: 30px 10px 30px 30px;
+	
+		h1{
+			color: $colourBlueFg;
+			font-size: 42px; line-height: normal;
+			font-weight: 700;
+			padding: 0px;
+			margin: 0px 0px 0.4em;
+		}
+		.rating{
+			float: right;
+			padding-top: 10px;	
+		}
+		h2{
+			color: $colourBlueFg;
+			font-weight: 700;
+			font-size: 1.6em; line-height: 1.6em;
+			padding: 0px;
+			margin: 0px 0px 8px;	
+		}
+		p{
+			margin: 0px;
+			padding: 0 0 1em;
+			
+			&.description{}
+			&.full-text{
+				display: none;
+			}
+		}
+		a.read-more{
+			display: inline-block;
+			@include actionButton();
+		}
+	}
+}
+
+
+/*===========================================*/
+
+/* !SEARCH UI - HOTELS DETAIL ROOM VIEW */
+
+/*===========================================*/	
+
+
+
+/*===========================================*/
+
+/* !SEARCH UI - HOTELS DETAIL FLIGHT VIEW */
+
+/*===========================================*/	
 
 
 .search-ui-hotels-detail-tabs{}
@@ -1380,6 +1473,8 @@ html, body{
 			} 
 
 
+
+
 /*===========================================*/
 
 /* !SEARCH UI HOTEL DETAIL FLIGHT */
@@ -1387,188 +1482,77 @@ html, body{
 /*===========================================*/
 
 .search-ui-hotels-detail-flight{
-
-	.summary-flight-header{
-		h2{
-			color: $grey-light; 
-			font-size: 22px; line-height: 22px;
-			margin: 0px; padding: 30px 0px 5px 10px;
-			text-transform: capitalize; font-weight: 700;
-		}
+	padding: 0px 30px 30px;
+	
+	h2.summary-flight-header{
+		color: $colourBlueFg; 
+		font-size: 1.3em; line-height: 1.3em;
+		margin: 0px; padding: 0px 0px 10px;
+		font-weight: 700;
 	}
 	
-	.summary-flight-outer{
-		padding: 0px 20px 20px 0px;
-	
-		.summary-flight-inner{
-			padding: 12px 1px 1px 12px;
-			background: #fff;
-			border: 1px solid #8B1FAC;
-			min-height: 160px;
-			background: #fff;
+	.summary-flight-inner{
 		
-	
-			.loading{
+		box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+		border-radius: 3px;
+		padding: 15px 20px;
+		
+		.flight-item{
+			float: left;
+			width: 50%;
+		
+			.airline-logo{
+				float: left;
+				width: 80px;
+				padding: 5px;
 				text-align: center;
-				color: #ccc; 
-				margin-top: 40px;
-			
-				h2{
-					text-transform: lowercase;
-					padding: 0px ; margin: 0px;
-					font-weight: 700; 
-					color: #ccc; text-shadow: none;
-				}
-				p{font-weight: 700;}
+				font-size: 12px; line-height: 12px;
+				font-weight: 700;
+				margin-right: 10px;
+				color: #999;
 			}
-				
-			.flight-item{
-				margin-bottom: 10px;
-				padding: 0px 0px 12px;
-				border-bottom: 1px solid #8B1FAC;
-			
-				&.last{
-					margin: 0px 0px 0px 0px; padding: 0px;
-					border: none;
-				}
-				.airline-logo{
-					float: right;
-					width: 100px;
-					padding: 4px;
-					text-align: right;
-					font-size: 12px; line-height: 12px;
-					font-weight: 700;
-					margin-right: 12px;
-				}
-				h3{
-					color: #8B1FAC;
-					font-size: 16px; line-height: 16px;
-					text-transform: none; font-weight: 700;
-					padding: 0px 0px 0px; margin: 0px;
-					letter-spacing: 0px;
-				}
-				p{
-					padding: 10px 0px 0px; margin: 0px; color: #222;
-				
-					strong{color: #222;}
-				}
-				.flight-class{
-					text-transform: uppercase;
-					font-size: 12px; line-height: 12px;
-					color: #777;				
-				}
+			.flight-info{
+				margin-left: 90px;
 			}
-			
-			.actions{
-				padding: 10px 0px 0px;
+			h3{
+				color: $colourBlueFg;
+				font-size: 16px; line-height: 16px;
+				text-transform: none; font-weight: 700;
+				padding: 0px 0px 10px; margin: 0px;
+				letter-spacing: 0px;
+			}
+			p{
+				padding:0px; margin: 0px;
 				
-				a{
-					float: right; margin-left: 10px;
-				}
+				strong{color: #222;}
+			}
+			p.flight-class{
+				font-weight: 700;
+				text-transform: capitalize;			
 			}
 		}
-	}
-}
-
-/*===========================================*/
-
-/* !SEARCH UI HOTEL DETAIL BOOKING */
-
-/*===========================================*/
-
-.search-ui-hotel-detail-booking{
-
-	.summary-header{
-		h2{
-			color: $grey-light; 
-			font-size: 22px; line-height: 22px;
-			margin: 0px; padding: 0px 0px 0px 10px;
-			text-transform: capitalize; font-weight: 700;
-		}
-	}
-	
-	.summary-outer{
-		margin: 5px 20px 0px 0px;
-		border: 1px solid #8B1FAC;
-	
-		.summary-inner{
+		
+		/*.loading{
+			text-align: center;
+			color: #ccc; 
+			margin-top: 40px;
+		
+			h2{
+				text-transform: lowercase;
+				padding: 0px ; margin: 0px;
+				font-weight: 700; 
+				color: #ccc; text-shadow: none;
+			}
+			p{font-weight: 700;}
+		}*/
+		
+		.actions{
+			padding: 15px 0px 0px;
 			
-			color: #777;
-			
-			.item{
-				padding: 15px;
-				position: relative;
-
-				ul{
-					list-style: outside url(../images/main/bullet-purple-small.png);
-					padding: 0px;
-					margin: 0px 0px 0px 20px;
-					
-					li{
-						margin: 0px;
-						padding: 3px 0px 0px;
-					}
-				}
-				.total{
-					float: right;
-					color: #c00;
-					font-weight: 700;
-					font-size: 18px;
-				}
+			a{
+				@include actionButton();
 				
-				&.item-holiday{
-					.total{
-						position: absolute;
-						float: none;
-						bottom: 10px; right: 15px;
-					}
-				}
-				
-				&.item-atol{
-					border-top: 1px solid $purple;
-					padding: 10px 0px;
-					margin: 0px 15px 0px;
-				}
-				
-				&.item-proceed{
-					
-					background: $purple;
-					
-					.total{
-						color: #fff;
-						font-size: 22px;line-height: 22px;
-					}
-					.total-left{
-						float: left;
-						color: #fff;
-						font-size: 18px;
-						font-size: 22px;line-height: 22px;
-					}
-					
-					.book-now{
-						
-						padding: 15px 0px 0px;
-						
-						a.action-next{
-							display: block; float: none;
-							text-align: center;
-						}
-					
-						.proceed-message{
-							color: #fff;
-							padding: 15px 0px 0px;
-							font-size: 14px; line-height: 14px;
-							
-							p{margin: 0px; padding: 0px 0px 5px;}
-							
-							strong{
-								color: #eee; font-weight: 700;
-								font-size: 20px;
-							}
-						}
-					}
-					
-				}
+				float: right; margin-left: 15px;
 			}
 		}
 	}
@@ -1580,57 +1564,164 @@ html, body{
 
 /*===========================================*/
 .search-ui-sidebar-summary-view{
-	padding: 40px 20px;
+	padding: 30px 30px 30px;
+	
+	h2{
+		color: $colourBlueFg;
+		font-weight: 700;
+		font-size: 26px; line-height: 26px;
+		padding: 0px; margin: 0px 0px 15px;	
+	}
+	
 	.summary-inner{
-		border: 1px solid $purple;
-		.summary-top{
-			padding: 10px 15px 5px;	
+		box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+		border-radius: 3px;
+	
+		.item{
+			padding: 12px 15px 5px;
+			border-bottom: 1px solid #E9E9EA;
 			
-			.item{
-				padding-bottom: 8px;
-				
-				h3{
-					font-weight: 700;
-					font-size: 14px; line-height: normal;
-					padding: 0px;
-					margin: 0px 0px 6px 0px;
-					color: $purple;
-					text-transform: none;
-					text-shadow: none;
-				}
-				p{
+			h3{
+				font-weight: 700;
+				font-size: 16px; line-height: normal;
+				padding: 0px;
+				margin: 0px 0px 10px 0px;
+				color: $colourBlueFg;
+				text-transform: none;
+				text-shadow: none;
+			}
+			ul{
+				li{
 					line-height: 13px;
 					font-size: 13px;
 					color: #333;
-					padding: 0px 0px 4px 10px;
+					padding: 0px 0px 8px 10px;
 					margin: 0px;
+					
+					&:before{
+						content: '\2022';
+						margin: 0px 5px 0px 0px;
+						color: $colourBlueFg;
+					}
 				}
 			}
 			
 		}
-		.summary-bottom{
-			padding: 10px;	
-			background: $purple;
-			color: #fff;
+		.bottom{
+			padding: 15px 15px;	
+			color: $colourBlueFg;
 			
 			.bottom-left{
 				float: left; width: 40%;
 				font-weight: 700;
+				font-size: 16px; line-height: normal;
 			}
 			.bottom-right{
 				float: left; width: 60%;
 				text-align: right;
 				font-weight: 700;
-				font-size: 20px; line-height: 20px;
-			}
-			.bottom-msg{
-				text-align: center;
-				padding: 10px 0px 0px;
-				
-				strong{color: #fff;}
+				font-size: 24px; line-height: 24px;
 			}
 		}
 	}
+	.summary-booking{
+		padding: 20px 30px 0px;
+		a{
+			@include actionButton();
+			display: block;
+			padding: 10px 15px;
+			font-size: 1.3em; line-height: 1.3em;
+			box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+			
+			a:hover{
+				box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+			}
+		}
+		.msg{
+			padding-top: 14px;
+			text-align: center;
+			p{
+				color: $colourLightBlueFg;
+				text-transform: uppercase;
+				font-size: 16px; line-height: 16px;
+				font-weight: 400;
+			}
+			h3{
+				color: $colourBlueFg;
+				text-transform: uppercase;
+				font-weight: 700;
+				font-size: 26px; line-height: 26px;
+				padding: 2px 0px 0px; margin: 0px;
+			}
+		}
+	}
+}
+
+/*===========================================*/
+
+/* !SIDEBAR STATIC VIEW */
+
+/*===========================================*/
+.sidebar-static-view{
+	padding: 0px 30px 30px;
+	.static-inner{
+		box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+		border-radius: 3px;
+		
+		.item{
+			padding: 15px 15px;
+			border-bottom: 1px solid #E9E9EA;
+			color: black;
+			overflow: none;
+			
+			.item-left{
+				float: left;
+				width: 60px;
+				margin-bottom: -100px;
+				padding-bottom: 100px;
+				
+			}
+			.item-right{
+				margin:  0px 0px 0px 80px;
+				padding: 0px;
+			}
+			
+			.atol,.pts{
+				
+				background-repeat: no-repeat;
+				background-image: url('../images/page/atol-pts.png');
+				float: right;
+			}
+			.atol{
+				background-position:0px -48px;
+				width:53px;height:53px;
+				margin-top: 4px;}
+			.pts{
+				background-position:0px -104px;
+				width:52px;height:56px;
+			}
+			
+			h4{
+				font-size: 13px; line-height: 13px;
+				font-weight: 700;
+				letter-spacing: -0.4px;
+				padding: 0px;
+				margin: 0px 0px 6px;	
+			}
+			p{
+				font-size: 12px; line-height: 16px;
+				padding: 0px; margin: 0px;
+			}
+			
+			.cc{
+				background-image: url(../images/page/footer-logos.png);
+				background-position:-35px 0px;width:194px;height:31px;
+				margin: 0 auto;
+			}	
+			
+			
+		}
+	}	
 }
 
 

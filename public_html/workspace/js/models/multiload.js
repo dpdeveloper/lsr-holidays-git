@@ -36,7 +36,7 @@ define([
 		/**
 			Shortcut for addLoadingRequest
 			
-			@param {function} - a dummy param to wrap the function call in
+			@param {function | array} - a dummy param to wrap the function call in
 		*/
 		l: function(request){
 			this.addLoadingRequest(request);
@@ -67,7 +67,7 @@ define([
 		/**
 			Increments the to be loaded count
 			
-			@param {function} - a dummy param to wrap the function call in
+			@param {function | Array} - a dummy param to wrap the function call in
 		*/
 		addLoadingRequest: function(request){
 		

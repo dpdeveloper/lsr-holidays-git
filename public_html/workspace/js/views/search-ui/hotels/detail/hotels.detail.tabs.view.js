@@ -1,4 +1,4 @@
-/* @filename views/search-ui/hotels/hotels.detail.tabs.view
+/* @filename views/search-ui/hotels/detail/hotels.detail.tabs.view
  *
  * David Anderson 2012
  *
@@ -7,19 +7,19 @@
 define([
 	'jquery','underscore','backbone','marionette','vent',
 	'tpl!views/search-ui/templates/hotels.detail.tabs.view.tpl.html',
-	'models/symphony-hotel',
-	'helpers/view-helper',
+	'models/multicom/multicom-accommodation',
+	'helpers/view-helper'
 	
 ], function($,_,Backbone,Marionette,vent,
 			SearchUIHotelsDetailTabsTemplate,
-			SymphonyHotel,
+			MulticomAccommodation,
 			viewHelper
 			){
 	"use strict";
 	
 	var SearchUIHotelsDetailTabsView = Backbone.Marionette.ItemView.extend({
 		template: SearchUIHotelsDetailTabsTemplate,
-		model: new SymphonyHotel(),
+		model: new MulticomAccommodation(),
 		
 		tagName: 'div',
 		attributes: {'class':'search-ui-hotels-detail-tabs'},
@@ -28,14 +28,14 @@ define([
 		events: {
 			'click .hotels-detail-tabs-menu a': 'handleTabClick',
 			
-			'hover .room-row': 'handleRoomRowHover',
+			'hover .room-row': 'handleRoomRowHover'
 		},
 		
 		_activeTab: null,
 		
 		ui: {
 			links: '.hotels-detail-tabs-menu a',
-			tabs: '.tab',
+			tabs: '.tab'
 		},
 		
 		initialize: function(){
@@ -48,14 +48,14 @@ define([
 		},
 		
 		onShow: function(){
-			if(this._activeTab == null){
+			if(this._activeTab === null){
 				this._activeTab = this.ui.links.first().attr('id');
 			}
 			this.switchTab(this._activeTab);
 		},
 		
 		onRender: function(){
-			if(this._activeTab != null){
+			if(this._activeTab !== null){
 				this.switchTab(this._activeTab);
 			}
 		},
