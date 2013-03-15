@@ -74,6 +74,13 @@ define([
 		},
 		
 		/**
+			sort by rating initially
+		*/
+		comparator: function(model){
+			return - parseInt(model.get('classCode').charAt(0),10);	
+		},
+		
+		/**
 		 * isLoading
 		 *
 		 * Returns true if the multicom request is still loading

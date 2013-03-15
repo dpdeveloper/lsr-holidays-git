@@ -42,7 +42,7 @@ define([
 		},
 		
 		events: {
-			'click': 'handleClick'
+			'click .browse-item-inner': 'handleClick'
 		},
 		
 		

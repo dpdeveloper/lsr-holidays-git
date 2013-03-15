@@ -1,4 +1,3 @@
-
 /* models/multicom/multicom-accommodation.js
  *
  * David Anderson 2012

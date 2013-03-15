@@ -243,7 +243,8 @@ define([
 			Callback to process flight results
 		*/
 		processFlightSearchResults: function(){
-		
+			
+			
 			this.handleFlightSelection(this._mcFlightCollection.at(0));
 			
 			vent.trigger('search:flight:loaded', this._mcFlightCollection);

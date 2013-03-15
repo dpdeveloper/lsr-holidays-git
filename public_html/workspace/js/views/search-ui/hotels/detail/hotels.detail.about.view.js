@@ -30,7 +30,7 @@ define([
 			@param {Object} [options] Options Hash
 		*/
 		initialize: function(options){
-			this.listenTo(vent,'search:hotel:selected',this.handleHotelSelected);	
+			this.listenTo(this.model,'change',this.handleHotelSelected);	
 		},
 		
 		model: new MulticomAccommodation(),
@@ -50,7 +50,7 @@ define([
 		},
 		
 		handleHotelSelected: function(hotel){
-			this.model.set(hotel.toJSON());
+			//this.model = hotel.clone();
 			this.render();
 		},
 		
