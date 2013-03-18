@@ -49,10 +49,8 @@ define([
 				this._displayBooking = true;
 			}
 			
-			//the relational binding doesn't seem to be working!
-			this.listenTo(this.model.get('selectedHotel'),"change",this.handleBookingChange);
-			this.listenTo(this.model.get('selectedFlight'),"change",this.handleBookingChange);	
-			
+			this.listenTo(vent,"search:hotel:selected",this.handleHotelSelected);
+			this.listenTo(vent,"search:flight:selected",this.handleFlightSelected);
 		},
 		
 		/**
@@ -77,10 +75,15 @@ define([
 			return data;
 		},
 		
-		handleBookingChange: function(hotel){
+		handleHotelSelected: function(hotel){
+			//this.model.set('selectedHotel',hotel);
+			this.render();
+		},
+		handleFlightSelected: function(flight){
+			//this.model.set('selectedFlight',flight);
 			this.render();
 		}
-		
+
 	});
 	
 	return SidebarSummaryView;

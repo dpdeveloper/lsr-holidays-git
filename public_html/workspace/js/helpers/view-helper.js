@@ -13,7 +13,7 @@ define([
 	/** @class ViewHelper */
 	var viewHelper = {
 	
-	
+		
 		/**
 			Generates a jit image url for symphony JIT image resizing
 			
@@ -21,7 +21,7 @@ define([
 				image.path
 				image.filename
 				image.height
-				image.fit
+				image.external
 			@param width: The desired width of the resulting image
 			@param height: The desired height of the resulting image
 			@param mode: Supported: (full | crop-fill | fit) Unsupported ( resize | resize-canvas | image-fit)
@@ -72,6 +72,20 @@ define([
 			}
 			
 			return url;
+		},
+		
+		/**
+			Converts a multicom image into an image to be used by symphony
+		*/
+		multicomImageUrl: function(image,width,height,mode){
+			
+			var img = {
+				filename: image.url,
+				path: '',
+				external: 1
+			};
+		
+			return viewHelper.imageUrl(img,width,height,mode);
 		},
 		
 		/**

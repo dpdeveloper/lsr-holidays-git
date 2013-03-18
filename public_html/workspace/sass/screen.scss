@@ -1342,6 +1342,52 @@ html, body{
 
 /*===========================================*/
 
+/* !SEARCH UI - HOTELS DETAIL IMAGE VIEW */
+
+/*===========================================*/
+.hotels-detail-images-view{
+	padding: 40px 10px 30px 30px;
+	
+	.images-view-inner{
+		
+		h3{
+			color: $colourBlueFg;
+			font-size: 1.4em; line-height: normal;
+			font-weight: 700;
+			padding: 0px; margin: 0px 0px 0.5em;
+		}
+		
+		.image-item{
+			margin-bottom: 1em;
+			position: relative;
+			cursor: pointer;
+			
+			img{position: block;}
+			
+			.icon{
+				background: $colourLightBlueBg url(../images/page/search-icon.png) no-repeat center center;
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				height: 30px; width: 30px;
+				z-index: 30;
+			}
+			
+			&:hover{
+				box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+				.icon{
+					background-color: $colourYellowFg;
+				}
+			}
+			
+		}
+	}
+
+}
+
+
+/*===========================================*/
+
 /* !SEARCH UI - HOTELS DETAIL ROOM VIEW */
 
 /*===========================================*/	

@@ -11,7 +11,7 @@ describe("Multicom Accommodation Collection", function() {
 			'config',
 			'models/holiday-search'
 			], function(MulticomAccommodationCollection, config, HolidaySearch) {
-			that.collection = new MulticomAccommodationCollection();
+			that.collection = new MulticomAccommodationCollection({sortBy: 'classAsc'});
 			that.HolidaySearch = HolidaySearch;
 			
 			if(config.multicomMode === 'test'){
@@ -26,6 +26,13 @@ describe("Multicom Accommodation Collection", function() {
 	});
 	afterEach(function() {});
 	
+	describe('Initialize', function(){
+		it('Is Not Null', function(){
+			expect(this.collection).not.toBeNull();
+		});
+
+	});
+
 	
 	describe('Test Mode', function(){
 		it('should not be in test mode', function(){
@@ -135,19 +142,19 @@ describe("Multicom Accommodation Collection", function() {
 				
 				var obj = this.collection.at(0).toJSON();
 				
-				expect(obj.accommodationName).toEqual('Santa Fe Station Hotel Casino');
-				expect(obj.itineraryId).toEqual('si1218');
+				expect(obj.accommodationName).toEqual('Americas Best Value Inn and Suites  Las Vegas Air');
+				expect(obj.itineraryId).toEqual('si1196');
 				expect(obj.supplier).toEqual('BAR');
-				expect(obj.classCode).toEqual('3*');
-				expect(obj.basicAdultCost).toEqual('35.74');
+				expect(obj.classCode).toEqual('2*');
+				expect(obj.basicAdultCost).toEqual('40.32');
 				expect(obj.rooms).toBeDefined();
 				expect(obj.images).toBeDefined();
 				
 				//expect relational data
 				var r = this.collection.at(0).get('rooms');
 				
-				expect(r.length).toEqual(3);
-				expect(r.at(0).get('name')).toEqual('DOUBLE STANDARD');
+				expect(r.length).toEqual(1);
+				expect(r.at(0).get('name')).toEqual('DOUBLE GUEST ROOM');
 				
 			});
 		});

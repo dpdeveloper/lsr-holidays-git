@@ -58,7 +58,7 @@ define([
 		*/
 		initialize : function(options) {
 			options = options || {};
-			_.bindAll();
+
 			this._status = this.STATES.INIT;
 			
 			//if test mode
@@ -113,7 +113,7 @@ define([
 				return config.contentRoot+testUrl;
 			}
 			else{
-				return config.root+"json/multicom-api/?"+this.buildSearchQueryUrl(data);
+				return config.root+"json/multicom/?"+this.buildSearchQueryUrl(data);
 			}
 		},
 		
@@ -140,7 +140,8 @@ define([
 				}
 			});
 			//add the api version and request type
-			str = str+"v="+this._apiVersion+"&action=runFlightSearch";
+			str = str+"v="+this._apiVersion;
+			str = str+"&action=runFlightSearch";
 			return str;
 		},
 		

@@ -49,6 +49,15 @@ define([
 			'childAges'
 		],
 		
+		sortStrategies: {
+			classAsc: function(model){
+				return parseInt(model.get('classCode').charAt(0),10);		
+			},
+			classDesc: function(model){
+				return - parseInt(model.get('classCode').charAt(0),10);	
+			}
+		},
+		
 		/**
 			Constructor
 			
@@ -69,15 +78,26 @@ define([
 				this._testMode = true;
 			}
 			
+			//set the sort mode
+			if('sortBy' in options && typeof options.sortBy === "string"){
+				switch(options.sortBy){
+					case 'classDesc':
+						this.comparator = this.sortStrategies.classDesc;
+						break;
+					case 'classAsc':
+						this.comparator = this.sortStrategies.classAsc;
+						break;
+					default:
+						this.comparator = this.sortStrategies.classDesc;
+						break;
+				}
+			}
+			else{
+				this.comparator = this.sortStrategies.classDesc;
+			}
+			
 			//init the mode
 			this._searchMode = this.MODES.HOTEL;
-		},
-		
-		/**
-			sort by rating initially
-		*/
-		comparator: function(model){
-			return - parseInt(model.get('classCode').charAt(0),10);	
 		},
 		
 		/**
@@ -138,7 +158,7 @@ define([
 				return config.contentRoot+testUrl;
 			}
 			else{
-				return config.root+"json/multicom-api/?"+this.buildSearchQueryUrl(data);
+				return config.root+"json/multicom/?"+this.buildSearchQueryUrl(data);
 			}
 		},
 		
@@ -165,7 +185,8 @@ define([
 				}
 			});
 			//add the api version and request type
-			str = str+"v="+this._apiVersion+"&action="+self._searchMode;
+			str = str+"v="+this._apiVersion
+			str = str+"&action="+self._searchMode;
 			return str;
 		},
 		

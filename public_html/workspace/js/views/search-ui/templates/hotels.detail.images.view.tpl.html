@@ -1,0 +1,10 @@
+<!--<div class="hotels-detail-images-view">-->
+<div class="images-view-inner">
+	<h3>Hotel Photos</h3>
+	<% _.each(images,function(elem,index,list){ %>
+		<div class="image-item">
+			<img src="<%= multicomImageUrl(elem,160,120,'crop-fill') %>" alt="" height="120" width="160" />
+			<div class="icon"></div>
+		</div>
+	<% }) %>
+</div>

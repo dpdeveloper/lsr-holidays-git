@@ -150,8 +150,9 @@ require([
 		'spec/views/search-ui/hotels/hotels.browse.view.spec',
 		
 		'spec/views/search-ui/hotels/detail/hotels.detail.about.view.spec',
-/*		'spec/views/search-ui/hotels/detail/hotels.detail.flight.view.spec',
-		
+		'spec/views/search-ui/hotels/detail/hotels.detail.flight.view.spec',
+		'spec/views/search-ui/hotels/detail/hotels.detail.images.view.spec',
+/*		
 		'spec/views/search-ui/hotels/detail/hotels.detail.rooms.item.view.spec',
 		'spec/views/search-ui/hotels/detail/hotels.detail.rooms.view.spec', */
 		'spec/views/search-ui/hotels/detail/hotels.detail.layout.spec',

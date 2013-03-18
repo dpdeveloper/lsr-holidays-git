@@ -65,7 +65,7 @@ define([
 			this._booking = new Booking();
 			
 			//init collections
-			this._mcAccommCollection = new MulticomAccommodationCollection();
+			this._mcAccommCollection = new MulticomAccommodationCollection({sortBy: 'classDesc'});
 			this._mcFlightCollection = new MulticomFlightCollection();
 			this._airlineCollection = new SymphonyAirlineCollection();
 			

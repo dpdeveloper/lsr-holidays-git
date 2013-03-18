@@ -47,6 +47,7 @@ define([
 			@param {Object} [options] Options Hash
 		*/
 		initialize: function(options){
+			options = options || {};
 			
 			this._airlineCollection = new SymphonyAirlineCollection();
 			

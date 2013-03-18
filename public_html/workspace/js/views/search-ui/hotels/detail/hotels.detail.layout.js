@@ -14,7 +14,7 @@ define([
 	'views/search-ui/hotels/detail/hotels.detail.about.view',
 	'views/search-ui/hotels/detail/hotels.detail.flight.view',
 	
-	'views/search-ui/hotels/detail/hotels.detail.tabs.view'
+	'views/search-ui/hotels/detail/hotels.detail.images.view'
 	
 	
 ], function($,_,Backbone,Marionette,vent, reqres,
@@ -25,8 +25,7 @@ define([
 			
 			HotelDetailsAboutView,
 			HotelsDetailFlightView,
-	
-			HotelsDetailTabView
+			HotelsDetailImagesView
 			){
 	"use strict";
 	
@@ -72,6 +71,9 @@ define([
 				model: booking.get('selectedFlight'), 
 				airlineCollection: reqres.request('search:get:airlines')
 			}));
+			
+			this.contentSidebarImages.show(new HotelsDetailImagesView({model: booking.get('selectedHotel')}));
+			
 			this.sidebarSummary.show(new SidebarSummaryView({model: booking }));
 			this.sidebarStatic.show(new SidebarStaticView());
 

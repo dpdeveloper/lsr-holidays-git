@@ -11,7 +11,7 @@ describe("Search UI Layout", function() {
 			'views/search-ui/search-ui.layout',
 			'models/holiday-search'
 			], function(SearchUILayout,HolidaySearch) {
-			that.layout = new SearchUILayout({el: '#sandbox'});
+			that.layout = new SearchUILayout({el: '#sandbox', testMode: true});
 			that.holidaySearch = new HolidaySearch();
 			
 			flag = true;
