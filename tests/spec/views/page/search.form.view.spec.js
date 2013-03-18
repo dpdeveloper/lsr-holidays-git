@@ -38,4 +38,21 @@ describe("SearchFormView", function() {
 			expect(this.view.$el).toBeVisible();
 		});
 	});
+	
+	describe('Form Submission', function(){
+		
+		it('getFormOccupancy gets occupancy from form', function(){
+			this.region.show(this.view);
+			$("#fields-number-of-rooms").val(2);
+			this.view.updateRooms();
+
+			var occ = this.view.getFormOccupancy();
+			
+			expect(occ).toEqual([
+				{adults: 2, children: 0, infants: 0},
+				{adults: 2, children: 0, infants: 0}
+			]);
+		});
+		
+	});
 });

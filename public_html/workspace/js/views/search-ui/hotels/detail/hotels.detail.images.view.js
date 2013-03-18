@@ -20,6 +20,7 @@ define([
 	var HotelsDetailImagesView = Backbone.Marionette.ItemView.extend(
 	/** @lends HotelsDetailImagesView */
 	{
+
 		/**
 			Constructor
 			
@@ -28,7 +29,16 @@ define([
 			@param {Object} [options] Options Hash
 		*/
 		initialize: function(options){
-			this.listenTo(vent,'search:hotel:selected',this.render);
+			options = options || {};
+			
+			this.listenTo(vent,'search:hotel:selected',this.handleHotelChange);
+			
+			if('model' in options && options.model !== null){
+				this.model = options.model;
+			}
+			else{
+				this.model = new MulticomAccommodation();	
+			}
 		},
 		
 		/**
@@ -37,17 +47,30 @@ define([
 		serializeData: function(){
 			var images = this.model.get('images');
 			
-			if($.isArray(images)){
-				return {images: images};
+			if(!$.isArray(images)){
+				images = [];
 			}
-			return {images: []};
+			return {
+				model: this.model.toJSON(),
+				images: images	
+			};
 		},
 		
 		model: new MulticomAccommodation(),
 		template: Template,
 		templateHelpers: viewHelper,
 		tagName: 'div',
-		attributes: {'class':'hotels-detail-images-view'}
+		attributes: {'class':'hotels-detail-images-view'},
+		
+		/**
+			Callback for when the hotel changes
+		*/
+		handleHotelChange: function(hotel){
+			if(this.model.id !== hotel.id){
+				this.model = hotel;
+			}
+			this.render();
+		}
 		
 	});
 	

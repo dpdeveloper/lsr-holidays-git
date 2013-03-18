@@ -10,13 +10,20 @@ describe("Multicom Flight Collection", function() {
 			'collections/multicom-flight',
 			'config',
 			'models/flight-filter',
-			'models/holiday-search'
-			], function(MulticomFlightCollection, config, FlightFilter, HolidaySearch) {
+			'models/holiday-search',
+			'json!../../json-test/multicom-v3/flights-las-vegas.json'
+			], function(
+				MulticomFlightCollection,
+				config,
+				FlightFilter,
+				HolidaySearch,
+				sampleData
+			) {
 			
 				that.collection = new MulticomFlightCollection();
 				that.FlightFilter = FlightFilter;
 				that.HolidaySearch = HolidaySearch;
-				
+				that.sampleData = sampleData;
 				
 				if(config.multicomMode === 'test'){
 					that.collection.setTestMode(false); //needed for the tests
@@ -106,12 +113,12 @@ describe("Multicom Flight Collection", function() {
 	describe('Get the Search URL', function(){
 		it('should return the api url',function(){
 			var str = this.collection.getSearchUrl();
-			expect(str).toContain('json/multicom-api/');
+			expect(str).toContain('json/multicom/');
 		});
 		it('should return the test url when in test mode', function(){
 			this.collection.setTestMode(true);
 			
-			expect(this.collection.getSearchUrl()).toContain("/json-test/flights-search.json");
+			expect(this.collection.getSearchUrl()).toContain("json-test");
 		});
 	});
 	
@@ -138,16 +145,15 @@ describe("Multicom Flight Collection", function() {
 			});
 			
 			runs(function(){
+				
+				var sD = this.sampleData.data.HolidaySearchResponse.PackageHolidays.PackageHoliday;
 				expect(this.collection.trigger).toHaveBeenCalledWith('complete');
-				expect(this.collection.models.length).toEqual(100);
+				expect(this.collection.models.length).toEqual(sD.length);
 				
 				var obj = this.collection.at(0).toJSON();
 				
 				expect(obj.originAirport).toEqual('LHR');
-				
-				expect(obj.destinationAirport).toEqual('JFK');
-				expect(obj.departureTime).toEqual('1105');
-				expect(obj.arrivalDate).toEqual('20130210');
+				expect(obj.itineraryId).toEqual(sD[0]['@ItineraryId']);
 			});
 		});
 	});
@@ -205,13 +211,15 @@ describe("Multicom Flight Collection", function() {
 			runs(function(){
 				var flight = this.collection.at(0);
 				
+				/* this code isn't properly utilized due to the sample data used */
+				
 				//outbound
 				var models = this.collection.filterByOutboundFlight(flight);
-				expect(models.length).toEqual(10);
+				expect(models.length).toEqual(1);
 				
 				//inbound
 				models = this.collection.filterByReturnFlight(flight);
-				expect(models.length).toEqual(5); //only co-incidental that this 10 is the same as the previous expectation
+				expect(models.length).toEqual(1);
 				
 			});
 		});
@@ -234,36 +242,37 @@ describe("Multicom Flight Collection", function() {
 			});
 			
 			runs(function(){
+				/* this code isn't properly utilized due to the sample data used */
 			
 				//by outbound Airline
 				var filter = new this.FlightFilter();
 				filter.setProperty('outboundAirline','BA');
-				expect(this.collection.filterByFlightFilter(filter).length).toEqual(90);
+				expect(this.collection.filterByFlightFilter(filter).length).toEqual(1);
 				
 				//by outbound no of stops
 				filter = new this.FlightFilter();
-				filter.setProperty('outboundNoStops','1');
-				expect(this.collection.filterByFlightFilter(filter).length).toEqual(10);
+				filter.setProperty('outboundNoStops','2');
+				expect(this.collection.filterByFlightFilter(filter).length).toEqual(0);
 				
 				//by departure time
 				filter = new this.FlightFilter();
 				filter.setProperty('outboundDepartureTimes',filter.TIMES.MORNING);
-				expect(this.collection.filterByFlightFilter(filter).length).toEqual(41);
+				expect(this.collection.filterByFlightFilter(filter).length).toEqual(4);
 				
 				//by return Airline
 				filter = new this.FlightFilter();
 				filter.setProperty('returnAirline','BA');
-				expect(this.collection.filterByFlightFilter(filter).length).toEqual(90);
+				expect(this.collection.filterByFlightFilter(filter).length).toEqual(1);
 				
 				//by return no of stops
 				filter = new this.FlightFilter();
 				filter.setProperty('returnNoStops','1');
-				expect(this.collection.filterByFlightFilter(filter).length).toEqual(10);
+				expect(this.collection.filterByFlightFilter(filter).length).toEqual(0);
 				
 				//by departure time
 				filter = new this.FlightFilter();
 				filter.setProperty('returnDepartureTimes',filter.TIMES.MORNING);
-				expect(this.collection.filterByFlightFilter(filter).length).toEqual(18);
+				expect(this.collection.filterByFlightFilter(filter).length).toEqual(4);
 				
 				
 			});
@@ -296,17 +305,17 @@ describe("Multicom Flight Collection", function() {
 					'outboundCarrier','outboundAirlineName'
 				]);
 				expect(models.length).toEqual(2);
-				expect(models[0].outboundCarrier).toEqual('EI');
-				expect(models[0].outboundAirlineName).toEqual('Aer Lingus');
-				expect(models[1].outboundCarrier).toEqual('BA');
+				expect(models[0].outboundCarrier).toEqual('BA');
+				expect(models[0].outboundAirlineName).toEqual('British Airways');
+				expect(models[1].outboundCarrier).toEqual('AB');
 				
 				models = null;
 				models = this.collection.getUniqueArrayFromParameters([
 					'outboundNumStops'
 				]);
 				expect(models.length).toEqual(2);
-				expect(models[0].outboundNumStops).toEqual('1');
-				expect(models[1].outboundNumStops).toEqual('0');
+				expect(models[0].outboundNumStops).toEqual(0);
+				expect(models[1].outboundNumStops).toEqual(2);
 				
 			});
 		});

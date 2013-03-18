@@ -282,7 +282,40 @@ define([
 				}
 			});
 		},
-			 
+		
+		/**
+			Validate before submission
+				
+		*/
+		validate: function(){
+			
+			return true;
+		},
+		
+		
+		/**
+			get the occupancy information from the form into an array
+		*/
+		getFormOccupancy: function(){
+			var occ = [];
+			
+			$("select.fields-number-of-adults",this.$el).each(function(i,element){
+				occ[i] = {};
+				occ[i].adults = parseInt($(element).val(),10);
+			});
+			$("select.fields-number-of-children",this.$el).each(function(i,element){
+				occ[i].children = parseInt($(element).val(),10);
+				occ[i].infants = 0;
+			});
+			/*
+			$("select.fields-number-of-infants",this.$el).each(function(i,element){
+				occ[i].infants = $(element).val();
+			});*/
+			
+			return occ;
+		},
+		
+		 
 		/**
 			Callback function for saving and submitting the search
 			- Parses the 'csv' fields into the correct format
@@ -291,19 +324,13 @@ define([
 			@param {jQuery Event} event
 		*/
 		submitForm: function(event){
+		
+			if(!this.validate()){
+				return;
+			}
+		
 			event.preventDefault();
-			
-			var adultCSV="", childCSV="", infantCSV="";
-			
-			$("select.fields-number-of-adults",this.$el).each(function(i,element){
-				adultCSV=adultCSV+$(element).val()+",";
-			});
-			$("select.fields-number-of-children",this.$el).each(function(i,element){
-				childCSV=childCSV+$(element).val()+",";
-			});
-			$("select.fields-number-of-infants",this.$el).each(function(i,element){
-				infantCSV=infantCSV+$(element).val()+",";
-			});
+			this.model.setOccupancy(this.getFormOccupancy());
 			
 			//work out num nights
 			
@@ -311,9 +338,6 @@ define([
 			
 			this.model.set({
 				destination: $("#fields-destination", this.$el).val(),
-				adultCsv:	adultCSV,
-				childCsv:	childCSV,
-				infantCsv:	infantCSV,
 				departingFrom: $('#fields-departure',this.$el).val()
 			});
 			

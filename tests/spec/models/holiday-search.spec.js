@@ -99,6 +99,20 @@ describe("Holiday Search Model", function() {
 			this.model.set({'infantCsv': '1,3,2,3'});
 			expect(this.model.getFlightTrip().numInfants).toEqual('9');
 		});
+		
+		it('should get the correct occupancy after using setOccupancy function', function(){
+			this.model.setOccupancy([
+				{adults: 2, children: 0, infants: 2},
+				{adults: 1, children: 1, infants:1}
+			]);
+			var m = this.model.getFlightTrip();
+			
+			expect(m.numAdults).toEqual('3');
+			expect(m.numChildren).toEqual('1');
+			expect(m.numInfants).toEqual('3');
+			
+		});
+		
 	});
 	
 	describe('convert a destination (name) to a airport code', function(){
@@ -181,4 +195,6 @@ describe("Holiday Search Model", function() {
 			expect(this.model.get('dateStart')).toEqual('01/01/2012');
 		});
 	});
+	
+	
 });

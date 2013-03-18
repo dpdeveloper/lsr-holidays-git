@@ -70,10 +70,21 @@ require([
 	'backbone',
 	'marionette',
 	'jasmine-html',
-	'jasmine-jquery'
-	], function(_, $, Backbone, Marionette, jasmine){
+	'jasmine-jquery',
+	'reqres'
+	], function(_, $, Backbone, Marionette, jasmine, jasminejQuery, reqres){
 	
 	"use strict";
+	
+	
+	//override
+	reqres.addHandler('config:get',function(){
+		return {
+			contentUrl: $('base').attr('href').replace(window.location.protocol + "//" + window.location.hostname,"")
+		};
+	});
+	
+	
 	
 	var jasmineEnv = jasmine.getEnv();
 	jasmineEnv.updateInterval = 1000;
@@ -83,17 +94,18 @@ require([
 	jasmineEnv.addReporter(htmlReporter);
 	
 	jasmineEnv.specFilter = function(spec) {
-	return htmlReporter.specFilter(spec);
+		return htmlReporter.specFilter(spec);
 	};
 	
 	var specs = [
-		'reqres',
+		'config',
 		
 		/*
 		 * !MODELS
 		*/
 		'spec/models/multicom/multicom-room.spec',
 		'spec/models/multicom/multicom-accommodation.spec',
+		'spec/models/multicom/multicom-flight.spec',
 		'spec/models/flight-filter.spec',
 		'spec/models/symphony-hotel.spec',
 		'spec/models/holiday-search.spec',
@@ -171,15 +183,9 @@ require([
 
 	
 	$(function(){
-		require(specs, function(reqres){
+		require(specs, function(config){
+			config.multicomMode = 'test';
 			
-			//override
-			reqres.addHandler('config:get',function(){
-				return {
-					contentUrl: $('base').attr('href').replace(window.location.protocol + "//" + window.location.hostname,"")
-				};
-			});
-		
 			jasmineEnv.execute();
 		});
 	});

@@ -1,9 +1,52 @@
 describe("MulticomRoomCollection", function() {
 	"use strict";
 	
-	var sampleJSON = [{"maxOccupancy":"1","accommodationId":"1527373","hotelName":"Santa Fe Station Hotel Casino","id":"c969941fc98822c41a3e2acd73353f28","code":"1:1:0:0:DBL-U10:ST:GC-B2B","minOccupancy":"1","roomType":"DBL-U10:ST","quantityAvailable":"1","roomRate":{"rateId":"rR9M+CGCfJfzfKAZL8PFRg==","amount":"35.74","endDate":"20130303","startDate":"20130302","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"name":"DOUBLE STANDARD"},{"maxOccupancy":"1","accommodationId":"1527373","hotelName":"Santa Fe Station Hotel Casino","id":"6a408a88a17e58b69a3233dca1ae7cab","code":"1:1:0:0:DBL-U10:ST:16931- DISRO","minOccupancy":"1","roomType":"DBL-U10:ST","quantityAvailable":"1","roomRate":{"rateId":"rR9M+CGCfJfzfKAZL8PFRg==","amount":"38.63","endDate":"20130303","startDate":"20130302","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"name":"DOUBLE STANDARD"},{"maxOccupancy":"1","accommodationId":"1527373","hotelName":"Santa Fe Station Hotel Casino","id":"11cf4b6ec9bd1b7edfc4b9701b7da015","code":"1:1:0:0:DBL-U10:ST:GC-B2C","minOccupancy":"1","roomType":"DBL-U10:ST","quantityAvailable":"1","roomRate":{"rateId":"rR9M+CGCfJfzfKAZL8PFRg==","amount":"48.28","endDate":"20130303","startDate":"20130302","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"name":"DOUBLE STANDARD"}];
+	var sampleJSON = [
+	{
+		"#name" : "AccommodationUnit",
+		"#text" : "",
+		"@MaxOccupancy" : "2",
+		"@MinOccupancy" : "2",
+		"@QuantityAvailable" : "1",
+		"@Name" : "DOUBLE COURTYARD",
+		"@Code" : "1:2:0:0:DBL-U10:CY:GC-B2C",
+		"@RoomType" : "DBL-U10:CY",
+		"RoomRate" : {
+			"#name" : "RoomRate",
+			"#text" : "",
+			"@StartDate" : "20130329",
+			"@EndDate" : "20130401",
+			"@RateId" : "3x+mrplYtA7r5vRhKHbkaQ==",
+			"@Amount" : "116.68",
+			"@Currency" : "GBP",
+			"@BoardBasis" : "RO",
+			"@SuppliersBoardCode" : "RO-U10"
+		}
+	},
+	{
+		"#name" : "AccommodationUnit",
+		"#text" : "",
+		"@MaxOccupancy" : "2",
+		"@MinOccupancy" : "2",
+		"@QuantityAvailable" : "1",
+		"@Name" : "DOUBLE LUXURY ROOM-TOWER ROOM",
+		"@Code" : "1:2:0:0:DBL-U10:LX-TW:GC-B2C",
+		"@RoomType" : "DBL-U10:LX-TW",
+		"RoomRate" : {
+			"#name" : "RoomRate",
+			"#text" : "",
+			"@StartDate" : "20130329",
+			"@EndDate" : "20130401",
+			"@RateId" : "3x+mrplYtA7r5vRhKHbkaQ==",
+			"@Amount" : "159.51",
+			"@Currency" : "GBP",
+			"@BoardBasis" : "RO",
+			"@SuppliersBoardCode" : "RO-U10"
+		}
+	}
+	];	
 	
-	var sampleAccommodationJSON = {"telephoneNumber":"7026584900","description":"The hotel is located on more than 15 hectares and offers 200 hotel rooms. The air-conditioned property features a lobby with 24-hour reception and check-out service, cloakroom, lift access, auditorium, casino, bar, disco and restaurant. Furthermore, conference facilities, room and laundry services, a car park and a garage are available.","suppliersBoardCode":"RO-U10","availability":"available","contractCode":"GC-B2B;16931- DISRO;GC-B2C","boardCode":"RO","itineraryId":"si1218","currency":"GBP","availableBoardBasis":"RO","accommodationId":"1527373","normalisedName":"SANTA FE STATION","resortName":"North Las Vegas","accommodationCode":"102404","endDate":"20130303","resortId":"11284","type":"Hotel","bookableByFAB":"true","rooms":[{"maxOccupancy":"1","accommodationId":"1527373","hotelName":"Santa Fe Station Hotel Casino","id":"c969941fc98822c41a3e2acd73353f28","code":"1:1:0:0:DBL-U10:ST:GC-B2B","minOccupancy":"1","roomType":"DBL-U10:ST","quantityAvailable":"1","roomRate":{"rateId":"rR9M+CGCfJfzfKAZL8PFRg==","amount":"35.74","endDate":"20130303","startDate":"20130302","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"name":"DOUBLE STANDARD"},{"maxOccupancy":"1","accommodationId":"1527373","hotelName":"Santa Fe Station Hotel Casino","id":"6a408a88a17e58b69a3233dca1ae7cab","code":"1:1:0:0:DBL-U10:ST:16931- DISRO","minOccupancy":"1","roomType":"DBL-U10:ST","quantityAvailable":"1","roomRate":{"rateId":"rR9M+CGCfJfzfKAZL8PFRg==","amount":"38.63","endDate":"20130303","startDate":"20130302","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"name":"DOUBLE STANDARD"},{"maxOccupancy":"1","accommodationId":"1527373","hotelName":"Santa Fe Station Hotel Casino","id":"11cf4b6ec9bd1b7edfc4b9701b7da015","code":"1:1:0:0:DBL-U10:ST:GC-B2C","minOccupancy":"1","roomType":"DBL-U10:ST","quantityAvailable":"1","roomRate":{"rateId":"rR9M+CGCfJfzfKAZL8PFRg==","amount":"48.28","endDate":"20130303","startDate":"20130302","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"name":"DOUBLE STANDARD"}],"syndicatorRanking":"100","supplier":"BAR","accommodationName":"Santa Fe Station Hotel Casino","classCode":"3*","maxChildAge":"17","startDate":"20130302","numNights":"1","officialRating":"3 STARS","basicAdultCost":"35.74","infantAge":"0","supplierLocationId":"LVS|11","address":{"cityOrTown":"LAS VEGAS","address2":"LAS VEGAS","country":"US","address1":"4949 NORTH RANDRO","postCode":"89130"}};
+	var sampleAccommodationJSON = {"@Availability":"available","@Type":"Hotel","@ItineraryId":"si1292","@ResortId":"11284","@ResortName":"North Las Vegas","#text":"","@NormalisedName":"FIESTA RANCHO","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89130","#name":"Address","@CityOrTown":"NORTH LAS VEGAS","@Address1":"2400 NORTH RANCHO DRIVE","#text":"","@Address2":"NORTH LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":[{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"A5TIbjDa16pmC9J9xhHCSQ==","#text":"","@Amount":"111.51","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2B","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"A5TIbjDa16pmC9J9xhHCSQ==","#text":"","@Amount":"150.65","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2C","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"}]},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/10/102405/102405a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102405/102405a_hb_a_006.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102405/102405a_hb_ba_003.jpg","#name":"Image","#text":"","@CaptionText":"Bar"}],"@Supplier":"BAR","@OfficialRating":"3 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.1995","@Latitude":"36.2032"},"@AccommodationCode":"102405","@BasicAdultCost":"111.51","@MaxChildAge":"17","@ClassCode":"3*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"702-631-7000"},"@ContractCode":"GC-B2B;GC-B2C","@AccommodationId":"1544947","Description":{"#name":"Description","#text":"This 5-storey, 100-room hotel tower is set in contemporary décor and has been designed to meet the needs of the individual, family or business traveller. Fully air-conditioned, the hotel features 24-hour reception and check-out service, a cloakroom, lift access, a casino, a café, a bar, a restaurant, conference facilities and on-site parking for those arriving by car (garage/car park)."},"@SupplierLocationId":"LVS|11","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Fiesta Rancho Casino Hotel","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}};
 	
 	/* multi room search request
 	 * http://localhost/~david/lsr-holidays/public_html/json/multicom-api/?action=runDestinationSearch&numRooms=3&numNights=5&destination=las+vegas&dateStart=30/04/2013&adultCsv=3,1,1&childCsv=0,1,0&infantCsv=0,1,0&childAges=6,0,0&v=3
@@ -13,7 +56,7 @@ describe("MulticomRoomCollection", function() {
 	 * room 3) A:1 C:0 I:0
 	 *
 	*/
-	var sampleAccommodationMultiroomJSON  = {"telephoneNumber":"702-631-7000","description":"This 5-storey, 100-room hotel tower is set in contemporary décor and has been designed to meet the needs of the individual, family or business traveller. Fully air-conditioned, the hotel features 24-hour reception and check-out service, a cloakroom, lift access, a casino, a café, a bar, a restaurant, conference facilities and on-site parking for those arriving by car (garage/car park).","suppliersBoardCode":"RO-U10","availability":"available","contractCode":"GC-B2B;16926 - DISRO;GC-B2C","boardCode":"RO","itineraryId":"si1337","currency":"GBP","availableBoardBasis":"RO","accommodationId":"1544947","normalisedName":"FIESTA RANCHO","resortName":"North Las Vegas","accommodationCode":"102405","endDate":"20130505","resortId":"11284","type":"Hotel","bookableByFAB":"true","rooms":[{"maxOccupancy":"1","maxExtraChildren":"0","quantityAvailable":"1","roomType":"DBL-U10:ST","id":"1827beb3213068b734f4f1e865f7f6bf","minOccupancy":"1","code":"1:1:0:0:DBL-U10:ST:GC-B2B","accommodationId":"1544947","maxExtraInfants":"0","roomRate":{"rateId":"32SYcQOcBeZKBM0vYWlNzw==","amount":"106.48","endDate":"20130505","startDate":"20130430","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"hotelName":"Fiesta Rancho Casino Hotel","name":"DOUBLE STANDARD"},{"maxOccupancy":"1","maxExtraChildren":"2","quantityAvailable":"2","roomType":"DBL-U10:ST","id":"cec40b0f86ebbf2d7f5d85b876aa3527","minOccupancy":"1","code":"1:1:2:0:DBL-U10:ST:16926 - DISRO","accommodationId":"1544947","maxExtraInfants":"2","roomRate":{"rateId":"nr4VH503yg6ujOMjz4O9+g==","amount":"115.08","endDate":"20130505","startDate":"20130430","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"hotelName":"Fiesta Rancho Casino Hotel","name":"DOUBLE STANDARD"},{"maxOccupancy":"1","maxExtraChildren":"0","quantityAvailable":"1","roomType":"DBL-U10:ST","id":"cec40b0f86ebbf2d7f5d85b876aa3527","minOccupancy":"1","code":"1:1:0:0:DBL-U10:ST:16926 - DISRO","accommodationId":"1544947","maxExtraInfants":"0","roomRate":{"rateId":"32SYcQOcBeZKBM0vYWlNzw==","amount":"115.08","endDate":"20130505","startDate":"20130430","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"hotelName":"Fiesta Rancho Casino Hotel","name":"DOUBLE STANDARD"},{"maxOccupancy":"1","maxExtraChildren":"0","quantityAvailable":"1","roomType":"DBL-U10:ST","id":"8ecd67f6cb3e24fff0bbce1bba5bcefc","minOccupancy":"1","code":"1:1:0:0:DBL-U10:ST:GC-B2C","accommodationId":"1544947","maxExtraInfants":"0","roomRate":{"rateId":"32SYcQOcBeZKBM0vYWlNzw==","amount":"143.86","endDate":"20130505","startDate":"20130430","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"hotelName":"Fiesta Rancho Casino Hotel","name":"DOUBLE STANDARD"},{"maxOccupancy":"3","maxExtraChildren":"0","quantityAvailable":"1","roomType":"DBL-U10:ST","id":"07df4c4ae5a6320fde03945b74fcd86d","minOccupancy":"3","code":"1:3:0:0:DBL-U10:ST:16926 - DISRO","accommodationId":"1544947","maxExtraInfants":"0","roomRate":{"rateId":"bAA4qJ+LSVVsqRTT7ALeAg==","amount":"168.23","endDate":"20130505","startDate":"20130430","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"hotelName":"Fiesta Rancho Casino Hotel","name":"DOUBLE STANDARD"},{"maxOccupancy":"3","maxExtraChildren":"0","quantityAvailable":"1","roomType":"DBL-U10:ST","id":"69084917485149673effc00d21d621a8","minOccupancy":"3","code":"1:3:0:0:DBL-U10:ST:GC-B2B","accommodationId":"1544947","maxExtraInfants":"0","roomRate":{"rateId":"bAA4qJ+LSVVsqRTT7ALeAg==","amount":"172.92","endDate":"20130505","startDate":"20130430","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"hotelName":"Fiesta Rancho Casino Hotel","name":"DOUBLE STANDARD"},{"maxOccupancy":"1","maxExtraChildren":"2","quantityAvailable":"2","roomType":"DBL-U10:ST","id":"69084917485149673effc00d21d621a8","minOccupancy":"1","code":"1:1:2:0:DBL-U10:ST:GC-B2B","accommodationId":"1544947","maxExtraInfants":"2","roomRate":{"rateId":"nr4VH503yg6ujOMjz4O9+g==","amount":"172.92","endDate":"20130505","startDate":"20130430","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"hotelName":"Fiesta Rancho Casino Hotel","name":"DOUBLE STANDARD"},{"maxOccupancy":"1","maxExtraChildren":"2","quantityAvailable":"2","roomType":"DBL-U10:ST","id":"5d74eab769cac182ac13f60c05184616","minOccupancy":"1","code":"1:1:2:0:DBL-U10:ST:GC-B2C","accommodationId":"1544947","maxExtraInfants":"2","roomRate":{"rateId":"nr4VH503yg6ujOMjz4O9+g==","amount":"210.3","endDate":"20130505","startDate":"20130430","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"hotelName":"Fiesta Rancho Casino Hotel","name":"DOUBLE STANDARD"},{"maxOccupancy":"3","maxExtraChildren":"0","quantityAvailable":"1","roomType":"DBL-U10:ST","id":"5d74eab769cac182ac13f60c05184616","minOccupancy":"3","code":"1:3:0:0:DBL-U10:ST:GC-B2C","accommodationId":"1544947","maxExtraInfants":"0","roomRate":{"rateId":"bAA4qJ+LSVVsqRTT7ALeAg==","amount":"210.3","endDate":"20130505","startDate":"20130430","suppliersBoardCode":"RO-U10","boardBasis":"RO","currency":"GBP"},"hotelName":"Fiesta Rancho Casino Hotel","name":"DOUBLE STANDARD"}],"syndicatorRanking":"100","supplier":"BAR","accommodationName":"Fiesta Rancho Casino Hotel","classCode":"0*","maxChildAge":"17","startDate":"20130430","numNights":"5","officialRating":"3 STARS","basicAdultCost":"106.48","infantAge":"0","supplierLocationId":"LVS|11","address":{"cityOrTown":"NORTH LAS VEGAS","address2":"NORTH LAS VEGAS","country":"US","address1":"2400 NORTH RANCHO DRIVE","postCode":"89130"}};
+	var sampleAccommodationMultiroomJSON  = {"@Availability":"available","@Type":"Hotel","@ItineraryId":"si1128","@ResortId":"11284","@ResortName":"North Las Vegas","#text":"","@NormalisedName":"FIESTA RANCHO","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89130","#name":"Address","@CityOrTown":"NORTH LAS VEGAS","@Address1":"2400 NORTH RANCHO DRIVE","#text":"","@Address2":"NORTH LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":[{"@RoomType":"DBL-U10:ST","#name":"AccommodationUnit","@MaxExtraInfants":"0","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130505","@StartDate":"20130430","@RateId":"32SYcQOcBeZKBM0vYWlNzw==","#text":"","@Amount":"121.04","@BoardBasis":"RO"},"@MaxOccupancy":"1","#text":"","@QuantityAvailable":"1","@Code":"1:1:0:0:DBL-U10:ST:GC-B2B","@MaxExtraChildren":"0","@MinOccupancy":"1"},{"@RoomType":"DBL-U10:ST","#name":"AccommodationUnit","@MaxExtraInfants":"0","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130505","@StartDate":"20130430","@RateId":"32SYcQOcBeZKBM0vYWlNzw==","#text":"","@Amount":"163.54","@BoardBasis":"RO"},"@MaxOccupancy":"1","#text":"","@QuantityAvailable":"1","@Code":"1:1:0:0:DBL-U10:ST:GC-B2C","@MaxExtraChildren":"0","@MinOccupancy":"1"},{"@RoomType":"DBL-U10:ST","#name":"AccommodationUnit","@MaxExtraInfants":"0","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130505","@StartDate":"20130430","@RateId":"bAA4qJ+LSVVsqRTT7ALeAg==","#text":"","@Amount":"192.21","@BoardBasis":"RO"},"@MaxOccupancy":"3","#text":"","@QuantityAvailable":"1","@Code":"1:3:0:0:DBL-U10:ST:GC-B2B","@MaxExtraChildren":"0","@MinOccupancy":"3"},{"@RoomType":"DBL-U10:ST","#name":"AccommodationUnit","@MaxExtraInfants":"2","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130505","@StartDate":"20130430","@RateId":"nr4VH503yg6ujOMjz4O9+g==","#text":"","@Amount":"192.21","@BoardBasis":"RO"},"@MaxOccupancy":"1","#text":"","@QuantityAvailable":"2","@Code":"1:1:2:0:DBL-U10:ST:GC-B2B","@MaxExtraChildren":"2","@MinOccupancy":"1"},{"@RoomType":"DBL-U10:ST","#name":"AccommodationUnit","@MaxExtraInfants":"2","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130505","@StartDate":"20130430","@RateId":"nr4VH503yg6ujOMjz4O9+g==","#text":"","@Amount":"234.71","@BoardBasis":"RO"},"@MaxOccupancy":"1","#text":"","@QuantityAvailable":"2","@Code":"1:1:2:0:DBL-U10:ST:GC-B2C","@MaxExtraChildren":"2","@MinOccupancy":"1"},{"@RoomType":"DBL-U10:ST","#name":"AccommodationUnit","@MaxExtraInfants":"0","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130505","@StartDate":"20130430","@RateId":"bAA4qJ+LSVVsqRTT7ALeAg==","#text":"","@Amount":"234.71","@BoardBasis":"RO"},"@MaxOccupancy":"3","#text":"","@QuantityAvailable":"1","@Code":"1:3:0:0:DBL-U10:ST:GC-B2C","@MaxExtraChildren":"0","@MinOccupancy":"3"}]},"@EndDate":"20130505","Image":[{"@URL":"http://www.hotelbeds.com/giata/10/102405/102405a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102405/102405a_hb_a_006.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102405/102405a_hb_ba_003.jpg","#name":"Image","#text":"","@CaptionText":"Bar"}],"@Supplier":"BAR","@OfficialRating":"3 STARS","@NumNights":"5","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.1995","@Latitude":"36.2032"},"@AccommodationCode":"102405","@BasicAdultCost":"121.04","@MaxChildAge":"17","@ClassCode":"3*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"702-631-7000"},"@ContractCode":"GC-B2B;GC-B2C","@AccommodationId":"1544947","Description":{"#name":"Description","#text":"This 5-storey, 100-room hotel tower is set in contemporary décor and has been designed to meet the needs of the individual, family or business traveller. Fully air-conditioned, the hotel features 24-hour reception and check-out service, a cloakroom, lift access, a casino, a café, a bar, a restaurant, conference facilities and on-site parking for those arriving by car (garage/car park)."},"@SupplierLocationId":"LVS|11","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130430","@AccommodationName":"Fiesta Rancho Casino Hotel","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}};
 	 
 	
 	beforeEach(function() {
@@ -50,24 +93,26 @@ describe("MulticomRoomCollection", function() {
 		});
 		
 		it('Can Load from JSON', function(){
-			this.collection.add(sampleJSON);
-			expect(this.collection.length).toEqual(3);
+			this.collection.reset(sampleJSON, {parse: true});
+			expect(this.collection.length).toEqual(2);
 		});
 		it('Can calculate the cost of all rooms', function(){
-			this.collection.add(sampleJSON);
+			this.collection.reset(sampleJSON, {parse: true});
 			var p = this.collection.calculateCost();
 			
-			expect(p).toEqual(122.65);
+			expect(p).toEqual(276.19);
 		});
 	});
 	
+	
 	describe('Building Default Packages', function(){
-		it('Can Build a default package for a hotel for 1 person', function(){
+		it('Can Build a default package for a hotel for 2 people', function(){
 			
-			var accommodation = new this.MulticomAccommodation(sampleAccommodationJSON);
+			var accommodation = new this.MulticomAccommodation();
+			accommodation.set(accommodation.parse(sampleAccommodationJSON));
 			var search = new this.HolidaySearch({
 				numRooms: 1,
-				adultCsv: '1',
+				adultCsv: '2',
 				childCsv: '0',
 				infantCsv: '0'
 			});
@@ -77,7 +122,7 @@ describe("MulticomRoomCollection", function() {
 		});
 		
 		it('Can build a multiroom package for 3 Rooms with mixed children and infants', function(){
-			var accommodation = new this.MulticomAccommodation(sampleAccommodationMultiroomJSON);
+			var accommodation = new this.MulticomAccommodation(sampleAccommodationMultiroomJSON, {parse: true});
 			var search = new this.HolidaySearch();
 			search.set({
 				numRooms: 3,

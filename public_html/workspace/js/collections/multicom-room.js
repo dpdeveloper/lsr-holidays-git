@@ -43,10 +43,10 @@ define([
 			//fx to ensure that the
 			var findRoom = function(occ){
 				return function(item){
-					if(	parseInt(occ.adults,10) >= parseInt(item.get('minOccupancy'),10) &&
-						parseInt(occ.adults,10) <= parseInt(item.get('maxOccupancy'),10) &&
-						parseInt(occ.children,10) <= parseInt(item.get('maxExtraChildren'),10) &&
-						parseInt(occ.infants,10) <= parseInt(item.get('maxExtraInfants'),10)
+					if(	parseInt(occ.adults,10) >= item.get('minOccupancy') &&
+						parseInt(occ.adults,10) <= item.get('maxOccupancy') &&
+						parseInt(occ.children,10) <= item.get('maxExtraChildren') &&
+						parseInt(occ.infants,10) <= item.get('maxExtraInfants')
 					){
 						return true;
 					}
@@ -106,6 +106,7 @@ define([
 			}
 		},
 		
+		
 		/* calculateCost
 		 *
 		 * Works out the total cost per night
@@ -114,7 +115,7 @@ define([
 		calculateCost: function(){
 			var cost=0;
 			this.each(function(val, index){
-				cost = cost + parseFloat(val.get('roomRate').amount);
+				cost = cost + parseFloat(val.getChosenRoomRate().cost);
 			});
 			return Math.round(cost*100)/100;
 		},

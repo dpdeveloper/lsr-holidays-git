@@ -23,6 +23,8 @@ define([
 		tagName: 'div',
 		attributes: {'class': 'search-ui-sidebar-summary-view'},
 		
+		events: {'click .action-booknow': 'handleBookNow'},
+		
 		/**
 			Constructor
 			
@@ -82,6 +84,14 @@ define([
 		handleFlightSelected: function(flight){
 			//this.model.set('selectedFlight',flight);
 			this.render();
+		},
+		
+		/**
+			Handle a book now click
+		*/
+		handleBookNow: function(ev){
+			ev.preventDefault();
+			vent.trigger('search:shortlist');
 		}
 
 	});

@@ -9,10 +9,14 @@ describe("Multicom Accommodation Collection", function() {
 		require([
 			'collections/multicom-accommodation',
 			'config',
-			'models/holiday-search'
-			], function(MulticomAccommodationCollection, config, HolidaySearch) {
-			that.collection = new MulticomAccommodationCollection({sortBy: 'classAsc'});
+			'models/holiday-search',
+			'json!../../json-test/multicom-v3/hotels-las-vegas.json'
+			], function(MulticomAccommodationCollection, config, HolidaySearch, sampleData) {
+			
+			that.collection = new MulticomAccommodationCollection({sortBy: 'noSort'});
 			that.HolidaySearch = HolidaySearch;
+			that.sampleData = sampleData;
+			
 			
 			if(config.multicomMode === 'test'){
 				that.collection.setTestMode(false); //needed for the tests
@@ -105,12 +109,12 @@ describe("Multicom Accommodation Collection", function() {
 	describe('Get the Search URL', function(){
 		it('should return the api url',function(){
 			var str = this.collection.getSearchUrl();
-			expect(str).toContain('json/multicom-api/');
+			expect(str).toContain('json/multicom/');
 		});
 		it('should return the test url when in test mode', function(){
 			this.collection.setTestMode(true);
 			
-			expect(this.collection.getSearchUrl()).toContain("/json-test/hotels-las-vegas.json");
+			expect(this.collection.getSearchUrl()).toContain("json-test");
 		});
 	});
 	
@@ -137,25 +141,23 @@ describe("Multicom Accommodation Collection", function() {
 			});
 			
 			runs(function(){
+				
+				var sampleDataArr = this.sampleData.data.AccommodationSearchResponse.Accommodations.AccommodationSegment;
+			
 				expect(this.collection.trigger).toHaveBeenCalledWith('complete');
-				expect(this.collection.models.length).toEqual(71);
+				expect(this.collection.models.length).toEqual(sampleDataArr.length);
 				
 				var obj = this.collection.at(0).toJSON();
+				var sam = sampleDataArr[0];
 				
-				expect(obj.accommodationName).toEqual('Americas Best Value Inn and Suites  Las Vegas Air');
-				expect(obj.itineraryId).toEqual('si1196');
-				expect(obj.supplier).toEqual('BAR');
-				expect(obj.classCode).toEqual('2*');
-				expect(obj.basicAdultCost).toEqual('40.32');
+				expect(obj.accommodationName).toEqual(sam['@AccommodationName']);
+				expect(obj.itineraryId).toEqual(sam['@ItineraryId']);
 				expect(obj.rooms).toBeDefined();
 				expect(obj.images).toBeDefined();
 				
 				//expect relational data
 				var r = this.collection.at(0).get('rooms');
-				
-				expect(r.length).toEqual(1);
-				expect(r.at(0).get('name')).toEqual('DOUBLE GUEST ROOM');
-				
+				expect(r.length).toEqual(3);				
 			});
 		});
 	});

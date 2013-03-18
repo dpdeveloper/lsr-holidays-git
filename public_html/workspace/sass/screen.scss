@@ -1268,9 +1268,10 @@ html, body{
 	.hotels-detail-layout-main{
 		float: left;
 		width: 75%;
+		position: relative;
 		
 		.main-sidebar{
-			float: left; width: 200px;
+			position: absolute; width: 200px;
 			
 			
 			.main-images{}
@@ -1360,9 +1361,10 @@ html, body{
 		.image-item{
 			margin-bottom: 1em;
 			position: relative;
-			cursor: pointer;
+			/*cursor: pointer;*/
 			
-			img{position: block;}
+			a{display: block;}
+			img{display: block;}
 			
 			.icon{
 				background: $colourLightBlueBg url(../images/page/search-icon.png) no-repeat center center;
@@ -1372,13 +1374,13 @@ html, body{
 				height: 30px; width: 30px;
 				z-index: 30;
 			}
-			
+			/*IMAGE AREN'T GOOD ENOUGH FOR CLICKING/HOVERINGQ
 			&:hover{
 				box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 				.icon{
 					background-color: $colourYellowFg;
 				}
-			}
+			}*/
 			
 		}
 	}

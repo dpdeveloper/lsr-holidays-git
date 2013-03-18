@@ -109,7 +109,7 @@ define([
 		*/
 		getSearchUrl: function(data){
 			if(this._testMode){
-				var testUrl = "json-test/flights-search.json";
+				var testUrl = "json-test/multicom-v3/flights-las-vegas.json";
 				return config.contentRoot+testUrl;
 			}
 			else{
@@ -210,7 +210,17 @@ define([
 		 * Converts the API JSON to an array for the collection
 		*/
 		parse: function(response){
-			return response.data;
+			if(response.result === 'success'){
+				var res = response.data.HolidaySearchResponse.PackageHolidays.PackageHoliday;
+				
+				if($.isArray(res)){
+					return res;
+				}
+				else{
+					return [res];
+				}
+			}
+			return [];
 		},
 		
 		

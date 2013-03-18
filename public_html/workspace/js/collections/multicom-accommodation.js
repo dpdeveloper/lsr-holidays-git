@@ -55,7 +55,8 @@ define([
 			},
 			classDesc: function(model){
 				return - parseInt(model.get('classCode').charAt(0),10);	
-			}
+			},
+			noSort: null
 		},
 		
 		/**
@@ -86,6 +87,11 @@ define([
 						break;
 					case 'classAsc':
 						this.comparator = this.sortStrategies.classAsc;
+						break;
+					case 'noSort':
+						if(typeof this.comparator !== 'undefined'){
+							delete this.comparator;
+						}
 						break;
 					default:
 						this.comparator = this.sortStrategies.classDesc;
@@ -154,7 +160,7 @@ define([
 		*/
 		getSearchUrl: function(data){
 			if(this._testMode){
-				var testUrl = "json-test/hotels-las-vegas.json";
+				var testUrl = "json-test/multicom-v3/hotels-las-vegas.json";
 				return config.contentRoot+testUrl;
 			}
 			else{
@@ -185,7 +191,7 @@ define([
 				}
 			});
 			//add the api version and request type
-			str = str+"v="+this._apiVersion
+			str = str+"v="+this._apiVersion;
 			str = str+"&action="+self._searchMode;
 			return str;
 		},
@@ -251,7 +257,17 @@ define([
 			@param response {Object}
 		*/
 		parse: function(response){
-			return response.data;
+			if(response.result === 'success'){
+				var res = response.data.AccommodationSearchResponse.Accommodations.AccommodationSegment;
+				
+				if($.isArray(res)){
+					return res;
+				}
+				else{
+					return [res];
+				}
+			}
+			return [];
 		},
 		
 		
@@ -261,7 +277,7 @@ define([
 			@param {Filter} filter
 		*/
 		filterHotels: function(filter){
-			alert("error - filter not implemented");
+			
 			if(filter === null){
 				return this.models;
 			}

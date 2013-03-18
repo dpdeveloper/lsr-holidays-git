@@ -138,18 +138,25 @@ define([
 			
 			var adult = '', children = '', infant = '';
 			
-			_.each(occupancy,function(elem, index){
+			_.each(occupancy,function(elem, index, list){
 				if(!('adults' in elem)){elem.adults=0;}
 				if(!('children' in elem)){elem.children=0;}
 				if(!('infants' in elem)){elem.infants=0;}
 				
-				adult = adult + elem.adults.toString() + ',';
-				children = children + elem.children.toString() + ',';
-				infant = infant + elem.infants.toString() + ',';
+				adult = adult + elem.adults.toString();
+				children = children + elem.children.toString();
+				infant = infant + elem.infants.toString();
+				
+				if(index < list.length - 1){
+					adult = adult + ',';
+					children = children + ',';
+					infant = infant + ',';
+				}
+				
 			});
 			
 			this.set({
-				'numRooms':occupancy.length,
+				numRooms: occupancy.length,
 				adultCsv: adult,
 				childCsv: children,
 				infantCsv: infant

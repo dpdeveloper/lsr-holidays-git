@@ -12,40 +12,97 @@ define([
 
 	var MulticomRoom = Backbone.RelationalModel.extend({
 		defaults: {
-			maxOccupancy: null,
-			minOccupancy: null,
+			name: '',
+			code: '',
+			
+			maxOccupancy: 0,
+			minOccupancy: 0,
 			maxExtraChildren: 0,
 			maxExtraInfants: 0,
-			quantityAvailable: null,
+			quantityAvailable: 0,
 			
-			name: null,
-			code: null,
-			roomType: null,
+			roomRates: [],
 			
-			roomRate: {
-				startDate: null,
-				endDate: null,
-				rateId: null,
-				amount: null,
-				currency: null,
-				boardBasis: null,
-				suppliersBoardCode: null
-			},
-			
-			accommodationId: null,
-			hotelName: null,
-			
-			occupancy: {
-				adults: null,
-				children: null,
-				infants: null
-			},
-			
-			chosenRoomRate: {}
+			occupancy: null,
+			chosenRoomRate: ''
+		},
+		
+		ROOM_RATE_TEMPLATE: {
+			startDate: '',
+			endDate: '',
+			rateCode: '',
+			cost: 0,
+			currency: '',
+			boardBasis: ''
 		},
 		
 		setOccupancy: function(adults,children,infants){
 			this.set({occupancy: {adults: adults, children: children, infants: infants}});
+		},
+		
+		/**
+			Gets the chosen room rate
+		*/
+		getChosenRoomRate: function(){
+			var rateId = this.get('chosenRoomRate');
+			
+			return _.find(this.get('roomRates'),function(item){
+				if(item.rateCode === rateId){
+					return true;
+				}
+			});
+		},
+		
+		/**
+			Parse a multicom json output into the model
+		*/
+		parse: function(response,options){
+			var obj = {
+				name: response["@Name"],
+				code: response["@Code"],
+				maxOccupancy: parseInt(response["@MaxOccupancy"],10),
+				minOccupancy: parseInt(response["@MinOccupancy"],10),
+				maxExtraChildren: typeof(response["@MaxExtraChildren"])!=='undefined' ? parseInt(response["@MaxExtraChildren"],10) : 0,
+				maxExtraInfants: typeof(response["@MaxExtraInfants"]) !=='undefined' ? parseInt(response["@MaxExtraInfants"],10): 0,
+				quantityAvailable: parseInt(response["@QuantityAvailable"],10)
+			};
+			
+			
+			var parseRoomRate = function(room){
+				return {
+					startDate: room["@StartDate"],
+					endDate: room["@EndDate"],
+					rateCode: room["@RateId"] ? room["@RateId"] : room["@RateCode"],
+					cost: parseFloat(room["@Amount"],10),
+					currency: room["@Currency"],
+					boardBasis: room["@BoardBasis"]
+				};
+			};
+			
+			//room rates
+			if('RoomRate' in response){
+				
+				obj.roomRates = [];
+				if($.isArray(response.RoomRate)){
+					_.each(response.RoomRate, function(item){
+						obj.roomRates.push(parseRoomRate(item));	
+					});
+				}
+				else{
+					obj.roomRates.push(parseRoomRate(response.RoomRate));
+				}
+				
+				//set the default room rate
+				obj.chosenRoomRate = obj.roomRates[0].rateCode;
+			}
+				
+			//set the default occupancy
+			obj.occupancy = {
+				adults: obj.maxOccupancy,
+				children: obj.maxExtraChildren,
+				infants: obj.maxExtraInfants
+			};
+			return obj;
 		}
 		
 	});

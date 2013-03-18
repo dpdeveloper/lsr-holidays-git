@@ -12,9 +12,9 @@ define([
 	var config = {
 		root: $('base').attr('href').replace(window.location.protocol + "//" + window.location.hostname,""),
 		
-		contentRoot: reqres.request('config:get').contentUrl + '/',
+		contentRoot: reqres.request('config:get').contentUrl+"/",
 		
-		multicomMode: 'test' //'live' or 'test'
+		multicomMode: 'live' //'live' or 'test'
     };
     
     return config;
