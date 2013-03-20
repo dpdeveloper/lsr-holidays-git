@@ -80,7 +80,7 @@ require([
 	//override
 	reqres.addHandler('config:get',function(){
 		return {
-			contentUrl: $('base').attr('href').replace(window.location.protocol + "//" + window.location.hostname,"")
+			contentUrl: '../public_html/'
 		};
 	});
 	

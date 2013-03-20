@@ -36,12 +36,12 @@ define([
 		},
 		
 		search: function(){
-			this.main.show(new SearchUILayout());
+			this.main.show(new SearchUILayout({testMode: this.testMode}));
 		},
 		
 		//transitions
 		handleSearchTransition: function(search){
-			this.main.show(new SearchUILayout({holidaySearch: search}));
+			this.main.show(new SearchUILayout({holidaySearch: search, testMode: this.testMode}));
 		}
 		
 		
@@ -49,6 +49,14 @@ define([
 	
 	/* Init Page */
 	App.addInitializer(function(options){
+		
+		if(options.testMode === true){
+			this.testMode=true;
+		}
+		else{
+			this.testMode = false;
+		}
+	
 		App.addRegions({
 			header: '#header',
 			main: '#main',

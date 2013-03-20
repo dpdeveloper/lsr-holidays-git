@@ -64,45 +64,41 @@ require.config({
 	}
 });
 require([
-	'underscore','jquery','backbone','marionette','reqres','libs/respond.min', 'libs/string-helpers'
+	'underscore','jquery','backbone','marionette','reqres',
+	'libs/respond.min', 'libs/string-helpers'
 	], function(_, $, Backbone, Marionette,reqres){
 	
 	"use strict";
 	
+	//Add the config handler to reqres
 	reqres.addHandler('config:get',function(){
-		return {
-			contentUrl: $('base').attr('href').replace(window.location.protocol + "//" + window.location.hostname,"")
-		};
+		return {contentUrl: '../public_html/'};
 	});
 	
-	require([
-		'app',
-		'views/search-ui/search-ui.layout',
-		'models/holiday-search'
-	],function( App, SearchUILayout, HolidaySearch){	
+	//Set the config mode
+	require(['config'], function(config){
+		config.multicomMode = 'test';	
 		
-		//CUSTOM CODE
-		
-		//var region = new Backbone.Marionette.Region({el: '#sandbox'});
-		//region.show(home);
-		
-		App.start();
+		require(['app','models/holiday-search'],function( App, HolidaySearch){	
+			//load the app		
+			App.start({testMode: true});
 
-		var model = new HolidaySearch();
-		model.set({
-			tripType: model.TRIP_TYPES.PACKAGE,
-			destination: 'las-vegas',
-			dateStart: '01/04/2013',
-			numNights: '4',
-			numRooms: '1',
-			adultCsv: '2',
-			childCsv: '0',
-			infantCsv: '0',
-			
-			departingFrom: 'LHR',
-			directFLights: 'no'	
+			//custom code to load the search
+			var model = new HolidaySearch();
+			model.set({
+				tripType: model.TRIP_TYPES.PACKAGE,
+				destination: 'las-vegas',
+				dateStart: '01/04/2013',
+				numNights: '4',
+				numRooms: '1',
+				adultCsv: '2',
+				childCsv: '0',
+				infantCsv: '0',
+				
+				departingFrom: 'LHR',
+				directFLights: 'no'	
+			});
+			App.handleSearchTransition(model);
 		});
-		App.handleSearchTransition(model);
-		
 	});
 });

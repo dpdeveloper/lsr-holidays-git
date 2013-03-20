@@ -288,9 +288,11 @@ define([
 			}
 		
 			//scroll to the correct place
-			$('html,body').animate({
-				scrollTop: this.hotelsDetail.$el.offset().top - 80
-			}, 800);
+			if($('html,body').is(':visible')){
+				$('html,body').animate({
+					scrollTop: this.hotelsDetail.$el.offset().top - 80
+				}, 800);
+			}
 			
 			this.setStatus('hotel',this.STATES.HOTEL.SELECTED);
 		},
