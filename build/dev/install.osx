@@ -1,6 +1,6 @@
 ### build/dev/install.osx
 #
-# CLONE OF BUILD/DEPLOY/STAGING/INSTALL (for development purposes)
+# CLONED AND MODIFIED OF BUILD/DEPLOY/STAGING/INSTALL (for development purposes)
 #
 # Used to install the repository onto a staging server
 #
@@ -27,8 +27,8 @@ sudo cp build/lib/install.sql public_html/workspace/install.sql
 
 
 #permission setup - needed for install, symphony 'should' sort out after
-sudo chmod -R 755 public_html/workspace/
-sudo chmod -R 755 public_html/manifest/
-sudo chmod -R 755 public_html/install/
-sudo chmod  755 public_html/
-sudo chmod -R 755 public_html/data/
+sudo chmod -R 777 public_html/workspace/
+sudo chmod -R 777 public_html/manifest/
+sudo chmod -R 777 public_html/install/
+sudo chmod  777 public_html/
+sudo chmod -R 777 public_html/data/

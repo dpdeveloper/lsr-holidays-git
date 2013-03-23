@@ -16,7 +16,7 @@ git submodule update --init
 
 REM copy the install directory
 
-cp -r ..\lib\install\ ..\..\public_html\install\
-cp ..\lib\install.sql ..\..\public_html\workspace\install.sql
+xcopy ..\lib\install\ ..\..\public_html\install\
+xcopy ..\lib\install.sql ..\..\public_html\workspace\install.sql
 
 
