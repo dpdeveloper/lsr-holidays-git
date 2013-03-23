@@ -10,8 +10,8 @@ define([
 	"use strict";
 	var base;
 	
-	if($('.base').length > 0){
-		base = $('.base').attr('href');
+	if($('base').length > 0){
+		base = $('base').attr('href');
 	}
 	else{
 		base = '../public_html/'; //test code

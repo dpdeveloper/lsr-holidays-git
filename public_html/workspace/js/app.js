@@ -49,6 +49,7 @@ define([
 	
 	/* Init Page */
 	App.addInitializer(function(options){
+		options = options || {};
 		
 		if(options.testMode === true){
 			this.testMode=true;

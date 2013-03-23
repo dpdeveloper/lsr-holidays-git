@@ -5,6 +5,11 @@
 * Readme v1.0
 
 
+@TODO
+
+1. Test symphony setup instructions
+2. Complete Symphony setup instructions / DB?
+
 
 # Installation
 
@@ -37,11 +42,11 @@ All work should be carried out in a git controlled environment with all developm
 
 The javascript component of the application is contained:
 
-* Application: /public_html/workspace/js
-* Unit Tests: /tests/
-* Development Environment: /designer/
+* Application: */public_html/workspace/js/*
+* Unit Tests: */tests/*
+* Development Environment: */designer/*
 
-The (/designer/) folder loads the application in *test* mode such that all external data is pulled from the (public_html/json_test) folder for ease of development. The live application will pull information from a seperate server.
+The (*/designer/*) folder loads the application in *test* mode such that all external data is pulled from the (public_html/json_test) folder for ease of development. The live application will pull information from a seperate server.
 
 
 
@@ -100,7 +105,7 @@ The tests reside in the *(/tests/specs/)* folder and can be run using the *(/tes
 
 * [Jasmine](https://github.com/pivotal/jasmine)
 * [Available Matchers](https://github.com/pivotal/jasmine/wiki/Matchers)
-* [Additionally, the [jQuery plugin is used](https://github.com/velesin/jasmine-jquery)
+* Additionally, the [jQuery plugin is used](https://github.com/velesin/jasmine-jquery)
 
 **Unit tests should pass before a commit is made**.
 
@@ -110,11 +115,11 @@ The tests reside in the *(/tests/specs/)* folder and can be run using the *(/tes
 
 
 
-1. Copy the boilerplate code (tests/spec/view.boilerplate.spec.js) into the correct folder in the spec folder
+1. Copy the boilerplate code (*tests/spec/view.boilerplate.spec.js*) into the correct folder in the spec folder
 2. Rename the file to match the naming convention (see spec folder for existing examples)
 3. Replace the DESCRIPTION/PATH/VIEW_NAME as required in the new file
 4. Add the filename to tests/specRunner.js
-5. Load (tests/index.html) in browser to confirm that the test has run
+5. Load (*tests/index.html*) in browser to confirm that the test has run
 
 
 ## Useful Files / Foliders:
@@ -135,7 +140,7 @@ The tests reside in the *(/tests/specs/)* folder and can be run using the *(/tes
 ## Libraries and Reference
 
 *Backend/CMS*
-* Symphony CMS (http://getsymphony.com/)
+* [Symphony CMS](http://getsymphony.com/)
 
 *General*
 * [Require.js](http://requirejs.org/docs/api.html)
