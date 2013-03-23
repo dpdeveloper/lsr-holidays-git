@@ -19,6 +19,7 @@ Pre-requisites:
 2. Empty MySQL database created with full priviledges
 3. [Compass for CSS complication](http://compass-style.org)
 4. A Browser (ie Google Chrome) to run application and unit tests!
+5. Git command line tool installed
 
 Installation
 
@@ -26,7 +27,6 @@ Installation
 2. Run build/deploy/staging/install
 3. Visit /install on the server to complete the process
 4. Configure Database Access [@TODO]
-
 
 
 # Frontend Development
