@@ -9,9 +9,7 @@
 
 @TODO
 
-1. Test symphony setup instructions
-2. Complete Symphony setup instructions / DB?
-
+1. Test symphony setup instructions for windows
 
 # Installation
 
@@ -25,13 +23,21 @@ Pre-requisites:
 
 Installation
 
+OSX
+
 1. Pull repository from github
-
-2. IF OSX Run build/dev/install.osx (Must be run from root directory)
-2. IF WINDOWS Run build/dev/install.bat
-
+2. OSX Run build/dev/install.osx (Must be run from root directory)
 3. Visit /install on the server to complete the process
-4. Configure Database Access [@TODO]
+4. Login and Configure Database Access [NOT REQUIRED FOR FRONTEND DEVELOPMENT]
+
+WINDOWS
+
+1. Pull repository from github
+2. Update Git Submodiles with 'git submodules update --init'
+3. Copy the folder _'install'_ from _'build/lib/'_ to _'public_html'_
+4. Copy the file _'install.sql'_ from _'build/lib'_ to _'public_html/workspace'_
+6. Visit /install on the server to complete the process (may need to adjust file permissions)
+7. Login and Configure Database Access [NOT REQUIRED FOR FRONTEND DEVELOPMENT]
 
 
 # Frontend Development
