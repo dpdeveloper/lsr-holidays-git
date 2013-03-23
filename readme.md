@@ -2,6 +2,8 @@
 
 * David Anderson
 * 2013-03-20
+* GIT: git@github.com:davjand/lsrholidays-content
+* HTTP: https://github.com/davjand/lsrholidays-content
 * Readme v1.0
 
 
@@ -24,7 +26,10 @@ Pre-requisites:
 Installation
 
 1. Pull repository from github
-2. Run build/deploy/staging/install
+
+2. IF OSX Run build/dev/install.osx (Must be run from root directory)
+2. IF WINDOWS Run build/dev/install.bat
+
 3. Visit /install on the server to complete the process
 4. Configure Database Access [@TODO]
 

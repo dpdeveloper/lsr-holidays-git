@@ -1,0 +1,34 @@
+### build/dev/install.osx
+#
+# CLONE OF BUILD/DEPLOY/STAGING/INSTALL (for development purposes)
+#
+# Used to install the repository onto a staging server
+#
+# INSTALL STEPS
+#
+# 1) Pull repository to server
+# 2) Run build/deploy/staging/install
+# 3) Visit /install on the server to complete the process
+#
+# (SSH Keys will need to be setup)
+# 
+# @author: David Anderson
+# @date: 08-03-2013
+#
+###
+
+###MAY NEED CHANGING
+
+sudo git submodule update --init
+
+#copy the install directory
+sudo cp -r build/lib/install/ public_html/install/
+sudo cp build/lib/install.sql public_html/workspace/install.sql
+
+
+#permission setup - needed for install, symphony 'should' sort out after
+sudo chmod -R 755 public_html/workspace/
+sudo chmod -R 755 public_html/manifest/
+sudo chmod -R 755 public_html/install/
+sudo chmod  755 public_html/
+sudo chmod -R 755 public_html/data/
