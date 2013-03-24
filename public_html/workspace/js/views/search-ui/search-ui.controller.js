@@ -169,22 +169,14 @@ define([
 			@param {MulticomFlight Model} flight
 		*/
 		handleFlightSelection: function(flight){
-			
-			if(this._booking.get('selectedFlight') === null){
-				this._booking.set({selectedFlight: new MulticomFlight()});
-			}
-			this._booking.get('selectedFlight').set(flight.toJSON());
+			this._booking.setSelectedFlight(flight);
 		},
 		
 		/**
 			@param {MulticomAccommodation Model} hotel
 		*/
 		handleHotelSelection: function(hotel){
-		
-			if(this._booking.get('selectedHotel') === null){
-				this._booking.set({selectedHotel: new MulticomAccommodation()});
-			}
-			this._booking.get('selectedHotel').set(hotel.toJSON());
+			this._booking.setSelectedHotel(hotel);
 		},
 		
 		

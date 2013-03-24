@@ -159,19 +159,40 @@ define([
 		 
 		
 		/**
+			Sets the Selected Hotel and then builds a room package from the selection
+		
 			@param {SymphonyHotel} hotel
 		*/
 		setSelectedHotel: function(hotel){
-			this.set('selectedHotel',hotel);
+			/*
+				NB The hotel is copied into the booking, not just set
+				It is a copy of the model, not the origional so will have a different CID
+			*/
+			
+			if(this.get('selectedHotel') === null){
+				this.set({selectedHotel: new MulticomAccommodation(hotel.toJSON())});
+			}
+			else{
+				this.get('selectedHotel').set(hotel.toJSON());
+			}
 			this.get('selectedRooms').reset();
-			this.get('selectedRooms').buildPackageFromAccommodation(hotel.get('multicomHotel'),this.get('holidaySearch'));
+			this.get('selectedRooms').buildPackageFromAccommodation(hotel,this.get('holidaySearch'));
 		},
 		
 		/**
 			@param {MulticomFlight} flight
 		*/
 		setSelectedFlight: function(flight){
-			this.set('selectedFlight',flight);
+			/*
+				NB The flight is copied into the booking, not just set
+				It is a copy of the model, not the origional so will have a different CID
+			*/
+			if(this.get('selectedFlight') === null){
+				this.set({selectedFlight: new MulticomFlight(flight.toJSON())});
+			}
+			else{
+				this.get('selectedFlight').set(flight.toJSON());
+			}
 		},
 		
 		

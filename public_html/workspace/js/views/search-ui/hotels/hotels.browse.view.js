@@ -61,8 +61,17 @@ define([
 			@param {Object} [options] Options Hash
 		*/
 		initialize: function(options){
+			options = options || {};
+		
 			this.listenTo($(window),'resize',this.resize);
 			this.listenTo(vent,'search:hotel:loaded',this.setCollection);
+			
+			if('selectedHotel' in options && options.selectedHotel !== null){
+				this._initialHotel = options.selectedHotel;
+			}
+			else{
+				this._initialHotel = null;
+			}
 		},
 		
 		/**
@@ -78,6 +87,24 @@ define([
 		onShow: function(){
 			this._visible = true;
 			this.resize();
+			
+			// Set the initial view to be selected
+			if(this._initialHotel !== null){
+				var self = this;
+				//find the correct model
+				var m = this.collection.find(function(item){
+					if(item.get('accommodationCode') === self._initialHotel.get('accommodationCode')){
+						return true;
+					}
+				});
+				if(typeof m !== 'undefined'){
+					var v = this.children.findByModel(m);
+					if(typeof v !== 'undefined' && 'setSelected' in v){
+						v.setSelected();	
+						this._initialHotel = null;
+					}
+				}
+			}
 		},
 		
 		/**

@@ -97,11 +97,7 @@ define([
 				
 				room.set(hotelToBuild.rooms[0]);
 				
-				room.set({	hotelName: hotelToBuild.name,
-							hotelDescription: hotelToBuild.description,
-							supplier: hotelToBuild.supplier,
-							occupancy: roomOcc[i]
-				});
+				room.set({occupancy: roomOcc[i]});
 				this.add(room);
 			}
 		},

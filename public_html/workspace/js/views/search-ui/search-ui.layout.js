@@ -235,19 +235,17 @@ define([
 		searchComplete: function(){
 		
 			this._hotelsBrowseView = new SearchUIPaneLayout({
-				subView: new SearchUIHotelsBrowseView({collection: reqres.request('search:get:hotel:results')}),
+				subView: new SearchUIHotelsBrowseView({
+					collection: reqres.request('search:get:hotel:results'),
+					selectedHotel: reqres.request('search:get:hotel:selected')	
+				}),
 				showByDefault: true
 			});
 			
 			if(this._loadingView !== null){
 				this._loadingView.closeAnimated(); //close loading
-				this.hotelsBrowse.show(this._hotelsBrowseView);
 			}
-			else{
-				this.hotelsBrowse.show(this._hotelsBrowseView);
-			}
-			
-			
+			this.hotelsBrowse.show(this._hotelsBrowseView);			
 		},
 		
 		/**

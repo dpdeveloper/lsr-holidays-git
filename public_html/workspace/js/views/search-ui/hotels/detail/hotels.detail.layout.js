@@ -13,6 +13,7 @@ define([
 	
 	'views/search-ui/hotels/detail/hotels.detail.about.view',
 	'views/search-ui/hotels/detail/hotels.detail.flight.view',
+	'views/search-ui/hotels/detail/hotels.detail.rooms.view',
 	
 	'views/search-ui/hotels/detail/hotels.detail.images.view'
 	
@@ -25,6 +26,7 @@ define([
 			
 			HotelDetailsAboutView,
 			HotelsDetailFlightView,
+			HotelsDetailRoomsView,
 			HotelsDetailImagesView
 			){
 	"use strict";
@@ -70,6 +72,9 @@ define([
 			this.contentFlights.show(new HotelsDetailFlightView({
 				model: booking.get('selectedFlight'), 
 				airlineCollection: reqres.request('search:get:airlines')
+			}));
+			this.contentRooms.show(new HotelsDetailRoomsView({
+				collection: booking.get('selectedRooms')
 			}));
 			
 			this.contentSidebarImages.show(new HotelsDetailImagesView({model: booking.get('selectedHotel')}));

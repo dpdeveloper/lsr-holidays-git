@@ -30,12 +30,20 @@ define([
 		ROOM_RATE_TEMPLATE: {
 			startDate: '',
 			endDate: '',
-			rateCode: '',
+			rateCode: null,
 			cost: 0,
 			currency: '',
 			boardBasis: ''
 		},
 		
+		/**
+			Sets the occupancy from adults/children/infants
+			
+			@param {Integer} adults
+			@param {Integer} children
+			@param {Integer} infants
+		*/
+			
 		setOccupancy: function(adults,children,infants){
 			this.set({occupancy: {adults: adults, children: children, infants: infants}});
 		},

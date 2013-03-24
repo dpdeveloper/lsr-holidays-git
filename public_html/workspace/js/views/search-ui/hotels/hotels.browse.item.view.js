@@ -47,14 +47,23 @@ define([
 		
 		
 		/**
+			Sets the item tobe selected
+		*/
+		setSelected: function(){
+			this.$el.addClass('selected');	
+		},
+		
+		
+		/**
 			Adds selected CSS and fires an event
 			
 			@param {jQuery Event} ev
 		*/
 		handleClick: function(ev){
 			ev.preventDefault();
+			this.setSelected();
 			vent.trigger('search:hotel:selected',this.model);
-			this.$el.addClass('selected');
+			
 		},
 		
 		/**

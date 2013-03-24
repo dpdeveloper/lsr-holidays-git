@@ -1608,6 +1608,78 @@ html, body{
 
 /*===========================================*/
 
+/* !HOTELS DETAIL ROOMS VIEW */
+
+/*===========================================*/
+.hotels-detail-rooms-view{
+	padding: 0px 30px 30px 30px;
+	
+	.detail-rooms-view-inner{
+		h2.rooms-header{
+			color: $colourBlueFg; 
+			font-size: 1.3em; line-height: 1.3em;
+			margin: 0px; padding: 0px 0px 10px;
+			font-weight: 700;
+		}	
+		.rooms-inner{
+			box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+			border-radius: 3px;
+			padding: 0px;	
+		}
+	}
+}
+
+
+
+/* !HOTELS DETAIL ROOMS ITEM VIEW */
+.hotels-detail-rooms-item-view{
+	padding: 15px 20px;
+	border-bottom: 1px solid #DBDCDD;
+	
+	.detail-rooms-item-view-inner{
+		
+		.room-item-left{
+			float: left; width: 58%;
+			margin: 0 2% 0 0;
+		}
+		.room-item-middle{
+			float: left; width: 18%;
+			margin: 0 2% 0 0;
+		}
+		.room-item-right{
+			float: left; width: 20%;
+			padding-top: 20px;
+			
+			a.action-change-room{
+				@include actionButton();
+				padding:3px 20px;
+				float: left;
+				font-size: 1em;
+			}
+			
+		}
+		
+		h3{
+			color: $colourBlueFg;
+			font-size: 1.1em; line-height: normal;
+			font-weight: 700;
+			margin: 0px 0px 8px;
+			padding: 0px;
+		}
+		p{
+			padding: 0px 0px 4px; margin: 0px;
+			font-size: 1.1em;
+			font-weight: 700;
+			color: $colourDarkGreyFg;
+		}
+	
+		
+	}
+}
+
+
+/*===========================================*/
+
 /* !SIDEBAR SUMMARY VIEW */
 
 /*===========================================*/
