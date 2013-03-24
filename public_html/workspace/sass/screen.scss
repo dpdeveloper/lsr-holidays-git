@@ -894,31 +894,36 @@ html, body{
 
 
 .search-ui-flights{
-
-	background: #222;
-	padding: 40px 0px 10px;
+	background: $colourDarkGreyBg;
+	padding: 30px 0px 10px;
 	box-shadow: 2px 2px 12px 6px rgba(0,0,0,0.5);
 	position: relative; z-index: 20;
-}
-	.search-ui-flights .flights-header{padding: 15px 20px 15px;}
-		.search-ui-flights .flights-header .flights-title{float: left; width: 25%;}
-			.search-ui-flights .flights-header .flights-title h2{
+
+	.flights-header{
+		padding: 15px 20px 25px;
+		
+		.flights-title{
+			float: left; width: 25%;
+			
+			h2{
 				text-align: left;
 				font-size: 28px; line-height: 28px;
 				padding: 0px;
 				margin: 0px;
-				color: #fff; opacity: 0.5;
 				text-transform: lowercase;
-				font-weight: 700;	
+				font-weight: 700;
+				color: $colourBlueFg;
 			}
-			.search-ui-flights .flights-header .flights-title p{
+			p{
 				font-size: 14px; line-height: 14px;
 				margin: 0px; padding: 12px 0px 0px;
 				color: #eee;
 			}
-		.search-ui-flights .flights-header .flights-filter{float: right; width: 75%;}
-	
-	.search-ui-flights .flights-browse{}
+		}
+		.flights-filter{float: right; width: 75%;}
+	}
+	.flights-browse{}
+}
 
 
 /*===========================================*/
@@ -991,45 +996,45 @@ html, body{
 .search-ui-flights-browse{
 	margin: 0px 0px 0px;
 	padding: 0px 0px 30px;
-}
-	.search-ui-flights-browse .flights-browse-body{}
-		.search-ui-flights-browse .flights-browse-body .body-left,
-		.search-ui-flights-browse .flights-browse-body .body-right{
+
+	.flights-browse-body{
+		.body-left, .body-right{
 			float: left;
-			margin: 40px 20px 0px 20px;
+			margin: 60px 20px 0px 20px;
 			height: 20px;
-			padding: 40px 10px 55px 10px;
-			background: #fff;
-			background: rgba(255,255,255,0.4);
+			padding: 7px 10px 13px 10px;
 			font-size: 30px; font-weight: 700; 
-			color: #222;
+			border-radius: 20px;
+			color: $colourWhite;
 			cursor: pointer;
 		}
-		.search-ui-flights-browse .flights-browse-body .body-right{
+		.body-right{
 			float: right;
-			margin: 40px 20px 20px 20px;
+			margin: 60px 20px 20px 20px;
 		}
-		.search-ui-flights-browse .flights-browse-body .body-left:hover,
-		.search-ui-flights-browse .flights-browse-body .body-right:hover{
-			background: #000;
-			background: rgba(0,0,0,0.6);
-			color: #fff;
+		.body-left:hover, .body-right:hover{
+			background: $colourWhite;
+			color: $colourDarkGreyBg;
 		}
-		.search-ui-flights-browse .flights-browse-body .arrow{}
+		.arrow{}
 		
-		.search-ui-flights-browse .flights-browse-body .body-middle{
+		.body-middle{
 			float: left;
 			position: relative;
 			height: 200px;
 			width: 1200px;
 			overflow: hidden;
+		
+			.body-middle-inner{
+				position: absolute;
+				width: 5000px;
+				
+				top: 0px;
+				left: 0px;
+			}
 		}
-		.search-ui-flights-browse .flights-browse-body .body-middle .body-middle-inner{
-			position: absolute;
-			width: 5000px;
-			top: 0px;
-			left: 0px;
-		}
+	}
+}
 /*===========================================*/
 
 /* !SEARCH UI - FLIGHTS BROWSE ITEM */
@@ -1038,27 +1043,27 @@ html, body{
 .search-ui-flights-browse-item{
 	float: left;
 	width: 260px;
-	padding: 10px;
+	padding: 0px;
 	cursor: pointer;
-		
-}
-	.search-ui-flights-browse-item .flight-item-inner{	
+	padding: 5px 0px;
+	background: $colourWhite;	
+	box-shadow: 2px 2px 8px rgba(0,0,0,0.4);	
+
+	.flight-item-inner{	
 		background: #fff;
-		box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-		padding: 15px 15px;
+		padding: 10px 15px;
 		margin: 0px 0px 0px 0px;
-		color: #222;	
-	}
-		.search-ui-flights-browse-item .flight-item-inner .flight-item{
+		color: #222;
+		
+	
+		.flight-item{
 			margin-bottom: 15px;
 			padding: 0px 0px 15px;
-			border-bottom: 1px solid #8B1FAC;
-		}
-			.search-ui-flights-browse-item .flight-item-inner .flight-item.last{
-				margin: 0px 0px 0px 0px; padding: 0px;
-				border: none;
-			}
-			.search-ui-flights-browse-item .airline-logo{
+			border-bottom: 1px solid $colourBlueFg;
+		
+			&.last{margin: 0px 0px 0px 0px; padding: 0px;border: none;}
+			
+			.airline-logo{
 				float: right;
 				height: 30px;
 				width: 80px;
@@ -1066,44 +1071,49 @@ html, body{
 				font-size: 12px; line-height: 12px;
 				font-weight: 700;
 			}
-			.search-ui-flights-browse-item .flight-item h2{
-				color: #8B1FAC;
+			h2{
+				color: $colourBlueFg;
 				font-size: 14px; line-height: 14px;
 				text-transform: none; font-weight: 700;
 				padding: 0px 0px 0px; margin: 0px;
 				letter-spacing: 0px;
 			}
-			.search-ui-flights-browse-item .flight-item p{
+			p{
 				padding: 10px 0px 0px; margin: 0px; color: #222;
 				font-size: 13px; line-height: 13px;
+			
+				strong{color: #222;}
 			}
-			.search-ui-flights-browse-item .flight-item p strong{
-				color: #222;	
-			}
-		.search-ui-flights-browse-item .price{
+		}
+		.price{
 			float: left;
 			width: 35%;
 			padding-top: 15px;
-			color: #8B1FAC; font-weight: 700;
+			color: $colourBlueFg; font-weight: 700;
 			font-size: 16px;
 		}
-		.search-ui-flights-browse-item .actions{float: right; width: 65%; }
-			.search-ui-flights-browse-item .actions a{
+		.actions{float: right; width: 65%;
+			a{
+				@include actionButton();
+				
 				float:right; margin-top: 10px;
 				font-size: 12px; font-weight: 12px;
 				padding: 4px;
+			
+				&.action-detail{margin-right: 8px;}
 			}
-			.search-ui-flights-browse-item .actions .action-detail{
-				margin-right: 8px;
-			}
-
-	.search-ui-flights-browse-item:hover{
-		background: #FBFF00;
-		box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+		}
 	}
-		.search-ui-flights-browse-item:hover .flight-item-inner{
+	
+	&:hover, .selected{
+		background: $colourLightBlueBg;
+		box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+	
+		.flight-item-inner{
 			box-shadow: none;
 		}
+	}
+}
 
 /*===========================================*/
 /*===========================================*/

@@ -177,6 +177,10 @@ define([
 		*/
 		handleHotelSelection: function(hotel){
 			this._booking.setSelectedHotel(hotel);
+			
+			//trigger a room change event
+			vent.trigger('search:rooms:reset', this._booking.get('selectedRooms'));
+			
 		},
 		
 		

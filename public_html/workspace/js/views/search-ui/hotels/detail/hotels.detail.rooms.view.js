@@ -34,6 +34,9 @@ define([
 				this.collection=options.collection;
 			}
 			
+			//listen for hotel changes
+			this.listenTo(vent,'search:rooms:reset',this.handleRoomReset);
+			
 		},
 		
 		collection: new MulticomRoomCollection(),
@@ -52,7 +55,17 @@ define([
 			var options = _.extend({model: item, viewPosition: this.collection.indexOf(item) + 1}, itemViewOptions);
 			var view = new ItemViewType(options);
 			return view;
+		},
+		
+		/**
+			Callback for if the hotel is changed
+			
+			@param {MulticomRoomCollection} rooms
+		*/
+		handleRoomReset: function(rooms){
+			//not actually needed as the collection is bound to the booking collection - it is updated when that is updated
 		}
+		
 	});
 	
 	return HotelsDetailRoomsView;
