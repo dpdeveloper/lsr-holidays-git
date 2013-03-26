@@ -170,6 +170,7 @@ define([
 		*/
 		handleFlightSelection: function(flight){
 			this._booking.setSelectedFlight(flight);
+			vent.trigger('search:booking:change', this._booking);
 		},
 		
 		/**
@@ -180,7 +181,7 @@ define([
 			
 			//trigger a room change event
 			vent.trigger('search:rooms:reset', this._booking.get('selectedRooms'));
-			
+			vent.trigger('search:booking:change', this._booking);
 		},
 		
 		

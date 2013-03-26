@@ -48,6 +48,7 @@ define([
 			}
 			
 			this.listenTo(vent,'search:hotel:selected',this.handleSelectedEvent);
+			this.listenTo(vent,'search:booking:change',this.handleBookingChange);
 		},
 		
 		events: {
@@ -97,6 +98,20 @@ define([
 		handleSelectedEvent: function(selectedModel){
 			if(selectedModel !== null && selectedModel !== this.model){
 				this.$el.removeClass('selected');
+			}	
+		},
+		
+		/**
+			Callback for if the booking has changed
+			May need to update the prices displayed, aka if a price has changed
+		*/
+		handleBookingChange: function(booking){
+			var c = booking.getCostPerPerson();
+			var cost = c.flight + c.extra;
+			
+			if(this._extraCost !== cost){
+				this._extraCost = cost;
+				this.render();
 			}	
 		}
 		
