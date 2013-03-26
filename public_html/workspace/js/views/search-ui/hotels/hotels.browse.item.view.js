@@ -40,11 +40,15 @@ define([
 		initialize: function(options){
 			options = options || {};
 			
+			this._extraCost = null;
+			this._numPeople = 1;
+			
 			if('extraCost' in options && options.extraCost !== null){
 				this._extraCost = options.extraCost;
 			}
-			else{
-				this._extraCost = null;
+			
+			if('numPeople' in options && options.numPeople !== null){
+				this._numPeople = options.numPeople;
 			}
 			
 			this.listenTo(vent,'search:hotel:selected',this.handleSelectedEvent);
@@ -59,13 +63,13 @@ define([
 			Overridden function to pass extra cost to the UI
 		*/
 		serializeData: function(){
-			var totalCost = parseFloat(this.model.get('cost'));
+			var totalCost = parseFloat(this.model.get('cost')) / this._numPeople;
 			
 			if(this._extraCost !== null){
 				totalCost = totalCost + this._extraCost;
 			}
 		
-			return $.extend({totalCost: totalCost}, this.model.toJSON());
+			return $.extend({totalCost: totalCost.toFixed(2)}, this.model.toJSON());
 		},
 		
 		
@@ -112,7 +116,9 @@ define([
 			if(this._extraCost !== cost){
 				this._extraCost = cost;
 				this.render();
-			}	
+			}
+			
+			this._numPeople = booking.get('holidaySearch').getTravellers().length;
 		}
 		
 	});

@@ -242,7 +242,8 @@ define([
 				subView: new SearchUIHotelsBrowseView({
 					collection: reqres.request('search:get:hotel:results'),
 					selectedHotel: booking.get('selectedHotel'),
-					extraCost: extraCost
+					extraCost: extraCost,
+					numPeople: booking.get('holidaySearch').getTravellers().length
 				}),
 				showByDefault: true
 			});

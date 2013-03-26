@@ -80,6 +80,9 @@ define([
 			if('extraCost' in options && options.extraCost!== null){
 				this.itemViewOptions.extraCost = options.extraCost;
 			}
+			if('numPeople' in options && options.numPeople!== null){
+				this.itemViewOptions.numPeople = options.numPeople;
+			}
 		},
 		
 		/**
