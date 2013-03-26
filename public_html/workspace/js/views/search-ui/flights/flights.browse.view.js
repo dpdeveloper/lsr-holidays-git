@@ -48,7 +48,9 @@ define([
 		
 		ui: {
 			inner: '.body-middle-inner',
-			outer: '.body-middle'
+			outer: '.body-middle',
+			left: '.body-left',
+			right: '.body-right'
 		},
 		
 		itemViewOptions: {},
@@ -72,7 +74,7 @@ define([
 			this._filterRender = false;
 			this._pagination = { pageWidth: 5, position: 1};
 			this._size = {
-				itemWidth: 280,
+				itemWidth: 260,
 				itemMargin: 0,
 				itemMinMargin: 2,
 				containerWidth: 0,
@@ -130,6 +132,9 @@ define([
 		resize: function(){
 			
 			if(this._visible){
+				
+				//calc the containerMargin
+				this._size.containerMargin = this.ui.left.outerWidth(true) + this.ui.right.outerWidth(true);
 		
 				this._size.containerWidth = this.$el.width() - this._size.containerMargin;
 				
@@ -152,7 +157,7 @@ define([
 				
 				//adjust the position
 				var pos = this._pagination.position;
-				var left = -1 * (pos) * (this._size.itemWidth + this._size.itemMargin);
+				var left = -1 * (pos-1) * (this._size.itemWidth + this._size.itemMargin);
 				this.ui.inner.css({x: left});
 				this._pagination.position = pos;
 				

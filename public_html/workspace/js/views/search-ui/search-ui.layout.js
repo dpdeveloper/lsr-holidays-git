@@ -263,9 +263,11 @@ define([
 			this.flights.show(this._flightsView);
 			
 			//scroll to the correct place
-			$('html,body').animate({
-				scrollTop: this.flights.$el.offset().top - 100
-			}, 800);
+			if($('html,body').is(':visible')){
+				$('html,body').animate({
+					scrollTop: this.flights.$el.offset().top - 100
+				}, 800);
+			}
 			
 			this.setStatus('flight',this.STATES.FLIGHT.BROWSE);
 		},
