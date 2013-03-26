@@ -5187,16 +5187,16 @@ html, body {
 /* line 1088, ../sass/screen.scss */
 .search-ui-flights-browse-item .flight-item-inner .price {
   float: left;
-  width: 35%;
+  width: 50%;
   padding-top: 15px;
   color: #0095da;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
 }
 /* line 1095, ../sass/screen.scss */
 .search-ui-flights-browse-item .flight-item-inner .actions {
   float: right;
-  width: 65%;
+  width: 50%;
 }
 /* line 1096, ../sass/screen.scss */
 .search-ui-flights-browse-item .flight-item-inner .actions a {

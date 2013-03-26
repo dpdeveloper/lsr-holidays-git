@@ -8,7 +8,7 @@ define([
 	'jquery','underscore','backbone','marionette','vent',
 	'tpl!views/search-ui/templates/flights.browse.item.view.tpl.html',
 	'models/multicom/multicom-flight',
-	'helpers/view-helper',
+	'helpers/view-helper'
 	
 ], function($,_,Backbone,Marionette,vent,
 			SearchUIFlightsBrowseItemTemplate,
@@ -17,23 +17,25 @@ define([
 			){
 	"use strict";
 	
-	var SearchUIFlightsBrowseItemView = Backbone.Marionette.ItemView.extend({
+	var SearchUIFlightsBrowseItemView = Backbone.Marionette.ItemView.extend(
+	/** @lends SearchUIFlightsBrowseItemView */
+	{
 
 		template: SearchUIFlightsBrowseItemTemplate,
-		model: MulticomFlight,
+		model: new MulticomFlight(),
 		templateHelpers: viewHelper,
 		
 		tagName: 'div',
 		attributes: {
-			'class': 'search-ui-flights-browse-item',
+			'class': 'search-ui-flights-browse-item'
 		},
 		
 		events: {
-			'click': 'handleClick',
+			'click': 'handleClick'
 		},
 		
 		ui:{
-			inner: '.flight-item-inner',
+			inner: '.flight-item-inner'
 		},
 		
 		getInnerEl: function(){
@@ -49,6 +51,8 @@ define([
 		
 		
 		initialize: function(options){
+			options = options || {};
+		
 			//set the current flight price
 			if(options.currentFlightPrice){
 				this._currentFlightPrice = options.currentFlightPrice;
@@ -69,8 +73,8 @@ define([
 		
 		serializeData: function(){
 			//calculate the + or - increase in price
-			var price = parseFloat(this.model.get('outboundPrice')) + parseFloat(this.model.get('returnPrice'));
-			price = price - parseFloat(this._currentFlightPrice);
+			var price = this.model.get('priceTotal');
+			price = price - this._currentFlightPrice;
 			
 			if(price > 0){
 				price = "+ £"+price.toFixed(2);
@@ -85,7 +89,7 @@ define([
 			return $.extend(this.model.toJSON(), {
 				priceIncrease: price,
 				outboundAirlineLogo: this._outboundAirlineLogo,
-				returnAirlineLogo: this._returnAirlineLogo,
+				returnAirlineLogo: this._returnAirlineLogo
 			});
 		},
 		
@@ -99,7 +103,7 @@ define([
 		handleClick: function(ev){
 			ev.preventDefault();
 			vent.trigger('search:flight:selected',this.model);
-		},
+		}
 		
 		
 	});

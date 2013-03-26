@@ -73,6 +73,7 @@ define([
 			
 			data.occupancy = {};
 			data.occupancy = this.model.get('holidaySearch').getOccupancyTotals();
+			data.cost = this.model.getCostPerPerson();
 			
 			return data;
 		},

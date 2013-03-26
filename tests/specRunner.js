@@ -174,6 +174,13 @@ require([
 		
 		'spec/views/search-ui/hotels/hotels.layout.spec',
 		
+		/* FLIGHTS */
+		'spec/views/search-ui/flights/flights.browse.view.spec',
+		'spec/views/search-ui/flights/flights.browse.item.view.spec',
+		
+		
+		/* TRAVELLERS */
+		
 		'spec/views/search-ui/travellers/travellers.layout.spec',
 		'spec/views/search-ui/travellers/travellers.contact.view.spec',
 		'spec/views/search-ui/travellers/travellers.tac.view.spec',

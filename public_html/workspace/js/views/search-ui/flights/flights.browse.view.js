@@ -61,6 +61,8 @@ define([
 			@param {Object} [options] Options Hash
 		*/
 		initialize: function(options){
+			options = options || {};
+			
 			
 			this.collection = new MCFlightCollection();
 			this.completeCollection = new MCFlightCollection();
@@ -79,13 +81,11 @@ define([
 			};
 			this._visible = false;
 			
-			if(options.selectedFlight){
-				var a = options.selectedFlight.get('outboundPrice');
-				var b =options.selectedFlight.get('returnPrice');
-				this.itemViewOptions.currentFlightPrice = parseFloat(a) + parseFloat(b);
+			if('selectedFlight' in options && options.selectedFlight !== null){
+				this.itemViewOptions.currentFlightPrice = options.selectedFlight.get('priceTotal');
 			}
 			
-			if(options.collection){
+			if('collection' in options && options.collection !== null){
 				this.collection.reset(options.collection.models, {silent: true});
 				this.completeCollection.reset(options.collection.models);
 			}

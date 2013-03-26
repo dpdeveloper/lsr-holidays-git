@@ -1087,12 +1087,12 @@ html, body{
 		}
 		.price{
 			float: left;
-			width: 35%;
+			width: 50%;
 			padding-top: 15px;
 			color: $colourBlueFg; font-weight: 700;
-			font-size: 16px;
+			font-size: 15px;
 		}
-		.actions{float: right; width: 65%;
+		.actions{float: right; width: 50%;
 			a{
 				@include actionButton();
 				
