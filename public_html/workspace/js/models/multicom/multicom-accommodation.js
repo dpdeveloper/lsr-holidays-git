@@ -16,6 +16,43 @@ define([
 	
 	"use strict";
 	
+	/**
+		@class MulticomAccommodation
+		
+		@property {String} itineraryId
+		@property {String} accommodationId
+		@property {String} accommodationName
+		@property {String} type
+		
+		@property {String} resortName
+		@property {String} resortId
+		@property {String} avaiableBoardBasis
+		@property {String} boardCode
+		@property {String} classCode
+		
+		@property {String} startDate DD/MM/YYYY
+		@property {String} endDate DD/MM/YYYY
+		@property {String} numNights
+		
+		@property {String} currency
+		@property {String} cost
+		@property {String} availability
+		@property {String} bookable
+		
+		@property {String} maxChildAge
+		@property {String} infantAge
+		@property {String} supplier
+		
+		@property {Object} address {address1: '', address2: '', city: '', postcode: '', country: ''}
+		
+		@property {String} telephoneNumber
+		@property {String} description
+		
+		@property {Object} images
+
+	*/
+	
+		
 	var MulticomAccommodation = Backbone.RelationalModel.extend(
 	/** @lends MulticomAccommodation */
 	{

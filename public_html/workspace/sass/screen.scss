@@ -1238,6 +1238,7 @@ html, body{
 					@include actionButton();
 					box-shadow: none;
 					float: right;
+					padding: 6px 10px;
 					
 					&:hover{box-shadow: none;}
 				}

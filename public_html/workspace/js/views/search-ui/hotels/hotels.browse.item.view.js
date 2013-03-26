@@ -37,12 +37,34 @@ define([
 			@constructs
 			@param {Object} [options] Options Hash
 		*/
-		initialize: function(){
-			this.listenTo(vent,'search:hotel:selected',this.handleSelectedEvent);	
+		initialize: function(options){
+			options = options || {};
+			
+			if('extraCost' in options && options.extraCost !== null){
+				this._extraCost = options.extraCost;
+			}
+			else{
+				this._extraCost = null;
+			}
+			
+			this.listenTo(vent,'search:hotel:selected',this.handleSelectedEvent);
 		},
 		
 		events: {
 			'click .browse-item-inner': 'handleClick'
+		},
+		
+		/**
+			Overridden function to pass extra cost to the UI
+		*/
+		serializeData: function(){
+			var totalCost = parseFloat(this.model.get('cost'));
+			
+			if(this._extraCost !== null){
+				totalCost = totalCost + this._extraCost;
+			}
+		
+			return $.extend({totalCost: totalCost}, this.model.toJSON());
 		},
 		
 		

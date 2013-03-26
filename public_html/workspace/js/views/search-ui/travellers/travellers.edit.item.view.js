@@ -8,7 +8,7 @@ define([
 	'jquery','underscore','backbone','marionette','vent','jquery-ui',
 	'tpl!views/search-ui/templates/travellers.edit.item.view.tpl.html',
 	'models/travellers-info',
-	'libs/select2.min'
+	'select2'
 ], function($,_,Backbone,Marionette,vent,jqueryUI,
 			Template,
 			TravellersInfo,

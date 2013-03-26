@@ -234,10 +234,15 @@ define([
 		*/
 		searchComplete: function(){
 		
+			var booking = reqres.request('search:get:booking');
+			var bookingCost = booking.getCostPerPerson();
+			var extraCost = bookingCost.flight + bookingCost.extra;
+		
 			this._hotelsBrowseView = new SearchUIPaneLayout({
 				subView: new SearchUIHotelsBrowseView({
 					collection: reqres.request('search:get:hotel:results'),
-					selectedHotel: reqres.request('search:get:hotel:selected')	
+					selectedHotel: booking.get('selectedHotel'),
+					extraCost: extraCost
 				}),
 				showByDefault: true
 			});

@@ -111,7 +111,9 @@ define([
 		calculateCost: function(){
 			var cost=0;
 			this.each(function(val, index){
-				cost = cost + parseFloat(val.getChosenRoomRate().cost);
+				if(typeof val.getChosenRoomRate() !== 'undefined'){
+					cost = cost + parseFloat(val.getChosenRoomRate().cost);
+				}
 			});
 			return Math.round(cost*100)/100;
 		},

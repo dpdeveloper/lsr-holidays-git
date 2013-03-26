@@ -11,8 +11,9 @@ describe("Booking Model", function() {
 			'models/booking',
 			'models/multicom/multicom-flight',
 			'models/multicom/multicom-accommodation',
-			'models/multicom/multicom-room'
-			], function(Booking, MulticomFlight, MulticomAccommodation, MulticomRoom) {
+			'models/multicom/multicom-room',
+			'collections/multicom-room'
+			], function(Booking, MulticomFlight, MulticomAccommodation, MulticomRoom, MulticomRoomCollection) {
 			that.model = new Booking();
 			
 			that.MulticomFlight = MulticomFlight;
@@ -145,6 +146,71 @@ describe("Booking Model", function() {
 			expect(v.rooms[0].name).toEqual('deluxe room');
 			expect(v.rooms[1].name).toEqual('standard room');
 			
+		});
+	});
+	
+	describe('getCost', function(){
+	
+		it('returns a cost object from the data', function(){
+			
+			this.model.set({extraCost: 10});
+			
+			this.model.get('holidaySearch').set({
+				dateStart: '14/08/2013',
+				numNights: '5'
+			});
+			this.model.get('holidaySearch').setOccupancy([
+				{adults: 2, children: 0, infants: 0},
+				{adults: 1, children: 0, infants: 0}
+			]);//3 people
+			
+			//add flight / hotel
+			this.model.set({
+				selectedHotel: new this.MulticomAccommodation({
+					accommodationName: 'aria',
+					cost: 100
+				}),
+				selectedFlight: new this.MulticomFlight({
+					priceTotal: 400,
+					priceOutboundBase: 200,
+					priceReturnBase: 200
+				})
+			});
+			//add rooms
+			this.model.get('selectedRooms').add(
+				new this.MulticomRoom({
+					name: '',
+					code: '',
+					
+					maxOccupancy: 1,
+					minOccupancy: 1,
+					
+					roomRates: [{
+						rateCode: 'A',
+						cost: 200,
+						currency: 'GBP'
+					}],
+					occupancy: null,
+					chosenRoomRate: 'A'
+				})
+			);
+			
+			var c = this.model.getCost();
+			
+			expect(c.rooms).toEqual(200);
+			expect(c.flight).toEqual(400);
+			expect(c.extra).toEqual(10);
+			expect(c.total).toEqual(610);
+			
+			//check per person cost
+			var pp = this.model.getCostPerPerson();
+			
+			expect(pp.rooms).toEqual(66.67);
+			expect(pp.flight).toEqual(133.33);
+			expect(pp.extra).toEqual(3.33);
+			expect(pp.total).toEqual(203.33);
+						
+
 		});
 	});
 	

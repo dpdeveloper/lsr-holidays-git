@@ -12,7 +12,7 @@ define([
 	'moment',
 	'jquery-ui',
 	'libs/string-helpers',
-	'libs/select2.min'
+	'select2'
 ], function($,_,Backbone,Marionette,vent,config,
 			Template,
 			HolidaySearch,

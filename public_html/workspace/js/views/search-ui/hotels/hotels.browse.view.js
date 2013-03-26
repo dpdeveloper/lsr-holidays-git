@@ -53,6 +53,10 @@ define([
 			outer: '.body-middle'
 		},
 		
+		itemViewOptions: {
+			extraCost: 0
+		},
+		
 		/**
 			Constructor
 			
@@ -71,6 +75,10 @@ define([
 			}
 			else{
 				this._initialHotel = null;
+			}
+			
+			if('extraCost' in options && options.extraCost!== null){
+				this.itemViewOptions.extraCost = options.extraCost;
 			}
 		},
 		

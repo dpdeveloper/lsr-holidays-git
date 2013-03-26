@@ -10,7 +10,7 @@ define([
 	'models/flight-filter',
 	'collections/multicom-flight',
 	'helpers/view-helper',
-	'libs/select2.min'
+	'select2'
 	
 ], function($,_,Backbone,Marionette,vent,
 			SearchUIFlightsFilterViewTemplate,

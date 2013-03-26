@@ -16,7 +16,8 @@ require.config({
 		'jasmine-jquery': '../../../tests/lib/jasmine-jquery',
 		'jasmine-html': '../../../tests/lib/jasmine-1.3.1/jasmine-html',
 		spec: '../../../tests/spec',
-		moment: 'libs/moment.min'
+		moment: 'libs/moment.min',
+		'select2': 'libs/select2.min'
 	},
 
 	shim: {
@@ -51,12 +52,13 @@ require.config({
 
 		'modernizr': {exports: 'Modernizr'},
 		'jquery-ui': {deps: ['jquery']},
+		'select2': {deps: ['jquery']},
 		
 		'libs/jquery.transit': {deps: ['jquery']},
 		'libs/avgrund': {deps: ['jquery'],exports: 'Avgrund'},
 		'libs/reveal': {deps: ['jquery'],exports: 'Reveal'},
 		'libs/jquery.colorbox-min': {deps: ['jquery']},
-		'libs/select2.min': {deps: ['jquery']},
+		
 		'libs/jquery.mousewheel.min': {deps: ['jquery']},
 		'libs/jquery.mCustomScrollbar': {
 			deps: ['jquery', 'libs/jquery.mousewheel.min']

@@ -6,10 +6,11 @@
 
 define([
 	'jquery','underscore','backbone','marionette','vent','config',
-	'jquery-ui',
+	'jquery-ui', 
 	
 	'tpl!views/search-ui/templates/header.form.view.tpl.html',
-	'models/holiday-search'
+	'models/holiday-search',
+	'select2'
 	
 ], function(	$,_,Backbone,Marionette,vent, config, jqueryUI,
 				HeaderFormTemplate,

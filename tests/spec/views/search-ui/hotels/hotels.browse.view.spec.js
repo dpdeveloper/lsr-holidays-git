@@ -11,14 +11,22 @@ describe("SearchUIHotelsBrowseView", function() {
 			'backbone','marionette',
 			'views/search-ui/hotels/hotels.browse.view',
 			'models/multicom/multicom-accommodation',
-			'collections/multicom-accommodation'
-			], function(Backbone, Marionette, SearchUIHotelsBrowseView, MulticomHotel, MulticomHotelCollection) {
+			'models/multicom/multicom-flight',
+			'collections/multicom-accommodation',
+			'models/booking'
+			], function(
+				Backbone, Marionette,
+				SearchUIHotelsBrowseView,
+				MulticomHotel, MulticomFlight, MulticomHotelCollection,
+				Booking) {
 
 			that.view = new SearchUIHotelsBrowseView();
 			that.SearchUIHotelsBrowseView = SearchUIHotelsBrowseView;
 			
 			that.MulticomHotel = MulticomHotel;
+			that.MulticomFlight = MulticomFlight;
 			that.MulticomHotelCollection = MulticomHotelCollection;
+			that.Booking = Booking;
 			
 			that.region = new Backbone.Marionette.Region({el: '#sandbox'});
 			flag = true;
@@ -70,6 +78,22 @@ describe("SearchUIHotelsBrowseView", function() {
 			expect(this.view.children.findByModel(m).$el).toHaveClass('selected');
 			//other model shouldn't
 			expect(this.view.children.findByModel(mm).$el).not.toHaveClass('selected');
+		});
+		
+		it('Passes through a cost to display if set', function(){
+			this.view.close();
+			
+			var m = new this.MulticomHotel({accommodationName: 'test',cost: '200'});
+			var c = new this.MulticomHotelCollection([m]);
+			
+			this.view = new this.SearchUIHotelsBrowseView({
+				collection: c,
+				extraCost: 200
+			});
+			
+			this.region.show(this.view);
+			expect(this.view.children.findByModel(m)._extraCost).toEqual(200);
+			
 		});
 		
 	});

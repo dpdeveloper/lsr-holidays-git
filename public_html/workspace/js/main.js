@@ -28,7 +28,8 @@ define(function(){
 				'jquery-ui': 'libs/jquery-ui.min',
 				marionette: 'libs/backbone.marionette.min',
 				'backbone-relational': 'libs/backbone-relational',
-				moment: 'libs/moment.min'
+				moment: 'libs/moment.min',
+				'select2': 'libs/select2.min'
 			},
 			 
 			shim: {
@@ -54,7 +55,7 @@ define(function(){
 				'jquery-ui': {deps: ['jquery']},
 				'libs/jquery.transit': {deps: ['jquery']},
 				'libs/jquery.colorbox-min': {deps: ['jquery']},
-				'libs/select2.min': {deps: ['jquery']}
+				'select2': {deps: ['jquery']}
 	
 			}
 		});

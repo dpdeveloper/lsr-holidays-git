@@ -83,7 +83,8 @@ define([
 			createdDate: null,
 			bookedDate: null,
 			itinerary: null,
-			itineraryCost: null
+			itineraryCost: null,
+			extraCost: 0
 		},
 		
 		STATES: {
@@ -193,6 +194,37 @@ define([
 			else{
 				this.get('selectedFlight').set(flight.toJSON());
 			}
+		},
+		
+		/**
+			@returns {rooms, flight, extra, total}
+		*/
+		getCost: function(){
+			var cost = {
+				rooms: this.get('selectedRooms').calculateCost(),
+				flight: 0,
+				extra: this.get('extraCost')
+			} ;
+			
+			var f = this.get('selectedFlight');
+			if(typeof f !== 'undefined' && f !== null){
+				cost.flight = f.get('priceTotal');
+			}
+			
+			cost.total = cost.rooms + cost.flight + cost.extra;
+		
+			return cost;
+		},
+		
+		getCostPerPerson: function(){
+			var cost = this.getCost();
+			var travellers = this.get('holidaySearch').getTravellers().length;
+			
+			$.each(cost, function(key,val){
+				var i = val / travellers;
+				cost[key]= parseFloat(i.toFixed(2));
+			});
+			return cost;
 		},
 		
 		
