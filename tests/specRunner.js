@@ -158,7 +158,10 @@ require([
 		*/
 		'spec/views/search-ui/search-ui.controller.spec',
 		'spec/views/search-ui/search-ui.layout.spec',
-		'spec/views/search-ui/header/header.form.view.spec',
+		
+		/* Header */
+		//'spec/views/search-ui/header/header.form.view.spec',
+		'spec/views/search-ui/header/header.layout.spec',
 		
 		'spec/views/search-ui/hotels/hotels.browse.item.view.spec',
 		'spec/views/search-ui/hotels/hotels.browse.view.spec',

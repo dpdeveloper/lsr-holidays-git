@@ -487,7 +487,7 @@ html, body{
 		
 		h2{
 			margin: 0px;
-			font-size: 26px; line-height: 1em;
+			font-size: 22px; line-height: 1em;
 			font-weight: 700;
 			color: $colourWhite;
 		}
@@ -668,7 +668,51 @@ html, body{
 		}
 		.header-form{
 			float: left; width: 15%;
+			position: relative;
 			margin: 0;
+			
+			.header-bar{
+				
+				.edit{
+					text-align: center;
+					font-weight: 700;
+					cursor: pointer;
+					font-size: 15px; line-height: 15px;
+					padding: 6px 0px 6px;
+
+					border-left: 1px solid #C2C2C2;
+					color: $colorMidGreyFg;
+					text-shadow: 2px 2px 5px rgba(255,255,255,0.8);
+					
+					border-top-right-radius: 3px;
+					border-top-left-radius: 3px;
+					
+					&:hover{
+						color: $colourDarkGreyFg;
+					}
+					&.active{
+						background: $colourDarkGreyBg;
+						text-shadow: none;
+						color: $colourWhite;
+						box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+					}
+				}
+			}
+			.header-overlay{
+				position: absolute;
+				right: 0px;
+				top: 23px;
+				min-width: 360px;
+				z-index: 50;
+				
+				.destination-search{
+					border-radius: 3px;
+					border-top-right-radius: 0px;
+					box-shadow: 2px 4px 4px rgba(0,0,0,0.4);
+				}
+				
+			}
+			
 		}
 		
 	}
@@ -729,119 +773,6 @@ html, body{
 			color: $colourWhite;
 			color: #fff;
 		}
-	}
-}
-
-/*===========================================*/
-
-/* !SEARCH UI HEADER FORM */
-
-/*===========================================*/
-
-#search-ui-header-form{
-	position:relative;
-	
-	.header-bar{
-		.edit{
-			text-align: center;
-			font-weight: 700;
-			cursor: pointer;
-			font-size: 15px; line-height: 15px;
-			padding: 4px 0px 4px;
-			margin: 2px 0px 0px;
-			border-left: 1px solid #C2C2C2;
-			color: $colorMidGreyFg;
-			
-			text-shadow: 2px 2px 5px rgba(255,255,255,0.8);
-		}
-		.edit:hover,
-		.edit.active{
-			color: #000;
-		}
-	}
-			
-	.header-overlay{
-		display: none;
-		top: 36px;
-		position: absolute;
-		right: 0px;
-		z-index: 99;
-		
-		input, select{
-			margin: 0px;
-		}
-		.cols{
-			background: $grey-light;
-			color: #444;
-			box-shadow: 2px 5px 10px rgba(0,0,0,0.42);
-		}
-		.cols.three{
-			width: 600px;
-			padding: 10px;
-		
-		
-			.col{
-				float: left; width: 180px;
-				margin: 0px 10px 0px 0px;
-				padding: 0px 10px 0px 0px;
-				border-right: 1px solid #ccc;
-				
-				input{width: 174px;}
-				select{width: 174px;}	
-			}
-			.col.last{
-				margin-right: 0px;
-				border: none;
-				padding-right: 0px;
-			}
-			
-			.row{
-				margin: 0px;
-				padding: 0px 0px 6px;
-			}
-			
-			.row.dates{
-				.row-left{
-					float: left;
-					width: 110px
-				}
-				.row-left input{width: 110px;}
-				.row-right{
-					float: left; width: 55px;
-					margin-left: 15px;
-				}
-				.row-right select{width: 50px;}
-			}
-					
-			.room-row{
-				margin: 0px 0px 10px;	
-			
-				.one,
-				.two,
-				.three{
-					width: 50px;
-					margin-right: 5px;
-					float: left;
-				}
-				.two{}
-				.three{ margin-right: 0px;}
-				select{width:50px;}
-			}
-		}
-		
-		.actions{
-			float: right;
-		
-			.action-next{
-				float: right; text-decoration: none; cursor: pointer;
-			}
-			.action-back{
-				float:left; text-decoration: none; cursor: pointer;
-			}
-		}
-	}
-	.room-row.room-header{
-		margin-bottom: 6px;
 	}
 }
 

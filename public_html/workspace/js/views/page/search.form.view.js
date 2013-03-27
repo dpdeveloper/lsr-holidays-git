@@ -59,15 +59,14 @@ define([
 			'click .trip-type li': 'handleTripTypeChange'
 		},
 		ui: {
-			tripType: '.trip-type'
-		},		
+			tripType: '.trip-type',
+			dateStart: '.fields-date-start',
+			dateEnd: '.fields-date-end',
+
+			fieldSelectAll: 'select',
+			fieldDeparture: '#fields-departure'
+		},	
 		
-		/**
-			Close the form
-		*/
-		close: function(){
-			this.$el.find(".fields-date-start").datepicker('destroy');
-		},
 		
 		/**
 			Updates the mode that the form is in
@@ -88,9 +87,9 @@ define([
 		 *
 		*/
 		initSelectBoxes: function(){
-			$('select',this.$el).select2({width: '100%'});
+			this.ui.fieldSelectAll.select2({width: '100%'});
 			
-			$('#fields-departure',this.$el).select2({
+			this.ui.fieldDeparture.select2({
 				width: '100%',
 				placeholder: 'Flying From',
 				minimumInputLength: 1,
@@ -226,7 +225,19 @@ define([
 		onShow: function(){
 			this.setTripType(this.model.get('tripType'),true);
 			
-			this.$el.find(".fields-date-start, .fields-date-end").datepicker({
+			this.ui.dateStart.datepicker({
+				changeMonth: true,
+				changeYear: true,
+				constrainInput: false,
+				dateFormat: 'dd/mm/yy',
+				numberOfMonths: 2,
+				minDate: 0,
+				maxDate: "+2y",
+				onSelect: function(dateText,inst){
+						$(this).val(dateText);
+				}
+			});
+			this.ui.dateEnd.datepicker({
 				changeMonth: true,
 				changeYear: true,
 				constrainInput: false,
@@ -263,6 +274,16 @@ define([
 				this.updateRooms();
 			}
 			this.initSelectBoxes();
+		},
+		
+		/**
+			Close callback function
+		*/
+		onClose: function(){
+			this.ui.dateStart.datepicker('destroy');	
+			this.ui.dateEnd.datepicker('destroy');
+			this.ui.fieldDeparture.select2('destroy');
+			this.ui.fieldSelectAll.select2('destroy');
 		},
 		
 		

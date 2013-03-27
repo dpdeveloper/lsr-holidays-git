@@ -8,12 +8,12 @@ define([
 	'jquery','underscore','backbone','marionette','vent', 'reqres',
 	
 	'tpl!views/search-ui/templates/header.layout.tpl.html',
-	'views/search-ui/header/header.form.view',
+	'views/page/search.form.view',
 	'views/search-ui/header/header.progress.view',
 	'views/search-ui/header/header.status.view'
 ], function(	$,_,Backbone,Marionette,vent,reqres,
 				HeaderLayoutTemplate,
-				HeaderFormView,
+				SearchFormView,
 				HeaderProgressView,
 				HeaderStatusView
 		){
@@ -25,14 +25,17 @@ define([
 
 		template: HeaderLayoutTemplate,
 		regions: {
-			form: '.header-form',
+			overlay: '.header-overlay',
 			progress: '.header-progress',
 			status: '.header-status'
 		},
+		events: {
+			'click .header-bar .edit': 'handleEditClick'	
+		},
 		
-		_formView: null,
-		_progressView: null,
-		_statusView: null,
+		ui: {
+			editSearchBtn: '.header-bar .edit'
+		},
 		
 		/**
 			Constructor
@@ -45,16 +48,36 @@ define([
 			
 		},
 		
-		onShow: function(){
-			this._formView = new HeaderFormView({
-				model: reqres.request('search:get:booking').trip
-			});
-			this._progressView = new HeaderProgressView();
-			this._statusView = new HeaderStatusView();
+		onShow: function(){			
+			this.progress.show(new HeaderProgressView());
+			this.status.show(new HeaderStatusView());
+		},
+		
+		
+		/*
+			Shows the search edit form
+		*/
+		handleEditClick: function(ev){
+		
+			ev.preventDefault();
 			
-			this.form.show(this._formView);
-			this.progress.show(this._progressView);
-			this.status.show(this._statusView);
+			if(this.ui.editSearchBtn.hasClass('active')){
+				//hide
+				this.overlay.reset();
+				this.ui.editSearchBtn.removeClass('active');
+			}
+			else{
+				//show
+				this.overlay.show(new SearchFormView({
+					holidaySearch: reqres.request('search:get:booking').get('holidaySearch')	
+				}));
+				this.ui.editSearchBtn.addClass('active');
+			}
+			
+		},
+		hideOverlay: function(){
+			this.$el.find('.header-overlay').hide();
+			this.$el.find('.header-bar .edit').removeClass('active');
 		}
 		
 	});

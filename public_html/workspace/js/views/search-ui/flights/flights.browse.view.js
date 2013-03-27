@@ -78,7 +78,7 @@ define([
 				itemMargin: 0,
 				itemMinMargin: 2,
 				containerWidth: 0,
-				containerMargin: 156,	
+				containerMargin: 0,	
 				innerWidth: 0
 			};
 			this._visible = false;
