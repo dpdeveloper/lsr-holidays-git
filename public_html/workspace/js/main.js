@@ -29,7 +29,8 @@ define(function(){
 				marionette: 'libs/backbone.marionette.min',
 				'backbone-relational': 'libs/backbone-relational',
 				moment: 'libs/moment.min',
-				'select2': 'libs/select2.min'
+				'select2': 'libs/select2.min',
+				'the-tooltip': 'libs/the-tooltip.min'
 			},
 			 
 			shim: {
@@ -50,12 +51,17 @@ define(function(){
 				'backbone-relational':{
 					deps: ['jquery','underscore','backbone']
 				},
-		
+				
+				
+				
 				'modernizr': {exports: 'Modernizr'},
 				'jquery-ui': {deps: ['jquery']},
 				'libs/jquery.transit': {deps: ['jquery']},
 				'libs/jquery.colorbox-min': {deps: ['jquery']},
-				'select2': {deps: ['jquery']}
+				'select2': {deps: ['jquery']},
+				
+				'libs/selectivizr-min': {deps:['jquery']},
+				'the-tooltip': {deps:['jquery','libs/selectivizr-min']}
 	
 			}
 		});

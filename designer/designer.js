@@ -17,7 +17,8 @@ require.config({
 		'jasmine-html': '../../../tests/lib/jasmine-1.3.1/jasmine-html',
 		spec: '../../../tests/spec',
 		moment: 'libs/moment.min',
-		'select2': 'libs/select2.min'
+		'select2': 'libs/select2.min',
+		'the-tooltip': 'libs/the-tooltip.min'
 	},
 
 	shim: {
@@ -53,6 +54,9 @@ require.config({
 		'modernizr': {exports: 'Modernizr'},
 		'jquery-ui': {deps: ['jquery']},
 		
+		
+		'libs/selectivizr-min': {deps:['jquery']},
+		'the-tooltip': {deps:['jquery','libs/selectivizr-min']},
 		'libs/jquery.transit': {deps: ['jquery']},
 		'libs/avgrund': {deps: ['jquery'],exports: 'Avgrund'},
 		'libs/reveal': {deps: ['jquery'],exports: 'Reveal'},
@@ -90,8 +94,8 @@ require([
 				tripType: model.TRIP_TYPES.PACKAGE,
 				destination: 'las-vegas',
 				dateStart: '01/04/2013',
-				numNights: '4',
-				numRooms: '1',
+				numNights: 4,
+				numRooms: 1,
 				adultCsv: '2',
 				childCsv: '0',
 				infantCsv: '0',

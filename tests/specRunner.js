@@ -17,7 +17,8 @@ require.config({
 		'jasmine-html': '../../../tests/lib/jasmine-1.3.1/jasmine-html',
 		spec: '../../../tests/spec',
 		moment: 'libs/moment.min',
-		'select2': 'libs/select2.min'
+		'select2': 'libs/select2.min',
+		'the-tooltip': 'libs/the-tooltip.min'
 	},
 
 	shim: {
@@ -49,6 +50,8 @@ require.config({
 			deps: ['jasmine','jquery'],
 			exports: 'jasmine'
 		},
+		'libs/selectivizr-min': {deps:['jquery']},
+		'the-tooltip': {deps:['jquery','libs/selectivizr-min']},
 
 		'modernizr': {exports: 'Modernizr'},
 		'jquery-ui': {deps: ['jquery']},

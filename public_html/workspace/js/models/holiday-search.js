@@ -12,14 +12,10 @@ define([
 	
 	"use strict";
 	
-	/**
-		@module Models
-		@exports HolidaySearch
-	*/
 
 	var HolidaySearch = Backbone.RelationalModel.extend(
 	/** 
-		@lends HolidaySearch
+		@class HolidaySearch
 		
 		@property {TRIP_TYPE} tripType
 		@property {string} destination
@@ -46,21 +42,21 @@ define([
 			tripType: null,
 			
 			//basics
-			destination: 'las vegas',
+			destination: '',
 			hotelName: '',
-			dateStart: null,
+			dateStart: '',
 			numNights: 5,
 			
 			
 			//rooms
 			numRooms: 1,
 			adultCsv: "2",
-			infantCsv: "",
-			childCsv: "",
+			infantCsv: "0",
+			childCsv: "0",
 			childAges: "",
 			
 			//flights
-			departingFrom: "LHR",
+			departingFrom: "",
 			flightClass: 'economy',
 			oneWay: 'no',
 			directFlights: 'no',
@@ -76,20 +72,23 @@ define([
 			PACKAGE: 'package'
 		},
 		
-		initialize: function(){
+		initialize: function(options){
+			options = options || {};
+			
+			// a few dynamic defaults
+			if(!options.tripType){
+				this.set({tripType: this.TRIP_TYPES.PACKAGE});	
+			}
+			if(!options.dateStart){
+				this.set({
+					dateStart: moment().add('days',14).format('DD/MM/YYYY')
+				});	
+			}
+			
+			
 			_.bindAll(this);
-			
-			//set the initial date
-			var d = new Date();
-			d.setDate(d.getDate()+7);
-			var day = d.getDate();
-			var month = d.getMonth() + 1; //Months are zero based
-			var year = d.getFullYear().toString().substr(2,4);
-			
-			this.set({dateStart: day+"/"+month+"/"+year});
-			
-			this.set({tripType: this.TRIP_TYPES.PACKAGE});
 		},
+		
 		
 		setType: function(type){
 			if($.inArray(type, _.toArray(this.TRIP_TYPES)) !== -1){
@@ -226,6 +225,17 @@ define([
 			};
 		},
 		
+		/**
+			Adds a room to the search
+			
+			@param {Object} roomOcc
+		*/
+		addRoom: function(roomOcc){
+			var c = this.getRoomOccupancy();
+			c.push(roomOcc);
+			this.setOccupancy(c);
+		},
+		
 		
 		/**
 			Sets the start date and number of nights from two dates
@@ -246,6 +256,29 @@ define([
 				numNights: nights	
 			});
 		},
+		
+		
+		/**
+			Calculates the end Date
+		*/
+		getEndDate: function(){
+			var format="DD/MM/YYYY";
+			
+			var n = this.get('numNights');
+			
+			if(typeof this.get('numNights') !== 'number'){
+				n = parseInt(n,10);
+			}
+			
+			var s =moment(this.get('dateStart'),format);
+			if(s !== null && s.isValid()){
+				s.add('days',n);
+				return s.format(format);
+			}
+			
+			return '';
+		},
+		
 		
 		/**
 			@param {String} destination

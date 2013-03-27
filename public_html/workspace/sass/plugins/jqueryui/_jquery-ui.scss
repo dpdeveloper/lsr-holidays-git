@@ -576,6 +576,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 			-webkit-border-radius: 0;
 			-moz-border-radius: 0;
 			border-radius: 0;
+	min-height: 25px;
 }
 .ui-datepicker th {
 	color: #e8e9ea !important;

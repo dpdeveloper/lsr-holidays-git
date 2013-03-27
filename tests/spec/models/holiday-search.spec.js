@@ -159,6 +159,21 @@ describe("Holiday Search Model", function() {
 			expect(occ[1].children).toEqual('1');
 			expect(occ[2].infants).toEqual('0');
 		});
+		
+		it('Add room adds a room correctly', function(){
+			this.model.setOccupancy([
+				{adults: 2, children: 2, infants: 0}
+			]);
+			this.model.addRoom({adults:3, children: 0, infants: 1});
+			
+			var occ = this.model.getRoomOccupancy();
+			
+			expect(occ.length).toEqual(2);
+			expect(occ[0].adults).toEqual('2');
+			expect(occ[1].adults).toEqual('3');
+			expect(occ[1].children).toEqual('0');
+			expect(occ[1].infants).toEqual('1');
+		});
 	});
 	
 	describe('Get an array of the travellers', function(){

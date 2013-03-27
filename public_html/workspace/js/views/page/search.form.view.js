@@ -12,11 +12,13 @@ define([
 	'moment',
 	'jquery-ui',
 	'libs/string-helpers',
-	'select2'
+	'select2',
+	'the-tooltip'
 ], function($,_,Backbone,Marionette,vent,config,
 			Template,
 			HolidaySearch,
-			moment
+			moment,
+			theToolTip
 			){
 	"use strict";
 
@@ -34,52 +36,43 @@ define([
 			options = options || {};
 			_.bindAll(this);
 			
+			//legacy support for holidaySearch. Should really use model
 			if('holidaySearch' in options && options.holidaySearch !== null){
-				this.model = new HolidaySearch(options.holidaySearch.toJSON());	
+				this.model.set(options.holidaySearch.toJSON());
 			}
-			else{
-				this.model = new HolidaySearch();	
-			}
+			
+			this._visible = false;
+			
+			//this.listenTo(this.model,'change',this.render);
 		},
 		
 		template: Template,
-		
+		model: new HolidaySearch(),
 		$roomContainer: null,
 		roomRowHTML: null,
-		
-		STATES: {
-			NEW: 0,
-			EDIT: 1
-		},
-		_state: 0,
+
 		
 		events: {
 			'change #fields-number-of-rooms': 'updateRooms',
 			'click .search-submit': 'submitForm',
-			'click .trip-type li': 'handleTripTypeChange'
+			'click .trip-type li': 'handleTripTypeChange',
+			'focus input': 'removeErrors'	
+		
 		},
 		ui: {
 			tripType: '.trip-type',
 			dateStart: '.fields-date-start',
 			dateEnd: '.fields-date-end',
-
-			fieldSelectAll: 'select',
-			fieldDeparture: '#fields-departure'
+			fieldNumNights: '#fields-number-of-nights',
+			fieldNumRooms: '#fields-number-of-rooms',
+			
+			fieldDestination: '#fields-destination',
+			fieldDeparture: '#fields-departure',
+			
+			fieldSelectAll: 'select'
 		},	
 		
-		
-		/**
-			Updates the mode that the form is in
-			@param {String} mode 'new' / 'edit'
-		*/
-		setMode: function(mode){
-			if(mode === 'new'){
-				this._state = this.STATES.NEW;
-			}
-			else if(mode === 'edit'){
-				this._state = this.STATES.EDIT;
-			}
-		},
+	
 		
 		/* initSelectBoxes
 		 *
@@ -113,6 +106,9 @@ define([
 					
 						return {results: obj};
 					}
+				},
+				initSelection: function(element,callback){
+					callback({id: $(element).val(), text: $(element).val()});
 				}
 			});
 		},
@@ -175,7 +171,9 @@ define([
 		*/
 		addRoom: function(){
 			$(this.$roomContainer).append(this.roomRowHTML);
+			this.bindUIElements();
 			this.initSelectBoxes();
+			this.model.addRoom({adults:2, children: 0, infants: 0});
 		},
 		
 		/* updateRooms
@@ -216,74 +214,89 @@ define([
 		*/
 		onRender: function(){
 			this.$roomContainer = $(".rooms", this.$el);
-			this.roomRowHTML= "<div class='room-row room-row-item clearfix'>"+$(".room-row-template", this.$el).html()+"</div>";	
+			this.roomRowHTML= "<div class='room-row room-row-item clearfix'>"+$(".room-row-template", this.$el).html()+"</div>";
+			
+			this.setTripType(this.model.get('tripType'),true);
+			
+			//if in edit mode, set the correct field values
+			var m =this.model.toJSON();
+			
+			if(!m.destination || m.destination.length === 0){
+				m.destination = 'las vegas';
+			}
+			
+			if(!m.numNights || m.numNights === 0){
+				m.numNights = 5;
+			}
+			if(!m.numRooms){
+				m.numRooms = 1;
+			}
+			
+			this.ui.fieldDestination.val(m.destination.toLowerCase());
+			this.ui.dateStart.val(m.dateStart);
+			this.ui.dateEnd.val(this.model.getEndDate());
+			this.ui.fieldNumRooms.val(m.numRooms);
+			this.ui.fieldDeparture.val(m.departingFrom);
+			
+			this.updateRooms();
+			
+			/*set the adults/children/infants for the rooms*/
+			var adult = this.model.get('adultCsv').split(',');
+			var child = this.model.get('childCsv').split(',');
+			
+			this.$el.find('.room-row-item').each(function(i,el){
+				$(el).find('select.fields-number-of-adults').val(adult[i]);
+				$(el).find('select.fields-number-of-children').val(child[i]);
+			});
 		},
 		
 		/**
 			onShow Callback function
 		*/
 		onShow: function(){
-			this.setTripType(this.model.get('tripType'),true);
 			
-			this.ui.dateStart.datepicker({
-				changeMonth: true,
-				changeYear: true,
-				constrainInput: false,
-				dateFormat: 'dd/mm/yy',
-				numberOfMonths: 2,
-				minDate: 0,
-				maxDate: "+2y",
-				onSelect: function(dateText,inst){
-						$(this).val(dateText);
-				}
-			});
-			this.ui.dateEnd.datepicker({
-				changeMonth: true,
-				changeYear: true,
-				constrainInput: false,
-				dateFormat: 'dd/mm/yy',
-				numberOfMonths: 2,
-				minDate: 0,
-				maxDate: "+2y",
-				onSelect: function(dateText,inst){
-						$(this).val(dateText);
-				}
-			});
-			
-			//if in edit mode, set the correct field values
-			if(this._state === this.STATES.EDIT){
-			
-				this.$el.find('#fields-destination').val(this.model.get('destination').capitalize());
+			//datepickers and select2.0
+			if(this._visible !== true){
+				this._visible = true;
 				
-				this.$el.find('#fields-number-of-nights').val(this.model.get('numNights'));
-				this.$el.find('#fields-number-of-rooms').val(this.model.get('numRooms'));
-				
-				this.updateRooms();
-				
-				/*set the adults/children/infants for the rooms*/
-				var adult = this.model.get('adultCsv').split(',');
-				var child = this.model.get('childCsv').split(',');
-				
-				this.$el.find('.room-row-item').each(function(i,el){
-					$(el).find('select.fields-number-of-adults').val(adult[i]);
-					$(el).find('select.fields-number-of-children').val(child[i]);
+				this.ui.dateStart.datepicker({
+					changeMonth: true,
+					changeYear: true,
+					constrainInput: false,
+					dateFormat: 'dd/mm/yy',
+					numberOfMonths: 2,
+					minDate: 0,
+					maxDate: "+2y",
+					onSelect: function(dateText,inst){
+							$(this).val(dateText);
+					}
 				});
-				
+				this.ui.dateEnd.datepicker({
+					changeMonth: true,
+					changeYear: true,
+					constrainInput: false,
+					dateFormat: 'dd/mm/yy',
+					numberOfMonths: 2,
+					minDate: 0,
+					maxDate: "+2y",
+					onSelect: function(dateText,inst){
+							$(this).val(dateText);
+					}
+				});			
+				this.initSelectBoxes();
 			}
-			else{
-				this.updateRooms();
-			}
-			this.initSelectBoxes();
 		},
 		
 		/**
 			Close callback function
 		*/
 		onClose: function(){
-			this.ui.dateStart.datepicker('destroy');	
-			this.ui.dateEnd.datepicker('destroy');
-			this.ui.fieldDeparture.select2('destroy');
-			this.ui.fieldSelectAll.select2('destroy');
+			if($.contains(document.documentElement, this.$el[0])){
+				this.ui.dateStart.datepicker('destroy');	
+				this.ui.dateEnd.datepicker('destroy');
+				this.ui.fieldDeparture.select2('destroy');
+				this.ui.fieldSelectAll.select2('destroy');
+			}
 		},
 		
 		
@@ -310,7 +323,72 @@ define([
 		*/
 		validate: function(){
 			
+			this.removeErrors();
+			
+			//only if in the correct trip mode
+			if(this.model.get('tripType') === this.model.TRIP_TYPES.PACKAGE){
+				if(this.ui.fieldDeparture.val().length < 1){
+					this.addError(this.ui.fieldDeparture,'Select an Airport', 'top center');
+					return false;
+				}
+			}
+			if(this.ui.dateStart.val().length < 1){
+				this.addError(this.ui.dateStart,'Choose a Start Date', 'bottom center');
+				return false;
+				
+			}
+			//valid date
+			if(!moment(this.ui.dateStart.val(),'DD/MM/YYYY').isValid()){
+				this.addError(this.ui.dateStart,'Enter a Valid Date', 'bottom center');
+				return false;
+			}
+			
+			if(this.ui.dateEnd.val().length < 1){
+				this.addError(this.ui.dateEnd,'Choose an End Date', 'bottom center');
+				return false;
+			}
+			if(!moment(this.ui.dateEnd.val(),'DD/MM/YYYY').isValid()){
+				this.addError(this.ui.dateEnd,'Enter a Valid Date', 'bottom center');
+				return false;
+			}
+			if(this.ui.fieldDestination.val().length < 1){
+				this.addError(this.ui.fieldDestination,'Select a Destination', 'top center');
+				return false;
+			}
 			return true;
+		},
+		
+		
+		/**
+			Removes any errors that have been added with addError
+		*/
+		removeErrors: function(){
+			this.$el.find('.the-tooltip').remove();
+		},
+		
+		/**
+			Adds a 'tooltip' error to the elements
+			
+			@param element {jQuery Element} the object to append the error to
+			@param message {String} the Error message
+			@param [position] {String} 'the-tooltip' position. Defaults to 'top center'
+		*/
+		addError: function(element,message, position){
+			position = position || 'top center';
+			
+			var ttHtml = '<div class="the-tooltip '+position+' apple-green"><span>'+message+"</span></div>";
+			
+			if(position.indexOf('bottom')!== -1){
+				$(element).parent().append(ttHtml);	
+			}
+			else{
+				$(element).parent().prepend(ttHtml);	
+			}
+		
+			var $tt = $(element).parent().find('.the-tooltip span');
+			
+			$tt.css({visibility: 'visible', opacity: '1', 'z-index':'99'});
+			
 		},
 		
 		
@@ -345,12 +423,14 @@ define([
 			@param {jQuery Event} event
 		*/
 		submitForm: function(event){
-		
+			event.preventDefault();
+			
+			
 			if(!this.validate()){
 				return;
 			}
 		
-			event.preventDefault();
+			
 			this.model.setOccupancy(this.getFormOccupancy());
 			
 			//work out num nights

@@ -159,12 +159,13 @@ define([
 			@param {MulticomAccommodationCollection} newCollection
 		*/
 		setCollection: function(newCollection){
-			if(this._visible){
+			this.collection = newCollection;
+/*			if(this._visible){
 				this.collection.reset(newCollection.models);
 			}
 			else{
 				this.collection.reset(newCollection.models, {silent: true});
-			}
+			}*/
 		},
 		
 		

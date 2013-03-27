@@ -63,21 +63,35 @@ define([
 			
 			if(this.ui.editSearchBtn.hasClass('active')){
 				//hide
-				this.overlay.reset();
-				this.ui.editSearchBtn.removeClass('active');
+				this.hideOverlay();
 			}
 			else{
 				//show
 				this.overlay.show(new SearchFormView({
 					holidaySearch: reqres.request('search:get:booking').get('holidaySearch')	
 				}));
+				this.listenTo(this.overlay.currentView,'save',this.handleSearchEvent); //set up a listener
 				this.ui.editSearchBtn.addClass('active');
 			}
 			
 		},
+		
+		/**
+			Hides the search form and updates the nav
+		*/
 		hideOverlay: function(){
-			this.$el.find('.header-overlay').hide();
-			this.$el.find('.header-bar .edit').removeClass('active');
+			this.overlay.close();
+			this.ui.editSearchBtn.removeClass('active');
+		},
+		
+		/**
+			Callback for a search event
+			
+			@param {HolidaySearch} model
+		*/
+		handleSearchEvent: function(model){
+			this.hideOverlay();
+			vent.trigger("search:trip:edit",model);
 		}
 		
 	});
