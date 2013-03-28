@@ -102,7 +102,7 @@ define([
 		*/
 		onShow: function(){
 			this._contactView = new TravellersContactView({model: this.model.get('travellersInfo').getLeadTraveller()});
-			this._summaryView = new SidebarSummaryView({model: this.model});
+			this._summaryView = new SidebarSummaryView({model: this.model, displayBooking: false});
 			this._staticView = new SidebarStaticView();
 			this._tacView = new TravellersTacView({model: this.model});
 			this._editView = new TravellersEditLayout({model: this.model});

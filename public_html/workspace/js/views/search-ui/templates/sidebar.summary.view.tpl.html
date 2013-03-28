@@ -36,17 +36,17 @@
 			Total
 		</div>
 		<div class="bottom-right">
-			£ <%= cost.total %> pp
+			£ <%= cost.total.toFixed(2) %>
 		</div>
 	</div>
 </div>
 
-<% if(displayBooking === true){ %>
-	<div class="summary-booking">
+<div class="summary-booking">
+	<% if(displayBooking === true){ %>
 		<a href="#" class="action action-booknow">Book Online Now</a>
-		<div class="msg">
-			<p>Or Call Us On</p>
-			<h3>01372 253 229</h3>
-		</div>
+	<% } %>
+	<div class="msg">
+		<p>Call Us On</p>
+		<h3>01372 253 229</h3>
 	</div>
-<% } %>
+</div>
