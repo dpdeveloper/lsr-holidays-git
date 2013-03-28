@@ -2180,7 +2180,7 @@ button.ui-button::-moz-focus-inner {
 
 /* line 610, ../../../sass/plugins/jqueryui/_jquery-ui.scss */
 .ui-datepicker table {
-  width: 1px;
+  width: 100%;
   font-size: .9em;
   border-collapse: collapse;
   margin: -1px 0 0 0;
