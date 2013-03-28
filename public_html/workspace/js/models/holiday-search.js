@@ -90,40 +90,19 @@ define([
 		},
 		
 		
+		/* -------------------------------- UTILITY FUNCTIONS -------------------------------- */
+		
+		
+		
+		
+		
+		
+		/* -------------------------------- SET FUNCTIONS -------------------------------- */
+		
 		setType: function(type){
 			if($.inArray(type, _.toArray(this.TRIP_TYPES)) !== -1){
 				this.set('tripType',type);
 			}
-		},
-		
-		/**
-			@returns {Array} An array of the room occupancies
-		*/
-		getRoomOccupancy: function(){
-			var data = [];
-			
-			var adult = this.get('adultCsv');
-			var infant = this.get('infantCsv');
-			var child  = this.get('childCsv');
-			
-			adult = adult.split(',');
-			infant = infant.split(',');
-			child = child.split(',');
-			
-			for(var i=0; i< this.get('numRooms'); i++){
-				data[i] = [];
-			
-				if(i < adult.length){
-					data[i].adults = adult[i];
-				}
-				if(i < child.length){
-					data[i].children = child[i];
-				}
-				if(i < infant.length){
-					data[i].infants = infant[i];
-				}
-			}
-			return data;
 		},
 		
 		
@@ -160,6 +139,88 @@ define([
 				childCsv: children,
 				infantCsv: infant
 			});
+		},
+		
+		/**
+			Sets the start date and number of nights from two dates
+			
+			@param {String} start dd/mm/yyy
+			@param {String} end dd/mm/yyyy
+		*/
+		setDatesFromStartFinish: function(start,end){
+			var format="DD/MM/YYYY";
+			
+			var s = moment(start,format);
+			var e = moment(end,format);
+		
+			var nights = (e.diff(s, 'days')).toString();
+			
+			this.set({
+				dateStart: start,
+				numNights: nights	
+			});
+		},
+		
+		/**
+			
+			@param {Boolean} numNightsConstant keep the number of nights constant or not
+			
+		*/
+		setStartDateFromEndDate: function(endDate, numNightsConstant){
+			numNightsConstant = numNightsConstant || false;
+			
+			var format="DD/MM/YYYY";
+		
+			if(moment(endDate, format).isValid()){
+				
+				if(	numNightsConstant ||
+					moment(endDate,format).isBefore(moment(this.get('dateStart'),format)) ||
+					moment(endDate,format).isSame(moment(this.get('dateStart'),format))
+				){
+					
+					var start = moment(endDate,format).subtract('days',this.get('numNights'));
+					this.set({dateStart: moment(start).format(format)});
+				}
+				else{
+					var num = moment(endDate,format).diff(moment(this.get('dateStart'),format),'days');
+					this.set({numNights: num});
+				}
+			}
+		},
+		
+		
+		/* -------------------------------- GET FUNCTIONS -------------------------------- */
+		
+		
+		
+		/**
+			@returns {Array} An array of the room occupancies
+		*/
+		getRoomOccupancy: function(){
+			var data = [];
+			
+			var adult = this.get('adultCsv');
+			var infant = this.get('infantCsv');
+			var child  = this.get('childCsv');
+			
+			adult = adult.split(',');
+			infant = infant.split(',');
+			child = child.split(',');
+			
+			for(var i=0; i< this.get('numRooms'); i++){
+				data[i] = [];
+			
+				if(i < adult.length){
+					data[i].adults = adult[i];
+				}
+				if(i < child.length){
+					data[i].children = child[i];
+				}
+				if(i < infant.length){
+					data[i].infants = infant[i];
+				}
+			}
+			return data;
 		},
 		
 		
@@ -235,28 +296,6 @@ define([
 			c.push(roomOcc);
 			this.setOccupancy(c);
 		},
-		
-		
-		/**
-			Sets the start date and number of nights from two dates
-			
-			@param {String} start dd/mm/yyy
-			@param {String} end dd/mm/yyyy
-		*/
-		setDatesFromStartFinish: function(start,end){
-			var format="DD/MM/YYYY";
-			
-			var s = moment(start,format);
-			var e = moment(end,format);
-		
-			var nights = (e.diff(s, 'days')).toString();
-			
-			this.set({
-				dateStart: start,
-				numNights: nights	
-			});
-		},
-		
 		
 		/**
 			Calculates the end Date

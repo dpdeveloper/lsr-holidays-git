@@ -212,4 +212,33 @@ describe("Holiday Search Model", function() {
 	});
 	
 	
+	describe('Date Editing', function(){
+		
+		it('getStartDateFromEndDate should set the start date from an end date ', function(){
+			this.model.set({
+				dateStart: '15/05/2013',
+				numNights: 5
+			});
+			
+			//simple
+			this.model.setStartDateFromEndDate('18/05/2013');
+			
+			expect(this.model.get('dateStart')).toEqual('15/05/2013');
+			expect(this.model.get('numNights')).toEqual(3);
+			
+			//keep the num nights constant
+			this.model.setStartDateFromEndDate('16/05/2013', true);
+			expect(this.model.get('dateStart')).toEqual('13/05/2013');
+			expect(this.model.get('numNights')).toEqual(3);
+			
+			//if set before
+			this.model.setStartDateFromEndDate('10/05/2013', true);
+			expect(this.model.get('dateStart')).toEqual('07/05/2013');
+			expect(this.model.get('numNights')).toEqual(3);
+			
+		});
+		
+	});
+	
+	
 });

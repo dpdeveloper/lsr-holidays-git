@@ -255,6 +255,8 @@ define([
 		*/
 		onShow: function(){
 			
+			var self = this;
+			
 			//datepickers and select2.0
 			if(this._visible !== true){
 				this._visible = true;
@@ -268,7 +270,9 @@ define([
 					minDate: 0,
 					maxDate: "+2y",
 					onSelect: function(dateText,inst){
-							$(this).val(dateText);
+						$(this).val(dateText);
+						self.model.set({dateStart: dateText});
+						self.ui.dateEnd.val(self.model.getEndDate());
 					}
 				});
 				this.ui.dateEnd.datepicker({
@@ -280,7 +284,9 @@ define([
 					minDate: 0,
 					maxDate: "+2y",
 					onSelect: function(dateText,inst){
-							$(this).val(dateText);
+						$(this).val(dateText);
+						self.model.setStartDateFromEndDate(dateText);
+						self.ui.dateStart.val(self.model.get('dateStart'));
 					}
 				});			
 				this.initSelectBoxes();
