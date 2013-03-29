@@ -4638,11 +4638,11 @@ html, body {
 /* line 255, ../sass/screen.scss */
 .home-layout .home-layout-about {
   float: left;
-  width: 70%;
+  width: 75%;
 }
 /* line 259, ../sass/screen.scss */
 .home-layout .home-layout-search {
-  width: 30%;
+  width: 25%;
   position: absolute;
   z-index: 50;
   bottom: 0px;
