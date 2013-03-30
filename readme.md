@@ -133,6 +133,54 @@ The tests reside in the *(/tests/specs/)* folder and can be run using the *(/tes
 5. Load (*tests/index.html*) in browser to confirm that the test has run
 
 
+## Writing Unit tests
+
+This project uses the BDD (Behaviour Driven Development) approach to unit testing. [A good tutorial can be found here](http://net.tutsplus.com/tutorials/javascript-ajax/testing-your-javascript-with-jasmine/).
+
+There are two types of unit tests for objects:
+
+ - **General** - these should test that the view/model/collection can be initialised and rendered. This is so that if there are any syntax errors in the javascript, these will be picked up
+ - **Specific** For every function that is written for a model/view/collection/etc. Unit tests should be written to ensure that the function is performing correctly. For more information, see BDD section below
+ 
+###BDD (Behaviour Driven Development)
+
+The unit test structure is designed for Behaviour Driven Development, how this works is as follows:
+
+1. Write Unit test for object
+2. Run unit test: It should fail. (You now know that the unit test works correctly)
+3. Write function code
+4. Run unit test: It should pass
+
+This way you know when function is performing correctly because it's unit test tells you. Thus if you modify code in the future and a unit test fails, you now know that you have introduced a bug.
+
+
+## File Structure
+
+
+**Views**
+
+Each view will have the following componenets:
+
+1. Backbone.Marionette View file
+2. Template File
+3. Unit Test File.
+
+These 3 files should be named appropriately and go in the correct folders. The file structure is as follows:
+
+public_html/workspace/js/views/ SECTION / SUBSECTION / SUBSECTION.VIEW-NAME.view.js (View file)
+
+public_html/workspace/js/views/ SECTION / templates / SUBSECTION.VIEW-NAME.tpl.html (Template File)
+
+tests/specs/views/ SECTION / SUBSECTION / SUBSECTION.VIEW-NAME.spec.js (Unit test)
+
+- Where SECTION is the section of the application (ie search-ui)
+- Where SUBSECTION is the part of the ui (ie flights or hotels) NB: Some small sections (like page) don't have subsections
+- WHERE VIEW-NAME is the name of the view (ie for FlightDetailView it would be flight.detail.view)
+
+Each view is thus self contained and true to the require.js AMD principle. To access any files, the 'require()' require.js function should be used.
+
+
+
 ## Useful Files / Foliders:
 
 * **/designer/** An environment that loads the application in test mode and displays the search pane
