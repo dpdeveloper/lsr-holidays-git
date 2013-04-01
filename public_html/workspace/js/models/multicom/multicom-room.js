@@ -45,7 +45,21 @@ define([
 		*/
 			
 		setOccupancy: function(adults,children,infants){
+			//just make sure everything is setup corrrectly
+			adults = parseInt(adults,10);
+			children = parseInt(children,10);
+			infants = parseInt(infants,10);
+			
 			this.set({occupancy: {adults: adults, children: children, infants: infants}});
+		},
+		
+		getOccupancy: function(){
+			var o = this.get('occupancy');
+			
+			if(o === null){
+				return {adults: 0, children: 0, infants: 0};
+			}
+			return o;
 		},
 		
 		/**

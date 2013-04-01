@@ -310,6 +310,8 @@ define([
 			The current views are hidden and the loading view is opened
 		*/
 		onShortlist: function(){
+			//Backbone.history.navigate('/search/travellers');
+		
 			this._loadingView = new SearchUILoadingView();
 			this.loading.show(this._loadingView);
 			this._hotelsDetail.closeAnimated();

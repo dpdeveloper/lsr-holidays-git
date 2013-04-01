@@ -174,6 +174,13 @@ describe("Holiday Search Model", function() {
 			expect(occ[1].children).toEqual('0');
 			expect(occ[1].infants).toEqual('1');
 		});
+		
+		it('getChildAges returns an array of the ages', function(){
+			this.model.set({childAges: '2,3,8'});
+			
+			expect(this.model.getChildAges()).toEqual([2,3,8]);
+			
+		});
 	});
 	
 	describe('Get an array of the travellers', function(){

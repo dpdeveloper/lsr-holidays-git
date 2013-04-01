@@ -51,10 +51,20 @@ define([
 		
 		sortStrategies: {
 			classAsc: function(model){
-				return parseInt(model.get('classCode').charAt(0),10);		
+				if(typeof model.get('classCode') !== 'undefined'){
+					return parseInt(model.get('classCode').charAt(0),10);
+				}
+				else{
+					return 0;
+				}
 			},
 			classDesc: function(model){
-				return - parseInt(model.get('classCode').charAt(0),10);	
+				if(typeof model.get('classCode') !== 'undefined'){
+					return - parseInt(model.get('classCode').charAt(0),10);	
+				}
+				else{
+					return 0;
+				}
 			},
 			noSort: null
 		},

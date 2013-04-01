@@ -30,7 +30,8 @@ define([
 		
 		appRoutes: {
 			'' : 'index',
-			'search/': 'search'
+			'search/': 'search',
+			'search/travellers': 'searchTravellers'
 		}
 		
 	});	

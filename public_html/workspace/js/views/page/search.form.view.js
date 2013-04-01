@@ -275,7 +275,9 @@ define([
 						self.ui.dateEnd.val(self.model.getEndDate());
 						
 						//prevent weird UI stuff
-						self.ui.dateEnd.datepicker('option','minDate',self.model.get('dateStart'));	
+						setTimeout(function(){
+							self.ui.dateEnd.datepicker('option','minDate',self.model.get('dateStart'));	
+						},200);
 					}
 				});
 				this.ui.dateEnd.datepicker({

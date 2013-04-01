@@ -62,8 +62,8 @@ define([
 			directFlights: 'no',
 			
 			//party info
-			thirdPartyInsurance: null,
-			thirdPartyInsuranceName: null
+			thirdPartyInsurance: false,
+			thirdPartyInsuranceName: ''
 		},
 		
 		TRIP_TYPES: {
@@ -79,13 +79,6 @@ define([
 			if(!options.tripType){
 				this.set({tripType: this.TRIP_TYPES.PACKAGE});	
 			}
-			/*
-			if(!options.dateStart){
-				this.set({
-					dateStart: moment().add('days',14).format('DD/MM/YYYY')
-				});	
-			}*/
-			
 			
 			_.bindAll(this);
 		},
@@ -229,6 +222,21 @@ define([
 		
 		/* -------------------------------- GET FUNCTIONS -------------------------------- */
 		
+		
+		/**
+			@return {Array} Array of Child Ages in integer format
+		*/
+		getChildAges: function(){
+			var age = this.get('childAges').split(',');
+			
+			var arr = [];
+			
+			_.each(age,function(item){
+				arr.push(parseInt(item,10));
+			});
+			
+			return arr;
+		},
 		
 		
 		/**

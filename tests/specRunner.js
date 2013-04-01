@@ -111,6 +111,8 @@ require([
 		'spec/models/multicom/multicom-room.spec',
 		'spec/models/multicom/multicom-accommodation.spec',
 		'spec/models/multicom/multicom-flight.spec',
+		'spec/models/multicom/multicom-shortlist.spec',
+		
 		'spec/models/flight-filter.spec',
 		'spec/models/symphony-hotel.spec',
 		'spec/models/holiday-search.spec',

@@ -1,1 +1,1371 @@
-{"result":"success","data":{"AccommodationSearchResponse":{"#name":"AccommodationSearchResponse","@Success":"true","@ModifiedRequest":"false","ViewInfo":{"@Offset":"0","#name":"ViewInfo","#text":"","@Length":"75"},"ResultSetInfo":{"@SortCode":"cost","@SortAscending":"true","#name":"ResultSetInfo","#text":"","@MaxItems":"1000","@NumItems":"75"},"Accommodations":{"#name":"Accommodations","#text":"","AccommodationSegment":[{"#text":"","@NumNights":"3","@Type":"Hotel","@SyndicatorRanking":"100","@ItineraryId":"si1238","TelephoneNumber":{"#name":"TelephoneNumber","#text":"702-385-4011"},"@AccommodationName":"Four Queens Hotel","@NormalisedName":"FOUR QUEENS","Image":[{"@ThumbnailURL":"http://gab.ivector.co.uk/CMS/DataObjects/ThirdPartyProperty/Image/ext157/imagethumb_156541_v1.jpg","@URL":"http://gab.ivector.co.uk/CMS/DataObjects/ThirdPartyProperty/Image/ext157/image_156541_v1.jpg","#name":"Image","#text":"","@CaptionText":"image01"},{"@URL":"http://gab.ivector.co.uk/CMS/DataObjects/ThirdPartyProperty/Image/ext157/image_156541_3505949.jpg","#name":"Image","#text":"","@CaptionText":"image02"},{"@URL":"http://gab.ivector.co.uk/CMS/DataObjects/ThirdPartyProperty/Image/ext157/image_156541_3505950.jpg","#name":"Image","#text":"","@CaptionText":"image03"}],"#name":"AccommodationSegment","@Supplier":"GA2","@AccommodationId":"1794988","Address":{"@Country":"US","@PostCode":"89101","#name":"Address","@CityOrTown":"Las Vegas Downtown","@Address3":"United States of America","@Address1":"202 Fremont St,","#text":"","@Address2":"Las Vegas"},"@EndDate":"20130401","AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":[{"#name":"AccommodationUnit","@Name":"Double Standard","RoomRate":{"@SuppliersBoardCode":"2","@RateCode":"ZeM1fTkyGZdQsNOwOCuL1eBtoS4L78erQSJwMtC6mU6fFpF1ZrowUE/dzdqm7J50kFHOUm+xno0S6d1QY4qU9Hsl+tmIdz90pmusjr4X4oiJ71+cZVCpLbB2ynJHJNDnzg/uqkuQizb3tP6or5lQ4+lz/pVTpMTsBG07dD609RG6BeUTHo/8PaopPnaOYsQUMCqfOt0QfWE=","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","#text":"","@Amount":"102.84","@BoardBasis":"RO"},"@AUID":"0|2 A","@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"0|2 A","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"Double Deluxe","RoomRate":{"@SuppliersBoardCode":"2","@RateCode":"ZeM1fTkyGZdQsNOwOCuL1eBtoS4L78erQSJwMtC6mU6fFpF1ZrowUE/dzdqm7J50kFHOUm+xno0S6d1QY4qU9Hsl+tmIdz90AV0baNvH7ivP1elUJN58RQMpKzK+FOmfX7Xl2kZQM5cS1oM2jHbAEJO+DtAUU9aERIopkeWYyl7D4kcTN0ZsCVLePWAy8kRG","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","#text":"","@Amount":"118.36","@BoardBasis":"RO"},"@AUID":"0|2 A","@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"0|2 A","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"Double Suite","RoomRate":{"@SuppliersBoardCode":"2","@RateCode":"ZeM1fTkyGZdQsNOwOCuL1eBtoS4L78erQSJwMtC6mU6fFpF1ZrowUE/dzdqm7J50kFHOUm+xno0S6d1QY4qU9Hsl+tmIdz90bhLQ/ftR+GbOUJSTsEXkgHRE/nTQx7zOfQpd9LlnnG+woTwF8OOFtOWFmJ0ROUYGWI1LTWWkUWbpgUwxscFVzF+K/eFDVU/J","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","#text":"","@Amount":"219.3","@BoardBasis":"RO"},"@AUID":"0|2 A","@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"0|2 A","@MinOccupancy":"2"}]},"@BasicAdultCost":"102.84","@SuppliersBoardCode":"2","@ClassCode":"3*","@ResortName":"Las Vegas - NV","@SupplierLocationId":"19|8326","@Availability":"available","@BookableByFAB":"true","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"},"Description":{"#name":"Description","#text":"Location: The hotel is located in the heart of Fremont Street in downtown Las Vegas. It is close to Fashion Show Mall and Las Vegas Convention Center. The nearest airport is McCarran International Airport (LAS). Description: This classic glitter gulch landmark hotel offers old-fashioned glamour and low-cost gaming. The spacious guestrooms feature contemporary look and are equipped with all the essential facilities one can think of. It provides top quality family entertainment and round-the-clock excitement. Hotel amenities: 24-hour front desk, air conditioning, ATM(Cash machine), business center, concierge desk, Currency exchange, elevators, laundry/valet service, gift shop, Reception safe, tour/sightseeing desk, wheel chair access, wireless internet connection in public areas. Room amenities: Air conditioning, Coffee/Tea maker, Hairdryer, Internet access, Non-smoking, Safe, Shower, Smoking, Trouser/Pant press, Cable Television, Laundry, Movies, Telephone, Toiletries. Leisure amenities: Gambling. URL: http://www.fourqueens.com. Built: 1966. Renovated: 1999. Number of rooms: 690. Number of floors : 19. Number of handicapped rooms: 18. GPS Latitude: 36.1706970000. GPS Longitude: -115.1440320000. Food and beverage: . Value added: . Note: ."},"@ResortId":"1833","@BoardCode":"RO","@AccommodationCode":"1059915","@MaxChildAge":"12","@Currency":"GBP","@StartDate":"20130329"},{"@Availability":"available","@Type":"Hotel","@ItineraryId":"si1293","@ResortId":"1833","@ResortName":"Las Vegas - NV","#text":"","@NormalisedName":"BOULDER STATION","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89121","#name":"Address","@CityOrTown":"LAS VEGAS","@Address1":"4111 BOULDER HIGHWAY","#text":"","@Address2":"LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":[{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"Zb818GR9KmO8phFSZiIeWQ==","#text":"","@Amount":"106.58","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2B","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"Zb818GR9KmO8phFSZiIeWQ==","#text":"","@Amount":"144.0","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2C","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"}]},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/10/102402/102402a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102402/102402a_hb_a_003.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102402/102402a_hb_w_002.jpg","#name":"Image","#text":"","@CaptionText":"Room"}],"@Supplier":"BAR","@OfficialRating":"3 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.0842","@Latitude":"36.1306"},"@AccommodationCode":"102402","@BasicAdultCost":"106.58","@MaxChildAge":"17","@ClassCode":"3*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"7024327777"},"@ContractCode":"GC-B2B;GC-B2C","@AccommodationId":"1545129","Description":{"#name":"Description","#text":"The hotel has the look of a traditional western train station, including a hardwood walkway encircling the casino floor and beautiful stained glass features surrounding 42 table games and bar/lounges. This city establishment comprises a total of 300 guest rooms and further facilities on offer to guests at this air-conditioned establishment include a 24-hour reception and check out service, a hotel safe, a cloakroom and lift access. It also offers a café, a nightclub and an auditorium. Restaurants, conference facilities and a laundry service are all at guests' disposal and there is a car park and a covered parking garage for those arriving by car. The younger guests will enjoy the children's playground (charges apply)."},"@SupplierLocationId":"LVS|1","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Boulder Station Hotel Casino","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}},{"@Availability":"available","@Type":"Hotel","@ItineraryId":"si1290","@ResortId":"11284","@ResortName":"North Las Vegas","#text":"","@NormalisedName":"SANTA FE STATION","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89130","#name":"Address","@CityOrTown":"LAS VEGAS","@Address1":"4949 NORTH RANDRO","#text":"","@Address2":"LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":[{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"Uwg2eFqcR3vzhw97j9ifsA==","#text":"","@Amount":"109.31","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2B","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"Uwg2eFqcR3vzhw97j9ifsA==","#text":"","@Amount":"147.68","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2C","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"}]},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/10/102404/102404a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102404/102404a_hb_ba_003.jpg","#name":"Image","#text":"","@CaptionText":"Bar"}],"@Supplier":"BAR","@OfficialRating":"3 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.2431","@Latitude":"36.251"},"@AccommodationCode":"102404","@BasicAdultCost":"109.31","@MaxChildAge":"17","@ClassCode":"3*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"7026584900"},"@ContractCode":"GC-B2B;GC-B2C","@AccommodationId":"1527373","Description":{"#name":"Description","#text":"The hotel is located on more than 15 hectares and offers 200 hotel rooms. The air-conditioned property features a lobby with 24-hour reception and check-out service, cloakroom, lift access, auditorium, casino, bar, disco and restaurant. Furthermore, conference facilities, room and laundry services, a car park and a garage are available."},"@SupplierLocationId":"LVS|11","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Santa Fe Station Hotel Casino","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}},{"@Availability":"available","@Type":"Hotel","@ItineraryId":"si1266","@ResortId":"1833","@ResortName":"Las Vegas - NV","#text":"","@NormalisedName":"AMERICAS BEST VALUE INN SUITES LAS VEGAS AIR","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89109","#name":"Address","@CityOrTown":"LAS VEGAS","@Address1":"167 EAST TROPICANA","#text":"","@Address2":"LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":{"#name":"AccommodationUnit","@Name":"DOUBLE GUEST ROOM","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"4sYa48JMT5F6beFHe/hiFA==","#text":"","@Amount":"110.31","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:GR:GC-ALL","@RoomType":"DBL-U10:GR","@MinOccupancy":"2"}},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/01/016917/016917a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/01/016917/016917a_hb_a_003.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/01/016917/016917a_hb_w_002.jpg","#name":"Image","#text":"","@CaptionText":"Room"}],"@Supplier":"BAR","@OfficialRating":"2 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.1659","@Latitude":"36.1008"},"@AccommodationCode":"16917","@BasicAdultCost":"110.31","@MaxChildAge":"17","@ClassCode":"2*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"702-795-3311"},"@ContractCode":"GC-ALL","@AccommodationId":"92889","Description":{"#name":"Description","#text":"Renovated in 2000, the hotel comprises a total of 47 rooms spread over 2 floors. Fully air-conditioned, guests are received in the foyer with 24-hour reception, hotel safe and lifts. A bar and a restaurant (with highchairs for children) are also available for guest's use. Guests arriving by car can park in the hotel car park."},"@SupplierLocationId":"LVS|3","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Americas Best Value Inn and Suites  Las Vegas Air","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}},{"@Availability":"available","@Type":"Hotel","@ItineraryId":"si1292","@ResortId":"11284","@ResortName":"North Las Vegas","#text":"","@NormalisedName":"FIESTA RANCHO","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89130","#name":"Address","@CityOrTown":"NORTH LAS VEGAS","@Address1":"2400 NORTH RANCHO DRIVE","#text":"","@Address2":"NORTH LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":[{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"A5TIbjDa16pmC9J9xhHCSQ==","#text":"","@Amount":"111.51","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2B","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"A5TIbjDa16pmC9J9xhHCSQ==","#text":"","@Amount":"150.65","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2C","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"}]},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/10/102405/102405a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102405/102405a_hb_a_006.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102405/102405a_hb_ba_003.jpg","#name":"Image","#text":"","@CaptionText":"Bar"}],"@Supplier":"BAR","@OfficialRating":"3 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.1995","@Latitude":"36.2032"},"@AccommodationCode":"102405","@BasicAdultCost":"111.51","@MaxChildAge":"17","@ClassCode":"3*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"702-631-7000"},"@ContractCode":"GC-B2B;GC-B2C","@AccommodationId":"1544947","Description":{"#name":"Description","#text":"This 5-storey, 100-room hotel tower is set in contemporary décor and has been designed to meet the needs of the individual, family or business traveller. Fully air-conditioned, the hotel features 24-hour reception and check-out service, a cloakroom, lift access, a casino, a café, a bar, a restaurant, conference facilities and on-site parking for those arriving by car (garage/car park)."},"@SupplierLocationId":"LVS|11","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Fiesta Rancho Casino Hotel","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}},{"@Availability":"available","@Type":"Hotel","@ItineraryId":"si1291","@ResortId":"1833","@ResortName":"Las Vegas - NV","#text":"","@NormalisedName":"FIESTA HENDERSON","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89015","#name":"Address","@CityOrTown":"HENDERSON","@Address1":"777 WEST LAKE MEAD PKWY","#text":"","@Address2":"HENDERSON"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":[{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"dLBzdjWvGN6LcoJc9lJigw==","#text":"","@Amount":"115.8","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2B","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"DOUBLE STANDARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"dLBzdjWvGN6LcoJc9lJigw==","#text":"","@Amount":"156.46","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ST:GC-B2C","@RoomType":"DBL-U10:ST","@MinOccupancy":"2"}]},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/10/102406/102406a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102406/102406a_hb_w_002.jpg","#name":"Image","#text":"","@CaptionText":"Room"}],"@Supplier":"BAR","@OfficialRating":"3 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.0069","@Latitude":"36.0344"},"@AccommodationCode":"102406","@BasicAdultCost":"115.8","@MaxChildAge":"17","@ClassCode":"3*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"7025587000"},"@ContractCode":"GC-B2B;GC-B2C","@AccommodationId":"1533479","Description":{"#name":"Description","#text":"This city hotel comprises a total of 223 guest rooms and has recently added a new 4-storey 1,500 space parking facility, more than 500 additional slot and video poker machines to the casino, a new 137-seat race and sports book, a new sports bar and a new amigo club. Fully air-conditioned, the establishment features 24-hour reception and check-out service, a cloakroom, lift access, an auditorium, a café, 5 restaurants, conference facilities and room and laundry services."},"@SupplierLocationId":"LVS|10","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Fiesta Henderson Casino Hotel","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}},{"@Availability":"available","@Type":"Unknown","@ItineraryId":"si1294","@ResortId":"7892","@ResortName":"The Strip","#text":"","@NormalisedName":"PALACE STATION","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89102","#name":"Address","@CityOrTown":"LAS VEGAS","@Address1":"2411 WEST SAHARA AVENUE","#text":"","@Address2":"LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":[{"#name":"AccommodationUnit","@Name":"DOUBLE COURTYARD","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"3x+mrplYtA7r5vRhKHbkaQ==","#text":"","@Amount":"116.68","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:CY:GC-B2C","@RoomType":"DBL-U10:CY","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"DOUBLE LUXURY ROOM-TOWER ROOM","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"3x+mrplYtA7r5vRhKHbkaQ==","#text":"","@Amount":"159.51","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:LX-TW:GC-B2C","@RoomType":"DBL-U10:LX-TW","@MinOccupancy":"2"}]},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/10/102401/102401a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/10/102401/102401a_hb_ba_004.jpg","#name":"Image","#text":"","@CaptionText":"Bar"},{"@URL":"http://www.hotelbeds.com/giata/10/102401/102401a_hb_l_003.jpg","#name":"Image","#text":"","@CaptionText":"Lobby"},{"@URL":"http://www.hotelbeds.com/giata/10/102401/102401a_hb_w_002.jpg","#name":"Image","#text":"","@CaptionText":"Room"}],"@Supplier":"BAR","@OfficialRating":"3 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.1743","@Latitude":"36.1442"},"@AccommodationCode":"102401","@BasicAdultCost":"116.68","@MaxChildAge":"17","@ClassCode":"3*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"702 367-2411"},"@ContractCode":"GC-B2C","@AccommodationId":"1545146","Description":{"#name":"Description","#text":"Guests visiting this hotel can enjoy the relaxed atmosphere and 'Vegas' feel of Station Casinos' original property. The hotel has been renovated and features several bars and lounges open 24 hours a day, including the Trackside Bar and Jack's Irish Pub. This 21-storey city hotel is an ideal place for guests visiting Vegas for fun and relaxation as well as for business travellers. It comprises a total of 960 rooms. Facilities on offer to guests at this air-conditioned establishment include a lobby area with a 24-hour reception and check out service, a hotel safe, a cloakroom and lift access. It also offers a hairdressing salon, a nightclub and a casino, naturally. Restaurants, conference facilities, room and laundry services and a car park and covered garage parking are also at guests' disposal. There is a free airport shuttle available to all guests at this hotel."},"@SupplierLocationId":"LVS|8","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Palace Station","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}},{"@Availability":"available","@Type":"Unknown","@ItineraryId":"si1298","@ResortId":"7892","@ResortName":"The Strip","#text":"","@NormalisedName":"MOTEL 6 LAS VEGAS TROPICANA","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89109","#name":"Address","@CityOrTown":"LAS VEGAS","@Address1":"195 EAST TROPICANA AVENUE","#text":"","@Address2":"LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":{"#name":"AccommodationUnit","@Name":"DOUBLE GUEST ROOM","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"tg85yNdKycA454gA3yEH5g==","#text":"","@Amount":"121.8","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:GR:GC-ALL","@RoomType":"DBL-U10:GR","@MinOccupancy":"2"}},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/12/128104/128104a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/12/128104/128104a_hb_w_002.jpg","#name":"Image","#text":"","@CaptionText":"Room"}],"@Supplier":"BAR","@OfficialRating":"2 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.1642","@Latitude":"36.1008"},"@AccommodationCode":"128104","@BasicAdultCost":"121.8","@MaxChildAge":"17","@ClassCode":"2*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"7027980728"},"@ContractCode":"GC-ALL","@AccommodationId":"2212863","Description":{"#name":"Description","#text":"Founded in 1962 in Santa Barbara, California, the hotel chain is synonymous with great travel value. The first hotel in Santa Barbara still carries the torch today, but a lot has changed for the motel chain that pioneered the first real economy motel designed for the no-frills traveller. The air-conditioned hotel welcomes guests in a lobby."},"@SupplierLocationId":"LVS|8","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Motel 6 Las Vegas Tropicana","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}},{"@Availability":"available","@Type":"Hotel","@ItineraryId":"si1276","@ResortId":"7892","@ResortName":"The Strip","#text":"","@NormalisedName":"QUAD RESORT","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89109","#name":"Address","@CityOrTown":"LAS VEGAS","@Address1":"3535 LAS VEGAS BLVD. SOUTH","#text":"","@Address2":"LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":{"#name":"AccommodationUnit","@Name":"DOUBLE DELUXE","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"gSRFf8ANa17l7dE2wZ262w==","#text":"","@Amount":"123.3","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:DX:GC-ALL","@RoomType":"DBL-U10:DX","@MinOccupancy":"2"}},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/08/083112/083112a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/08/083112/083112a_hb_w_007.jpg","#name":"Image","#text":"","@CaptionText":"Room"},{"@URL":"http://www.hotelbeds.com/giata/083112/083112a_hb_w_002.jpg","#name":"Image","#text":"","@CaptionText":"Room"}],"@Supplier":"BAR","@OfficialRating":"3 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.1727","@Latitude":"36.1175"},"@AccommodationCode":"83112","@BasicAdultCost":"123.3","@MaxChildAge":"17","@ClassCode":"3*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"702 731 3311"},"@ContractCode":"GC-ALL","@AccommodationId":"293222","Description":{"#name":"Description","#text":"Located in the heart of the famous Las Vegas Strip, this Asian-themed hotel attracts an international clientele with Las Vegas traditions and Asian food and decoration. We have a 6,975 m2 casino, and a seasonal outdoor pool with an adjacent year-round hot tub. Guests are welcomed into a lobby with 24-hour reception. Further facilities include hotel safe, currency exchange, cloakroom, lift access, hairdressing salon, auditorium, café, bar, restaurant, conference facilities, car park and garage. Internet access, room and laundry services are also available, for a fee."},"@SupplierLocationId":"LVS|8","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Quad Resort & Casino","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}},{"@Availability":"available","@Type":"Unknown","@ItineraryId":"si1286","@ResortId":"7892","@ResortName":"The Strip","#text":"","@NormalisedName":"SUPER 8 MOTEL LAS VEGAS","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89109","#name":"Address","@CityOrTown":"LAS VEGAS","@Address1":"4250 KOVAL LANE","#text":"","@Address2":"LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":{"#name":"AccommodationUnit","@Name":"DOUBLE RUN OF THE HOUSE","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"KBhsZ7LzCO12bKELMP5x/w==","#text":"","@Amount":"135.27","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:ROH:GC-ALL","@RoomType":"DBL-U10:ROH","@MinOccupancy":"2"}},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/10/105709/105709a_hb_l_002.jpg","#name":"Image","#text":"","@CaptionText":"Lobby"},{"@URL":"http://www.hotelbeds.com/giata/10/105709/105709a_hb_w_001.jpg","#name":"Image","#text":"","@CaptionText":"Room"}],"@Supplier":"BAR","@OfficialRating":"2 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.1632","@Latitude":"36.1124"},"@AccommodationCode":"105709","@BasicAdultCost":"135.27","@MaxChildAge":"17","@ClassCode":"2*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"7027940888"},"@ContractCode":"GC-ALL","@AccommodationId":"1516164","Description":{"#name":"Description","#text":"Whether travelling for business or leisure, this hotel has great amenities for a great price and very knowledgeable staff to satisfy guests' needs. There is a laundry service available. The hotel is AAA 2 diamond approved and features an abundance of amenities to make guests' stay more enjoyable. The air-conditioned property features a lobby with 24-hour check-out service and Internet access."},"@SupplierLocationId":"LVS|8","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Super 8 Motel Las Vegas","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}},{"@Availability":"available","@Type":"Hotel","@ItineraryId":"si1252","@ResortId":"7892","@ResortName":"The Strip","#text":"","@NormalisedName":"RIVIERA","@BookableByFAB":"true","Address":{"@Country":"US","@PostCode":"89109","#name":"Address","@CityOrTown":"LAS VEGAS","@Address1":"2901 LAS VEGAS BLVD SOUTH","#text":"","@Address2":"LAS VEGAS"},"AccommodationUnits":{"#name":"AccommodationUnits","#text":"","AccommodationUnit":[{"#name":"AccommodationUnit","@Name":"DOUBLE CLASSIC","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"UrRBAX1SkyJK7VxyT2sp6A==","#text":"","@Amount":"142.91","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:CS:B2B -16352","@RoomType":"DBL-U10:CS","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"DOUBLE DELUXE","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"UrRBAX1SkyJK7VxyT2sp6A==","#text":"","@Amount":"157.3","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:DX:B2B -16352","@RoomType":"DBL-U10:DX","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"DOUBLE LUXURY","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"UrRBAX1SkyJK7VxyT2sp6A==","#text":"","@Amount":"171.7","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:LU:B2B -16352","@RoomType":"DBL-U10:LU","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"DOUBLE STUDIO-SUITE","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"UrRBAX1SkyJK7VxyT2sp6A==","#text":"","@Amount":"258.04","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:DBL-U10:SD-SU:B2B -16352","@RoomType":"DBL-U10:SD-SU","@MinOccupancy":"2"},{"#name":"AccommodationUnit","@Name":"SUITE 1 BEDROOM-DELUXE","RoomRate":{"@SuppliersBoardCode":"RO-U10","#name":"RoomRate","@Currency":"GBP","@EndDate":"20130401","@StartDate":"20130329","@RateId":"iq5f6vv6gj4JDBczvzgUzQ==","#text":"","@Amount":"344.36","@BoardBasis":"RO"},"@MaxOccupancy":"2","#text":"","@QuantityAvailable":"1","@Code":"1:2:0:0:SUI-U10:B1-LX:B2B -16352","@RoomType":"SUI-U10:B1-LX","@MinOccupancy":"2"}]},"@EndDate":"20130401","Image":[{"@URL":"http://www.hotelbeds.com/giata/01/012799/012799a_hb_a_001.jpg","#name":"Image","#text":"","@CaptionText":"General"},{"@URL":"http://www.hotelbeds.com/giata/01/012799/012799a_hb_w_002.jpg","#name":"Image","#text":"","@CaptionText":"Room"}],"@Supplier":"BAR","@OfficialRating":"3 STARS","@NumNights":"3","GeoPosition":{"#name":"GeoPosition","#text":"","@Longitude":"-115.1621","@Latitude":"36.1356"},"@AccommodationCode":"12799","@BasicAdultCost":"142.91","@MaxChildAge":"17","@ClassCode":"3*","#name":"AccommodationSegment","TelephoneNumber":{"#name":"TelephoneNumber","#text":"7027345110"},"@ContractCode":"B2B -16352","@AccommodationId":"92835","Description":{"#name":"Description","#text":"The hotel has just completed a multi- million dollar renovation. Guests may visit and experience the new ultra casino and state- of- the art Race and Sports Book Bar and Grill. The hotel is also proud to present the new \\\"Signature Room\\\"."},"@SupplierLocationId":"LVS|8","@InfantAge":"0","@Currency":"GBP","@BoardCode":"RO","@SuppliersBoardCode":"RO-U10","@StartDate":"20130329","@AccommodationName":"Riviera Hotel and Casino","@SyndicatorRanking":"100","AvailableBoardBasis":{"#name":"AvailableBoardBasis","#text":"RO"}}]},"#text":""},"#name":"FAB_AccomAvailRS","@Target":"test","SyndicatorInfo":{"#name":"SyndicatorInfo","#text":"","@SyndicatorId":"LSRsports"},"#text":"","@Version":"2002A","SessionInfo":{"@FABSessionId":"0gzWtQguoA39K4ZBYYAA2Uin","@CreateNewSession":"false","#name":"SessionInfo","#text":""}}}
+{
+  "result" : "success",
+  "data" : {
+    "AccommodationSearchResponse" : {
+      "#name" : "AccommodationSearchResponse",
+      "@Success" : "true",
+      "@ModifiedRequest" : "false",
+      "ViewInfo" : {
+        "@Offset" : "0",
+        "#name" : "ViewInfo",
+        "#text" : "",
+        "@Length" : "75"
+      },
+      "ResultSetInfo" : {
+        "@SortCode" : "cost",
+        "@SortAscending" : "true",
+        "#name" : "ResultSetInfo",
+        "#text" : "",
+        "@MaxItems" : "1000",
+        "@NumItems" : "75"
+      },
+      "Accommodations" : {
+        "#name" : "Accommodations",
+        "#text" : "",
+        "AccommodationSegment" : [
+          {
+            "#text" : "",
+            "@NumNights" : "3",
+            "@Type" : "Hotel",
+            "@SyndicatorRanking" : "100",
+            "@ItineraryId" : "si1238",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "702-385-4011"
+            },
+            "@AccommodationName" : "Four Queens Hotel",
+            "@NormalisedName" : "FOUR QUEENS",
+            "Image" : [
+              {
+                "@ThumbnailURL" : "http://gab.ivector.co.uk/CMS/DataObjects/ThirdPartyProperty/Image/ext157/imagethumb_156541_v1.jpg",
+                "@URL" : "http://gab.ivector.co.uk/CMS/DataObjects/ThirdPartyProperty/Image/ext157/image_156541_v1.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "image01"
+              },
+              {
+                "@URL" : "http://gab.ivector.co.uk/CMS/DataObjects/ThirdPartyProperty/Image/ext157/image_156541_3505949.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "image02"
+              },
+              {
+                "@URL" : "http://gab.ivector.co.uk/CMS/DataObjects/ThirdPartyProperty/Image/ext157/image_156541_3505950.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "image03"
+              }
+            ],
+            "#name" : "AccommodationSegment",
+            "@Supplier" : "GA2",
+            "@AccommodationId" : "1794988",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89101",
+              "#name" : "Address",
+              "@CityOrTown" : "Las Vegas Downtown",
+              "@Address3" : "United States of America",
+              "@Address1" : "202 Fremont St,",
+              "#text" : "",
+              "@Address2" : "Las Vegas"
+            },
+            "@EndDate" : "20130401",
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : [
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "Double Standard",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "2",
+                    "@RateCode" : "ZeM1fTkyGZdQsNOwOCuL1eBtoS4L78erQSJwMtC6mU6fFpF1ZrowUE/dzdqm7J50kFHOUm+xno0S6d1QY4qU9Hsl+tmIdz90pmusjr4X4oiJ71+cZVCpLbB2ynJHJNDnzg/uqkuQizb3tP6or5lQ4+lz/pVTpMTsBG07dD609RG6BeUTHo/8PaopPnaOYsQUMCqfOt0QfWE=",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "#text" : "",
+                    "@Amount" : "102.84",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@AUID" : "0|2 A",
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "0|2 A",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "Double Deluxe",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "2",
+                    "@RateCode" : "ZeM1fTkyGZdQsNOwOCuL1eBtoS4L78erQSJwMtC6mU6fFpF1ZrowUE/dzdqm7J50kFHOUm+xno0S6d1QY4qU9Hsl+tmIdz90AV0baNvH7ivP1elUJN58RQMpKzK+FOmfX7Xl2kZQM5cS1oM2jHbAEJO+DtAUU9aERIopkeWYyl7D4kcTN0ZsCVLePWAy8kRG",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "#text" : "",
+                    "@Amount" : "118.36",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@AUID" : "0|2 A",
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "0|2 A",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "Double Suite",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "2",
+                    "@RateCode" : "ZeM1fTkyGZdQsNOwOCuL1eBtoS4L78erQSJwMtC6mU6fFpF1ZrowUE/dzdqm7J50kFHOUm+xno0S6d1QY4qU9Hsl+tmIdz90bhLQ/ftR+GbOUJSTsEXkgHRE/nTQx7zOfQpd9LlnnG+woTwF8OOFtOWFmJ0ROUYGWI1LTWWkUWbpgUwxscFVzF+K/eFDVU/J",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "#text" : "",
+                    "@Amount" : "219.3",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@AUID" : "0|2 A",
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "0|2 A",
+                  "@MinOccupancy" : "2"
+                }
+              ]
+            },
+            "@BasicAdultCost" : "102.84",
+            "@SuppliersBoardCode" : "2",
+            "@ClassCode" : "3*",
+            "@ResortName" : "Las Vegas - NV",
+            "@SupplierLocationId" : "19|8326",
+            "@Availability" : "available",
+            "@BookableByFAB" : "true",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            },
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "Location: The hotel is located in the heart of Fremont Street in downtown Las Vegas. It is close to Fashion Show Mall and Las Vegas Convention Center. The nearest airport is McCarran International Airport (LAS). Description: This classic glitter gulch landmark hotel offers old-fashioned glamour and low-cost gaming. The spacious guestrooms feature contemporary look and are equipped with all the essential facilities one can think of. It provides top quality family entertainment and round-the-clock excitement. Hotel amenities: 24-hour front desk, air conditioning, ATM(Cash machine), business center, concierge desk, Currency exchange, elevators, laundry/valet service, gift shop, Reception safe, tour/sightseeing desk, wheel chair access, wireless internet connection in public areas. Room amenities: Air conditioning, Coffee/Tea maker, Hairdryer, Internet access, Non-smoking, Safe, Shower, Smoking, Trouser/Pant press, Cable Television, Laundry, Movies, Telephone, Toiletries. Leisure amenities: Gambling. URL: http://www.fourqueens.com. Built: 1966. Renovated: 1999. Number of rooms: 690. Number of floors : 19. Number of handicapped rooms: 18. GPS Latitude: 36.1706970000. GPS Longitude: -115.1440320000. Food and beverage: . Value added: . Note: ."
+            },
+            "@ResortId" : "1833",
+            "@BoardCode" : "RO",
+            "@AccommodationCode" : "1059915",
+            "@MaxChildAge" : "12",
+            "@Currency" : "GBP",
+            "@StartDate" : "20130329"
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Hotel",
+            "@ItineraryId" : "si1293",
+            "@ResortId" : "1833",
+            "@ResortName" : "Las Vegas - NV",
+            "#text" : "",
+            "@NormalisedName" : "BOULDER STATION",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89121",
+              "#name" : "Address",
+              "@CityOrTown" : "LAS VEGAS",
+              "@Address1" : "4111 BOULDER HIGHWAY",
+              "#text" : "",
+              "@Address2" : "LAS VEGAS"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : [
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE STANDARD",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "Zb818GR9KmO8phFSZiIeWQ==",
+                    "#text" : "",
+                    "@Amount" : "106.58",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2B",
+                  "@RoomType" : "DBL-U10:ST",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE STANDARD",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "Zb818GR9KmO8phFSZiIeWQ==",
+                    "#text" : "",
+                    "@Amount" : "144.0",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2C",
+                  "@RoomType" : "DBL-U10:ST",
+                  "@MinOccupancy" : "2"
+                }
+              ]
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102402/102402a_hb_a_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102402/102402a_hb_a_003.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102402/102402a_hb_w_002.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Room"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "3 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.0842",
+              "@Latitude" : "36.1306"
+            },
+            "@AccommodationCode" : "102402",
+            "@BasicAdultCost" : "106.58",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "3*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "7024327777"
+            },
+            "@ContractCode" : "GC-B2B;GC-B2C",
+            "@AccommodationId" : "1545129",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "The hotel has the look of a traditional western train station, including a hardwood walkway encircling the casino floor and beautiful stained glass features surrounding 42 table games and bar/lounges. This city establishment comprises a total of 300 guest rooms and further facilities on offer to guests at this air-conditioned establishment include a 24-hour reception and check out service, a hotel safe, a cloakroom and lift access. It also offers a café, a nightclub and an auditorium. Restaurants, conference facilities and a laundry service are all at guests' disposal and there is a car park and a covered parking garage for those arriving by car. The younger guests will enjoy the children's playground (charges apply)."
+            },
+            "@SupplierLocationId" : "LVS|1",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Boulder Station Hotel Casino",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Hotel",
+            "@ItineraryId" : "si1290",
+            "@ResortId" : "11284",
+            "@ResortName" : "North Las Vegas",
+            "#text" : "",
+            "@NormalisedName" : "SANTA FE STATION",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89130",
+              "#name" : "Address",
+              "@CityOrTown" : "LAS VEGAS",
+              "@Address1" : "4949 NORTH RANDRO",
+              "#text" : "",
+              "@Address2" : "LAS VEGAS"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : [
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE STANDARD",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "Uwg2eFqcR3vzhw97j9ifsA==",
+                    "#text" : "",
+                    "@Amount" : "109.31",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2B",
+                  "@RoomType" : "DBL-U10:ST",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE STANDARD",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "Uwg2eFqcR3vzhw97j9ifsA==",
+                    "#text" : "",
+                    "@Amount" : "147.68",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2C",
+                  "@RoomType" : "DBL-U10:ST",
+                  "@MinOccupancy" : "2"
+                }
+              ]
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102404/102404a_hb_a_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102404/102404a_hb_ba_003.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Bar"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "3 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.2431",
+              "@Latitude" : "36.251"
+            },
+            "@AccommodationCode" : "102404",
+            "@BasicAdultCost" : "109.31",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "3*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "7026584900"
+            },
+            "@ContractCode" : "GC-B2B;GC-B2C",
+            "@AccommodationId" : "1527373",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "The hotel is located on more than 15 hectares and offers 200 hotel rooms. The air-conditioned property features a lobby with 24-hour reception and check-out service, cloakroom, lift access, auditorium, casino, bar, disco and restaurant. Furthermore, conference facilities, room and laundry services, a car park and a garage are available."
+            },
+            "@SupplierLocationId" : "LVS|11",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Santa Fe Station Hotel Casino",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Hotel",
+            "@ItineraryId" : "si1266",
+            "@ResortId" : "1833",
+            "@ResortName" : "Las Vegas - NV",
+            "#text" : "",
+            "@NormalisedName" : "AMERICAS BEST VALUE INN SUITES LAS VEGAS AIR",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89109",
+              "#name" : "Address",
+              "@CityOrTown" : "LAS VEGAS",
+              "@Address1" : "167 EAST TROPICANA",
+              "#text" : "",
+              "@Address2" : "LAS VEGAS"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : {
+                "#name" : "AccommodationUnit",
+                "@Name" : "DOUBLE GUEST ROOM",
+                "RoomRate" : {
+                  "@SuppliersBoardCode" : "RO-U10",
+                  "#name" : "RoomRate",
+                  "@Currency" : "GBP",
+                  "@EndDate" : "20130401",
+                  "@StartDate" : "20130329",
+                  "@RateId" : "4sYa48JMT5F6beFHe/hiFA==",
+                  "#text" : "",
+                  "@Amount" : "110.31",
+                  "@BoardBasis" : "RO"
+                },
+                "@MaxOccupancy" : "2",
+                "#text" : "",
+                "@QuantityAvailable" : "1",
+                "@Code" : "1:2:0:0:DBL-U10:GR:GC-ALL",
+                "@RoomType" : "DBL-U10:GR",
+                "@MinOccupancy" : "2"
+              }
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/01/016917/016917a_hb_a_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/01/016917/016917a_hb_a_003.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/01/016917/016917a_hb_w_002.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Room"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "2 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.1659",
+              "@Latitude" : "36.1008"
+            },
+            "@AccommodationCode" : "16917",
+            "@BasicAdultCost" : "110.31",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "2*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "702-795-3311"
+            },
+            "@ContractCode" : "GC-ALL",
+            "@AccommodationId" : "92889",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "Renovated in 2000, the hotel comprises a total of 47 rooms spread over 2 floors. Fully air-conditioned, guests are received in the foyer with 24-hour reception, hotel safe and lifts. A bar and a restaurant (with highchairs for children) are also available for guest's use. Guests arriving by car can park in the hotel car park."
+            },
+            "@SupplierLocationId" : "LVS|3",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Americas Best Value Inn and Suites  Las Vegas Air",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Hotel",
+            "@ItineraryId" : "si1292",
+            "@ResortId" : "11284",
+            "@ResortName" : "North Las Vegas",
+            "#text" : "",
+            "@NormalisedName" : "FIESTA RANCHO",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89130",
+              "#name" : "Address",
+              "@CityOrTown" : "NORTH LAS VEGAS",
+              "@Address1" : "2400 NORTH RANCHO DRIVE",
+              "#text" : "",
+              "@Address2" : "NORTH LAS VEGAS"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : [
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE STANDARD",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "A5TIbjDa16pmC9J9xhHCSQ==",
+                    "#text" : "",
+                    "@Amount" : "111.51",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2B",
+                  "@RoomType" : "DBL-U10:ST",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE STANDARD",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "A5TIbjDa16pmC9J9xhHCSQ==",
+                    "#text" : "",
+                    "@Amount" : "150.65",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2C",
+                  "@RoomType" : "DBL-U10:ST",
+                  "@MinOccupancy" : "2"
+                }
+              ]
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102405/102405a_hb_a_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102405/102405a_hb_a_006.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102405/102405a_hb_ba_003.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Bar"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "3 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.1995",
+              "@Latitude" : "36.2032"
+            },
+            "@AccommodationCode" : "102405",
+            "@BasicAdultCost" : "111.51",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "3*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "702-631-7000"
+            },
+            "@ContractCode" : "GC-B2B;GC-B2C",
+            "@AccommodationId" : "1544947",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "This 5-storey, 100-room hotel tower is set in contemporary décor and has been designed to meet the needs of the individual, family or business traveller. Fully air-conditioned, the hotel features 24-hour reception and check-out service, a cloakroom, lift access, a casino, a café, a bar, a restaurant, conference facilities and on-site parking for those arriving by car (garage/car park)."
+            },
+            "@SupplierLocationId" : "LVS|11",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Fiesta Rancho Casino Hotel",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Hotel",
+            "@ItineraryId" : "si1291",
+            "@ResortId" : "1833",
+            "@ResortName" : "Las Vegas - NV",
+            "#text" : "",
+            "@NormalisedName" : "FIESTA HENDERSON",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89015",
+              "#name" : "Address",
+              "@CityOrTown" : "HENDERSON",
+              "@Address1" : "777 WEST LAKE MEAD PKWY",
+              "#text" : "",
+              "@Address2" : "HENDERSON"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : [
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE STANDARD",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "dLBzdjWvGN6LcoJc9lJigw==",
+                    "#text" : "",
+                    "@Amount" : "115.8",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2B",
+                  "@RoomType" : "DBL-U10:ST",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE STANDARD",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "dLBzdjWvGN6LcoJc9lJigw==",
+                    "#text" : "",
+                    "@Amount" : "156.46",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2C",
+                  "@RoomType" : "DBL-U10:ST",
+                  "@MinOccupancy" : "2"
+                }
+              ]
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102406/102406a_hb_a_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102406/102406a_hb_w_002.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Room"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "3 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.0069",
+              "@Latitude" : "36.0344"
+            },
+            "@AccommodationCode" : "102406",
+            "@BasicAdultCost" : "115.8",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "3*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "7025587000"
+            },
+            "@ContractCode" : "GC-B2B;GC-B2C",
+            "@AccommodationId" : "1533479",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "This city hotel comprises a total of 223 guest rooms and has recently added a new 4-storey 1,500 space parking facility, more than 500 additional slot and video poker machines to the casino, a new 137-seat race and sports book, a new sports bar and a new amigo club. Fully air-conditioned, the establishment features 24-hour reception and check-out service, a cloakroom, lift access, an auditorium, a café, 5 restaurants, conference facilities and room and laundry services."
+            },
+            "@SupplierLocationId" : "LVS|10",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Fiesta Henderson Casino Hotel",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Unknown",
+            "@ItineraryId" : "si1294",
+            "@ResortId" : "7892",
+            "@ResortName" : "The Strip",
+            "#text" : "",
+            "@NormalisedName" : "PALACE STATION",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89102",
+              "#name" : "Address",
+              "@CityOrTown" : "LAS VEGAS",
+              "@Address1" : "2411 WEST SAHARA AVENUE",
+              "#text" : "",
+              "@Address2" : "LAS VEGAS"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : [
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE COURTYARD",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "3x+mrplYtA7r5vRhKHbkaQ==",
+                    "#text" : "",
+                    "@Amount" : "116.68",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:CY:GC-B2C",
+                  "@RoomType" : "DBL-U10:CY",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE LUXURY ROOM-TOWER ROOM",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "3x+mrplYtA7r5vRhKHbkaQ==",
+                    "#text" : "",
+                    "@Amount" : "159.51",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:LX-TW:GC-B2C",
+                  "@RoomType" : "DBL-U10:LX-TW",
+                  "@MinOccupancy" : "2"
+                }
+              ]
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102401/102401a_hb_a_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102401/102401a_hb_ba_004.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Bar"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102401/102401a_hb_l_003.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Lobby"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/102401/102401a_hb_w_002.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Room"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "3 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.1743",
+              "@Latitude" : "36.1442"
+            },
+            "@AccommodationCode" : "102401",
+            "@BasicAdultCost" : "116.68",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "3*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "702 367-2411"
+            },
+            "@ContractCode" : "GC-B2C",
+            "@AccommodationId" : "1545146",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "Guests visiting this hotel can enjoy the relaxed atmosphere and 'Vegas' feel of Station Casinos' original property. The hotel has been renovated and features several bars and lounges open 24 hours a day, including the Trackside Bar and Jack's Irish Pub. This 21-storey city hotel is an ideal place for guests visiting Vegas for fun and relaxation as well as for business travellers. It comprises a total of 960 rooms. Facilities on offer to guests at this air-conditioned establishment include a lobby area with a 24-hour reception and check out service, a hotel safe, a cloakroom and lift access. It also offers a hairdressing salon, a nightclub and a casino, naturally. Restaurants, conference facilities, room and laundry services and a car park and covered garage parking are also at guests' disposal. There is a free airport shuttle available to all guests at this hotel."
+            },
+            "@SupplierLocationId" : "LVS|8",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Palace Station",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Unknown",
+            "@ItineraryId" : "si1298",
+            "@ResortId" : "7892",
+            "@ResortName" : "The Strip",
+            "#text" : "",
+            "@NormalisedName" : "MOTEL 6 LAS VEGAS TROPICANA",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89109",
+              "#name" : "Address",
+              "@CityOrTown" : "LAS VEGAS",
+              "@Address1" : "195 EAST TROPICANA AVENUE",
+              "#text" : "",
+              "@Address2" : "LAS VEGAS"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : {
+                "#name" : "AccommodationUnit",
+                "@Name" : "DOUBLE GUEST ROOM",
+                "RoomRate" : {
+                  "@SuppliersBoardCode" : "RO-U10",
+                  "#name" : "RoomRate",
+                  "@Currency" : "GBP",
+                  "@EndDate" : "20130401",
+                  "@StartDate" : "20130329",
+                  "@RateId" : "tg85yNdKycA454gA3yEH5g==",
+                  "#text" : "",
+                  "@Amount" : "121.8",
+                  "@BoardBasis" : "RO"
+                },
+                "@MaxOccupancy" : "2",
+                "#text" : "",
+                "@QuantityAvailable" : "1",
+                "@Code" : "1:2:0:0:DBL-U10:GR:GC-ALL",
+                "@RoomType" : "DBL-U10:GR",
+                "@MinOccupancy" : "2"
+              }
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/12/128104/128104a_hb_a_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/12/128104/128104a_hb_w_002.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Room"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "2 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.1642",
+              "@Latitude" : "36.1008"
+            },
+            "@AccommodationCode" : "128104",
+            "@BasicAdultCost" : "121.8",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "2*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "7027980728"
+            },
+            "@ContractCode" : "GC-ALL",
+            "@AccommodationId" : "2212863",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "Founded in 1962 in Santa Barbara, California, the hotel chain is synonymous with great travel value. The first hotel in Santa Barbara still carries the torch today, but a lot has changed for the motel chain that pioneered the first real economy motel designed for the no-frills traveller. The air-conditioned hotel welcomes guests in a lobby."
+            },
+            "@SupplierLocationId" : "LVS|8",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Motel 6 Las Vegas Tropicana",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Hotel",
+            "@ItineraryId" : "si1276",
+            "@ResortId" : "7892",
+            "@ResortName" : "The Strip",
+            "#text" : "",
+            "@NormalisedName" : "QUAD RESORT",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89109",
+              "#name" : "Address",
+              "@CityOrTown" : "LAS VEGAS",
+              "@Address1" : "3535 LAS VEGAS BLVD. SOUTH",
+              "#text" : "",
+              "@Address2" : "LAS VEGAS"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : {
+                "#name" : "AccommodationUnit",
+                "@Name" : "DOUBLE DELUXE",
+                "RoomRate" : {
+                  "@SuppliersBoardCode" : "RO-U10",
+                  "#name" : "RoomRate",
+                  "@Currency" : "GBP",
+                  "@EndDate" : "20130401",
+                  "@StartDate" : "20130329",
+                  "@RateId" : "gSRFf8ANa17l7dE2wZ262w==",
+                  "#text" : "",
+                  "@Amount" : "123.3",
+                  "@BoardBasis" : "RO"
+                },
+                "@MaxOccupancy" : "2",
+                "#text" : "",
+                "@QuantityAvailable" : "1",
+                "@Code" : "1:2:0:0:DBL-U10:DX:GC-ALL",
+                "@RoomType" : "DBL-U10:DX",
+                "@MinOccupancy" : "2"
+              }
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/08/083112/083112a_hb_a_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/08/083112/083112a_hb_w_007.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Room"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/083112/083112a_hb_w_002.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Room"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "3 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.1727",
+              "@Latitude" : "36.1175"
+            },
+            "@AccommodationCode" : "83112",
+            "@BasicAdultCost" : "123.3",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "3*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "702 731 3311"
+            },
+            "@ContractCode" : "GC-ALL",
+            "@AccommodationId" : "293222",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "Located in the heart of the famous Las Vegas Strip, this Asian-themed hotel attracts an international clientele with Las Vegas traditions and Asian food and decoration. We have a 6,975 m2 casino, and a seasonal outdoor pool with an adjacent year-round hot tub. Guests are welcomed into a lobby with 24-hour reception. Further facilities include hotel safe, currency exchange, cloakroom, lift access, hairdressing salon, auditorium, café, bar, restaurant, conference facilities, car park and garage. Internet access, room and laundry services are also available, for a fee."
+            },
+            "@SupplierLocationId" : "LVS|8",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Quad Resort & Casino",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Unknown",
+            "@ItineraryId" : "si1286",
+            "@ResortId" : "7892",
+            "@ResortName" : "The Strip",
+            "#text" : "",
+            "@NormalisedName" : "SUPER 8 MOTEL LAS VEGAS",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89109",
+              "#name" : "Address",
+              "@CityOrTown" : "LAS VEGAS",
+              "@Address1" : "4250 KOVAL LANE",
+              "#text" : "",
+              "@Address2" : "LAS VEGAS"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : {
+                "#name" : "AccommodationUnit",
+                "@Name" : "DOUBLE RUN OF THE HOUSE",
+                "RoomRate" : {
+                  "@SuppliersBoardCode" : "RO-U10",
+                  "#name" : "RoomRate",
+                  "@Currency" : "GBP",
+                  "@EndDate" : "20130401",
+                  "@StartDate" : "20130329",
+                  "@RateId" : "KBhsZ7LzCO12bKELMP5x/w==",
+                  "#text" : "",
+                  "@Amount" : "135.27",
+                  "@BoardBasis" : "RO"
+                },
+                "@MaxOccupancy" : "2",
+                "#text" : "",
+                "@QuantityAvailable" : "1",
+                "@Code" : "1:2:0:0:DBL-U10:ROH:GC-ALL",
+                "@RoomType" : "DBL-U10:ROH",
+                "@MinOccupancy" : "2"
+              }
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/105709/105709a_hb_l_002.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Lobby"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/10/105709/105709a_hb_w_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Room"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "2 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.1632",
+              "@Latitude" : "36.1124"
+            },
+            "@AccommodationCode" : "105709",
+            "@BasicAdultCost" : "135.27",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "2*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "7027940888"
+            },
+            "@ContractCode" : "GC-ALL",
+            "@AccommodationId" : "1516164",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "Whether travelling for business or leisure, this hotel has great amenities for a great price and very knowledgeable staff to satisfy guests' needs. There is a laundry service available. The hotel is AAA 2 diamond approved and features an abundance of amenities to make guests' stay more enjoyable. The air-conditioned property features a lobby with 24-hour check-out service and Internet access."
+            },
+            "@SupplierLocationId" : "LVS|8",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Super 8 Motel Las Vegas",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          },
+          {
+            "@Availability" : "available",
+            "@Type" : "Hotel",
+            "@ItineraryId" : "si1252",
+            "@ResortId" : "7892",
+            "@ResortName" : "The Strip",
+            "#text" : "",
+            "@NormalisedName" : "RIVIERA",
+            "@BookableByFAB" : "true",
+            "Address" : {
+              "@Country" : "US",
+              "@PostCode" : "89109",
+              "#name" : "Address",
+              "@CityOrTown" : "LAS VEGAS",
+              "@Address1" : "2901 LAS VEGAS BLVD SOUTH",
+              "#text" : "",
+              "@Address2" : "LAS VEGAS"
+            },
+            "AccommodationUnits" : {
+              "#name" : "AccommodationUnits",
+              "#text" : "",
+              "AccommodationUnit" : [
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE CLASSIC",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "UrRBAX1SkyJK7VxyT2sp6A==",
+                    "#text" : "",
+                    "@Amount" : "142.91",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:CS:B2B -16352",
+                  "@RoomType" : "DBL-U10:CS",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE DELUXE",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "UrRBAX1SkyJK7VxyT2sp6A==",
+                    "#text" : "",
+                    "@Amount" : "157.3",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:DX:B2B -16352",
+                  "@RoomType" : "DBL-U10:DX",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE LUXURY",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "UrRBAX1SkyJK7VxyT2sp6A==",
+                    "#text" : "",
+                    "@Amount" : "171.7",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:LU:B2B -16352",
+                  "@RoomType" : "DBL-U10:LU",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "DOUBLE STUDIO-SUITE",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "UrRBAX1SkyJK7VxyT2sp6A==",
+                    "#text" : "",
+                    "@Amount" : "258.04",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:DBL-U10:SD-SU:B2B -16352",
+                  "@RoomType" : "DBL-U10:SD-SU",
+                  "@MinOccupancy" : "2"
+                },
+                {
+                  "#name" : "AccommodationUnit",
+                  "@Name" : "SUITE 1 BEDROOM-DELUXE",
+                  "RoomRate" : {
+                    "@SuppliersBoardCode" : "RO-U10",
+                    "#name" : "RoomRate",
+                    "@Currency" : "GBP",
+                    "@EndDate" : "20130401",
+                    "@StartDate" : "20130329",
+                    "@RateId" : "iq5f6vv6gj4JDBczvzgUzQ==",
+                    "#text" : "",
+                    "@Amount" : "344.36",
+                    "@BoardBasis" : "RO"
+                  },
+                  "@MaxOccupancy" : "2",
+                  "#text" : "",
+                  "@QuantityAvailable" : "1",
+                  "@Code" : "1:2:0:0:SUI-U10:B1-LX:B2B -16352",
+                  "@RoomType" : "SUI-U10:B1-LX",
+                  "@MinOccupancy" : "2"
+                }
+              ]
+            },
+            "@EndDate" : "20130401",
+            "Image" : [
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/01/012799/012799a_hb_a_001.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "General"
+              },
+              {
+                "@URL" : "http://www.hotelbeds.com/giata/01/012799/012799a_hb_w_002.jpg",
+                "#name" : "Image",
+                "#text" : "",
+                "@CaptionText" : "Room"
+              }
+            ],
+            "@Supplier" : "BAR",
+            "@OfficialRating" : "3 STARS",
+            "@NumNights" : "3",
+            "GeoPosition" : {
+              "#name" : "GeoPosition",
+              "#text" : "",
+              "@Longitude" : "-115.1621",
+              "@Latitude" : "36.1356"
+            },
+            "@AccommodationCode" : "12799",
+            "@BasicAdultCost" : "142.91",
+            "@MaxChildAge" : "17",
+            "@ClassCode" : "3*",
+            "#name" : "AccommodationSegment",
+            "TelephoneNumber" : {
+              "#name" : "TelephoneNumber",
+              "#text" : "7027345110"
+            },
+            "@ContractCode" : "B2B -16352",
+            "@AccommodationId" : "92835",
+            "Description" : {
+              "#name" : "Description",
+              "#text" : "The hotel has just completed a multi- million dollar renovation. Guests may visit and experience the new ultra casino and state- of- the art Race and Sports Book Bar and Grill. The hotel is also proud to present the new \\\"Signature Room\\\"."
+            },
+            "@SupplierLocationId" : "LVS|8",
+            "@InfantAge" : "0",
+            "@Currency" : "GBP",
+            "@BoardCode" : "RO",
+            "@SuppliersBoardCode" : "RO-U10",
+            "@StartDate" : "20130329",
+            "@AccommodationName" : "Riviera Hotel and Casino",
+            "@SyndicatorRanking" : "100",
+            "AvailableBoardBasis" : {
+              "#name" : "AvailableBoardBasis",
+              "#text" : "RO"
+            }
+          }
+        ]
+      },
+      "#text" : ""
+    },
+    "#name" : "FAB_AccomAvailRS",
+    "@Target" : "test",
+    "SyndicatorInfo" : {
+      "#name" : "SyndicatorInfo",
+      "#text" : "",
+      "@SyndicatorId" : "LSRsports"
+    },
+    "#text" : "",
+    "@Version" : "2002A",
+    "SessionInfo" : {
+      "@FABSessionId" : "0gzWtQguoA39K4ZBYYAA2Uin",
+      "@CreateNewSession" : "false",
+      "#name" : "SessionInfo",
+      "#text" : ""
+    }
+  }
+}

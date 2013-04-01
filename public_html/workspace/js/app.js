@@ -38,6 +38,9 @@ define([
 		search: function(){
 			this.main.show(new SearchUILayout({testMode: this.testMode}));
 		},
+		searchTravellers: function(){
+			this.main.show(new SearchUILayout({testMode: this.testMode}));	
+		},
 		
 		//transitions
 		handleSearchTransition: function(search){

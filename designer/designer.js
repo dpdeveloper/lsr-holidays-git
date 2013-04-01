@@ -69,9 +69,9 @@ require.config({
 	}
 });
 require([
-	'underscore','jquery','backbone','marionette','reqres',
+	'underscore','jquery','backbone','marionette','reqres','vent',
 	'libs/respond.min', 'libs/string-helpers'
-	], function(_, $, Backbone, Marionette,reqres){
+	], function(_, $, Backbone, Marionette,reqres,vent){
 	
 	"use strict";
 	
@@ -103,8 +103,14 @@ require([
 				departingFrom: 'LHR',
 				directFLights: 'no'	
 			});
-			App.index();
-			//App.handleSearchTransition(model);
+			//App.index();
+			App.handleSearchTransition(model);
+			
+			setTimeout(function(){
+				vent.trigger('search:shortlist');
+			},500);
+
+
 		});
 	});
 });
