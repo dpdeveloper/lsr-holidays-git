@@ -60,15 +60,21 @@ define([
 			@returns {Object}
 		*/
 		serializeData: function(){
-			
+			var format = 'DD/MM/YY';
 			var data = this.model.getSummary();
 
+			//null values
+			data.dateString = '';
+
 			//do some date formatting &rarr;œ
+			var d = moment(data.date,format);
 			
-			var d = moment(data.date,'DD/MM/YY');
-			var n = moment(data.date,'DD/MM/YY').add('days',data.nights);
+			if(d !== null){
+				var n = d.add('days',data.nights);
+				data.dateString = d.format('DD/MM/YYYY') +" &rarr; " + n.format('DD/MM/YYYY');
+				
+			}
 			
-			data.dateString = d.format('DD/MM/YYYY') +" &rarr; " + n.format('DD/MM/YYYY');
 			data.displayBooking = this._displayBooking;
 			
 			data.occupancy = {};

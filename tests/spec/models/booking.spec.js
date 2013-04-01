@@ -149,9 +149,32 @@ describe("Booking Model", function() {
 		});
 	});
 	
-	describe('getCost', function(){
-	
-		it('returns a cost object from the data', function(){
+	describe('Costing', function(){
+		
+		it('setSelectedFlights causes the extra cost to be set to £2.50 per person', function(){
+			this.model.get('holidaySearch').set({
+				dateStart: '14/08/2013',
+				numNights: '5'
+			});	
+			this.model.get('holidaySearch').setOccupancy([
+				{adults: 2, children: 1, infants: 0},
+				{adults: 3, children: 2, infants: 1}
+			]);
+			
+			this.model.setSelectedFlight(new this.MulticomFlight({
+				originAirport: 'LHR',
+				originAirportName: 'Heathrow',
+				destinationAirport: 'JFK',
+				destinationAirportName: 'Kennedy',
+				outboundCarrier: "Ryanair"
+			}));
+			
+			expect(this.model.getCost().extra).toEqual(9 * 2.50);
+			
+		});
+		
+		
+		it('getCost returns a cost object from the data', function(){
 			
 			this.model.set({extraCost: 10});
 			

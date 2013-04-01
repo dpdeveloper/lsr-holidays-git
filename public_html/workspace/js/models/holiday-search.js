@@ -45,7 +45,7 @@ define([
 			destination: '',
 			hotelName: '',
 			dateStart: '',
-			numNights: 5,
+			numNights: 7,
 			
 			
 			//rooms
@@ -79,11 +79,12 @@ define([
 			if(!options.tripType){
 				this.set({tripType: this.TRIP_TYPES.PACKAGE});	
 			}
+			/*
 			if(!options.dateStart){
 				this.set({
 					dateStart: moment().add('days',14).format('DD/MM/YYYY')
 				});	
-			}
+			}*/
 			
 			
 			_.bindAll(this);
@@ -160,6 +161,43 @@ define([
 				numNights: nights	
 			});
 		},
+		
+		
+		/**
+			@param {String} startDate
+		*/
+		setStartDate: function(startDate){
+			var format = "DD/MM/YYYY";
+			
+			var newStart = moment(startDate,format);
+			var curStart = moment(this.get('dateStart'),format);
+			var curEnd = moment(this.getEndDate(),format);
+			
+			if(newStart.isValid()){
+				
+				if(curStart !== null && curStart.isValid()){
+					
+					if(newStart.isBefore(curEnd)){
+						this.set({
+							dateStart: startDate,
+							numNights: curEnd.diff(newStart,'days')
+						});
+					}
+					else{
+						this.set({dateStart: startDate});
+					}
+					
+				}
+				else{
+					this.set({dateStart: startDate});
+				}
+
+				return true;
+			}
+			
+			return false;
+		},
+		
 		
 		/**
 			

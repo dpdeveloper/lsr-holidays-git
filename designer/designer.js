@@ -95,15 +95,16 @@ require([
 				destination: 'las-vegas',
 				dateStart: '01/04/2013',
 				numNights: 4,
-				numRooms: 1,
-				adultCsv: '2',
-				childCsv: '0',
-				infantCsv: '0',
+				numRooms: 2,
+				adultCsv: '2,2',
+				childCsv: '0,0',
+				infantCsv: '0,0',
 				
 				departingFrom: 'LHR',
 				directFLights: 'no'	
 			});
-			App.handleSearchTransition(model);
+			App.index();
+			//App.handleSearchTransition(model);
 		});
 	});
 });

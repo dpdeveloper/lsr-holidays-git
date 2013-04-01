@@ -271,8 +271,11 @@ define([
 					maxDate: "+2y",
 					onSelect: function(dateText,inst){
 						$(this).val(dateText);
-						self.model.set({dateStart: dateText});
+						self.model.setStartDate(dateText);
 						self.ui.dateEnd.val(self.model.getEndDate());
+						
+						//prevent weird UI stuff
+						self.ui.dateEnd.datepicker('option','minDate',self.model.get('dateStart'));	
 					}
 				});
 				this.ui.dateEnd.datepicker({
@@ -287,6 +290,7 @@ define([
 						$(this).val(dateText);
 						self.model.setStartDateFromEndDate(dateText);
 						self.ui.dateStart.val(self.model.get('dateStart'));
+						self.ui.dateEnd.datepicker('option','minDate',self.model.get('dateStart'));
 					}
 				});			
 				this.initSelectBoxes();

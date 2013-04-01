@@ -95,6 +95,8 @@ define([
 			COMPLETE: 'complete'
 		},
 		
+		ATOL_FEE: 2.5,
+		
 		/**
 			Constructor
 			
@@ -194,6 +196,12 @@ define([
 			else{
 				this.get('selectedFlight').set(flight.toJSON());
 			}
+			
+			//set the extra costing for the flight
+			var travellers = this.get('holidaySearch').getTravellers().length;
+			
+			this.set({extraCost: travellers * this.ATOL_FEE});
+			
 		},
 		
 		/**

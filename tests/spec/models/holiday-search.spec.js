@@ -214,6 +214,23 @@ describe("Holiday Search Model", function() {
 	
 	describe('Date Editing', function(){
 		
+		it('setStartDate adjusts the number of nights', function(){
+			this.model.set({
+				dateStart: '15/05/2013',
+				numNights: 5
+			});
+			
+			this.model.setStartDate('17/05/2013');
+			
+			//should adjust the number of nights as before the end date
+			expect(this.model.get('numNights')).toEqual(3);
+			
+			//number of nights should be constant as after enddate
+			this.model.setStartDate('25/05/2013');
+			expect(this.model.get('numNights')).toEqual(3);
+			
+		});
+		
 		it('getStartDateFromEndDate should set the start date from an end date ', function(){
 			this.model.set({
 				dateStart: '15/05/2013',
