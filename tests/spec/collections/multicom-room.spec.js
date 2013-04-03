@@ -140,13 +140,13 @@ describe("MulticomRoomCollection", function() {
 				two = this.collection.at(1),
 				three = this.collection.at(2);
 			
-			expect(one.get('occupancy').adults).toEqual('3');
-			expect(one.get('occupancy').children).toEqual('0');
-			expect(one.get('occupancy').infants).toEqual('0');
+			expect(one.get('occupancy').adults).toEqual(3);
+			expect(one.get('occupancy').children).toEqual(0);
+			expect(one.get('occupancy').infants).toEqual(0);
 			
-			expect(two.get('occupancy').adults).toEqual('1');
-			expect(two.get('occupancy').children).toEqual('1');
-			expect(two.get('occupancy').infants).toEqual('1');
+			expect(two.get('occupancy').adults).toEqual(1);
+			expect(two.get('occupancy').children).toEqual(1);
+			expect(two.get('occupancy').infants).toEqual(1);
 			
 			//check that the occupancies are within limits
 			this.collection.each(function(item){

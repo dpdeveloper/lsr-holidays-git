@@ -113,7 +113,7 @@ define([
 				return config.contentRoot+testUrl;
 			}
 			else{
-				return config.root+"json/multicom/?"+this.buildSearchQueryUrl(data);
+				return config.root+"extensions/multicom_plugin/api.php?"+this.buildSearchQueryUrl(data);
 			}
 		},
 		
@@ -141,7 +141,7 @@ define([
 			});
 			//add the api version and request type
 			str = str+"v="+this._apiVersion;
-			str = str+"&action=runFlightSearch";
+			str = str+"&action=searchFlights";
 			return str;
 		},
 		

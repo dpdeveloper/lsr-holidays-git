@@ -31,8 +31,8 @@ define([
 		
 		_searchMode: null,
 		MODES: {
-			HOTEL: 'runHotelSearch',
-			DESTINATION: 'runDestinationSearch'
+			HOTEL: 'searchAccommodation',
+			DESTINATION: 'searchAccommodation'
 		},
 		
 		_apiVersion: 3,
@@ -174,7 +174,7 @@ define([
 				return config.contentRoot+testUrl;
 			}
 			else{
-				return config.root+"json/multicom/?"+this.buildSearchQueryUrl(data);
+				return config.root+"extensions/multicom_plugin/api.php?"+this.buildSearchQueryUrl(data);
 			}
 		},
 		

@@ -89,7 +89,7 @@ describe("Multicom Accommodation Collection", function() {
 			var str = this.collection.buildSearchQueryUrl(obj);
 			
 			expect(str).toContain("hotelName=aria&destination=las+vegas&dateStart=01/01/2012&numRooms=1&numNights=5&adultCsv=2&childCsv=1&infantCsv=1&childAges=8");
-			expect(str).toContain("runHotelSearch");
+			expect(str).toContain("searchAccommodation");
 		});
 		
 		it('should filter out invalid parameters', function(){
@@ -109,7 +109,7 @@ describe("Multicom Accommodation Collection", function() {
 	describe('Get the Search URL', function(){
 		it('should return the api url',function(){
 			var str = this.collection.getSearchUrl();
-			expect(str).toContain('json/multicom/');
+			expect(str).toContain('extensions/multicom_plugin/');
 		});
 		it('should return the test url when in test mode', function(){
 			this.collection.setTestMode(true);
