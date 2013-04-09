@@ -11,7 +11,7 @@ require.config({
 		backbone: 'libs/backbone',
 		marionette: 'libs/backbone.marionette.min',
 		'backbone-relational': 'libs/backbone-relational',
-		
+		colorbox:'libs/jquery.colorbox-min',
 		jasmine: '../../../tests/lib/jasmine-1.3.1/jasmine',
 		'jasmine-jquery': '../../../tests/lib/jasmine-jquery',
 		'jasmine-html': '../../../tests/lib/jasmine-1.3.1/jasmine-html',
@@ -182,9 +182,8 @@ require([
 		
 		/* FLIGHTS */
 		'spec/views/search-ui/flights/flights.browse.view.spec',
-		'spec/views/search-ui/flights/flights.browse.item.view.spec',
-		
-		
+		'spec/views/search-ui/flights/flights.browse.item.view.spec',	
+		'spec/views/search-ui/flights/flight.detail.view.spec',		
 		/* TRAVELLERS */
 		
 		'spec/views/search-ui/travellers/travellers.layout.spec',

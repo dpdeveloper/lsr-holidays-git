@@ -254,10 +254,10 @@ html, body{
 	}
 	.home-layout-about{
 		float: left;
-		width: 75%;
+		width: 70%;
 	}
 	.home-layout-search{
-		width: 25%;
+		width: 30%;
 		position: absolute;
 		z-index: 50;
 		bottom: 0px;
@@ -1795,18 +1795,14 @@ html, body{
 /*===========================================*/
 .search-ui-travellers-layout{
 	background: #fff;
-	margin: 0 40px;
 	
-	.travellers-layout-inner{
-		
-		.travellers-layout-left{
-			float: left;
-			width: 75%;
-		}
-		.travellers-layout-right{
-			float: left;
-			width: 25%;
-		}
+	.travellers-layout-left{
+		float: left;
+		width: 70%;
+	}
+	.travellers-layout-right{
+		float: left;
+		width: 30%;
 	}
 
 	.layout-contact{}
@@ -1816,24 +1812,14 @@ html, body{
 	.layout-static{}
 }
 
-h1.travellers{
-	color: $colourBlueFg;
-	font-size: 28px; line-height: 28px;
-	font-weight: 700;
-	margin: 0px;
-	padding: 0px 0px 12px;	
-}
-
-h3.travellers{
-	color: $colourLightGreyFg;
+h2.travellers{
+	color: $purple;
 	text-transform: none;
 	text-shadow: none;
-	font-size: 20px; line-height: 20px;
-	font-weight: 400;
+	font-size: 18px; line-height: 18px;
+	font-weight: 700;
+	margin: 0px; padding: 0px 0px 10px;
 	text-shadow: none;
-	padding-bottom: 8px;
-	margin-bottom: 18px;
-	border-bottom: 1px dotted $colourLightGreyFg;
 }
 
 
@@ -1845,18 +1831,14 @@ h3.travellers{
 .search-ui-travellers-contact-view{
 	
 	background: #fff;
-	padding: 30px 0px 15px 30px;
+	padding: 15px 20px;
 	
 	.form-header{
 		padding: 0px 0px 12px;
-		margin: 0 0px 0pxpx;
+		margin: 0px;
 		
-		h1{
-			@extend h1.travellers;
-		}
-		
-		h3{
-			@extend h3.travellers;
+		h2{
+			@extend h2.travellers
 		}	
 	}
 	.form-row{
@@ -1864,14 +1846,11 @@ h3.travellers{
 		.form-col{
 			float: left;
 			width: 30%;
-			margin-right: 3.3%;
+			margin-right: 1.5%;
 			padding: 0px 0px 18px;
 			
 			input{
 				margin: 0px;
-				width: 93%;
-				padding: 6px 3%;
-				font-size: 14px; line-height: 14px;
 				
 				&.placeholder{
 					color: #bbb;
@@ -1879,12 +1858,6 @@ h3.travellers{
 			}
 			&.last{margin-right: 0}
 		}
-	}
-	
-	.form-footer{
-		text-align: right; color: $colourLightGreyFg;
-		padding: 12px 0px 0px;
-		p{padding: 0px; margin: 0px;}
 	}
 }
 
@@ -1897,27 +1870,16 @@ h3.travellers{
 .search-ui-travellers-edit-layout{
 	
 	background: #fff;
-	padding: 15px 0px 15px 30px;
+	padding: 15px 20px;
 
 	.edit-layout-inner{
-		
-		
-		h1{
-			@extend h1.travellers;
-		}
-		h3{
-			@extend h3.travellers	
+	
+		h2{
+			@extend h2.travellers	
 		}
 		.edit-layout-one{}
 		.edit-layout-two{}
 		.edit-layout-three{}
-		
-		
-		.edit-footer{
-		text-align: right; color: $colourLightGreyFg;
-		padding: 20px 0px 0px;
-		p{padding: 0px; margin: 0px;}
-	}
 	}
 }
 
@@ -1942,7 +1904,7 @@ h3.travellers{
 	.item-view-inner{
 	
 		.item-view-header{
-			background: $colourBlueFg;
+			background: $purple;
 			color: #fff; font-weight: 700;
 			padding: 8px 10px 6px;
 			font-size: 12px; line-height: 12px;
@@ -1952,13 +1914,10 @@ h3.travellers{
 		}
 		
 		.item-view-body{
-		
-			.placeholder{color: #bbb;}
 
 			.body-top{
 				background: #eee;
 				padding: 6px 15px 6px;
-				
 			
 				.col{
 					float: left;
