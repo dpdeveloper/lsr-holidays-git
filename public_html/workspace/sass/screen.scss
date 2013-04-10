@@ -1930,8 +1930,6 @@ h3.travellers{
 /*===========================================*/
 .search-ui-travellers-edit-collection{
 	
-	
-	
 	h4{
 		color: $colourLightGreyFg;
 		letter-spacing: 0px;
@@ -2056,3 +2054,26 @@ h3.travellers{
 		
 	}
 }
+
+/*===========================================*/
+
+/* !TRAVELLERS TAC ITEM */
+
+/*===========================================*/
+.travellers-tac-view{
+	padding: 15px 0px 30px 30px;
+	
+	h1{
+		@extend h1.travellers;
+	}
+	h3{
+		@extend h3.travellers	
+	}
+	
+	.tac-inner{
+		
+	}
+	
+}
+
+

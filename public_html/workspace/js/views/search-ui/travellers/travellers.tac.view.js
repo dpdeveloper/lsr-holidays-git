@@ -6,10 +6,12 @@
 
 define([
 	'jquery','underscore','backbone','marionette','vent',
-	'tpl!views/search-ui/templates/travellers.tac.view.tpl.html'
+	'tpl!views/search-ui/templates/travellers.tac.view.tpl.html',
+	'models/booking'
 	
 ], function($,_,Backbone,Marionette,vent,
-			Template
+			Template,
+			Booking
 			){
 	"use strict";
 	
@@ -17,7 +19,22 @@ define([
 	var TravellersTACView = Backbone.Marionette.ItemView.extend(
 	/** @lends TravellersTACView# */
 	{
-		template: Template
+		initialize: function(options){
+			options = options || {};
+		},
+		
+		model: new Booking(),
+		template: Template,
+		tagName: 'div',
+		attributes: {'class' : 'travellers-tac-view'},
+		
+		/**
+			Serialize data for the view
+		*/
+		serializeData: function(){
+			return this.model.get('shortlistRequest').toJSON();
+		}
+		
 	});
 	
 	return TravellersTACView;

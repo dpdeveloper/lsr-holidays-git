@@ -7070,7 +7070,7 @@ html, body {
 }
 
 /* line 1820, ../sass/screen.scss */
-h1.travellers, .search-ui-travellers-contact-view .form-header h1, .search-ui-travellers-edit-layout .edit-layout-inner h1 {
+h1.travellers, .search-ui-travellers-contact-view .form-header h1, .search-ui-travellers-edit-layout .edit-layout-inner h1, .travellers-tac-view h1 {
   color: #0095da;
   font-size: 28px;
   line-height: 28px;
@@ -7080,7 +7080,7 @@ h1.travellers, .search-ui-travellers-contact-view .form-header h1, .search-ui-tr
 }
 
 /* line 1828, ../sass/screen.scss */
-h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-travellers-edit-layout .edit-layout-inner h3 {
+h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-travellers-edit-layout .edit-layout-inner h3, .travellers-tac-view h3 {
   color: #aaaaaa;
   text-transform: none;
   text-shadow: none;
@@ -7164,7 +7164,7 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
 /*===========================================*/
 /* !TRAVELLERS EDIT COLLECTION */
 /*===========================================*/
-/* line 1935, ../sass/screen.scss */
+/* line 1933, ../sass/screen.scss */
 .search-ui-travellers-edit-collection h4 {
   color: #aaaaaa;
   letter-spacing: 0px;
@@ -7172,7 +7172,7 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
   padding: 0px 0px 5px 15px;
   font-size: 18px;
 }
-/* line 1943, ../sass/screen.scss */
+/* line 1941, ../sass/screen.scss */
 .search-ui-travellers-edit-collection .collection-inner {
   background: #eee;
   padding: 15px 15px 5px;
@@ -7181,12 +7181,12 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
 /*===========================================*/
 /* !TRAVELLERS EDIT ITEM */
 /*===========================================*/
-/* line 1955, ../sass/screen.scss */
+/* line 1953, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view {
   margin-bottom: 15px;
   box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.3);
 }
-/* line 1960, ../sass/screen.scss */
+/* line 1958, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-header {
   background: #0095da;
   color: #fff;
@@ -7195,95 +7195,103 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
   font-size: 12px;
   line-height: 12px;
 }
-/* line 1972, ../sass/screen.scss */
+/* line 1970, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .placeholder {
   color: #bbb;
 }
-/* line 1974, ../sass/screen.scss */
+/* line 1972, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top {
   background: #fff;
   padding: 6px 15px 6px;
 }
-/* line 1979, ../sass/screen.scss */
+/* line 1977, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col {
   float: left;
   margin: 0 1% 0 0;
 }
-/* line 1983, ../sass/screen.scss */
+/* line 1981, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.title {
   width: 10%;
 }
-/* line 1986, ../sass/screen.scss */
+/* line 1984, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.gender {
   width: 10%;
 }
-/* line 1989, ../sass/screen.scss */
+/* line 1987, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.first-name {
   width: 22%;
 }
-/* line 1992, ../sass/screen.scss */
+/* line 1990, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.middle-name {
   width: 15%;
 }
-/* line 1995, ../sass/screen.scss */
+/* line 1993, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.last-name {
   width: 22%;
 }
-/* line 1998, ../sass/screen.scss */
+/* line 1996, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.dob {
   width: 16%;
 }
-/* line 2001, ../sass/screen.scss */
+/* line 1999, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col.last {
   margin-right: 0;
 }
-/* line 2006, ../sass/screen.scss */
+/* line 2004, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col .field-wrapper input {
   width: 94%;
   padding: 6px 3%;
   margin: 0px;
 }
-/* line 2011, ../sass/screen.scss */
+/* line 2009, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-top .col .field-wrapper select {
   width: 100%;
 }
-/* line 2017, ../sass/screen.scss */
+/* line 2015, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom {
   background: #fff;
   padding: 4px 15px 15px;
 }
-/* line 2021, ../sass/screen.scss */
+/* line 2019, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col {
   float: left;
   margin: 0 1% 0 0;
 }
-/* line 2025, ../sass/screen.scss */
+/* line 2023, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.nation {
   width: 21%;
 }
-/* line 2028, ../sass/screen.scss */
+/* line 2026, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.passport-no {
   width: 38%;
 }
-/* line 2031, ../sass/screen.scss */
+/* line 2029, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.passport-issue {
   width: 19%;
 }
-/* line 2034, ../sass/screen.scss */
+/* line 2032, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.passport-expiry {
   width: 19%;
 }
-/* line 2038, ../sass/screen.scss */
+/* line 2036, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col.last {
   margin-right: 0;
 }
-/* line 2043, ../sass/screen.scss */
+/* line 2041, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col .field-wrapper input {
   width: 94%;
   padding: 6px 3%;
   margin: 0px;
 }
-/* line 2048, ../sass/screen.scss */
+/* line 2046, ../sass/screen.scss */
 .search-ui-travellers-edit-item-view .item-view-inner .item-view-body .body-bottom .col .field-wrapper select {
   width: 100%;
+}
+
+/*===========================================*/
+/* !TRAVELLERS TAC ITEM */
+/*===========================================*/
+/* line 2063, ../sass/screen.scss */
+.travellers-tac-view {
+  padding: 15px 0px 30px 30px;
 }
