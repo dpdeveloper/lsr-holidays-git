@@ -5,11 +5,11 @@
 */
 
 define([
-	'jquery','underscore','backbone','marionette','vent',
+	'jquery','underscore','backbone','marionette','vent','libs/backbone.stickit.min',
 	'tpl!views/search-ui/templates/travellers.contact.view.tpl.html',
 	'models/travellers-info'
 	
-], function($,_,Backbone,Marionette,vent,
+], function($,_,Backbone,Marionette,vent, stickIt,
 			TravellersContactViewTemplate,
 			TravellersInfo
 			){
@@ -35,19 +35,33 @@ define([
 			'field-address-country': 'Country'
 		},
 		
-		_mappings: {
-			'field-email': 'email',
-			'field-phone': 'phone',
-			'field-address-1': 'address1',
-			'field-address-2': 'address2',
-			'field-address-city': 'addressCity',
-			'field-address-postcode': 'addressPostcode',
-			'field-address-country': 'addressCountry'
+		bindings: {
+			'.field-name': {
+				observe: ['firstName', 'surname', 'middleName'],
+				update: function($el,val,model,options){
+					$el.val(model.getFullName());
+				},
+				afterUpdate: 'toggleAllPlaceholdersStyle'
+				
+			},
+			'.field-email': 'email',
+			'.field-phone': 'phone',
+			'.field-address-1': 'address1',
+			'.field-address-2': 'address2',
+			'.field-address-city': 'addressCity',
+			'.field-address-postcode': 'addressPostcode',
+			'.field-address-country': 'addressCountry'
 		},
 		
 		events: {
 			'focus input': 'onInputFocus',
-			'blur input': 'onInputBlur'
+			'blur input': 'onInputBlur',
+			
+			//deal with one stickit limitation
+			'change .field-name': 'saveModel',
+			'keyup .field-name': 'saveModel',
+			'paste .field-name': 'saveModel',
+			'cut .field-name': 'saveModel'
 		},
 		
 		/**
@@ -78,12 +92,14 @@ define([
 			var self = this;
 			
 			//populate values from the model, if they exist
+			/*
 			_.each(this._mappings, function(item, index){
 				var data = self.model.get(item);
 				if(typeof data !== 'undefined' && data !== ''){
 					self.$el.find('.'+index).val(data);
 				}
-			});
+			});*/
+			this.stickit();
 			
 			//build the name from multiple params
 			var fName = this.model.get('firstName');
@@ -99,6 +115,9 @@ define([
 			}
 			
 			this.$el.find('input').each(function(index, item){
+				
+				$(item).prop({ placeholder: self._lang[$(item).attr('name')]});
+				
 				if($(item).val().length < 1){
 					$(item).val(self._lang[$(item).attr('name')]);
 					$(item).addClass('placeholder');
@@ -112,16 +131,27 @@ define([
 		saveModel: function(){
 			//the name needs parsing
 			this.model.parseName(this.$el.find('.field-name').val());
+		},
+		
+		/**
 			
-			var self = this;
-			var data = {}
+			Used when the DOM is updated by bindings to make sure placeholders are updated accordingly
 			
-			//use the mappings to save the rest of the data
-			_.each(this._mappings,function(elem,index){
-				data[elem] = self.$el.find('.'+index).val();
+		*/
+		toggleAllPlaceholdersStyle: function(){
+			$('input').each(function(index,item){
+				var $i = $(item);
+				var v = $i.val();
+				var p = $i.prop('placeholder');
+				
+				if(v === '' || v === p){
+					$i.val(p);
+					$i.addClass('placeholder');
+				}
+				else{
+					$i.removeClass('placeholder');
+				}
 			});
-			
-			this.model.set(data);
 		},
 		
 		/**
@@ -131,8 +161,11 @@ define([
 		*/
 		togglePlaceholder: function(element, focus){
 			if(focus){
+				if($(element).val() === $(element).prop('placeholder')){
+					$(element).val('');	
+				}
 				$(element).removeClass('placeholder');
-				$(element).val('');
+				
 			}
 			else if($(element).val().length < 1){
 				$(element).val(this._lang[$(element).attr('name')]);
@@ -147,7 +180,6 @@ define([
 			@param {jQuery Event} ev
 		*/
 		onInputBlur: function(ev){
-			this.saveModel();
 			this.togglePlaceholder($(ev.currentTarget), false);
 		},
 		

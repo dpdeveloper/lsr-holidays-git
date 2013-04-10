@@ -74,6 +74,26 @@ define([
 		},
 		
 		/**
+			Joins the name parameters to return the full name
+		*/
+		getFullName: function(){
+			var first = this.get('firstName') || '';
+			
+			var middle = this.get('middleName');
+			var surname = this.get('surname');
+			
+
+			if(middle && middle.length > 0){
+				first = first + ' ' + middle;
+			}
+			if(surname && surname.length > 0){
+				first = first + ' ' + surname;
+			}
+			return first;
+		},
+		
+		
+		/**
 			Parses a string into the the name fields:
 			surname, firstName, middleInitials, middleName
 			
@@ -84,7 +104,12 @@ define([
 			
 			//only first name
 			if(name.indexOf(' ') === -1){
-				this.set('firstName',name);
+				this.set({
+						firstName: name,
+						middleName: '',
+						middleInitials: '',
+						surname: ''
+						});
 				return;
 			}
 			
@@ -94,6 +119,8 @@ define([
 			if(names.length === 2){
 				this.set({
 					firstName: names[0],
+					middleName: '',
+					middleInitials: '',
 					surname: names[1]
 				});
 				return;

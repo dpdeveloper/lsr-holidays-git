@@ -30,7 +30,8 @@ define(function(){
 				'backbone-relational': 'libs/backbone-relational',
 				moment: 'libs/moment.min',
 				'select2': 'libs/select2.min',
-				'the-tooltip': 'libs/the-tooltip.min'
+				'the-tooltip': 'libs/the-tooltip.min',
+				chosen: 'libs/chosen.jquery.min',
 			},
 			 
 			shim: {
@@ -52,6 +53,7 @@ define(function(){
 					deps: ['jquery','underscore','backbone']
 				},
 				
+				chosen: {deps: ['jquery']},
 				
 				
 				'modernizr': {exports: 'Modernizr'},

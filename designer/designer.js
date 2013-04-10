@@ -18,7 +18,9 @@ require.config({
 		spec: '../../../tests/spec',
 		moment: 'libs/moment.min',
 		'select2': 'libs/select2.min',
-		'the-tooltip': 'libs/the-tooltip.min'
+		'the-tooltip': 'libs/the-tooltip.min',
+		
+		chosen: 'libs/chosen.jquery.min'
 	},
 
 	shim: {
@@ -54,6 +56,7 @@ require.config({
 		'modernizr': {exports: 'Modernizr'},
 		'jquery-ui': {deps: ['jquery']},
 		
+		chosen: {deps: ['jquery']},
 		
 		'libs/selectivizr-min': {deps:['jquery']},
 		'the-tooltip': {deps:['jquery','libs/selectivizr-min']},

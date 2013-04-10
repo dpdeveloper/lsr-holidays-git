@@ -86,6 +86,10 @@ describe("Travellers Contact View", function() {
 			$('.field-address-postcode').val('f');
 			$('.field-address-country').val('g');
 			
+			$('input').each(function(i,e){
+				$(e).trigger('change'); //event needs to be fired for bindings
+			});
+			
 			this.view.saveModel();
 			
 			var m = this.view.model.toJSON();
@@ -103,17 +107,6 @@ describe("Travellers Contact View", function() {
 	});
 	
 	describe('Events', function(){
-		it('saveModel called on blurring', function(){
-			
-			this.region.show(this.view);
-			spyOn(this.view, 'saveModel');
-			spyOn(this.view, 'togglePlaceholder');
-			
-			this.view.$el.find('input').first().trigger('blur');
-			
-			expect(this.view.saveModel).toHaveBeenCalled();
-			expect(this.view.togglePlaceholder).toHaveBeenCalled();
-		});
 		it('togglePlaceholder should hide the label on focus', function(){
 			this.region.show(this.view);
 			

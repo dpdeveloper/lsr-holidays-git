@@ -18,7 +18,8 @@ require.config({
 		spec: '../../../tests/spec',
 		moment: 'libs/moment.min',
 		'select2': 'libs/select2.min',
-		'the-tooltip': 'libs/the-tooltip.min'
+		'the-tooltip': 'libs/the-tooltip.min',
+		chosen: 'libs/chosen.jquery.min'
 	},
 
 	shim: {
@@ -56,16 +57,12 @@ require.config({
 		'modernizr': {exports: 'Modernizr'},
 		'jquery-ui': {deps: ['jquery']},
 		'select2': {deps: ['jquery']},
-		
 		'libs/jquery.transit': {deps: ['jquery']},
-		'libs/avgrund': {deps: ['jquery'],exports: 'Avgrund'},
-		'libs/reveal': {deps: ['jquery'],exports: 'Reveal'},
+
 		'libs/jquery.colorbox-min': {deps: ['jquery']},
 		
-		'libs/jquery.mousewheel.min': {deps: ['jquery']},
-		'libs/jquery.mCustomScrollbar': {
-			deps: ['jquery', 'libs/jquery.mousewheel.min']
-		}
+
+		chosen: {deps: ['jquery']}
 	}
 });
 

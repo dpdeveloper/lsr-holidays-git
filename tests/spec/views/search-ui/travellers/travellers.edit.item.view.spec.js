@@ -82,29 +82,6 @@ describe("TravellersEditItemView", function() {
 	});
 	
 	describe('Events', function(){
-		it('saveModel called on blurring', function(){
-			
-			this.region.show(this.view);
-			spyOn(this.view, 'saveModel');
-			spyOn(this.view, 'togglePlaceholder');
-			
-			this.view.$el.find('input').first().trigger('blur');
-			
-			expect(this.view.saveModel).toHaveBeenCalled();
-			expect(this.view.togglePlaceholder).toHaveBeenCalled();
-		});
-		it('Event should be fired on save model', function(){
-			this.region.show(this.view);
-			var fired = false;
-			
-			this.vent.on('search:travellers:edit', function(val){
-				fired = true;
-			});
-			
-			this.view.$el.find('input').first().trigger('blur');
-			
-			expect(fired).toBeTruthy();
-		});
 		it('togglePlaceholder should hide the label on focus', function(){
 			this.region.show(this.view);
 			
