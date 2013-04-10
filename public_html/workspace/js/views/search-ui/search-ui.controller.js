@@ -64,6 +64,7 @@ define([
 			//init models
 			this._booking = new Booking();
 			
+			
 			//init collections
 			this._mcAccommCollection = new MulticomAccommodationCollection({sortBy: 'classDesc'});
 			this._mcFlightCollection = new MulticomFlightCollection();
@@ -82,6 +83,16 @@ define([
 			//bind to collections
 			this.listenTo(this._mcFlightCollection,'complete',this.processFlightSearchResults);
 			this.listenTo(this._mcAccommCollection,'complete',this.processHotelSearchResults);
+			
+			/*
+				Shortlisting
+			*/
+			this.listenTo(this._booking,'shortlist:complete',function(){
+				vent.trigger('search:shortlist:complete');
+			});
+			this.listenTo(this._booking,'shortlist:error',function(){
+				vent.trigger('search:shortlist:error');
+			});
 			
 			//initiator events
 			this.listenTo(vent,'search:trip:edit',this.saveSearchEdit,this);
@@ -266,9 +277,10 @@ define([
 		*/
 		onShortlistRequest: function(){
 			//dummy code for now
-			setTimeout(function(){
+			this._booking.makeShortlistRequest();
+/*			setTimeout(function(){
 				vent.trigger('search:shortlist:complete');
-			},800);
+			},800);*/
 		}
 		
 	});

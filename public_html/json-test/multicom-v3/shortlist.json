@@ -1,0 +1,988 @@
+{
+  "result" : "success",
+  "entryId" : -1,
+  "data" : {
+    "#name" : "FAB_ShortListRS",
+    "#text" : "",
+    "@Target" : "test",
+    "@Version" : "2002A",
+    "SyndicatorInfo" : {
+      "#name" : "SyndicatorInfo",
+      "#text" : "",
+      "@SyndicatorId" : "LSRsports"
+    },
+    "SessionInfo" : {
+      "#name" : "SessionInfo",
+      "#text" : "",
+      "@FABSessionId" : "M8KbEk2cBDwKY4WxYOnDqflj",
+      "@CreateNewSession" : "false"
+    },
+    "Warnings" : {
+      "#name" : "Warnings",
+      "#text" : "",
+      "Warning" : {
+        "#name" : "Warning",
+        "#text" : "Duplicate Request Detected. Cached Response returned. Undefined Behaviour possible!"
+      }
+    },
+    "CurrentShortList" : {
+      "#name" : "CurrentShortList",
+      "#text" : "",
+      "@CurrentlyActive" : "false",
+      "Item" : [
+        {
+          "#name" : "Item",
+          "#text" : "",
+          "@CurrentlyActive" : "false",
+          "@Status" : "successfully produced a live quick cost for your party",
+          "Itinerary" : {
+            "#name" : "Itinerary",
+            "#text" : "",
+            "@ItineraryId" : "si1056",
+            "@StartDate" : "20130522",
+            "@EndDate" : "20130529",
+            "@NumNights" : "7",
+            "@Availability" : "available",
+            "@BookableByFab" : "true",
+            "@Currency" : "GBP",
+            "AccommodationSegments" : {
+              "#name" : "AccommodationSegments",
+              "#text" : "",
+              "AccommodationSegment" : {
+                "#name" : "AccommodationSegment",
+                "#text" : "",
+                "@ItineraryId" : "si1056",
+                "@AccommodationCode" : "102403",
+                "@AccommodationId" : "1518654",
+                "@AccommodationName" : "Texas Station Gambling Hall &amp;amp; Hotel",
+                "@NormalisedName" : "TEXAS STATION GAMBLING HALL",
+                "@ResortName" : "The Strip",
+                "@ResortId" : "7892",
+                "@MaxChildAge" : "17",
+                "@InfantAge" : "0",
+                "@StartDate" : "20130522",
+                "@EndDate" : "20130529",
+                "@SuppliersBoardCode" : "RO-U10",
+                "@BoardCode" : "RO",
+                "@ClassCode" : "3*",
+                "@OfficialRating" : "3 STARS",
+                "@Supplier" : "BAR",
+                "@NumNights" : "7",
+                "@BasicAdultCost" : "159.96",
+                "@Currency" : "GBP",
+                "@Availability" : "available",
+                "@SupplierLocationId" : "LVS|5",
+                "@Type" : "Hotel",
+                "@ContractCode" : "GC-B2B;GC-B2C",
+                "@BookableByFAB" : "true",
+                "@SyndicatorRanking" : "100",
+                "AvailableBoardBasis" : {
+                  "#name" : "AvailableBoardBasis",
+                  "#text" : "RO"
+                },
+                "Address" : {
+                  "#name" : "Address",
+                  "#text" : "",
+                  "@Address1" : "2101 TEXAS STAR LANE",
+                  "@Address2" : "NORTH LAS VEGAS",
+                  "@CityOrTown" : "NORTH LAS VEGAS",
+                  "@PostCode" : "89032",
+                  "@Country" : "US"
+                },
+                "TelephoneNumber" : {
+                  "#name" : "TelephoneNumber",
+                  "#text" : "7026311000"
+                },
+                "Description" : {
+                  "#name" : "Description",
+                  "#text" : "In addition to 24-hour reception and check-out services, a hotel safe, currency exchange desk, cloakroom and lift access, facilities available to guests at this air-conditioned, 200-room city hotel include a bar, nightclub and a theatre, as well as an 8,500-square-metre casino. Further features include a restaurant and conference facilities. A car park and garage are on hand for guests arriving by car."
+                },
+                "GeoPosition" : {
+                  "#name" : "GeoPosition",
+                  "#text" : "",
+                  "@Latitude" : "36.1957",
+                  "@Longitude" : "-115.1899"
+                },
+                "AccommodationUnits" : {
+                  "#name" : "AccommodationUnits",
+                  "#text" : "",
+                  "AccommodationUnit" : [
+                    {
+                      "#name" : "AccommodationUnit",
+                      "#text" : "",
+                      "@MaxOccupancy" : "2",
+                      "@MinOccupancy" : "2",
+                      "@QuantityAvailable" : "1",
+                      "@Name" : "DOUBLE STANDARD",
+                      "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2B",
+                      "@RoomType" : "DBL-U10:ST",
+                      "RoomRate" : {
+                        "#name" : "RoomRate",
+                        "#text" : "",
+                        "@StartDate" : "20130522",
+                        "@EndDate" : "20130529",
+                        "@RateId" : "2+Nyd4gwlEE9B9GrM8CxMg==",
+                        "@Amount" : "159.96",
+                        "@Currency" : "GBP",
+                        "@BoardBasis" : "RO",
+                        "@SuppliersBoardCode" : "RO-U10"
+                      }
+                    },
+                    {
+                      "#name" : "AccommodationUnit",
+                      "#text" : "",
+                      "@MaxOccupancy" : "2",
+                      "@MinOccupancy" : "2",
+                      "@QuantityAvailable" : "1",
+                      "@Name" : "DOUBLE STANDARD",
+                      "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2C",
+                      "@RoomType" : "DBL-U10:ST",
+                      "RoomRate" : {
+                        "#name" : "RoomRate",
+                        "#text" : "",
+                        "@StartDate" : "20130522",
+                        "@EndDate" : "20130529",
+                        "@RateId" : "2+Nyd4gwlEE9B9GrM8CxMg==",
+                        "@Amount" : "216.12",
+                        "@Currency" : "GBP",
+                        "@BoardBasis" : "RO",
+                        "@SuppliersBoardCode" : "RO-U10"
+                      }
+                    }
+                  ]
+                },
+                "ChosenAccommodationUnits" : {
+                  "#name" : "ChosenAccommodationUnits",
+                  "#text" : "",
+                  "AccommodationUnit" : {
+                    "#name" : "AccommodationUnit",
+                    "#text" : "",
+                    "@MaxOccupancy" : "2",
+                    "@MinOccupancy" : "2",
+                    "@QuantityAvailable" : "1",
+                    "@Name" : "DOUBLE STANDARD",
+                    "@Code" : "1:2:0:0:DBL-U10:ST:GC-B2B",
+                    "@RoomType" : "DBL-U10:ST",
+                    "OccupancyDetails" : {
+                      "#name" : "OccupancyDetails",
+                      "#text" : "",
+                      "@NumAdults" : "2",
+                      "@NumChildren" : "0",
+                      "@NumInfants" : "0"
+                    },
+                    "RoomRate" : {
+                      "#name" : "RoomRate",
+                      "#text" : "",
+                      "@StartDate" : "20130522",
+                      "@EndDate" : "20130529",
+                      "@RateId" : "2+Nyd4gwlEE9B9GrM8CxMg==",
+                      "@Amount" : "159.96",
+                      "@Currency" : "GBP",
+                      "@BoardBasis" : "RO",
+                      "@SuppliersBoardCode" : "RO-U10"
+                    }
+                  }
+                },
+                "Image" : [
+                  {
+                    "#name" : "Image",
+                    "#text" : "",
+                    "@URL" : "http://www.hotelbeds.com/giata/10/102403/102403a_hb_a_001.jpg",
+                    "@CaptionText" : "General"
+                  },
+                  {
+                    "#name" : "Image",
+                    "#text" : "",
+                    "@URL" : "http://www.hotelbeds.com/giata/10/102403/102403a_hb_ba_003.jpg",
+                    "@CaptionText" : "Bar"
+                  }
+                ]
+              }
+            },
+            "ImportantInformation" : {
+              "#name" : "ImportantInformation",
+              "#text" : "",
+              "Errata" : [
+                {
+                  "#name" : "Errata",
+                  "#text" : "",
+                  "@SupplierCode" : "BAR",
+                  "@Text" : "Incoming Office: 256"
+                },
+                {
+                  "#name" : "Errata",
+                  "#text" : "",
+                  "@SupplierCode" : "BAR",
+                  "@Text" : "Contract Comment: -$12.99 + tax Resort Fee per night to be paid locally by guest. &amp;#xa;-Must be 21 years of age to check in&amp;#xa;-Guest will be asked for incidentals deposit at check-in to be reimbursed at the end of stay"
+                },
+                {
+                  "#name" : "Errata",
+                  "#text" : "",
+                  "@SupplierCode" : "BAR",
+                  "@Text" : "Supplier Info, Name: HOTELBEDS USA VATNumber: 592952685"
+                },
+                {
+                  "#name" : "Errata",
+                  "#text" : "",
+                  "@SupplierCode" : "BAR",
+                  "@Text" : "Cancellation Policy: 13.26 GBP (17/05/2013 23:59 Onwards)"
+                }
+              ]
+            },
+            "ItineraryCost" : {
+              "#name" : "ItineraryCost",
+              "#text" : "",
+              "@TotalCost" : "145.42",
+              "@CostingStage" : "quick",
+              "@CostingAccuracy" : "100",
+              "@PartyInfoCheck" : "2 adult(s), 0 infant(s),  and no young people with third party insurance.",
+              "@DepositRequiredAtBooking" : "145.42",
+              "@CostingValid" : "true",
+              "@Currency" : "GBP",
+              "Component" : {
+                "#name" : "Component",
+                "#text" : "",
+                "@Supplier" : "BAR",
+                "@CostingStage" : "quick",
+                "@TotalCost" : "145.42",
+                "@DepositRequiredAtBooking" : "145.42",
+                "@UpdatedTime" : "20130410 1347",
+                "@Currency" : "GBP",
+                "Detail" : {
+                  "#name" : "Detail",
+                  "#text" : "",
+                  "@Description" : "DOUBLE STANDARD - ROOM ONLY",
+                  "@UnitCost" : "145.42",
+                  "@Quantity" : "1",
+                  "@ExtendedCost" : "145.42",
+                  "@Currency" : "GBP",
+                  "@PriceDescription" : "Accommodation",
+                  "@PriceCode" : "Ac",
+                  "@FPC" : "basic.unit.room",
+                  "SourceCostDetail" : {
+                    "#name" : "SourceCostDetail",
+                    "#text" : "",
+                    "@SourceUnitCost" : "145.42",
+                    "@SourceCurrency" : "GBP",
+                    "@UnitCost" : "145.42",
+                    "@UnitMarkup" : "0.0"
+                  }
+                },
+                "PricingAudit" : {
+                  "#name" : "PricingAudit",
+                  "#text" : "",
+                  "@Currency" : "GBP",
+                  "@TotalCost" : "145.42",
+                  "@TotalPrice" : "145.42",
+                  "@Profit" : "0.0"
+                }
+              }
+            },
+            "Component" : {
+              "#name" : "Component",
+              "#text" : "",
+              "@Supplier" : "BAR",
+              "@BookingChannel" : "XML",
+              "@BookingChannelName" : "HotelBeds/BedsOnline"
+            }
+          }
+        },
+        {
+          "#name" : "Item",
+          "#text" : "",
+          "@CurrentlyActive" : "false",
+          "@Status" : "successfully produced a live quick cost for your party",
+          "Itinerary" : {
+            "#name" : "Itinerary",
+            "#text" : "",
+            "@ItineraryId" : "si1000",
+            "@StartDate" : "20130522",
+            "@EndDate" : "20130530",
+            "@NumNights" : "7",
+            "@Availability" : "available",
+            "@BookableByFab" : "true",
+            "@PerPassengerCost" : "882.37",
+            "@Currency" : "GBP",
+            "@PassengerIdRequired" : "false",
+            "@PassengerIdMandatory" : "false",
+            "@NationalityRequired" : "false",
+            "@NationalityMandatory" : "false",
+            "TravelSegments" : {
+              "#name" : "TravelSegments",
+              "#text" : "",
+              "TravelSegment" : [
+                {
+                  "#name" : "TravelSegment",
+                  "#text" : "",
+                  "@DeparturePoint" : "LHR",
+                  "@ArrivalPoint" : "LAS",
+                  "@Transport" : "air",
+                  "@Type" : "outbound",
+                  "@DepartureDate" : "20130522",
+                  "@DepartureTime" : "1640",
+                  "@ArrivalDate" : "20130522",
+                  "@ArrivalTime" : "1910",
+                  "@TravelCode" : "BA0275",
+                  "@Supplier" : "BAW",
+                  "@Currency" : "GBP",
+                  "@OperatedBy" : "British Airways",
+                  "@OperatingCarrier" : "BA",
+                  "@MarketingCarrier" : "BA",
+                  "@NumStops" : "0",
+                  "@DeparturePointName" : "London Heathrow",
+                  "@ArrivalPointName" : "Las Vegas",
+                  "@FareType" : "NoFrills",
+                  "@CabinClass" : "economy",
+                  "TicketInfo" : {
+                    "#name" : "TicketInfo",
+                    "#text" : "",
+                    "@FlightNumber" : "BA0275"
+                  }
+                },
+                {
+                  "#name" : "TravelSegment",
+                  "#text" : "",
+                  "@DeparturePoint" : "LAS",
+                  "@ArrivalPoint" : "LHR",
+                  "@Transport" : "air",
+                  "@Type" : "homebound",
+                  "@DepartureDate" : "20130529",
+                  "@DepartureTime" : "2115",
+                  "@ArrivalDate" : "20130530",
+                  "@ArrivalTime" : "1500",
+                  "@TravelCode" : "BA0274",
+                  "@Supplier" : "BAW",
+                  "@Currency" : "GBP",
+                  "@OperatedBy" : "British Airways",
+                  "@OperatingCarrier" : "BA",
+                  "@MarketingCarrier" : "BA",
+                  "@NumStops" : "0",
+                  "@DeparturePointName" : "Las Vegas",
+                  "@ArrivalPointName" : "London Heathrow",
+                  "@FareType" : "NoFrills",
+                  "@CabinClass" : "economy",
+                  "TicketInfo" : {
+                    "#name" : "TicketInfo",
+                    "#text" : "",
+                    "@FlightNumber" : "BA0274"
+                  }
+                }
+              ]
+            },
+            "ItineraryCost" : {
+              "#name" : "ItineraryCost",
+              "#text" : "",
+              "@TotalCost" : "1768.04",
+              "@CostingStage" : "quick",
+              "@CostingAccuracy" : "100",
+              "@PartyInfoCheck" : "2 adult(s), 0 infant(s),  and no young people with third party insurance.",
+              "@DepositRequiredAtBooking" : "1768.04",
+              "@CostingValid" : "true",
+              "@Currency" : "GBP",
+              "Component" : {
+                "#name" : "Component",
+                "#text" : "",
+                "@Supplier" : "BAW",
+                "@CostingStage" : "quick",
+                "@TotalCost" : "1768.04",
+                "@DepositRequiredAtBooking" : "1768.04",
+                "@UpdatedTime" : "20130410 1348",
+                "@Currency" : "GBP",
+                "@HostSystemRequiresPaymentCard" : "true",
+                "Detail" : [
+                  {
+                    "#name" : "Detail",
+                    "#text" : "",
+                    "@Description" : "Adult Price",
+                    "@UnitCost" : "495.37",
+                    "@Quantity" : "2",
+                    "@ExtendedCost" : "990.74",
+                    "@Currency" : "GBP",
+                    "@PriceDescription" : "Adult Flight",
+                    "@PriceCode" : "FlAd",
+                    "@FPC" : "basic.adult.flight",
+                    "SourceCostDetail" : {
+                      "#name" : "SourceCostDetail",
+                      "#text" : "",
+                      "@SourceUnitCost" : "415.0",
+                      "@SourceCurrency" : "GBP",
+                      "@UnitCost" : "415.0",
+                      "@UnitMarkup" : "80.37"
+                    }
+                  },
+                  {
+                    "#name" : "Detail",
+                    "#text" : "",
+                    "@Description" : "Adult Tax",
+                    "@UnitCost" : "384.15",
+                    "@Quantity" : "2",
+                    "@ExtendedCost" : "768.3",
+                    "@Currency" : "GBP",
+                    "@PriceDescription" : "Flight Tax",
+                    "@PriceCode" : "TxFl",
+                    "@FPC" : "tax.adult.flight",
+                    "SourceCostDetail" : {
+                      "#name" : "SourceCostDetail",
+                      "#text" : "",
+                      "@SourceUnitCost" : "384.15",
+                      "@SourceCurrency" : "GBP",
+                      "@UnitCost" : "384.15",
+                      "@UnitMarkup" : "0.0"
+                    }
+                  },
+                  {
+                    "#name" : "Detail",
+                    "#text" : "",
+                    "@Description" : "Estimated Supplier Booking Charge",
+                    "@UnitCost" : "9.0",
+                    "@Quantity" : "1",
+                    "@ExtendedCost" : "9.0",
+                    "@Currency" : "GBP",
+                    "@PriceDescription" : "Supplement",
+                    "@PriceCode" : "Sp",
+                    "@FPC" : "supplement.party.handling",
+                    "SourceCostDetail" : {
+                      "#name" : "SourceCostDetail",
+                      "#text" : "",
+                      "@SourceUnitCost" : "9.0",
+                      "@SourceCurrency" : "GBP",
+                      "@UnitCost" : "9.0",
+                      "@UnitMarkup" : "0.0"
+                    }
+                  }
+                ],
+                "PaymentCardCharge" : [
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "Visa_Credit",
+                    "@Amount" : "9.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  },
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "Mastercard",
+                    "@Amount" : "9.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  },
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "American_Express",
+                    "@Amount" : "9.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  },
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "Visa_Debit",
+                    "@Amount" : "0.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  },
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "Visa_Delta",
+                    "@Amount" : "0.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  },
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "Switch",
+                    "@Amount" : "0.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  },
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "Solo",
+                    "@Amount" : "0.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  },
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "Maestro",
+                    "@Amount" : "0.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  },
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "Diners_Club",
+                    "@Amount" : "9.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  },
+                  {
+                    "#name" : "PaymentCardCharge",
+                    "#text" : "",
+                    "@CardType" : "Visa_Electron",
+                    "@Amount" : "0.0",
+                    "@Currency" : "GBP",
+                    "AcceptableAuthMode" : [
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_only"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_address"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "cv2_and_postcode"
+                      },
+                      {
+                        "#name" : "AcceptableAuthMode",
+                        "#text" : "all"
+                      }
+                    ]
+                  }
+                ],
+                "PricingAudit" : {
+                  "#name" : "PricingAudit",
+                  "#text" : "",
+                  "@Currency" : "GBP",
+                  "@TotalCost" : "1607.3",
+                  "@TotalPrice" : "1768.04",
+                  "@Profit" : "160.74"
+                }
+              },
+              "PaymentCardCharge" : [
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "Visa_Credit",
+                  "@Amount" : "9.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                },
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "Mastercard",
+                  "@Amount" : "9.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                },
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "American_Express",
+                  "@Amount" : "9.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                },
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "Visa_Debit",
+                  "@Amount" : "0.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                },
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "Visa_Delta",
+                  "@Amount" : "0.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                },
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "Switch",
+                  "@Amount" : "0.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                },
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "Solo",
+                  "@Amount" : "0.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                },
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "Maestro",
+                  "@Amount" : "0.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                },
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "Diners_Club",
+                  "@Amount" : "9.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                },
+                {
+                  "#name" : "PaymentCardCharge",
+                  "#text" : "",
+                  "@CardType" : "Visa_Electron",
+                  "@Amount" : "0.0",
+                  "@Currency" : "GBP",
+                  "AcceptableAuthMode" : [
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_only"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_address"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "cv2_and_postcode"
+                    },
+                    {
+                      "#name" : "AcceptableAuthMode",
+                      "#text" : "all"
+                    }
+                  ]
+                }
+              ]
+            },
+            "Component" : {
+              "#name" : "Component",
+              "#text" : "",
+              "@Supplier" : "BAW",
+              "@BookingChannel" : "XML"
+            }
+          }
+        }
+      ],
+      "PartyInfo" : {
+        "#name" : "PartyInfo",
+        "#text" : "",
+        "@NumberOfAdults" : "2",
+        "@NumberOfInfants" : "0",
+        "@ThirdPartyInsurance" : "true",
+        "@ThirdPartyInsurerName" : "Providing Own Insurance",
+        "@PreferredNumberOfRooms" : "1"
+      }
+    }
+  }
+}

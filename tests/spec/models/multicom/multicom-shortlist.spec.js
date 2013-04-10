@@ -18,7 +18,8 @@ describe("MulticomShortlist", function() {
 			'models/multicom/multicom-flight',
 			'models/multicom/multicom-accommodation',
 			'json!../../json-test/multicom-v3/hotels-las-vegas.json',
-			'json!../../json-test/multicom-v3/flights-las-vegas.json'
+			'json!../../json-test/multicom-v3/flights-las-vegas.json',
+			'json!../../json-test/multicom-v3/shortlist.json'
 			], function(
 				_, Backbone, Marionette,
 				MulticomShortlist,
@@ -30,7 +31,8 @@ describe("MulticomShortlist", function() {
 				MulticomFlight,
 				MulticomAccommodation,
 				sampleAccom,
-				sampleFlight
+				sampleFlight,
+				sampleShortlist
 			){
 			that._ = _;
 			that.MulticomShortlist = MulticomShortlist;
@@ -43,7 +45,48 @@ describe("MulticomShortlist", function() {
 			that.MulticomFlight = MulticomFlight;
 			that.sampleAccom = sampleAccom;
 			that.sampleFlight = sampleFlight;
+			that.sampleShortlist = sampleShortlist;
 			
+			
+			
+			/*
+			
+				Data setup
+				
+			*/
+			var self = that;
+			var b = new that.Booking();
+			
+			//setup accommodation
+			var accommCol = new that.McAccommodationCollection();
+			that.sampleAccom = accommCol.parse(that.sampleAccom);
+			var hotels = [];
+			that._.each(that.sampleAccom,function(item){
+				var h = self.MulticomAccommodation.findOrCreate(item, {parse: true});
+				hotels.push(h);
+			});
+			accommCol.add(hotels);
+			
+			b.get('holidaySearch').set(new that.HolidaySearch({
+				numNights: 5,
+				dateStart: '22/05/2013'
+			}));
+			b.get('holidaySearch').setOccupancy([{adults: 2, children: 0, infants: 0},{adults: 2, children: 0, infants: 0}]);
+			
+			b.setSelectedHotel(accommCol.at(0));
+			
+			//setup flights
+			var flightCol = new that.McFlightCollection();
+			var flights = [];
+			
+			that._.each(flightCol.parse(that.sampleFlight),function(item){
+				flights.push(that.MulticomFlight.findOrCreate(item,{parse:true}));
+			});
+			flightCol.add(flights);
+			b.setSelectedFlight(flightCol.at(0));
+			
+			//save into global context
+			self.booking = b;
 			
 			that.model = new MulticomShortlist();
 			
@@ -73,6 +116,13 @@ describe("MulticomShortlist", function() {
 			this.model.setTestMode(true);
 			expect(this.model.get('testMode')).toEqual(true);
 		});
+		it('url should initiate to shortlist url', function(){
+			this.model.setTestMode(false);
+			expect(this.model.getRequestUrl()).toContain('multicom_plugin/api');
+			
+			this.model.setTestMode(true);
+			expect(this.model.getRequestUrl()).toContain('json-test/multicom-v3/shortlist.json');
+		});
 	});
 	
 	describe('BuildShortlistRequest', function(){
@@ -91,11 +141,11 @@ describe("MulticomShortlist", function() {
 		
 			var p = this.model._buildParty(s);
 			
-			expect(p.numberOfAdults).toEqual(6);
-			expect(p.numberOfInfants).toEqual(3);
+			expect(p.numAdults).toEqual(6);
+			expect(p.numInfants).toEqual(3);
 			expect(p.thirdPartyInsurance).toEqual(false);
 			expect(p.thirdPartyInsuranceName).toEqual('');
-			expect(p.preferredNumberOfRooms).toEqual(3);
+			expect(p.numRooms).toEqual(3);
 			expect(p.defaultMealOkay).toBeTruthy();
 			expect(p.defaultResortTransferOkay).toBeTruthy();
 			expect(p.defaultDonationOkay).toBeTruthy();
@@ -104,33 +154,12 @@ describe("MulticomShortlist", function() {
 		
 		it('_buildAccommodation converts booking info into an accomodationSegment structure', function(){
 			
-			// DATA SETUP
-			var self = this;
-			
-			var accommCol = new this.McAccommodationCollection();
-			this.sampleAccom = accommCol.parse(this.sampleAccom);
-			var hotels = [];
-			this._.each(this.sampleAccom,function(item){
-				var h = self.MulticomAccommodation.findOrCreate(item, {parse: true});
-				hotels.push(h);
-			});
-			accommCol.add(hotels);
-			
-			var b = new this.Booking();
-			b.get('holidaySearch').set(new this.HolidaySearch({
-				numNights: 5,
-				dateStart: '22/05/2013'
-			}));
-			b.get('holidaySearch').setOccupancy([{adults: 2, children: 0, infants: 0},{adults: 2, children: 0, infants: 0}]);
-			
-			b.setSelectedHotel(accommCol.at(0));
-			
 			//just check the setup is correct
-			expect(b.get('selectedHotel').get('itineraryId')).toEqual('si1238');
-			expect(b.get('selectedRooms').length).toEqual(2);
+			expect(this.booking.get('selectedHotel').get('itineraryId')).toEqual('si1238');
+			expect(this.booking.get('selectedRooms').length).toEqual(2);
 			
 			// TEST CODE!
-			var accomSeg = this.model._buildAccommodation(b.get('selectedHotel'),b.get('selectedRooms'));
+			var accomSeg = this.model._buildAccommodation(this.booking.get('selectedHotel'),this.booking.get('selectedRooms'));
 			var aS = accomSeg; //shorthand for unit tests
 			
 			expect(aS.itinerary).toEqual('si1238');
@@ -184,8 +213,56 @@ describe("MulticomShortlist", function() {
 			
 			
 		});
-		
-		
+	});
+	
+	describe('Make Shortlist Request', function(){
+	
+		var flag;
+		var hasBeenCalled;
+		it('Fires a success event when complete', function(){
+			
+			runs(function(){
+				flag=false;
+				
+				var self = this;
+				
+				hasBeenCalled = false;
+				
+				this.model.listenTo(this.model,'complete',function(){
+					hasBeenCalled=true;
+				});
+				
+				this.model.setTestMode(true);
+				this.model.makeShortlistRequest(self.booking);
+				
+				setInterval(function() {
+					if(!self.model.isLoading()){
+						flag = true;clearInterval();
+					}
+				}, 10);
+			});
+			
+			waitsFor(function(){
+				return flag;
+			});
+			
+			runs(function(){
+				expect(hasBeenCalled).toBeTruthy();
+				
+			});
+		});
+	});
+	
+	describe('Parse shortlist response', function(){
+		it('Correctly parses a response', function(){
+			var p = [];
+			p = this.model.parse(this.sampleShortlist);
+			
+			expect(p.totalCost).toEqual(145.42 + 1768.04);
+			expect(p.errata.length).toEqual(4);
+			expect(p.errata[0].supplier).toEqual("BAR");
+			expect(p.errata[0].info).toEqual("Incoming Office: 256");
+		});
 	});
 	
 });

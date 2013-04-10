@@ -46,6 +46,7 @@ describe("Booking Model", function() {
 			expect(m.get('selectedRooms')).toBeDefined();
 			expect(m.get('travellersInfo')).toBeDefined();
 			
+			expect(m.get('shortlistRequest')).toBeDefined();
 			expect(m.get('holidaySearch').get('destination')).toBeDefined();
 			
 			expect(m.get('selectedRooms').length).toBeDefined();
@@ -234,6 +235,21 @@ describe("Booking Model", function() {
 			expect(pp.total).toEqual(203.33);
 						
 
+		});
+	});
+	
+	describe('makeShortlistRequest', function(){
+		it('trigger shortlist:complete on completion', function(){
+			
+			var fired = false;
+			
+			this.model.listenTo(this.model,'shortlist:complete',function(){
+				fired = true;
+			});
+			this.model.get('shortlistRequest').trigger('complete');
+			
+			expect(fired).toBeTruthy();
+			
 		});
 	});
 	

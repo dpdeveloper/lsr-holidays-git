@@ -106,9 +106,9 @@ require([
 			//App.index();
 			App.handleSearchTransition(model);
 			
-			setTimeout(function(){
+			/*setTimeout(function(){
 				vent.trigger('search:shortlist');
-			},500);
+			},500);*/
 
 
 		});

@@ -20,10 +20,8 @@ define([
 
 	var config = {
 		root: base.replace(window.location.protocol + "//" + window.location.hostname,""),
-		
 		contentRoot: reqres.request('config:get').contentUrl+"/",
-		
-		multicomMode: 'live' //'live' or 'test'
+		multicomMode: 'test' //'live' or 'test'
     };
     
     return config;

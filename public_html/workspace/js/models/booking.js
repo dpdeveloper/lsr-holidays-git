@@ -12,6 +12,7 @@ define([
 	'models/multicom/multicom-flight',
 	'models/multicom/multicom-accommodation',
 	'models/multicom/multicom-room',
+	'models/multicom/multicom-shortlist',
 	'models/travellers-info',
 	'collections/multicom-room',
 	'collections/travellers-info'
@@ -22,6 +23,7 @@ define([
 			MulticomFlight,
 			MulticomAccommodation,
 			MulticomRoom,
+			MulticomShortlist,
 			TravellersInfo,
 			MulticomRoomCollection,
 			TravellersInfoCollection
@@ -74,6 +76,11 @@ define([
 				key: 'travellersInfo',
 				relatedModel: TravellersInfo,
 				collectionType: TravellersInfoCollection
+			},
+			{
+				type: 'HasOne',
+				key: 'shortlistRequest',
+				relatedModel: MulticomShortlist
 			}
 		],
 		
@@ -98,22 +105,33 @@ define([
 		ATOL_FEE: 2.5,
 		
 		/**
+		
 			Constructor
 			
 			@class Booking Object
 			@constructs
 			@param {Object} [options] Options Hash
+			
 		*/
 		initialize: function(options){
 			//set the date to today
 			var d = new Date();
+			var self = this;
+			
 			this.set({
 				status: this.STATES.SEARCH,
 				createdDate: ('0'+d.getDay()).slice(-2) + '/' + ('0'+(d.getMonth() +1)).slice(-2) + '/' + d.getYear(),
-				holidaySearch: new HolidaySearch()
+				holidaySearch: new HolidaySearch(),
+				shortlistRequest: new MulticomShortlist() 
 			});
 			
-			
+			//shortlist binding
+			this.listenTo(this.get('shortlistRequest'),'complete',function(){
+				self.trigger('shortlist:complete');
+			});
+			this.listenTo(this.get('shortlistRequest'),'error',function(){
+				self.trigger('shortlist:error');
+			});
 		},
 		
 		/**
@@ -159,6 +177,12 @@ define([
 		getSearch: function(){
 			return this.get('holidaySearch');
 		},
+		
+		
+		makeShortlistRequest: function(){
+			
+			this.get('shortlistRequest').makeShortlistRequest(this);
+		},
 		 
 		
 		/**
@@ -183,7 +207,9 @@ define([
 		},
 		
 		/**
+			
 			@param {MulticomFlight} flight
+			
 		*/
 		setSelectedFlight: function(flight){
 			/*
@@ -205,7 +231,9 @@ define([
 		},
 		
 		/**
+		
 			@returns {rooms, flight, extra, total}
+			
 		*/
 		getCost: function(){
 			var cost = {
