@@ -36,5 +36,13 @@ describe("TravellersEditCollectionView", function() {
 			this.region.show(this.view);
 			expect(this.view.$el).toBeVisible();
 		});
+		it('Renders the given title', function(){
+			this.view._lang.title = "Title";
+			
+			this.region.show(this.view);
+			
+			expect(this.view.$el.find('h4').text()).toEqual('Title');
+			
+		});
 	});
 });

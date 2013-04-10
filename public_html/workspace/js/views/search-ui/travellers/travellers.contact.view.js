@@ -114,11 +114,14 @@ define([
 			this.model.parseName(this.$el.find('.field-name').val());
 			
 			var self = this;
+			var data = {}
 			
 			//use the mappings to save the rest of the data
 			_.each(this._mappings,function(elem,index){
-				self.model.set(elem,self.$el.find('.'+index).val());
+				data[elem] = self.$el.find('.'+index).val();
 			});
+			
+			this.model.set(data);
 		},
 		
 		/**

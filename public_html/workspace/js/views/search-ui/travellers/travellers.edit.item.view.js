@@ -5,11 +5,11 @@
 */
 
 define([
-	'jquery','underscore','backbone','marionette','vent','jquery-ui',
+	'jquery','underscore','backbone','marionette','vent','jquery-ui','libs/backbone.stickit.min',
 	'tpl!views/search-ui/templates/travellers.edit.item.view.tpl.html',
 	'models/travellers-info',
 	'select2'
-], function($,_,Backbone,Marionette,vent,jqueryUI,
+], function($,_,Backbone,Marionette,vent,jqueryUI,stickit,
 			Template,
 			TravellersInfo,
 			Select2

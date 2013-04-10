@@ -1929,7 +1929,20 @@ h3.travellers{
 /*===========================================*/
 .search-ui-travellers-edit-collection{
 	
-	.collection-inner{}
+	
+	
+	h4{
+		color: $colourLightGreyFg;
+		letter-spacing: 0px;
+		font-weight: 400;
+		padding: 0px 0px 5px 15px;
+		font-size: 18px;
+	}
+	
+	.collection-inner{
+		background: #eee;
+		padding: 15px 15px 5px;
+	}
 }
 
 
@@ -1939,6 +1952,8 @@ h3.travellers{
 
 /*===========================================*/
 .search-ui-travellers-edit-item-view{
+	margin-bottom: 15px;
+	box-shadow: 1px 0px 6px rgba(0,0,0,0.3);
 	.item-view-inner{
 	
 		.item-view-header{
@@ -1956,7 +1971,7 @@ h3.travellers{
 			.placeholder{color: #bbb;}
 
 			.body-top{
-				background: #eee;
+				background: #fff;
 				padding: 6px 15px 6px;
 				
 			
@@ -1999,7 +2014,7 @@ h3.travellers{
 				}
 			}			
 			.body-bottom{
-				background: #eee;
+				background: #fff;
 				padding: 4px 15px 15px;
 				
 				.col{

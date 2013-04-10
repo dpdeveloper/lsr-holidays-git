@@ -52,6 +52,16 @@ define([
 			else{
 				this.collection = new TravellersInfoCollection();
 			}
+		},
+		
+		/**
+			Serialize custom language data into data
+		*/
+		serializeData: function(){
+			return $.extend(
+				{ _lang :this._lang},
+				this.model ? this.model.toJSON() : {}
+			);
 		}
 	});
 	
