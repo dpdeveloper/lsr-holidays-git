@@ -2070,7 +2070,118 @@ h3.travellers{
 		@extend h3.travellers	
 	}
 	
+	.invalid{
+		background: #ffaaaa;
+		color: #c00;
+	}
+	.valid{
+		background: #aaffaa;
+		color: #0a0;	
+	}
+	
 	.tac-inner{
+		position: relative;
+		
+		.tac-inner-l{
+			float: left; width: 68%;
+			padding-right: 2%;
+			background: #fff;
+			
+			.tac-item{
+				margin-bottom: 10px;
+				border-radius: 2px;
+				cursor: pointer;
+				
+				&.last{
+					margin-bottom: 0px;
+				}
+				
+				.tac-item-inner{padding: 15px;}
+				
+				.tac-item-l{
+					float: left;
+					width: 6%; margin-right: 4%;
+					text-align: right;
+					padding: 0px 0px 0px;
+				
+					input{
+						
+					}
+				}
+				.tac-item-r{
+					float: left;
+					width: 80%;
+					
+					p{
+						font-size: 16px;
+					}
+					ol{
+						list-style: decimal outside;
+						margin: 6px 0px 0px 25px;
+						
+						li{
+							font-size: 11px;
+						}
+					}
+				}
+				
+			}
+		}
+		
+		.tac-inner-r{
+			width: 30%; margin-left: 70%;
+			
+			
+			.tac-submit-inner{
+			
+				padding: 25px 15px 15px;
+				
+				.tac-msg{
+					font-weight: 400;
+					margin-bottom: 10px;
+					font-size: 22px; line-height: 30px;
+					text-align: center;
+				}
+				
+				.tac-submit-button{
+					position: absolute;
+					bottom: 15px;
+					width: 30%;
+					
+					a{
+						@include actionButton();
+						display: block;
+						font-size: 28px; line-height: 36px;
+						padding: 20px 0px;
+						margin: 10px 30px 0px 0px;
+						box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+						
+						&:hover{
+							box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+						}
+						
+						
+						&.invalid, &.invalid:hover{
+							cursor: auto;
+							background: #999;
+							background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dadada), to(#f3f3f3));
+							border-top: 1px solid #c5c5c5;
+							border-right: 1px solid #cecece;
+							border-bottom: 1px solid #d9d9d9;
+							border-left: 1px solid #cecece;
+							color: #8f8f8f;
+							box-shadow: none;
+							-moz-box-shadow: none;
+							-webkit-box-shadow: none;
+							cursor: not-allowed;
+							text-shadow: 0 -1px 1px #ebebeb;
+						}
+						
+						
+					}	
+				}
+			}
+		}
 		
 	}
 	

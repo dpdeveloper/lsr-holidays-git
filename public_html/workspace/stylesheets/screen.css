@@ -7295,3 +7295,139 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
 .travellers-tac-view {
   padding: 15px 0px 30px 30px;
 }
+/* line 2073, ../sass/screen.scss */
+.travellers-tac-view .invalid {
+  background: #ffaaaa;
+  color: #c00;
+}
+/* line 2077, ../sass/screen.scss */
+.travellers-tac-view .valid {
+  background: #aaffaa;
+  color: #0a0;
+}
+/* line 2082, ../sass/screen.scss */
+.travellers-tac-view .tac-inner {
+  position: relative;
+}
+/* line 2085, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-l {
+  float: left;
+  width: 68%;
+  padding-right: 2%;
+  background: #fff;
+}
+/* line 2090, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-l .tac-item {
+  margin-bottom: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+/* line 2095, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-l .tac-item.last {
+  margin-bottom: 0px;
+}
+/* line 2099, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-l .tac-item .tac-item-inner {
+  padding: 15px;
+}
+/* line 2101, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-l .tac-item .tac-item-l {
+  float: left;
+  width: 6%;
+  margin-right: 4%;
+  text-align: right;
+  padding: 0px 0px 0px;
+}
+/* line 2111, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-l .tac-item .tac-item-r {
+  float: left;
+  width: 80%;
+}
+/* line 2115, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-l .tac-item .tac-item-r p {
+  font-size: 16px;
+}
+/* line 2118, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-l .tac-item .tac-item-r ol {
+  list-style: decimal outside;
+  margin: 6px 0px 0px 25px;
+}
+/* line 2122, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-l .tac-item .tac-item-r ol li {
+  font-size: 11px;
+}
+/* line 2131, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-r {
+  width: 30%;
+  margin-left: 70%;
+}
+/* line 2135, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-r .tac-submit-inner {
+  padding: 25px 15px 15px;
+}
+/* line 2139, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-r .tac-submit-inner .tac-msg {
+  font-weight: 400;
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 30px;
+  text-align: center;
+}
+/* line 2146, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-r .tac-submit-inner .tac-submit-button {
+  position: absolute;
+  bottom: 15px;
+  width: 30%;
+}
+/* line 2151, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-r .tac-submit-inner .tac-submit-button a {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fcfa00), color-stop(100%, #ffca00));
+  background-image: -webkit-linear-gradient(#fcfa00, #ffca00);
+  background-image: -moz-linear-gradient(#fcfa00, #ffca00);
+  background-image: -o-linear-gradient(#fcfa00, #ffca00);
+  background-image: linear-gradient(#fcfa00, #ffca00);
+  color: #58595B;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 3px;
+  padding: 6px 15px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(198, 136, 69, 0.4);
+  cursor: pointer;
+  display: block;
+  font-size: 28px;
+  line-height: 36px;
+  padding: 20px 0px;
+  margin: 10px 30px 0px 0px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+/* line 63, ../sass/_base.scss */
+.travellers-tac-view .tac-inner .tac-inner-r .tac-submit-inner .tac-submit-button a:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffca00), color-stop(100%, #fcfa00));
+  background-image: -webkit-linear-gradient(#ffca00, #fcfa00);
+  background-image: -moz-linear-gradient(#ffca00, #fcfa00);
+  background-image: -o-linear-gradient(#ffca00, #fcfa00);
+  background-image: linear-gradient(#ffca00, #fcfa00);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+/* line 2159, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-r .tac-submit-inner .tac-submit-button a:hover {
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+/* line 2164, ../sass/screen.scss */
+.travellers-tac-view .tac-inner .tac-inner-r .tac-submit-inner .tac-submit-button a.invalid, .travellers-tac-view .tac-inner .tac-inner-r .tac-submit-inner .tac-submit-button a.invalid:hover {
+  cursor: auto;
+  background: #999;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dadada), to(#f3f3f3));
+  border-top: 1px solid #c5c5c5;
+  border-right: 1px solid #cecece;
+  border-bottom: 1px solid #d9d9d9;
+  border-left: 1px solid #cecece;
+  color: #8f8f8f;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  cursor: not-allowed;
+  text-shadow: 0 -1px 1px #ebebeb;
+}

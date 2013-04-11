@@ -1,5 +1,46 @@
 <!--<div class="travellers-tac-view">-->
-<div class="tac-inner">
-	<h1>Terms and Conditions</h1>
-	<h3>Please agree to our terms and conditions</h3>
+<h1>Terms and Conditions</h1>
+<h3>Please agree to our terms and conditions</h3>
+<div class="tac-inner clearfix invalid">
+	
+	<div class="tac-inner-l">
+		<div class="tac-item invalid">	
+			<div class="tac-item-inner clearfix">
+				<div class="tac-item-l">
+					<input type="checkbox" class="terms-lsr"/>
+				</div>
+				<div class="tac-item-r">
+					<p>I have read and agree to LSR Holidays Terms and Conditions</p>
+				</div>
+				
+			</div>
+		</div>
+		<div class='tac-item invalid last'>
+			<div class="tac-item-inner clearfix">
+				<div class="tac-item-l">
+					<input type="checkbox" class="terms-suppliers"/>
+				</div>
+				
+				<div class="tac-item-r">
+					<p>I have read/agree the important information from our suppliers</p>
+					<ol>
+						<% _.each(errata, function(item,index){ %>
+							<li><%=item.info%></li>
+						<% }) %>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tac-inner-r">
+		<div class="tac-submit-inner">
+			<div class="tac-msg">
+				<%= status %>
+			</div>
+			<div class="tac-submit-button">
+				<a href="#" class="tac-submit invalid">Book <br/> Holiday</a>
+			</div>
+		</div>
+	</div>
+	
 </div>
