@@ -244,7 +244,7 @@ define([
 			
 			var f = this.get('selectedFlight');
 			if(typeof f !== 'undefined' && f !== null){
-				cost.flight = parseFloat(f.get('priceTotal'));
+				cost.flight = parseFloat(f.get('priceTotal')) * this.get('holidaySearch').getTravellers().length;
 			}
 			
 			cost.total = cost.rooms + cost.flight + cost.extra;

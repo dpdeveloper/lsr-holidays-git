@@ -222,17 +222,17 @@ describe("Booking Model", function() {
 			var c = this.model.getCost();
 			
 			expect(c.rooms).toEqual(200);
-			expect(c.flight).toEqual(400);
+			expect(c.flight).toEqual(1200);
 			expect(c.extra).toEqual(10);
-			expect(c.total).toEqual(610);
+			expect(c.total).toEqual(1410);
 			
 			//check per person cost
 			var pp = this.model.getCostPerPerson();
 			
 			expect(pp.rooms).toEqual(66.67);
-			expect(pp.flight).toEqual(133.33);
+			expect(pp.flight).toEqual(400);
 			expect(pp.extra).toEqual(3.33);
-			expect(pp.total).toEqual(203.33);
+			expect(pp.total).toEqual(470);
 						
 
 		});
