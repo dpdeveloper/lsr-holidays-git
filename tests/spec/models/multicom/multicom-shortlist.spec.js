@@ -207,7 +207,7 @@ describe("MulticomShortlist", function() {
 			var t = this.model.buildShortlistRequest(booking);
 			
 			expect(t.partyInfo).toBeDefined();
-			expect(t.action).toEqual('buildShortlist');
+			expect(t.action).toEqual('createShortlist');
 			expect(t.travelSegments.length).toEqual(1);
 			expect(t.accommodationSegments.length).toEqual(1);
 			

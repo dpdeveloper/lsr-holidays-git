@@ -171,7 +171,7 @@ define([
 		*/
 		buildShortlistRequest: function(booking){
 			return {
-				action: 'buildShortlist',
+				action: 'createShortlist',
 				travelSegments: [
 					this._buildTravel(booking.get('selectedFlight'))
 				],
