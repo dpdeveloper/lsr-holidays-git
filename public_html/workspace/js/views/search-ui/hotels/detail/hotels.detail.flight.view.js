@@ -5,7 +5,7 @@
 */
 
 define([
-	'jquery', 'underscore', 'backbone', 'marionette', 'vent', 'colorbox', 'moment',
+	'jquery', 'underscore', 'backbone', 'marionette', 'vent',  'moment',
 	'tpl!views/search-ui/templates/hotels.detail.flight.view.tpl.html',
 	'tpl!views/search-ui/templates/flight.detail.view.tpl.html',
 	'collections/symphony-airline',
@@ -14,7 +14,7 @@ define([
 	'views/search-ui/flights/flight.detail.view'
 
 
-], function ($, _, Backbone, Marionette, vent, jcb, moment,
+], function ($, _, Backbone, Marionette, vent,  moment,
 			SearchUIHotelsDetailFlightTemplate, popup,
 			SymphonyAirlineCollection,
 			MulticomFlight,
@@ -140,33 +140,16 @@ define([
 
 	},
 
-	
+
 	handlePopup: function (ev) {
 	    ev.preventDefault();
-	    console.log(moment(this.model.get('departureTime'), 'HHmm').format('HH:mm'));
-
-	    var Outboundhours = this.setDatesFromStartFinish(moment(this.model.get('departureDate') + this.model.get('departureTime'), 'YYYY-MM-DDHHmm').format('DD/MM/YYYY HH:mm:ss'), moment(this.model.get('arrivalDate') + this.model.get('arrivalTime'), 'YYYY-MM-DDHHmm').format('DD/MM/YYYY HH:mm:ss'));
-	    console.log(Outboundhours);
-	    var Inboundhours = this.setDatesFromStartFinish(moment(this.model.get('returnHomeDepartDate') + this.model.get('returnHomeDepartTime'), 'YYYY-MM-DDHHmm').format('DD/MM/YYYY HH:mm:ss'), moment(this.model.get('returnHomeDate') + this.model.get('returnHomeTime'), 'YYYY-MM-DDHHmm').format('DD/MM/YYYY HH:mm:ss'));
-
-
-	    var item = _.contains(this.model.get('departureTime'), ':');
-	    if (!item) {
-	        this.model.set({
-
-	            Outboundtimespan: Outboundhours, Inboundtimespan: Inboundhours, departureTime: moment(this.model.get('departureTime'), 'HHmm').format('HH:mm')
-				, arrivalTime: moment(this.model.get('arrivalTime'), 'HHmm').format('HH:mm'),
-	            returnHomeDepartTime: moment(this.model.get('returnHomeDepartTime'), 'HHmm').format('HH:mm'), returnHomeTime: moment(this.model.get('returnHomeTime'), 'HHmm').format('HH:mm')
-	        });
-	    }
-
 
 	    var flightdetails = new FlightDetailView({ model: this.model });
-	    console.log(this.model.toJSON());
+	    flightdetails.render();
 
-	    jQuery.colorbox({
-	        html: flightdetails.el
-	    });
+	    console.log(flightdetails.el);
+
+
 	}
 
 });
