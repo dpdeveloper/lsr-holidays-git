@@ -114,13 +114,13 @@ describe("Travellers Contact View", function() {
 			expect(this.view.saveModel).toHaveBeenCalled();
 			expect(this.view.togglePlaceholder).toHaveBeenCalled();
 		});
-		it('togglePlaceholder should hide the label on focus', function(){
+		xit('togglePlaceholder should hide the label on focus', function(){
 			this.region.show(this.view);
 			
 			var $input = this.view.$el.find('.field-name');
 			
 			$input.trigger('focus');
-			expect($input.val()).toEqual('');
+			expect($iqnput.val()).toEqual('');
 			
 			$input.trigger('blur');
 			expect($input.val()).toEqual(this.view._lang['field-name']);

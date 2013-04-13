@@ -105,7 +105,7 @@ describe("TravellersEditItemView", function() {
 			
 			expect(fired).toBeTruthy();
 		});
-		it('togglePlaceholder should hide the label on focus', function(){
+		xit('togglePlaceholder should hide the label on focus', function(){
 			this.region.show(this.view);
 			
 			var $input = this.view.$el.find('.field-first-name');
