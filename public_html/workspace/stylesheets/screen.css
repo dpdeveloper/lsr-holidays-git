@@ -7431,3 +7431,99 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
   cursor: not-allowed;
   text-shadow: 0 -1px 1px #ebebeb;
 }
+
+/*
+
+	Flight Detail View
+	
+*/
+/* line 2195, ../sass/screen.scss */
+#colorboxContentContainer {
+  width: 830px;
+  color: #242321;
+}
+
+/* line 2196, ../sass/screen.scss */
+#colorboxContent h1 {
+  color: #1193D1;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* line 2197, ../sass/screen.scss */
+.link {
+  color: #0000FF;
+}
+
+/* line 2198, ../sass/screen.scss */
+#cboxContent {
+  background-color: #FFF;
+  border-radius: 0px;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+/* line 2199, ../sass/screen.scss */
+.popupInner {
+  float: left;
+  width: 98%;
+}
+
+/* line 2200, ../sass/screen.scss */
+.popupLeft {
+  border-right: 1px solid #eaeaea;
+  float: left;
+  width: 48%;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+/* line 2201, ../sass/screen.scss */
+.popupRight {
+  float: right;
+  width: 48%;
+  margin-right: 0px;
+}
+
+/* line 2202, ../sass/screen.scss */
+#colorboxContent h2, h3, #colorboxContent .spanColor {
+  color: #1193D1;
+}
+
+/* line 2203, ../sass/screen.scss */
+#colorboxContent h2 {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* line 2204, ../sass/screen.scss */
+#colorboxContent h3 {
+  margin-bottom: 5px;
+}
+
+/* line 2205, ../sass/screen.scss */
+#colorboxContent b {
+  font-weight: bold;
+}
+
+/* line 2206, ../sass/screen.scss */
+#cboxClose {
+  border: none;
+}
+
+/* line 2207, ../sass/screen.scss */
+#colorboxContent img.timezone {
+  float: left;
+  margin: 45px 10px 20px 0px;
+}
+
+/* line 2208, ../sass/screen.scss */
+.popupLegs {
+  margin-top: 15px;
+}
+
+/* line 2209, ../sass/screen.scss */
+.innerLeg {
+  margin-bottom: 20px;
+}

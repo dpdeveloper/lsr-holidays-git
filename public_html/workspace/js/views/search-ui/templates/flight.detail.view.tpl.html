@@ -1,0 +1,172 @@
+<!--<div class="filter-detail-view">-->
+<div id="colorboxContentContainer">
+    <div id="colorboxContent">
+        <h1>
+            Flight Details</h1>
+        <div class="popupInner">
+            <div class="popupLeft">
+                <h2>
+                    <%
+			var OutboundtmpNumStops;
+			if(outboundNumStops == '0'){
+				OutboundtmpNumStops = 'Direct';
+			}			
+			else{
+				OutboundtmpNumStops = outboundNumStops + ' stops';
+			}
+                    %>
+                    Outbound (<%=OutboundtmpNumStops%>)</h2>
+                <p>
+                    <%=originAirport%><%=departureTimeformat %>
+                    &rarr;
+                    <%=destinationAirport%><%=arrivalTimeformat %>
+                    <b>Total Flight Time</b>
+                    <%=Outboundtimespan %></p>
+                <% if(outboundMultiLeg == false){ %>
+                <div class="popupLegs">
+                    <img src="../public_html/workspace/images/colorbox/time-zone.png" alt="" class="timezone" />
+                    <div class="innerLeg">
+                        <h3>
+                            Leg1</h3>
+                        <p class="sourceAndDestination">
+                            <%=originAirportName%> (<%=originAirport%>)
+                            <%=departureTimeformat%>
+                            to 
+                            <%=destinationAirportName%> (<%=destinationAirport%>)
+                            <%=arrivalTimeformat %></p>
+                        <p>
+                            <span class="spanColor">Airline</span>
+                            <%=outboundAirlineName %>
+                            <span class="spanColor">Flight Number</span>
+                            <%=outboundFlightNumber %></p>
+                        <p>
+                            <span class="spanColor">Class</span>
+                            <%=outboundFlightClass %>
+                            <span class="spanColor">Duration</span>
+                            <%=Outboundtimespan %></p>
+                    </div>
+                </div>
+                <% }else {%>
+                <%_.each(outboundSubSegments, function(obj,index){ %>
+                <div class="popupLegs">
+                    <img src="../public_html/workspace/images/colorbox/time-zone.png" alt="" class="timezone" />
+                    <div class="innerLeg">
+                        <h3>
+                            <%
+                        var Outboundlegs=index+1; %>
+                            Leg<%=Outboundlegs %></h3>
+                        <p class="sourceAndDestination">
+                            <%=obj.originAirportName%>(<%=obj.departurePoint%>)
+                            <%=obj.departureTimeFormat%>
+                            to
+                            <%=obj.destinationAirportName%>
+                            (<%=obj.arrivalPoint%>)
+                            <%=obj.arrivalTimeFormat %></p>
+                        <p>
+                            <span class="spanColor">Airline</span>
+                            <%=obj.operatedBy %>
+                            <span class="spanColor">Flight Number</span>
+                            <%=obj.flightNumber %></p>
+                        <p>
+                            <span class="spanColor">Class</span>
+                            <%=outboundFlightClass %>
+                            <span class="spanColor">Duration</span>
+                            <%=obj.outboundSubSegmentstimespan %></p>
+                        <% if(typeof obj.OutBoundStopOver != "undefined") { %>
+                        <p class="stopover">
+                            <span class="spanColor">Stopover</span>
+                            <%=obj.destinationAirportName %>(<%=obj.arrivalPoint %>)
+                            <%=obj.OutBoundStopOver %></p>
+                        <% } %>
+                    </div>
+                </div>
+                <% }); %>
+                <% } %>
+            </div>
+            <div class="popupRight">
+                <h2>
+                    <%
+			var InboundtmpNumStops;
+			if(returnNumStops == '0'){
+				InboundtmpNumStops = 'Direct';
+			}
+			else if(returnNumStops == '1'){
+				InboundtmpNumStops = returnNumStops + ' stop';
+			}
+			else{
+				InboundtmpNumStops = returnNumStops + ' stops';
+			}
+                    %>
+                    Inbound (<%=InboundtmpNumStops%>)</h2>
+                <p>
+                    <%=destinationAirport%><%=returnHomeDepartTimeformat%>
+                    &rarr;
+                    <%=originAirport%><%=returnHomeTimeformat %>
+                    <b>Total Flight Time</b>
+                    <%=Inboundtimespan %></p>
+                <% if(returnMultiLeg == false){ %>
+                <div class="popupLegs">
+                    <img src="../public_html/workspace/images/colorbox/time-zone.png" alt="" class="timezone" />
+                    <div class="innerLeg">
+                        <h3>
+                            Leg1</h3>
+                        <p class="sourceAndDestination">
+                            <%=destinationAirportName%>(<%=destinationAirport%>)
+                            <%=returnHomeDepartTimeformat%>
+                            to
+                            <%=originAirportName%>
+                            (<%=originAirport%>)
+                            <%=returnHomeTimeformat %></p>
+                        <p>
+                            <span class="spanColor">Airline</span>
+                            <%=returnAirlineName %>
+                            <span class="spanColor">Flight Number</span>
+                            <%=returnFlightNumber %></p>
+                        <p>
+                            <span class="spanColor">Class</span>
+                            <%=returnFlightClass %>
+                            <span class="spanColor">Duration</span>
+                            <%=Inboundtimespan %></p>
+                    </div>
+                </div>
+                <% }else {%>
+                <%_.each(returnSubSegments, function(obj,index){ %>
+                <div class="popupLegs">
+                    <img src="../public_html/workspace/images/colorbox/time-zone.png" alt="" class="timezone" />
+                    <div class="innerLeg">
+                        <h3>
+                            <%
+                        var Legs;
+                         Legs=index+1;%>
+                            Leg<%=Legs%></h3>
+                        <p class="sourceAndDestination">
+                            <%=obj.originAirportName%>(<%=obj.departurePoint%>)
+                            <%=obj.departureTimeFormat%>
+                            to
+                            <%=obj.destinationAirportName%>
+                            (<%=obj.arrivalPoint%>)
+                            <%=obj.arrivalTimeFormat %></p>
+                        <p>
+                            <span class="spanColor">Airline</span>
+                            <%=obj.operatedBy %>
+                            <span class="spanColor">Flight Number</span>
+                            <%=obj.flightNumber %></p>
+                        <p>
+                            <span class="spanColor">Class</span>
+                            <%=returnFlightClass %>
+                            <span class="spanColor">Duration</span>
+                            <%=obj.inboundSubSegmentstimespan %></p>
+                        <% if(typeof obj.InBoundStopOver != "undefined") { %>
+                        <p class="stopover">
+                            <span class="spanColor">Stopover</span>
+                            <%=obj.destinationAirportName %>(<%=obj.arrivalPoint %>)
+                            <%=obj.InBoundStopOver %></p>
+                        <% } %>
+                    </div>
+                </div>
+                <% }); %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -112,7 +112,7 @@ describe("Travellers Contact View", function() {
 			
 			var $input = this.view.$el.find('.field-name');
 			
-			$input.trigger('focus');
+			this.view.onInputFocus({currentTarget: $input});
 			expect($input.val()).toEqual('');
 			
 			$input.trigger('blur');
