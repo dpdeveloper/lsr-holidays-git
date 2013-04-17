@@ -79,6 +79,13 @@ define([
 			Parse a multicom json output into the model
 		*/
 		parse: function(response,options){
+		
+			//if a normal object
+			if('name' in response && 'code' in response && 'roomRates' in response){
+				return response;
+			}
+		
+			//otherwise parse
 			var obj = {
 				name: response["@Name"],
 				code: response["@Code"],
