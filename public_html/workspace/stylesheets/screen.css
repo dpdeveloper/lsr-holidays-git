@@ -7527,3 +7527,39 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
 .innerLeg {
   margin-bottom: 20px;
 }
+
+/* Room Selector Popup */
+
+.room_selector_view_popup #colorboxContentContainer{
+width: 560px;
+color: #242321; }
+.room_selector_view_popup #colorboxContentContainer h1 {
+padding-left: 10px; }
+.room_selector_view_popup #colorboxContentContainer h2 {
+color: #000;
+margin-bottom: 10px;
+font-size: 20px;
+padding-left: 10px; }
+.room_selector_view_popup .roomType {
+width: 95%;
+line-height: 30px;
+height: 30px;
+padding: 0px 5px 0px 10px; }
+.room_selector_view_popup .selectedRoom {
+background-color: #e2f5fc;
+border-radius: 2px; }
+.room_selector_view_popup .roomType p {
+float: left; }
+.room_selector_view_popup .roomType p:first-child {
+width: 65%; }
+.room_selector_view_popup .roomType a {
+float: right;
+background-color: #21c8fa;
+border: 0;
+border-radius: 10px;
+color: #fff;
+width: 20%;
+text-align: center;
+line-height: 22px;
+margin-top: 3px;
+margin-left: 20px; }

@@ -178,8 +178,9 @@ require([
 		
 		
 		'spec/views/search-ui/hotels/hotels.layout.spec',
-		
-		/* FLIGHTS */
+		'spec/views/search-ui/hotels/detail/room.selector.view.spec',
+
+/* FLIGHTS */
 		'spec/views/search-ui/flights/flights.browse.view.spec',
 		'spec/views/search-ui/flights/flights.browse.item.view.spec',	
 		'spec/views/search-ui/flights/flight.detail.view.spec',		

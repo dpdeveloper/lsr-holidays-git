@@ -1,0 +1,26 @@
+<!--<div class="room-selector-view">-->
+<div class="room_selector_view_popup">
+<div id="colorboxContentContainer">
+<div id="colorboxContent">
+<h1>Change Your Room</h1>
+<h2>upgrade your room any of the below:</h2>
+
+ <%_.each(rooms, function(obj,index){ %>
+<% if(obj.name == SelectedRoom.name && obj.roomRates[0].cost == SelectedRoom.roomRates[0].cost) { %>
+    <div class="roomType selectedRoom">
+    <p><%=obj.name%></p>
+    <p>&euro;<%=obj.roomRates[0].cost.toFixed(2)%></p>
+     <a href="#" class="action-change-button keep_this">Keep this</a>
+     </div> 
+    <% } else { %>
+    <div class="roomType">
+    <p><%=obj.name%></p>
+    <p>&euro;<%=obj.roomRates[0].cost.toFixed(2)%></p>
+    <a href="#" data-id="<%=index %>"
+ class="action-change-button upgrade " >Upgrade</a> 
+    </div> 
+    <% } %>
+<% }); %>
+</div>
+</div>
+</div>
