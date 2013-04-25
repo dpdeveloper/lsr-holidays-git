@@ -87,7 +87,7 @@ describe("TravellersEditItemView", function() {
 			
 			var $input = this.view.$el.find('.field-first-name');
 			
-			$input.trigger('focus');
+			this.view.onInputFocus({currentTarget: $input}); //firing a focus event triggers a blur event!
 			expect($input.val()).toEqual('');
 			
 			$input.trigger('blur');
