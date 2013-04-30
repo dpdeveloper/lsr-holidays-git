@@ -102,6 +102,7 @@ define([
 		*/
 		handleClick: function(ev){
 			ev.preventDefault();
+			console.log(this.model.toJSON());
 			vent.trigger('search:flight:selected',this.model);
 		}
 		

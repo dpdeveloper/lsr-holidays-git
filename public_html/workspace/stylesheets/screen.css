@@ -7527,3 +7527,14 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
 .innerLeg {
   margin-bottom: 20px;
 }
+
+
+		   .roomType{ width:95%; line-height:30px; height:30px; padding:0px 5px 0px 10px;}
+		   .selectedRoom{background-color:#e2f5fc; border-radius:2px;}
+		   .roomType p{ float:left}
+		   .roomType p:first-child{ width:65%;}
+		   .roomType a{float:right; background-color:#21c8fa; border:0; border-radius:10px; color:#fff; width:20%; text-align:center; line-height:22px; margin-top:3px; margin-left:20px}
+		   #colorboxContentContainer1 { width:560px;  color:#242321;}
+		   #colorboxContentContainer1 h1{ padding-left:10px;}
+		   #colorboxContentContainer1 h2{ color:#000; margin-bottom:10px; font-size:20px; padding-left:10px;}
+		   .selectedRoom{background-color:#e2f5fc; border-radius:2px;}

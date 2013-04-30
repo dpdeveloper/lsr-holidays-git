@@ -100,7 +100,7 @@ define([
 			//feedback from selections
 			this.listenTo(vent,'search:flight:selected',this.handleFlightSelection);
 			this.listenTo(vent,'search:hotel:selected',this.handleHotelSelection);
-			
+
 			//shortlisting
 			this.listenTo(vent,'search:shortlist',this.onShortlistRequest);
 			

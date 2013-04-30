@@ -145,6 +145,7 @@ define([
 			this.listenTo(vent,'search:hotel:selected',this.handleHotelSelected);
 			this.listenTo(vent,'search:flight:selected',this.handleFlightSelected);
 			this.listenTo(vent,'search:trip:edit', this.setModeFromHolidaySearch);
+			this.listenTo(vent, 'search:rooms:updated', this.handleRoomsEdit);
 			
 			this.listenTo(vent, 'search:shortlist', this.onShortlist);
 			this.listenTo(vent, 'search:shortlist:complete', this.onShortlistComplete);
@@ -268,7 +269,6 @@ define([
 					scrollTop: this.flights.$el.offset().top - 100
 				}, 800);
 			}
-			
 			this.setStatus('flight',this.STATES.FLIGHT.BROWSE);
 		},
 		
@@ -304,6 +304,14 @@ define([
 			this.setStatus('hotel',this.STATES.HOTEL.SELECTED);
 		},
 		
+		handleRoomsEdit:function(hotel){
+			
+			if(this._hotelsDetail === null || !this._hotelsDetail.isStateVisible()){
+				this._hotelsDetail = new SearchUIRoomSelectorView();
+				this.hotelsDetail.show(this._hotelsDetail);
+			}
+			this.setStatus('hotel',this.STATES.HOTEL.SELECTED);
+		},
 		
 		/**
 			Event Callback for when the shortlisting process is triggered

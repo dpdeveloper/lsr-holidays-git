@@ -51,7 +51,7 @@ define([
 			outer: '.body-middle',
 			left: '.body-left',
 			right: '.body-right'
-		},
+		}, 
 		
 		itemViewOptions: {},
 		

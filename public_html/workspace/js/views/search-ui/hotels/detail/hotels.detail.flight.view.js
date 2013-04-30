@@ -70,6 +70,7 @@ define([
 	    this.listenTo(vent, 'search:flight:selected', this.handleFlightSelected);
 	    this.listenTo(vent, 'search:flight:edit', this.handleFlightEdit);
 	    this.listenTo(vent, 'search:hotel:selected', this.handleHotelSelected);
+		this.listenTo(vent, 'search:rooms:updated', this.handleHotelSelected);
 
 	},
 
@@ -79,9 +80,8 @@ define([
 
 	handleFlightEdit: function () {
 	    this._isSelected = true;
-	    this.render();
+		this.render();
 	},
-
 	handleHotelSelected: function () {
 	    this._isSelected = false;
 	    this.render();
@@ -89,6 +89,7 @@ define([
 
 	handleFlightSelected: function (flight) {
 	    this.model.set(flight.toJSON());
+		console.log(flight.toJSON());
 	    this._flightSelected = true;
 	    this._isSelected = false;
 	    this.render();
@@ -101,9 +102,8 @@ define([
 	        outboundFlightLogo: this._airlineCollection.getAirlineFromCode(this.model.get('outboundCarrier')),
 	        returnFlightLogo: this._airlineCollection.getAirlineFromCode(this.model.get('returnCarrier'))
 	    },
-				this.model.toJSON()
-				);
-
+		this.model.toJSON()
+		);
 	},
 
 	onRender: function () {
@@ -148,7 +148,6 @@ define([
 	    flightdetails.render();
 
 	    console.log(flightdetails.el);
-
 
 	}
 
