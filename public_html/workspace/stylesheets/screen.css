@@ -7527,6 +7527,7 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
 .innerLeg {
   margin-bottom: 20px;
 }
+<<<<<<< HEAD
 
 
 		   .roomType{ width:95%; line-height:30px; height:30px; padding:0px 5px 0px 10px;}
@@ -7538,3 +7539,5 @@ h3.travellers, .search-ui-travellers-contact-view .form-header h3, .search-ui-tr
 		   #colorboxContentContainer1 h1{ padding-left:10px;}
 		   #colorboxContentContainer1 h2{ color:#000; margin-bottom:10px; font-size:20px; padding-left:10px;}
 		   .selectedRoom{background-color:#e2f5fc; border-radius:2px;}
+=======
+>>>>>>> 4f8d72d0fdd67d3e5fa72f58018c2e81e69d922b
