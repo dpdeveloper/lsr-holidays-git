@@ -114,8 +114,8 @@ Unit testing was added to this project mid way through development, as such ther
 
 The tests reside in the *(/tests/specs/)* folder and can be run using the *(/tests/index.html)* file. They are powered by the Jasmine Framework:
 
-* [Jasmine](https://github.com/pivotal/jasmine)
-* [Available Matchers](https://github.com/pivotal/jasmine/wiki/Matchers)
+* [Jasmine](https://github.com/jasmine/jasmine)
+* [Available Matchers](https://github.com/jasmine/jasmine/wiki)
 * Additionally, the [jQuery plugin is used](https://github.com/velesin/jasmine-jquery)
 
 **Unit tests should pass before a commit is made**.
@@ -222,7 +222,7 @@ Each view is thus self contained and true to the require.js AMD principle. To ac
 
 *Unit Testing*
 
-* [Jasmine](http://pivotal.github.com/jasmine/)
+* [Jasmine](https://jasmine.github.io/)
 * [Jasmine jQuery Plugin](https://github.com/velesin/jasmine-jquery)
 
 *Browser Compatibility*
